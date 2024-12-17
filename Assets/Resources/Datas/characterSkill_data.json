@@ -1,0 +1,52 @@
+[
+  {
+    "skill_name": "화살 날리기",
+    "character_name": "주몽",
+    "skill_description": "화살을 날려서 {0}데미지를 입힙니다.",
+    "skill_image_path": "image/skill/주몽/bow",
+    "skill_damage": "{0} * 2",
+    "skill_triggerChance": "10",
+    "skill_effect": "",
+    "skill_basic": "TRUE"
+  },
+  {
+    "skill_name": "불화살 날리기",
+    "character_name": "주몽",
+    "skill_description": "불화살을 날려서 {0}데미지를 입힙니다.",
+    "skill_image_path": "image/skill/주몽/fireBow",
+    "skill_damage": "{0} * 2.5",
+    "skill_triggerChance": "5",
+    "skill_effect": "추가적으로 5초간 스킬 데미지의 200%만큼 지속 피해를 입힙니다.",
+    "skill_basic": "FALSE"
+  },
+  {
+    "skill_name": "테스트 스킬",
+    "character_name": "흔한",
+    "skill_description": "강한 공격으로 {0}데미지를 입힙니다.",
+    "skill_image_path": "image/skill/흔한/test",
+    "skill_damage": "{0} * 2",
+    "skill_triggerChance": "30",
+    "skill_effect": "공격 후 2초간 패닉에 빠집니다.",
+    "skill_basic": "TRUE"
+  },
+  {
+    "skill_name": "테스트 스킬 2",
+    "character_name": "흔한",
+    "skill_description": "조금 더 강한 공격으로 {0}데미지를 입힙니다.",
+    "skill_image_path": "image/skill/흔한/test",
+    "skill_damage": "{0} * 3",
+    "skill_triggerChance": "5",
+    "skill_effect": "공격 후 3초간 패닉에 빠집니다.",
+    "skill_basic": "FALSE"
+  },
+  {
+    "skill_name": "테스트 스킬 3",
+    "character_name": "흔한",
+    "skill_description": "훨씬 더 강한 공격으로 {0}데미지를 입힙니다.",
+    "skill_image_path": "image/skill/흔한/test",
+    "skill_damage": "{0} * 5",
+    "skill_triggerChance": "0.5",
+    "skill_effect": "공격 후 4초간 패닉에 빠집니다.",
+    "skill_basic": "FALSE"
+  }
+]

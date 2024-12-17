@@ -1,0 +1,30 @@
+[
+  {
+    "enemy_name": "Test_1",
+    "enemy_speed": "1",
+    "enemy_hp": "25",
+    "drop_gold": "1",
+    "drop_dark_gold": "0"
+  },
+  {
+    "enemy_name": "Test_2",
+    "enemy_speed": "2",
+    "enemy_hp": "50",
+    "drop_gold": "1",
+    "drop_dark_gold": "0"
+  },
+  {
+    "enemy_name": "Test_3",
+    "enemy_speed": "3",
+    "enemy_hp": "75",
+    "drop_gold": "1",
+    "drop_dark_gold": "0"
+  },
+  {
+    "enemy_name": "Test_Boss_1",
+    "enemy_speed": "0.5",
+    "enemy_hp": "200",
+    "drop_gold": "0",
+    "drop_dark_gold": "2"
+  }
+]

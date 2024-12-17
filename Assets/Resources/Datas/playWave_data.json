@@ -1,0 +1,26 @@
+[
+  {
+    "wave_id": "0",
+    "wave_enemy_name": "Test_1",
+    "wave_enemy_count": "10",
+    "wave_timer": "5"
+  },
+  {
+    "wave_id": "1",
+    "wave_enemy_name": "Test_2",
+    "wave_enemy_count": "15",
+    "wave_timer": "10"
+  },
+  {
+    "wave_id": "2",
+    "wave_enemy_name": "Test_Boss_1",
+    "wave_enemy_count": "1",
+    "wave_timer": "15"
+  },
+  {
+    "wave_id": "3",
+    "wave_enemy_name": "Test_3",
+    "wave_enemy_count": "15",
+    "wave_timer": "0"
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "select_name": "유일한",
+    "recipe_name_a": "유일한",
+    "recipe_name_b": "희귀한",
+    "recipe_name_c": "안흔한",
+    "result_name": "주몽"
+  },
+  {
+    "select_name": "유일한",
+    "recipe_name_a": "유일한",
+    "recipe_name_b": "희귀한",
+    "recipe_name_c": "안흔한",
+    "result_name": "이순신"
+  },
+  {
+    "select_name": "희귀한",
+    "recipe_name_a": "희귀한",
+    "recipe_name_b": "희귀한",
+    "recipe_name_c": "",
+    "result_name": "유일한"
+  },
+  {
+    "select_name": "희귀한",
+    "recipe_name_a": "희귀한",
+    "recipe_name_b": "안흔한",
+    "recipe_name_c": "흔한",
+    "result_name": "유일한"
+  },
+  {
+    "select_name": "안흔한",
+    "recipe_name_a": "안흔한",
+    "recipe_name_b": "",
+    "recipe_name_c": "",
+    "result_name": "희귀한"
+  },
+  {
+    "select_name": "흔한",
+    "recipe_name_a": "흔한",
+    "recipe_name_b": "",
+    "recipe_name_c": "",
+    "result_name": "안흔한"
+  }
+]

@@ -1,0 +1,82 @@
+[
+    {
+        "level": 1,
+        "quentity_tier_1": 2,
+        "quentity_tier_2": 4,
+        "quentity_tier_3": 6,
+        "quentity_tier_4": 8,
+        "quentity_tier_5": 10
+    },
+    {
+        "level": 2,
+        "quentity_tier_1": 4,
+        "quentity_tier_2": 8,
+        "quentity_tier_3": 12,
+        "quentity_tier_4": 16,
+        "quentity_tier_5": 20
+    },
+    {
+        "level": 3,
+        "quentity_tier_1": 6,
+        "quentity_tier_2": 12,
+        "quentity_tier_3": 18,
+        "quentity_tier_4": 24,
+        "quentity_tier_5": 30
+    },
+    {
+        "level": 4,
+        "quentity_tier_1": 8,
+        "quentity_tier_2": 16,
+        "quentity_tier_3": 24,
+        "quentity_tier_4": 32,
+        "quentity_tier_5": 40
+    },
+    {
+        "level": 5,
+        "quentity_tier_1": 10,
+        "quentity_tier_2": 20,
+        "quentity_tier_3": 30,
+        "quentity_tier_4": 40,
+        "quentity_tier_5": 50
+    },
+    {
+        "level": 6,
+        "quentity_tier_1": 12,
+        "quentity_tier_2": 24,
+        "quentity_tier_3": 36,
+        "quentity_tier_4": 48,
+        "quentity_tier_5": 60
+    },
+    {
+        "level": 7,
+        "quentity_tier_1": 14,
+        "quentity_tier_2": 28,
+        "quentity_tier_3": 42,
+        "quentity_tier_4": 56,
+        "quentity_tier_5": 70
+    },
+    {
+        "level": 8,
+        "quentity_tier_1": 16,
+        "quentity_tier_2": 32,
+        "quentity_tier_3": 48,
+        "quentity_tier_4": 64,
+        "quentity_tier_5": 80
+    },
+    {
+        "level": 9,
+        "quentity_tier_1": 18,
+        "quentity_tier_2": 36,
+        "quentity_tier_3": 54,
+        "quentity_tier_4": 72,
+        "quentity_tier_5": 90
+    },
+    {
+        "level": 10,
+        "quentity_tier_1": 20,
+        "quentity_tier_2": 40,
+        "quentity_tier_3": 60,
+        "quentity_tier_4": 80,
+        "quentity_tier_5": 100
+    }
+]
