@@ -57,7 +57,11 @@ public class UIPlay : MonoBehaviour
 
     //private void Set_UI_Population() => txtPopulation.text = string.Format(strPopulation, curPopulation, maximumPopulation);
 
-    public void SetUI_Wave(int curWave = 1) => txtWave.text = string.Format(strWave, curWave + 1);
+    public void SetUI_Wave(int curWave)
+    {
+        if (curWave == 0) txtWave.text = "½ÃÀÛ";
+        else txtWave.text = string.Format(strWave, curWave);
+    }
 
     public void SetUI_WaveTimer(int curWaveTimer) => txtWaveTimer.text = string.Format(strWaveTimer, curWaveTimer);
 
