@@ -53,8 +53,6 @@ public class EnemyGenerator : MonoBehaviour
     {
         if (IsMaximumWave()) return false;
 
-        uiPlay.SetUI_WaveTimer((int)curWaveTimer);
-
         if (curWaveTimer <= 0) {
             if (!IsMaximumWave()) uiPlay.SetUI_Wave(curWaveIndex + 1);
             StartCoroutine(SpawnEnemy());
