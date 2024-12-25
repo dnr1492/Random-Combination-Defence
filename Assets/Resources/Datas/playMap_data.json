@@ -2,6 +2,7 @@
   {
     "map_id": "10000",
     "maximum_wave": "4",
-    "maximum_population": "50"
+    "maximum_population": "50",
+    "maximum_enemy_count":  "20"
   }
 ]

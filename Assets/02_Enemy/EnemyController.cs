@@ -73,7 +73,7 @@ public class EnemyController : MonoBehaviour
         hp.SetHp(curHp, maxHp);
 
         if (curHp <= 0) {
-            Drop();
+            Die();
             Destroy(gameObject);
             return 0;
         }
@@ -82,9 +82,10 @@ public class EnemyController : MonoBehaviour
     }
     #endregion
 
-    private void Drop()
+    private void Die()
     {
         uiPlay.SetUI_Gold(dropGold);
         uiPlay.SetUI_DarkGold(dropDarkGold);
+        uiPlay.SetUI_EnemyCount(-1);
     }
 }

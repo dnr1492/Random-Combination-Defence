@@ -5,31 +5,22 @@ using UnityEngine.UI;
 
 public class UIPlay : MonoBehaviour
 {
-    // ===== 추후에 엑셀로 게임 플레이 데이터 (총 웨이브, 웨이브 간 타이머, 획득 골드 등...) 정리하기 ===== //
-    //private readonly int maximumWave = 4;  //최대 웨이브
-    //private readonly float waveTimer = 10;  //다음 웨이브 대기 시간
-    //private readonly int waveEnemyCount = 10;  //웨이브 적 수
-    //private readonly int gainGold = 1;  //획득 골드량
-    private readonly int gainGoldPerKill = 1;  //킬당 골드 획득 조건
-    //private readonly int gainDarkGold = 1;  //획득 어둠의 골드량
-    private readonly int gainDarkGoldPerKill = 10;  //킬당 어둠의 골드 획득 조건
-    //private readonly int maximumPopulation = 50;  //최대 인구수
-    // ==================================================================================================== //
-
     private Dictionary<int, PlayMapData> dicPlayMapDatas;
     
-    [SerializeField] Text txtWave, txtWaveTimer;
+    [SerializeField] Text txtWave, txtWaveTimer, txtEnemyCount;
     [SerializeField] Text txtGold, txtDarkGold, txtPopulation;
 
     private readonly string strWave = "{0} Wave";
     private readonly string strWaveTimer = "Next Wave : {0} Second";
     private readonly string strWaveSpawning = "적 생성 중";
+    private readonly string strEnemyCount = "{0} <- 패배 \n Enemy Count : {1}";
     private readonly string strPopulation = "{0}/{1}";
 
+    private int curEnemyCount = 0;
     private int curGold = 5;
     private int curDarkGold = 0;
     private int curPopulation = 0;
-   
+
     public int GetCurMapId { get; private set; } = 10000;
     public int GetCurGold { get => curGold; private set => curGold = value; }
     public int GetCurDarkGold { get => curDarkGold; private set => curDarkGold = value; }
@@ -57,6 +48,14 @@ public class UIPlay : MonoBehaviour
 
     public void SetUI_WaveSpawning() => txtWaveTimer.text = strWaveSpawning;
 
+    public void SetUI_EnemyCount(int enemyCount)
+    {
+        curEnemyCount += enemyCount;
+        txtEnemyCount.text = string.Format(strEnemyCount, dicPlayMapDatas[GetCurMapId].maximum_enemy_count, curEnemyCount);
+
+        UI_GameOver();
+    }
+
     public void SetUI_Gold(int gold)
     {
         curGold += gold;
@@ -73,5 +72,30 @@ public class UIPlay : MonoBehaviour
     {
         curPopulation += population;
         txtPopulation.text = string.Format(strPopulation, curPopulation, dicPlayMapDatas[GetCurMapId].maximum_population);
+    }
+
+    // ==================== 게임 오버 로직 - 게임 오버, 이어 하기 (광고), 메인 메뉴로 돌아가기 ========================= //
+    // ==================== 게임 오버 로직 - 게임 오버, 이어 하기 (광고), 메인 메뉴로 돌아가기 ========================= //
+    // ==================== 게임 오버 로직 - 게임 오버, 이어 하기 (광고), 메인 메뉴로 돌아가기 ========================= //
+
+    private void UI_GameOver()
+    {
+        if (curEnemyCount >= dicPlayMapDatas[GetCurMapId].maximum_enemy_count)
+        {
+            Time.timeScale = 0;
+            Debug.Log("팝업 창 띄우기");
+            // => UI_RestartGame() (광고 보기) / UI_QuitToLobby() (로비로 가기)
+        }
+    }
+
+    private void UI_RestartGame()
+    {
+        // ===== 인구수를 늘려주는 방식으로 목숨 연장!? ===== //
+        Time.timeScale = 1;
+    }
+
+    private void UI_QuitToLobby()
+    {
+        Time.timeScale = 1;
     }
 }
