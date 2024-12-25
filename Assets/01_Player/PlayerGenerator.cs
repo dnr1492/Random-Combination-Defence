@@ -7,11 +7,14 @@ using System.Linq;
 
 public class PlayerGenerator : MonoBehaviour
 {
+    private Dictionary<int, PlayMapData> dicPlayMapDatas;
+
     public static List<GameObject> ExistingPlayers { get => existingPlayers; private set => existingPlayers = value; }
     private static List<GameObject> existingPlayers = new List<GameObject>();  //존재하는 플레이어들
 
     private enum Rating { Common, Uncommon, Rare, Unique, Legendary }
 
+    [SerializeField] UIPlay uiPlay;
     [SerializeField] CameraController cameraController;
     [SerializeField] Tilemap targetTilemap;
 
@@ -20,6 +23,8 @@ public class PlayerGenerator : MonoBehaviour
     private GameObject[] arrCommonRating, arrUncommonRating, arrRareRating, arrUniqueRating, arrLegendaryRating;
     private readonly int drawMinRatingPercentage = 0;
     private readonly int drawMaxRatingPercentage = 1000;
+    private readonly int drawGold = -1;
+    private readonly int drawPopulation = 5;
 
     [Header("플레이어 위치 정렬")]
     private readonly int originCount = 100;
@@ -31,6 +36,8 @@ public class PlayerGenerator : MonoBehaviour
 
     private void Awake()
     {
+        dicPlayMapDatas = DataManager.instance.GetPlayMapData();
+
         btnDraw.onClick.AddListener(DrawRandom);
     }
 
@@ -52,6 +59,12 @@ public class PlayerGenerator : MonoBehaviour
     #region 플레이어 랜덤 뽑기
     public void DrawRandom()
     {
+        if (CanDraw()) {
+            uiPlay.SetUI_Gold(drawGold);
+            uiPlay.SetUI_Population(drawPopulation);
+        }
+        else return;
+
         GameObject target;
         Rating curRating;
         int randomNnumber = Random.Range(drawMinRatingPercentage, drawMaxRatingPercentage);
@@ -205,5 +218,12 @@ public class PlayerGenerator : MonoBehaviour
     {
         name = name.Split("(")[0];
         return name;
+    }
+
+    private bool CanDraw()
+    {
+        if (uiPlay.GetCurGold + drawGold < 0) return false;
+        if (uiPlay.GetCurPopulation >= dicPlayMapDatas[uiPlay.GetCurMapId].maximum_population) return false;
+        return true;
     }
 }

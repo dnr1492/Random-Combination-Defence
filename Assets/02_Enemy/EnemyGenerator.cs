@@ -14,7 +14,6 @@ public class EnemyGenerator : MonoBehaviour
     private float curWaveTimer;  //현재 다음 웨이브 시작 전까지 대기한 시간
     private int curWaveIndex;  //현재 진행 중인 웨이브
     private int curAliveEnemyCount = 0;  //현재 살아있는 총 적의 수
-    private int curMapId = 10000;  //현재 맵 ID
     private bool startTimer = false;  //시간 체크 시작 유무
     private bool isSpawning = false;  //생성 중 유무
     private float spawnWaitingTimer = 0.25f;  //적 생성 대기 시간
@@ -69,7 +68,7 @@ public class EnemyGenerator : MonoBehaviour
         {
             GameObject go = Instantiate(GetEnemyByName(dicPlayWaveDatas[curWaveIndex].wave_enemy_name), Waypoint.waypoints[0].position, Waypoint.waypoints[0].rotation);
             go.name = Rename(go.name);
-            go.GetComponent<EnemyController>().Init(dicPlayEnemyDatas[go.name].enemy_hp, dicPlayEnemyDatas[go.name].enemy_speed);
+            go.GetComponent<EnemyController>().Init(uiPlay, dicPlayEnemyDatas[go.name].enemy_hp, dicPlayEnemyDatas[go.name].enemy_speed, dicPlayEnemyDatas[go.name].drop_gold, dicPlayEnemyDatas[go.name].drop_dark_gold);
             curAliveEnemyCount++;
             isSpawning = true;
             yield return new WaitForSeconds(spawnWaitingTimer);
@@ -96,7 +95,7 @@ public class EnemyGenerator : MonoBehaviour
 
     private bool IsMaximumWave()
     {
-        if (curWaveIndex >= dicPlayMapDatas[curMapId].maximum_wave) return true;  //초과
+        if (curWaveIndex >= dicPlayMapDatas[uiPlay.GetCurMapId].maximum_wave) return true;  //초과
         return false;
     }
 }

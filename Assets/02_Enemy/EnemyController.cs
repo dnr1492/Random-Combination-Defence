@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    private UIPlay uiPlay;
+
     private Hp hp;
     private float curHp;
     private float maxHp;
     private float speed;
-    
+    private int dropGold;
+    private int dropDarkGold;
+
     private Transform curWaypoint;
-    private int waveIndex = 1;
+    private int wayIndex = 1;
 
     private void Awake()
     {
@@ -19,7 +23,7 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        curWaypoint = Waypoint.waypoints[waveIndex];
+        curWaypoint = Waypoint.waypoints[wayIndex];
     }
 
     private void Update()
@@ -27,11 +31,15 @@ public class EnemyController : MonoBehaviour
         MoveWaypoint();
     }
 
-    public void Init(float maxHp, float speed)
+    public void Init(UIPlay uiPlay, float maxHp, float speed, int dropGold, int dropDarkGold)
     {
+        this.uiPlay = uiPlay;
+
         curHp = maxHp;
         this.maxHp = maxHp;
         this.speed = speed;
+        this.dropGold = dropGold;
+        this.dropDarkGold = dropDarkGold;
     }
 
     #region 사각 이동
@@ -45,15 +53,15 @@ public class EnemyController : MonoBehaviour
 
     private void GetNextWaypoint()
     {
-        if (waveIndex >= Waypoint.waypoints.Length - 1)
+        if (wayIndex >= Waypoint.waypoints.Length - 1)
         {
-            waveIndex = 0;
-            curWaypoint = Waypoint.waypoints[waveIndex];
+            wayIndex = 0;
+            curWaypoint = Waypoint.waypoints[wayIndex];
             return;
         }
 
-        waveIndex++;
-        curWaypoint = Waypoint.waypoints[waveIndex];
+        wayIndex++;
+        curWaypoint = Waypoint.waypoints[wayIndex];
     }
     #endregion
 
@@ -65,6 +73,7 @@ public class EnemyController : MonoBehaviour
         hp.SetHp(curHp, maxHp);
 
         if (curHp <= 0) {
+            Drop();
             Destroy(gameObject);
             return 0;
         }
@@ -72,4 +81,10 @@ public class EnemyController : MonoBehaviour
         return curHp;
     }
     #endregion
+
+    private void Drop()
+    {
+        uiPlay.SetUI_Gold(dropGold);
+        uiPlay.SetUI_DarkGold(dropDarkGold);
+    }
 }

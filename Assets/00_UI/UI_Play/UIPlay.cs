@@ -16,6 +16,8 @@ public class UIPlay : MonoBehaviour
     //private readonly int maximumPopulation = 50;  //최대 인구수
     // ==================================================================================================== //
 
+    private Dictionary<int, PlayMapData> dicPlayMapDatas;
+    
     [SerializeField] Text txtWave, txtWaveTimer;
     [SerializeField] Text txtGold, txtDarkGold, txtPopulation;
 
@@ -24,38 +26,26 @@ public class UIPlay : MonoBehaviour
     private readonly string strWaveSpawning = "적 생성 중";
     private readonly string strPopulation = "{0}/{1}";
 
-    //private int curGold = 0;
-    //private int curDarkGold = 0;
-    //private int curPopulation = 0;
-    //private int curKillCount = 0;
+    private int curGold = 5;
+    private int curDarkGold = 0;
+    private int curPopulation = 0;
+   
+    public int GetCurMapId { get; private set; } = 10000;
+    public int GetCurGold { get => curGold; private set => curGold = value; }
+    public int GetCurDarkGold { get => curDarkGold; private set => curDarkGold = value; }
+    public int GetCurPopulation { get => curPopulation; private set => curPopulation = value; }
 
-    //// ===== 적 제거에 맞게 획득 로직 구현 ===== //
-    //private void GainGold()
-    //{
-    //    curGold += gainGold;
-    //    Set_UI_Gold();
-    //}
+    private void Awake()
+    {
+        dicPlayMapDatas = DataManager.instance.GetPlayMapData();
+    }
 
-    //// ===== 적 제거에 맞게 획득 로직 구현 ===== //
-    //private void GainDarkGold()
-    //{
-    //    curDarkGold += gainDarkGold;
-    //    Set_UI_DarkGold();
-    //}
-
-    //// ===== 적 제거에 맞게 획득 로직 구현 ===== //
-    //private void GainPopulation()
-    //{
-    //    curPopulation += 1;
-    //    Set_UI_Population();
-    //}
-
-    //// ===== 추후 데이터 값을 매개변수로 전달하는 로직으로 변경 요망 ===== //
-    //private void Set_UI_Gold() => txtGold.text = curGold.ToString();
-
-    //private void Set_UI_DarkGold() => txtDarkGold.text = curDarkGold.ToString();
-
-    //private void Set_UI_Population() => txtPopulation.text = string.Format(strPopulation, curPopulation, maximumPopulation);
+    private void Start()
+    {
+        SetUI_Gold(0);
+        SetUI_DarkGold(0);
+        SetUI_Population(0);
+    }
 
     public void SetUI_Wave(int curWave)
     {
@@ -66,4 +56,22 @@ public class UIPlay : MonoBehaviour
     public void SetUI_WaveTimer(int curWaveTimer) => txtWaveTimer.text = string.Format(strWaveTimer, curWaveTimer);
 
     public void SetUI_WaveSpawning() => txtWaveTimer.text = strWaveSpawning;
+
+    public void SetUI_Gold(int gold)
+    {
+        curGold += gold;
+        txtGold.text = curGold.ToString();
+    }
+
+    public void SetUI_DarkGold(int darkGold)
+    {
+        curDarkGold += darkGold;
+        txtDarkGold.text = curDarkGold.ToString();
+    }
+
+    public void SetUI_Population(int population)
+    {
+        curPopulation += population;
+        txtPopulation.text = string.Format(strPopulation, curPopulation, dicPlayMapDatas[GetCurMapId].maximum_population);
+    }
 }
