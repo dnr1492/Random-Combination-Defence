@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
+    public static List<GameObject> ExistingEnemys { get => existingEnemys; private set => existingEnemys = value; }
+    private static List<GameObject> existingEnemys = new List<GameObject>();  //존재하는 적들
+
     [SerializeField] UIPlay uiPlay;
 
     private Dictionary<string, PlayEnemyData> dicPlayEnemyDatas;
@@ -69,6 +72,7 @@ public class EnemyGenerator : MonoBehaviour
             GameObject go = Instantiate(GetEnemyByName(dicPlayWaveDatas[curWaveIndex].wave_enemy_name), Waypoint.waypoints[0].position, Waypoint.waypoints[0].rotation);
             go.name = Rename(go.name);
             go.GetComponent<EnemyController>().Init(uiPlay, dicPlayEnemyDatas[go.name].enemy_hp, dicPlayEnemyDatas[go.name].enemy_speed, dicPlayEnemyDatas[go.name].drop_gold, dicPlayEnemyDatas[go.name].drop_dark_gold);
+            existingEnemys.Add(go);
             isSpawning = true;
             uiPlay.SetUI_EnemyCount(1);
             yield return new WaitForSeconds(spawnWaitingTimer);

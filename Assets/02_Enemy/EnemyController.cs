@@ -84,6 +84,8 @@ public class EnemyController : MonoBehaviour
 
     private void Die()
     {
+        EnemyGenerator.ExistingEnemys.Remove(gameObject);
+
         uiPlay.SetUI_Gold(dropGold);
         uiPlay.SetUI_DarkGold(dropDarkGold);
         uiPlay.SetUI_EnemyCount(-1);

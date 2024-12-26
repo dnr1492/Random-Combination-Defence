@@ -9,6 +9,7 @@ public class UIPlay : MonoBehaviour
     
     [SerializeField] Text txtWave, txtWaveTimer, txtEnemyCount;
     [SerializeField] Text txtGold, txtDarkGold, txtPopulation;
+    [SerializeField] GameObject gameOverPrefab;
 
     private readonly string strWave = "{0} Wave";
     private readonly string strWaveTimer = "Next Wave : {0} Second";
@@ -83,19 +84,7 @@ public class UIPlay : MonoBehaviour
         if (curEnemyCount >= dicPlayMapDatas[GetCurMapId].maximum_enemy_count)
         {
             Time.timeScale = 0;
-            Debug.Log("팝업 창 띄우기");
-            // => UI_RestartGame() (광고 보기) / UI_QuitToLobby() (로비로 가기)
+            Instantiate(gameOverPrefab).GetComponent<GameOver>().Init(this);
         }
-    }
-
-    private void UI_RestartGame()
-    {
-        // ===== 인구수를 늘려주는 방식으로 목숨 연장!? ===== //
-        Time.timeScale = 1;
-    }
-
-    private void UI_QuitToLobby()
-    {
-        Time.timeScale = 1;
     }
 }
