@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -75,6 +76,7 @@ public class EnemyGenerator : MonoBehaviour
             existingEnemys.Add(go);
             isSpawning = true;
             uiPlay.SetUI_EnemyCount(1);
+            uiPlay.SetUI_GameOver(RestartGame);
             yield return new WaitForSeconds(spawnWaitingTimer);
         }
 
@@ -101,5 +103,26 @@ public class EnemyGenerator : MonoBehaviour
     {
         if (curWaveIndex >= dicPlayMapDatas[uiPlay.GetCurMapId].maximum_wave) return true;
         return false;
+    }
+
+    private void RestartGame()
+    {
+        //기존 적 제거
+        var count = existingEnemys.Count;
+        existingEnemys.RemoveAll(enemy => {
+            Destroy(enemy);
+            return true;
+        });
+
+        //현재 웨이브 초기화
+        StopAllCoroutines();
+        isSpawning = false;
+        curWaveTimer = dicPlayWaveDatas[curWaveIndex].wave_timer;
+
+        //UI 초기화
+        // ===== 첫 번째 게임오버 -> 로비로 이동 -> 다시 시작 -> 두 번째 게임오버 -> 이어하기 => -20으로 시작하는 버그 ***바로 이어하기만 한 경우에는 문제가 없음... ===== //
+        uiPlay.SetUI_EnemyCount(-count);
+        uiPlay.SetUI_WaveTimer((int)curWaveTimer);
+        uiPlay.SetUI_Wave(curWaveIndex);
     }
 }

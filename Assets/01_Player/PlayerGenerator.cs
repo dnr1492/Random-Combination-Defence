@@ -7,12 +7,12 @@ using System.Linq;
 
 public class PlayerGenerator : MonoBehaviour
 {
-    private Dictionary<int, PlayMapData> dicPlayMapDatas;
-
     public static List<GameObject> ExistingPlayers { get => existingPlayers; private set => existingPlayers = value; }
     private static List<GameObject> existingPlayers = new List<GameObject>();  //존재하는 플레이어들
 
     private enum Rating { Common, Uncommon, Rare, Unique, Legendary }
+
+    private Dictionary<int, PlayMapData> dicPlayMapDatas;
 
     [SerializeField] UIPlay uiPlay;
     [SerializeField] CameraController cameraController;

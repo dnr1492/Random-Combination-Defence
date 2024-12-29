@@ -5,7 +5,7 @@ using UnityEngine;
 public class UICharacterRecipe : MonoBehaviour
 {
     private RecipeList[] arrRecipeList;
-    
+
     private void Awake()
     {
         arrRecipeList = GetComponentsInChildren<RecipeList>();

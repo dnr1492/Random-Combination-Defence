@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class UIPlay : MonoBehaviour
@@ -53,8 +54,6 @@ public class UIPlay : MonoBehaviour
     {
         curEnemyCount += enemyCount;
         txtEnemyCount.text = string.Format(strEnemyCount, dicPlayMapDatas[GetCurMapId].maximum_enemy_count, curEnemyCount);
-
-        UI_GameOver();
     }
 
     public void SetUI_Gold(int gold)
@@ -75,16 +74,10 @@ public class UIPlay : MonoBehaviour
         txtPopulation.text = string.Format(strPopulation, curPopulation, dicPlayMapDatas[GetCurMapId].maximum_population);
     }
 
-    // ==================== 게임 오버 로직 - 게임 오버, 이어 하기 (광고), 메인 메뉴로 돌아가기 ========================= //
-    // ==================== 게임 오버 로직 - 게임 오버, 이어 하기 (광고), 메인 메뉴로 돌아가기 ========================= //
-    // ==================== 게임 오버 로직 - 게임 오버, 이어 하기 (광고), 메인 메뉴로 돌아가기 ========================= //
-
-    private void UI_GameOver()
+    public void SetUI_GameOver(UnityAction restartGameAction)
     {
-        if (curEnemyCount >= dicPlayMapDatas[GetCurMapId].maximum_enemy_count)
-        {
-            Time.timeScale = 0;
-            Instantiate(gameOverPrefab).GetComponent<GameOver>().Init(this);
+        if (curEnemyCount >= dicPlayMapDatas[GetCurMapId].maximum_enemy_count) {
+            Instantiate(gameOverPrefab).GetComponent<GameOver>().Init(restartGameAction);
         }
     }
 }
