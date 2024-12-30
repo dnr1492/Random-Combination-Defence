@@ -19,7 +19,6 @@ public class GameOver : MonoBehaviour
 
         btnQuitToLobby.onClick.AddListener(() => {
             Time.timeScale = 1;
-            PlayerGenerator.ExistingPlayers.Clear();
             SceneManager.LoadScene("LobbyScene", LoadSceneMode.Single);
         });
 

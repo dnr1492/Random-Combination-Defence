@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour
 {
     public static List<GameObject> ExistingEnemys { get => existingEnemys; private set => existingEnemys = value; }
-    private static List<GameObject> existingEnemys = new List<GameObject>();  //존재하는 적들
+    private static List<GameObject> existingEnemys;  //존재하는 적들
 
     [SerializeField] UIPlay uiPlay;
 
@@ -23,6 +23,8 @@ public class EnemyGenerator : MonoBehaviour
 
     private void Awake()
     {
+        existingEnemys = new List<GameObject>();
+
         dicPlayEnemyDatas = DataManager.instance.GetPlayEnemyData();
         dicPlayWaveDatas = DataManager.instance.GetPlayWaveData();
         dicPlayMapDatas = DataManager.instance.GetPlayMapData();
@@ -120,7 +122,6 @@ public class EnemyGenerator : MonoBehaviour
         curWaveTimer = dicPlayWaveDatas[curWaveIndex].wave_timer;
 
         //UI 초기화
-        // ===== 첫 번째 게임오버 -> 로비로 이동 -> 다시 시작 -> 두 번째 게임오버 -> 이어하기 => -20으로 시작하는 버그 ***바로 이어하기만 한 경우에는 문제가 없음... ===== //
         uiPlay.SetUI_EnemyCount(-count);
         uiPlay.SetUI_WaveTimer((int)curWaveTimer);
         uiPlay.SetUI_Wave(curWaveIndex);

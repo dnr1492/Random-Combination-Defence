@@ -8,7 +8,7 @@ using System.Linq;
 public class PlayerGenerator : MonoBehaviour
 {
     public static List<GameObject> ExistingPlayers { get => existingPlayers; private set => existingPlayers = value; }
-    private static List<GameObject> existingPlayers = new List<GameObject>();  //존재하는 플레이어들
+    private static List<GameObject> existingPlayers;  //존재하는 플레이어들
 
     private enum Rating { Common, Uncommon, Rare, Unique, Legendary }
 
@@ -36,6 +36,8 @@ public class PlayerGenerator : MonoBehaviour
 
     private void Awake()
     {
+        existingPlayers = new List<GameObject>();
+
         dicPlayMapDatas = DataManager.instance.GetPlayMapData();
 
         btnDraw.onClick.AddListener(DrawRandom);
