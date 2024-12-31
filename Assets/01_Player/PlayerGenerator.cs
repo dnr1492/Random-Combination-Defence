@@ -224,8 +224,11 @@ public class PlayerGenerator : MonoBehaviour
 
     private bool CanDraw()
     {
+        //골드 부족
         if (uiPlay.GetCurGold + drawGold < 0) return false;
+        //인구수 부족
         if (uiPlay.GetCurPopulation >= dicPlayMapDatas[uiPlay.GetCurMapId].maximum_population) return false;
+        //뽑기 가능
         return true;
     }
 }
