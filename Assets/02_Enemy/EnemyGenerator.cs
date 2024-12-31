@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour
 {
     public static List<GameObject> ExistingEnemys { get => existingEnemys; private set => existingEnemys = value; }
-    private static List<GameObject> existingEnemys = new List<GameObject>();  //존재하는 적들
+    private static List<GameObject> existingEnemys;  //존재하는 적들
 
     [SerializeField] UIPlay uiPlay;
 
@@ -22,6 +23,8 @@ public class EnemyGenerator : MonoBehaviour
 
     private void Awake()
     {
+        existingEnemys = new List<GameObject>();
+
         dicPlayEnemyDatas = DataManager.instance.GetPlayEnemyData();
         dicPlayWaveDatas = DataManager.instance.GetPlayWaveData();
         dicPlayMapDatas = DataManager.instance.GetPlayMapData();
@@ -75,6 +78,7 @@ public class EnemyGenerator : MonoBehaviour
             existingEnemys.Add(go);
             isSpawning = true;
             uiPlay.SetUI_EnemyCount(1);
+            uiPlay.SetUI_GameOver(RestartGame);
             yield return new WaitForSeconds(spawnWaitingTimer);
         }
 
@@ -101,5 +105,25 @@ public class EnemyGenerator : MonoBehaviour
     {
         if (curWaveIndex >= dicPlayMapDatas[uiPlay.GetCurMapId].maximum_wave) return true;
         return false;
+    }
+
+    private void RestartGame()
+    {
+        //기존 적 제거
+        var count = existingEnemys.Count;
+        existingEnemys.RemoveAll(enemy => {
+            Destroy(enemy);
+            return true;
+        });
+
+        //현재 웨이브 초기화
+        StopAllCoroutines();
+        isSpawning = false;
+        curWaveTimer = dicPlayWaveDatas[curWaveIndex].wave_timer;
+
+        //UI 초기화
+        uiPlay.SetUI_EnemyCount(-count);
+        uiPlay.SetUI_WaveTimer((int)curWaveTimer);
+        uiPlay.SetUI_Wave(curWaveIndex);
     }
 }
