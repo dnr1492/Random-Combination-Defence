@@ -88,14 +88,17 @@ public class PlayerController : MonoBehaviour
     {
         while (true)
         {
-            if (Vector2.Distance(transform.position, movePos) >= stoppingDistance)
+            // ======================= stoppingDistance 값이 계속 증가하려 멀리 이동할 경우 해당 클릭 위치보다 떨어진 곳에서 멈추는 증상의 원인 + 하나하나 따로 동시에 이동할 경우 이후에 로직 작동 안됨 (자동 캔슬이 안되고 있는데??? => /*=*/로 일단 해결완료 ) ============================= //
+            // ======================= stoppingDistance 값이 계속 증가하려 멀리 이동할 경우 해당 클릭 위치보다 떨어진 곳에서 멈추는 증상의 원인 + 하나하나 따로 동시에 이동할 경우 이후에 로직 작동 안됨 (자동 캔슬이 안되고 있는데??? => /*=*/로 일단 해결완료 ) ============================= //
+            // ======================= stoppingDistance 값이 계속 증가하려 멀리 이동할 경우 해당 클릭 위치보다 떨어진 곳에서 멈추는 증상의 원인 + 하나하나 따로 동시에 이동할 경우 이후에 로직 작동 안됨 (자동 캔슬이 안되고 있는데??? => /*=*/로 일단 해결완료 ) ============================= //
+            if (Vector2.Distance(transform.position, movePos) >/*=*/ stoppingDistance)
             {
                 //Debug.Log("이동 중");
                 transform.position = Vector2.MoveTowards(transform.position, new Vector3(movePos.x, movePos.y, transform.position.z), curCharacterInfo.moveSpeed * Time.deltaTime);
                 isMoving = true;
-                stoppingDistance += Time.deltaTime;
+                //stoppingDistance += Time.deltaTime;
                 //animator.SetBool(RUN, isMoving);
-                yield return Time.deltaTime;
+                yield return null;
             }
             else
             {
@@ -108,6 +111,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("이동 완료 후 자동으로 선택 해제");
                 playerClickController.CancelObject(gameObject);
+                stoppingDistance = 0;
                 yield break;
             }
         }
