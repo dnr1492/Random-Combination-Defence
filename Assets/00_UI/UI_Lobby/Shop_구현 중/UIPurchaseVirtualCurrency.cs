@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIPurchaseVirtualCurrency : MonoBehaviour
 {
     private Button btn;
-    private Text txt;
+    private Text txtDraw, txtPrice;
     private int amount, drawCount;
     private string virtualCurrencyName;
     private string catalogVersion;
@@ -18,8 +18,9 @@ public class UIPurchaseVirtualCurrency : MonoBehaviour
 
     private void Awake()
     {
-        btn = transform.Find("btn").GetComponent<Button>();
-        txt = transform.Find("txt").GetComponent<Text>();
+        btn = transform.Find("btn").GetComponentInChildren<Button>();
+        txtDraw = transform.Find("btn/txt_draw").GetComponentInChildren<Text>();
+        txtPrice = transform.Find("price/bg_price/txt_price").GetComponentInChildren<Text>();
 
         Display();
 
@@ -34,7 +35,8 @@ public class UIPurchaseVirtualCurrency : MonoBehaviour
         catalogVersion = strs[0];
         drawCount = int.Parse(strs[3]);
 
-        txt.text = drawCount + "È¸ »Ì±â";
+        txtDraw.text = drawCount + "È¸ »Ì±â";
+        txtPrice.text = amount + " º¸¼®";
     }
 
     private void Purchase()

@@ -86,19 +86,23 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Move()
     {
+        float timer = 0f;
+
         while (true)
         {
-            // ======================= stoppingDistance 값이 계속 증가하려 멀리 이동할 경우 해당 클릭 위치보다 떨어진 곳에서 멈추는 증상의 원인 + 하나하나 따로 동시에 이동할 경우 이후에 로직 작동 안됨 (자동 캔슬이 안되고 있는데??? => /*=*/로 일단 해결완료 ) ============================= //
-            // ======================= stoppingDistance 값이 계속 증가하려 멀리 이동할 경우 해당 클릭 위치보다 떨어진 곳에서 멈추는 증상의 원인 + 하나하나 따로 동시에 이동할 경우 이후에 로직 작동 안됨 (자동 캔슬이 안되고 있는데??? => /*=*/로 일단 해결완료 ) ============================= //
-            // ======================= stoppingDistance 값이 계속 증가하려 멀리 이동할 경우 해당 클릭 위치보다 떨어진 곳에서 멈추는 증상의 원인 + 하나하나 따로 동시에 이동할 경우 이후에 로직 작동 안됨 (자동 캔슬이 안되고 있는데??? => /*=*/로 일단 해결완료 ) ============================= //
-            if (Vector2.Distance(transform.position, movePos) >/*=*/ stoppingDistance)
+            if (Vector2.Distance(transform.position, movePos) > stoppingDistance)
             {
                 //Debug.Log("이동 중");
                 transform.position = Vector2.MoveTowards(transform.position, new Vector3(movePos.x, movePos.y, transform.position.z), curCharacterInfo.moveSpeed * Time.deltaTime);
                 isMoving = true;
-                //stoppingDistance += Time.deltaTime;
+                timer += Time.deltaTime;
                 //animator.SetBool(RUN, isMoving);
-                yield return null;
+                
+                if (timer >= 0.5f) {
+                    Debug.Log("일정 시간이 경과하여 stoppingDistance를 증가");
+                    stoppingDistance += 0.1f;
+                    timer = 0f;
+                }
             }
             else
             {
@@ -114,6 +118,8 @@ public class PlayerController : MonoBehaviour
                 stoppingDistance = 0;
                 yield break;
             }
+
+            yield return null;
         }
     }
 

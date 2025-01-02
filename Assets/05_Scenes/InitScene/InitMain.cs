@@ -11,14 +11,11 @@ public class InitMain : MonoBehaviour
     [SerializeField] InputField inputEmail, inputPassword, inputUsername;
     [SerializeField] Button btnRegist, btnLogin;
 
-    // ======================= 씬이 로딩이 완료되기 전 클릭 또는 스페이스 연타시 중복으로 로딩되는 버그 수정하기 !!! ==========================
-    // ======================= 씬이 로딩이 완료되기 전 클릭 또는 스페이스 연타시 중복으로 로딩되는 버그 수정하기 !!! ==========================
-    // ======================= 씬이 로딩이 완료되기 전 클릭 또는 스페이스 연타시 중복으로 로딩되는 버그 수정하기 !!! ==========================
     [Header("씬 로드 - 동기")]
     [SerializeField] GameObject loading;
-    [SerializeField] Image progressBar;
-    [SerializeField] Text txtLoading;
+    [SerializeField] Image progressBarBg, progressBar;
     [SerializeField] Button btnLoading;
+    [SerializeField] Text txtLoading;
 
     private void Awake()
     {
@@ -35,7 +32,9 @@ public class InitMain : MonoBehaviour
         });
 
         progressBar.fillAmount = 0;
+        progressBarBg.gameObject.SetActive(false);
         loading.SetActive(false);
+        btnLoading.gameObject.SetActive(false);
     }
 
     private void TempEditor()
@@ -49,6 +48,7 @@ public class InitMain : MonoBehaviour
     {
         yield return new WaitUntil(() => PlayFabManager.instance.CheckLoginSuccess());
 
+        progressBarBg.gameObject.SetActive(true);
         loading.SetActive(true);
 
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
@@ -56,19 +56,17 @@ public class InitMain : MonoBehaviour
 
         float timer = 0f;
 
-        while (!asyncOperation.isDone)
-        {
-            if (asyncOperation.progress < 0.9f)
-            {
+        while (!asyncOperation.isDone) {
+            if (asyncOperation.progress < 0.9f) {
                 progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, asyncOperation.progress, timer);
                 txtLoading.text = "Loding...";
             }
-            else
-            {
+            else {
                 progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, 1f, timer);
-                if (progressBar.fillAmount == 1.0f)
-                {
+                if (progressBar.fillAmount == 1.0f) {
+                    progressBarBg.gameObject.SetActive(false);
                     txtLoading.text = "Press Touch to Start";
+                    btnLoading.gameObject.SetActive(true);
                     btnLoading.onClick.AddListener(() => asyncOperation.allowSceneActivation = true); 
                 }
             }
