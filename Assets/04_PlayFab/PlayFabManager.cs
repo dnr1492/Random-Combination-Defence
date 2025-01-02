@@ -3,6 +3,7 @@ using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
 using System;
+using System.Threading.Tasks;
 
 public class PlayFabManager : MonoBehaviour
 {
@@ -205,6 +206,83 @@ public class PlayFabManager : MonoBehaviour
         },
         (error) => { Debug.Log("유저 인벤토리 획득 실패"); });
     }
+
+    #region 비동기 팜플릿 - 최적화 방안 - 미구현 상태
+    //// 캐릭터 뽑기 버튼 클릭 시 호출되는 메서드
+    //public async void OnDrawCharacterButtonClicked()
+    //{
+    //    // 로딩 패널 활성화
+    //    loadingPanel.SetActive(true);
+
+    //    // 캐릭터 뽑기 로직 실행
+    //    await DrawCharactersAsync();
+
+    //    // 로딩 패널 비활성화
+    //    loadingPanel.SetActive(false);
+    //}
+
+    //// 비동기 캐릭터 뽑기 메서드
+    //private async Task DrawCharactersAsync()
+    //{
+    //    // 가상 화폐 차감
+    //    bool isCurrencySubtracted = await SubtractUserVirtualCurrencyAsync();
+    //    if (!isCurrencySubtracted)
+    //    {
+    //        Debug.LogError("가상 화폐 차감 실패");
+    //        return;
+    //    }
+
+    //    // 카탈로그 아이템 가져오기
+    //    var catalogItems = await GetCatalogItemsAsync();
+    //    if (catalogItems == null)
+    //    {
+    //        Debug.LogError("카탈로그 아이템 가져오기 실패");
+    //        return;
+    //    }
+
+    //    // 캐릭터 뽑기 로직
+    //    var drawnCharacters = RandomCharacter.DrawRandomCharacters(catalogItems, drawCount);
+
+    //    // 유저에게 아이템 지급
+    //    bool isItemsGranted = await GrantItemsToUserAsync(drawnCharacters);
+    //    if (!isItemsGranted)
+    //    {
+    //        Debug.LogError("아이템 지급 실패");
+    //        return;
+    //    }
+
+    //    // 유저 인벤토리 갱신 및 UI 업데이트
+    //    await UpdateUserInventoryAsync();
+    //}
+
+    //// 가상 화폐 차감 비동기 메서드
+    //private async Task<bool> SubtractUserVirtualCurrencyAsync()
+    //{
+    //    // PlayFab API 호출 및 처리 로직
+    //    // 성공 시 true 반환, 실패 시 false 반환
+    //}
+
+    //// 카탈로그 아이템 가져오기 비동기 메서드
+    //private async Task<List<CatalogItem>> GetCatalogItemsAsync()
+    //{
+    //    // PlayFab API 호출 및 처리 로직
+    //    // 성공 시 아이템 리스트 반환, 실패 시 null 반환
+    //}
+
+    //// 아이템 지급 비동기 메서드
+    //private async Task<bool> GrantItemsToUserAsync(List<string> itemIds)
+    //{
+    //    // PlayFab API 호출 및 처리 로직
+    //    // 성공 시 true 반환, 실패 시 false 반환
+    //}
+
+    //// 유저 인벤토리 갱신 및 UI 업데이트 비동기 메서드
+    //private async Task UpdateUserInventoryAsync()
+    //{
+    //    // PlayFab API 호출 및 처리 로직
+    //    // UI 업데이트 로직
+    //}
+    #endregion
     #endregion
 
     #region 신규 플레이어 데이터 설정
