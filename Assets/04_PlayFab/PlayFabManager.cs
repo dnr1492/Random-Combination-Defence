@@ -4,6 +4,7 @@ using PlayFab;
 using PlayFab.ClientModels;
 using System;
 using System.Threading.Tasks;
+using System.Linq;
 
 public class PlayFabManager : MonoBehaviour
 {
@@ -85,7 +86,6 @@ public class PlayFabManager : MonoBehaviour
     #endregion
 
     #region 캐릭터 랜덤 뽑기
-    private UIPurchaseVirtualCurrency uiPurchaseVirtualCurrency;
     private readonly float weightCommonCharacter = 900f;  //70.423%
     private readonly float weightUncommonCharacter = 300f;  //23.474%
     private readonly float weightRareCharacter = 50f;  //3.912%
@@ -107,181 +107,306 @@ public class PlayFabManager : MonoBehaviour
         }
     }
 
-    public void DrawCharacters(UIGameResources uiGameResources, UIPurchaseVirtualCurrency uiPurchaseVirtualCurrency, string virtualCurrencyName, int amount, string catalogVersion, int drawCount)
-        => GetUserInventory(uiGameResources, uiPurchaseVirtualCurrency, virtualCurrencyName, amount, catalogVersion, drawCount);
+    #region 동기 로직 - 미사용
+    //public void DrawCharacters(UIGameResources uiGameResources, UIPurchaseVirtualCurrency uiPurchaseVirtualCurrency, string virtualCurrencyName, int amount, string catalogVersion, int drawCount)
+    //    => GetUserInventory(uiGameResources, uiPurchaseVirtualCurrency, virtualCurrencyName, amount, catalogVersion, drawCount);
 
-    private void GetUserInventory(UIGameResources uiGameResources, UIPurchaseVirtualCurrency uiPurchaseVirtualCurrency, string virtualCurrencyName, int amount, string catalogVersion, int drawCount)
+    //private void GetUserInventory(UIGameResources uiGameResources, UIPurchaseVirtualCurrency uiPurchaseVirtualCurrency, string virtualCurrencyName, int amount, string catalogVersion, int drawCount)
+    //{
+    //    this.uiPurchaseVirtualCurrency = uiPurchaseVirtualCurrency;
+
+    //    PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), (result) =>
+    //    {
+    //        if (result.VirtualCurrency[virtualCurrencyName] >= amount) SubtractUserVirtualCurrency(uiGameResources, virtualCurrencyName, amount, catalogVersion, drawCount);
+    //        else Debug.Log("유저가 보유한 가상 화폐의 수량이 부족");
+    //    },
+    //    (error) => { Debug.Log("유저 인벤토리 획득 실패"); });
+    //}
+
+    //private void SubtractUserVirtualCurrency(UIGameResources uiGameResources, string virtualCurrencyName, int amount, string catalogVersion, int drawCount)
+    //{
+    //    SubtractUserVirtualCurrencyRequest request = new SubtractUserVirtualCurrencyRequest
+    //    {
+    //        VirtualCurrency = virtualCurrencyName,
+    //        Amount = amount
+    //    };
+
+    //    PlayFabClientAPI.SubtractUserVirtualCurrency(request,
+    //    (result) =>
+    //    {
+    //        GetCatalogItems(catalogVersion, drawCount);
+    //        DisplayGameResources(uiGameResources, virtualCurrencyName);
+    //    },
+    //    (error) => Debug.Log("가상화폐 감소 실패"));
+    //}
+
+    //private void GetCatalogItems(string catalogVersion, int drawCount)
+    //{
+    //    List<RandomCharacter.CharacterData> characterDatas = new List<RandomCharacter.CharacterData>();
+
+    //    PlayFabClientAPI.GetCatalogItems(new GetCatalogItemsRequest() { CatalogVersion = catalogVersion }, (result) =>
+    //    {
+    //        for (int i = 0; i < result.Catalog.Count; i++)
+    //        {
+    //            CatalogItem CatalogItem = result.Catalog[i];
+    //            //Legendary
+    //            if (CatalogItem.DisplayName == Characters.주몽.ToString()) characterDatas.Add(new RandomCharacter.CharacterData(weightLegendaryJumong, CatalogItem.DisplayName, CatalogItem.ItemId));
+    //            else if (CatalogItem.DisplayName == Characters.이순신.ToString()) characterDatas.Add(new RandomCharacter.CharacterData(weightLegendaryAdmiralYi, CatalogItem.DisplayName, CatalogItem.ItemId));
+    //            //Unique
+    //            else if (CatalogItem.DisplayName == Characters.유일한.ToString()) characterDatas.Add(new RandomCharacter.CharacterData(weightUniqueCharacter, CatalogItem.DisplayName, CatalogItem.ItemId));
+    //            //Rare
+    //            else if (CatalogItem.DisplayName == Characters.희귀한.ToString()) characterDatas.Add(new RandomCharacter.CharacterData(weightRareCharacter, CatalogItem.DisplayName, CatalogItem.ItemId));
+    //            //Uncommon
+    //            else if (CatalogItem.DisplayName == Characters.안흔한.ToString()) characterDatas.Add(new RandomCharacter.CharacterData(weightUncommonCharacter, CatalogItem.DisplayName, CatalogItem.ItemId));
+    //            //Common
+    //            else if (CatalogItem.DisplayName == Characters.흔한.ToString()) characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, CatalogItem.DisplayName, CatalogItem.ItemId));
+    //        }
+
+    //        Dictionary<string, int> dicDrawCharacterDatas = new Dictionary<string, int>();
+    //        List<string> itemIds = new List<string>();
+    //        Dictionary<string, DrawCharacterData> dicDrawCharacterData = new Dictionary<string, DrawCharacterData>();  //여기서 초기화하지 않고 GetUserInventory()에서 초기화하면 되지 않나?
+    //        for (int i = 0; i < drawCount; i++)
+    //        {
+    //            RandomCharacter.CharacterData characterData = RandomCharacter.DrawRandomCharacter(characterDatas);
+    //            itemIds.Add(characterData.itemId);
+    //        }
+
+    //        GrantItemsToUser(dicDrawCharacterData, itemIds);
+    //    },
+    //    (error) => { Debug.Log("상점 불러오기 실패"); });
+    //}
+
+    //private void GrantItemsToUser(Dictionary<string, DrawCharacterData> dicDrawCharacterData, List<string> itemIds)
+    //{
+    //    PlayFab.ServerModels.GrantItemsToUserRequest request = new PlayFab.ServerModels.GrantItemsToUserRequest()
+    //    {
+    //        PlayFabId = curPlayfabId,
+    //        ItemIds = itemIds
+    //    };
+
+    //    PlayFabServerAPI.GrantItemsToUser(request, result => GetUserInventory(dicDrawCharacterData, itemIds), (error) => { Debug.Log("유저에게 아이템 주기 실패"); });
+    //}
+
+    //private void GetUserInventory(Dictionary<string, DrawCharacterData> dicDrawCharacterData, List<string> itemIds)
+    //{
+    //    PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(),
+    //    (result) =>
+    //    {
+    //        for (int i = 0; i < result.Inventory.Count; i++)
+    //        {
+    //            for (int j = 0; j < itemIds.Count; j++)
+    //            {
+    //                if (result.Inventory[i].ItemId == itemIds[j])
+    //                {
+    //                    DrawCharacterData drawCharacterData = new DrawCharacterData(result.Inventory[i].DisplayName, result.Inventory[i].ItemClass, 1);
+    //                    if (dicDrawCharacterData.ContainsKey(drawCharacterData.displayName)) dicDrawCharacterData[drawCharacterData.displayName] = new DrawCharacterData(drawCharacterData.displayName, drawCharacterData.itemClass, dicDrawCharacterData[drawCharacterData.displayName].cardCount + 1);
+    //                    else dicDrawCharacterData.Add(drawCharacterData.displayName, drawCharacterData);
+    //                }
+    //            }
+    //        }
+
+    //        uiPurchaseVirtualCurrency.DisplayDrawCharacters(dicDrawCharacterData);
+    //    },
+    //    (error) => { Debug.Log("유저 인벤토리 획득 실패"); });
+    //}
+    #endregion
+
+    #region 비동기 로직 - 사용 (feat.최적화 / 로딩) 
+    public async void OnClickDrawCharactersAsync(UIGameResources uiGameResources, UIPurchaseVirtualCurrency uiPurchaseVirtualCurrency, string virtualCurrencyName, int amount, string catalogVersion, int drawCount)
     {
-        this.uiPurchaseVirtualCurrency = uiPurchaseVirtualCurrency;
+        //loadingPanel.SetActive(true);
 
-        PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), (result) =>
-        {
-            if (result.VirtualCurrency[virtualCurrencyName] >= amount) SubtractUserVirtualCurrency(uiGameResources, virtualCurrencyName, amount, catalogVersion, drawCount);
-            else Debug.Log("유저가 보유한 가상 화폐의 수량이 부족");
-        },
-        (error) => { Debug.Log("유저 인벤토리 획득 실패"); });
+        await DrawCharactersAsync(uiGameResources, uiPurchaseVirtualCurrency, virtualCurrencyName, amount, catalogVersion, drawCount);
+
+        //loadingPanel.SetActive(false);
     }
 
-    private void SubtractUserVirtualCurrency(UIGameResources uiGameResources, string virtualCurrencyName, int amount, string catalogVersion, int drawCount)
+    private async Task DrawCharactersAsync(UIGameResources uiGameResources, UIPurchaseVirtualCurrency uiPurchaseVirtualCurrency, string virtualCurrencyName, int amount, string catalogVersion, int drawCount)
     {
-        SubtractUserVirtualCurrencyRequest request = new SubtractUserVirtualCurrencyRequest
+        //유저 인벤토리와 카탈로그 데이터를 뽑기 캐릭터 데이터로 변환하여 병렬로 가져오기
+        var inventoryTask = GetUserInventoryAsync();
+        var catalogTask = GetCatalogItemToDrawCharacterDataAsync(catalogVersion);
+
+        await Task.WhenAll(inventoryTask, catalogTask);
+
+        var inventoryResult = inventoryTask.Result;
+        var characterDatas = catalogTask.Result;
+        
+        //유저 인벤토리 확인
+        if (inventoryResult == null ||
+            !inventoryResult.VirtualCurrency.ContainsKey(virtualCurrencyName) ||
+            inventoryResult.VirtualCurrency[virtualCurrencyName] < amount)
+        {
+            Debug.Log("유저가 보유한 가상 화폐의 수량이 부족합니다.");
+            return;
+        }
+
+        //가상화폐 차감
+        var subtractTask = SubtractUserVirtualCurrencyAsync(virtualCurrencyName, amount);
+        await subtractTask;
+        if (!subtractTask.Result)
+        {
+            Debug.LogError("가상 화폐 차감 실패");
+            return;
+        }
+
+        //캐릭터 랜덤 뽑기 (병렬 처리)
+        //메인 스레드에서 랜덤 값을 미리 생성
+        float[] randomValues = new float[drawCount];
+        for (int i = 0; i < drawCount; i++) {
+            randomValues[i] = UnityEngine.Random.value;
+        }
+        var itemIds = await Task.Run(() =>
+        {
+            var drawnItems = new List<string>();
+            for (int i = 0; i < drawCount; i++)
+            {
+                var characterData = RandomCharacter.DrawRandomCharacter(characterDatas, randomValues[i]);
+                drawnItems.Add(characterData.itemId);
+            }
+            return drawnItems;
+        });
+
+        //유저에게 아이템 지급
+        // =============== *** 최적화 요망 *** =============== //
+        // =============== *** 최적화 요망 *** =============== //
+        // =============== *** 최적화 요망 *** =============== //
+        float startTime, endTime;
+        startTime = Time.realtimeSinceStartup;
+        bool isItemsGranted = await GrantItemsToUserAsync(itemIds);
+        if (!isItemsGranted)
+        {
+            Debug.LogError("아이템 지급 실패");
+            return;
+        }
+        endTime = Time.realtimeSinceStartup;
+        Debug.Log($"Step - Grant Items: {endTime - startTime} seconds '여기가 문제다...'");
+
+        //유저 인벤토리 갱신 및 UI 업데이트
+        UpdateInventoryAndUIAsync(uiGameResources, uiPurchaseVirtualCurrency, itemIds, virtualCurrencyName, inventoryResult);
+    }
+
+    //유저 인벤토리 비동기
+    private Task<GetUserInventoryResult> GetUserInventoryAsync()
+    {
+        var tcs = new TaskCompletionSource<GetUserInventoryResult>();
+
+        PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(),
+            result => tcs.SetResult(result),
+            error =>
+            {
+                Debug.LogError($"유저 인벤토리 획득 실패: {error.GenerateErrorReport()}");
+                tcs.SetResult(null);
+            });
+
+        return tcs.Task;
+    }
+
+    //가상화폐 차감 비동기
+    private Task<bool> SubtractUserVirtualCurrencyAsync(string virtualCurrencyName, int amount)
+    {
+        var tcs = new TaskCompletionSource<bool>();
+        var request = new SubtractUserVirtualCurrencyRequest
         {
             VirtualCurrency = virtualCurrencyName,
             Amount = amount
         };
 
         PlayFabClientAPI.SubtractUserVirtualCurrency(request,
-        (result) => {
-            GetCatalogItems(catalogVersion, drawCount);
-            DisplayGameResources(uiGameResources, virtualCurrencyName);
-        },
-        (error) => Debug.Log("가상화폐 감소 실패"));
+            result => tcs.SetResult(true),
+            error =>
+            {
+                Debug.LogError($"가상 화폐 차감 실패: {error.GenerateErrorReport()}");
+                tcs.SetResult(false);
+            });
+
+        return tcs.Task;
     }
 
-    private void GetCatalogItems(string catalogVersion, int drawCount)
+    //카탈로그 아이템을 뽑기 캐릭터 데이터로 변환해서 가져오기 비동기
+    private Task<List<RandomCharacter.CharacterData>> GetCatalogItemToDrawCharacterDataAsync(string catalogVersion)
     {
-        List<RandomCharacter.CharacterData> characterDatas = new List<RandomCharacter.CharacterData>();
+        var tcs = new TaskCompletionSource<List<RandomCharacter.CharacterData>>();
 
-        PlayFabClientAPI.GetCatalogItems(new GetCatalogItemsRequest() { CatalogVersion = catalogVersion }, (result) =>
-        {
-            for (int i = 0; i < result.Catalog.Count; i++)
+        PlayFabClientAPI.GetCatalogItems(new GetCatalogItemsRequest { CatalogVersion = catalogVersion },
+            result =>
             {
-                CatalogItem CatalogItem = result.Catalog[i];
-                //Legendary
-                if (CatalogItem.DisplayName == Characters.주몽.ToString()) characterDatas.Add(new RandomCharacter.CharacterData(weightLegendaryJumong, CatalogItem.DisplayName, CatalogItem.ItemId));
-                else if (CatalogItem.DisplayName == Characters.이순신.ToString()) characterDatas.Add(new RandomCharacter.CharacterData(weightLegendaryAdmiralYi, CatalogItem.DisplayName, CatalogItem.ItemId));
-                //Unique
-                else if (CatalogItem.DisplayName == Characters.유일한.ToString()) characterDatas.Add(new RandomCharacter.CharacterData(weightUniqueCharacter, CatalogItem.DisplayName, CatalogItem.ItemId));
-                //Rare
-                else if (CatalogItem.DisplayName == Characters.희귀한.ToString()) characterDatas.Add(new RandomCharacter.CharacterData(weightRareCharacter, CatalogItem.DisplayName, CatalogItem.ItemId));
-                //Uncommon
-                else if (CatalogItem.DisplayName == Characters.안흔한.ToString()) characterDatas.Add(new RandomCharacter.CharacterData(weightUncommonCharacter, CatalogItem.DisplayName, CatalogItem.ItemId));
-                //Common
-                else if (CatalogItem.DisplayName == Characters.흔한.ToString()) characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, CatalogItem.DisplayName, CatalogItem.ItemId));
-            }
-
-            Dictionary<string, int> dicDrawCharacterDatas = new Dictionary<string, int>();
-            List<string> itemIds = new List<string>();
-            Dictionary<string, DrawCharacterData> dicDrawCharacterData = new Dictionary<string, DrawCharacterData>();
-            for (int i = 0; i < drawCount; i++)
+                var characterDatas = new List<RandomCharacter.CharacterData>();
+                foreach (var catalogItem in result.Catalog)
+                {
+                    if (catalogItem.DisplayName == Characters.주몽.ToString())
+                        characterDatas.Add(new RandomCharacter.CharacterData(weightLegendaryJumong, catalogItem.DisplayName, catalogItem.ItemId));
+                    else if (catalogItem.DisplayName == Characters.이순신.ToString())
+                        characterDatas.Add(new RandomCharacter.CharacterData(weightLegendaryAdmiralYi, catalogItem.DisplayName, catalogItem.ItemId));
+                    else if (catalogItem.DisplayName == Characters.유일한.ToString())
+                        characterDatas.Add(new RandomCharacter.CharacterData(weightUniqueCharacter, catalogItem.DisplayName, catalogItem.ItemId));
+                    else if (catalogItem.DisplayName == Characters.희귀한.ToString())
+                        characterDatas.Add(new RandomCharacter.CharacterData(weightRareCharacter, catalogItem.DisplayName, catalogItem.ItemId));
+                    else if (catalogItem.DisplayName == Characters.안흔한.ToString())
+                        characterDatas.Add(new RandomCharacter.CharacterData(weightUncommonCharacter, catalogItem.DisplayName, catalogItem.ItemId));
+                    else if (catalogItem.DisplayName == Characters.흔한.ToString())
+                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId));
+                }
+                tcs.SetResult(characterDatas);
+            },
+            error =>
             {
-                RandomCharacter.CharacterData characterData = RandomCharacter.DrawRandomCharacter(characterDatas);
-                itemIds.Add(characterData.itemId);
-            }
+                Debug.LogError($"카탈로그 아이템 가져오기 실패: {error.GenerateErrorReport()}");
+                tcs.SetResult(null);
+            });
 
-            GrantItemsToUser(dicDrawCharacterData, itemIds);
-        },
-        (error) => { Debug.Log("상점 불러오기 실패"); });
+        return tcs.Task;
     }
 
-    private void GrantItemsToUser(Dictionary<string, DrawCharacterData> dicDrawCharacterData, List<string> itemIds)
+    //유저에게 아이템 지급 비동기
+    private Task<bool> GrantItemsToUserAsync(List<string> itemIds)
     {
-        PlayFab.ServerModels.GrantItemsToUserRequest request = new PlayFab.ServerModels.GrantItemsToUserRequest()
+        var tcs = new TaskCompletionSource<bool>();
+        var grantItemsRequest = new PlayFab.ServerModels.GrantItemsToUserRequest
         {
             PlayFabId = curPlayfabId,
             ItemIds = itemIds
         };
 
-        PlayFabServerAPI.GrantItemsToUser(request, result => GetUserInventory(dicDrawCharacterData, itemIds), (error) => { Debug.Log("유저에게 아이템 주기 실패"); });
-    }
-
-    private void GetUserInventory(Dictionary<string, DrawCharacterData> dicDrawCharacterData, List<string> itemIds)
-    {
-        PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(),
-        (result) => {
-            for (int i = 0; i < result.Inventory.Count; i++)
-            {
-                for (int j = 0; j < itemIds.Count; j++)
+        PlayFabServerAPI.GrantItemsToUser(grantItemsRequest,
+                success => tcs.SetResult(true),
+                error =>
                 {
-                    if (result.Inventory[i].ItemId == itemIds[j])
-                    {
-                        DrawCharacterData drawCharacterData = new DrawCharacterData(result.Inventory[i].DisplayName, result.Inventory[i].ItemClass, 1);
-                        if (dicDrawCharacterData.ContainsKey(drawCharacterData.displayName)) dicDrawCharacterData[drawCharacterData.displayName] = new DrawCharacterData(drawCharacterData.displayName, drawCharacterData.itemClass, dicDrawCharacterData[drawCharacterData.displayName].cardCount + 1);
-                        else dicDrawCharacterData.Add(drawCharacterData.displayName, drawCharacterData);
-                    }
-                }
-            }
+                    Debug.LogError($"유저에게 아이템 지급 실패: {error.GenerateErrorReport()}");
+                    tcs.SetResult(false);
+                });
 
-            uiPurchaseVirtualCurrency.DisplayDrawCharacters(dicDrawCharacterData);
-        },
-        (error) => { Debug.Log("유저 인벤토리 획득 실패"); });
+        return tcs.Task;
     }
 
-    #region 비동기 팜플릿 - 최적화 방안 - 미구현 상태
-    //// 캐릭터 뽑기 버튼 클릭 시 호출되는 메서드
-    //public async void OnDrawCharacterButtonClicked()
-    //{
-    //    // 로딩 패널 활성화
-    //    loadingPanel.SetActive(true);
+    //유저의 인벤토리 및 UI 갱신
+    private void UpdateInventoryAndUIAsync(UIGameResources uiGameResources, UIPurchaseVirtualCurrency uiPurchaseVirtualCurrency, List<string> itemIds, string virtualCurrencyName, GetUserInventoryResult inventoryResult)
+    {
+        var dicDrawCharacterData = new Dictionary<string, DrawCharacterData>();
 
-    //    // 캐릭터 뽑기 로직 실행
-    //    await DrawCharactersAsync();
+        foreach (var itemId in itemIds)
+        {
+            var matchingItems = inventoryResult.Inventory.Where(item => item.ItemId == itemId);
+            foreach (var item in matchingItems)
+            {
+                var drawCharacterData = new DrawCharacterData(item.DisplayName, item.ItemClass, 1);
+                if (dicDrawCharacterData.ContainsKey(drawCharacterData.displayName))
+                {
+                    var existingData = dicDrawCharacterData[drawCharacterData.displayName];
+                    dicDrawCharacterData[drawCharacterData.displayName] = new DrawCharacterData(
+                        existingData.displayName,
+                        existingData.itemClass,
+                        existingData.cardCount + 1
+                    );
+                }
+                else dicDrawCharacterData.Add(drawCharacterData.displayName, drawCharacterData);
+            }
+        }
 
-    //    // 로딩 패널 비활성화
-    //    loadingPanel.SetActive(false);
-    //}
-
-    //// 비동기 캐릭터 뽑기 메서드
-    //private async Task DrawCharactersAsync()
-    //{
-    //    // 가상 화폐 차감
-    //    bool isCurrencySubtracted = await SubtractUserVirtualCurrencyAsync();
-    //    if (!isCurrencySubtracted)
-    //    {
-    //        Debug.LogError("가상 화폐 차감 실패");
-    //        return;
-    //    }
-
-    //    // 카탈로그 아이템 가져오기
-    //    var catalogItems = await GetCatalogItemsAsync();
-    //    if (catalogItems == null)
-    //    {
-    //        Debug.LogError("카탈로그 아이템 가져오기 실패");
-    //        return;
-    //    }
-
-    //    // 캐릭터 뽑기 로직
-    //    var drawnCharacters = RandomCharacter.DrawRandomCharacters(catalogItems, drawCount);
-
-    //    // 유저에게 아이템 지급
-    //    bool isItemsGranted = await GrantItemsToUserAsync(drawnCharacters);
-    //    if (!isItemsGranted)
-    //    {
-    //        Debug.LogError("아이템 지급 실패");
-    //        return;
-    //    }
-
-    //    // 유저 인벤토리 갱신 및 UI 업데이트
-    //    await UpdateUserInventoryAsync();
-    //}
-
-    //// 가상 화폐 차감 비동기 메서드
-    //private async Task<bool> SubtractUserVirtualCurrencyAsync()
-    //{
-    //    // PlayFab API 호출 및 처리 로직
-    //    // 성공 시 true 반환, 실패 시 false 반환
-    //}
-
-    //// 카탈로그 아이템 가져오기 비동기 메서드
-    //private async Task<List<CatalogItem>> GetCatalogItemsAsync()
-    //{
-    //    // PlayFab API 호출 및 처리 로직
-    //    // 성공 시 아이템 리스트 반환, 실패 시 null 반환
-    //}
-
-    //// 아이템 지급 비동기 메서드
-    //private async Task<bool> GrantItemsToUserAsync(List<string> itemIds)
-    //{
-    //    // PlayFab API 호출 및 처리 로직
-    //    // 성공 시 true 반환, 실패 시 false 반환
-    //}
-
-    //// 유저 인벤토리 갱신 및 UI 업데이트 비동기 메서드
-    //private async Task UpdateUserInventoryAsync()
-    //{
-    //    // PlayFab API 호출 및 처리 로직
-    //    // UI 업데이트 로직
-    //}
+        //UI 업데이트
+        uiPurchaseVirtualCurrency.DisplayDrawCharacters(dicDrawCharacterData);
+        DisplayGameResources(uiGameResources, virtualCurrencyName);
+    }
     #endregion
     #endregion
 

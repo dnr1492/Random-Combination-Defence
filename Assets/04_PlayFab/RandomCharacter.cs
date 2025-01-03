@@ -20,7 +20,7 @@ public static class RandomCharacter
         }
     }
 
-    public static CharacterData DrawRandomCharacter(List<CharacterData> characterList)
+    public static CharacterData DrawRandomCharacter(List<CharacterData> characterList, float randomValue)
     {
         ////CharacterData 객체를 담는 리스트 생성 예제
         //List<CharacterData> characterList = new List<CharacterData>
@@ -34,7 +34,7 @@ public static class RandomCharacter
         List<WeightedItem<CharacterData>> weightedCharacterList = characterList.ToWeightedItemList(character => character.weight);
 
         //가중치에 따라 무작위로 CharacterData 객체를 선택합니다.
-        CharacterData selectedCharacter = WeightedRandomUtility.GetWeightedRandom(weightedCharacterList);
+        CharacterData selectedCharacter = WeightedRandomUtility.GetWeightedRandom(weightedCharacterList, randomValue);
 
         //선택된 CharacterData 객체 정보 출력
         Debug.Log("Selected Character: " + selectedCharacter.displayName);
@@ -52,7 +52,7 @@ public class WeightedItem<T>
 
 public class WeightedRandomUtility
 {
-    public static T GetWeightedRandom<T>(List<WeightedItem<T>> weightedItems)
+    public static T GetWeightedRandom<T>(List<WeightedItem<T>> weightedItems, float randomValue)
     {
         //만약 항목이 없으면 기본값 반환
         if (weightedItems.Count == 0) return default(T);
@@ -64,8 +64,8 @@ public class WeightedRandomUtility
             totalWeight += weightedItem.weight;
         }
 
-        //0부터 총합 사이의 랜덤 값을 생성
-        float randomValue = UnityEngine.Random.value * totalWeight;
+        //랜덤 값을 가중치 총합에 맞춰 조정
+        randomValue *= totalWeight;
 
         //랜덤 값이 어느 범위에 속하는지 확인하여 항목 선택
         foreach (var weightedItem in weightedItems)

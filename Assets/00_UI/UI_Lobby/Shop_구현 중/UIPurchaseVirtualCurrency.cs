@@ -41,7 +41,7 @@ public class UIPurchaseVirtualCurrency : MonoBehaviour
 
     private void Purchase()
     {
-        if (virtualCurrencyName == "JE") PlayFabManager.instance.DrawCharacters(uiJewel, this, virtualCurrencyName, amount, catalogVersion, drawCount);
+        if (virtualCurrencyName == "JE") PlayFabManager.instance.OnClickDrawCharactersAsync(uiJewel, this, virtualCurrencyName, amount, catalogVersion, drawCount);
     }
 
     public void DisplayDrawCharacters(Dictionary<string, PlayFabManager.DrawCharacterData> dicDrawCharacterData)
