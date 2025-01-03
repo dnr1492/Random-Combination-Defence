@@ -8,7 +8,7 @@ public class UIJewel : UIGameResources
     {
         base.Awake();
 
-        Init(bgSpr, imgSpr, btnSpr, Action, "JE");
+        Init(Action, "JE");
     }
 
     private void Action()

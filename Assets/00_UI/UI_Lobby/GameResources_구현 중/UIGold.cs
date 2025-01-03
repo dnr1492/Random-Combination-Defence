@@ -8,7 +8,7 @@ public class UIGold : UIGameResources
     {
         base.Awake();
 
-        Init(bgSpr, imgSpr, btnSpr, Action, "GD");
+        Init(Action, "GD");
     }
 
     private void Action()

@@ -8,7 +8,7 @@ public class UILightning : UIGameResources
     {
         base.Awake();
 
-        Init(bgSpr, imgSpr, btnSpr, Action, "LI");
+        Init(Action, "LI");
     }
 
     private void Action()

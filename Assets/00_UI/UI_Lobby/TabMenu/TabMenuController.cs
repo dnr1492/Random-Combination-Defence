@@ -10,11 +10,11 @@ public class TabMenuController : MonoBehaviour
     /// <summary>
     /// ÅÇ ¸Þ´º ¿­±â
     /// </summary>
-    /// <param name="tabMenuInactiveGos"></param>
     /// <param name="tabMenuActiveGos"></param>
+    /// <param name="tabMenuInactiveGos"></param>
     /// <param name="menus"></param>
     /// <param name="tabMenu"></param>
-    public void OpenShop(GameObject[] tabMenuInactiveGos, GameObject[] tabMenuActiveGos, GameObject[] menus, eTabMenu tabMenu)
+    public void OpenShop(GameObject[] tabMenuActiveGos, GameObject[] tabMenuInactiveGos, GameObject[] menus, eTabMenu tabMenu)
     {
         for (int i = 0; i < tabMenuActiveGos.Length; i++) tabMenuActiveGos[i].SetActive(false);
         tabMenuActiveGos[(int)tabMenu].SetActive(true);
