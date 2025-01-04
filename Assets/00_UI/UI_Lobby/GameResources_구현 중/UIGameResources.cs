@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class UIGameResources : MonoBehaviour
 {
+    protected TabMenuButtonController tabMenuButtonController;
     protected Button btn;
     protected Text txt;
 
     protected virtual void Awake()
     {
+        tabMenuButtonController = FindObjectOfType<TabMenuButtonController>();
         btn = transform.Find("btn_bg/btn").GetComponent<Button>();
         txt = transform.Find("txt").GetComponent<Text>();
     }

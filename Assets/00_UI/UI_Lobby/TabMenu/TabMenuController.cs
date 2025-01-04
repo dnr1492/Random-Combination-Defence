@@ -14,7 +14,7 @@ public class TabMenuController : MonoBehaviour
     /// <param name="tabMenuInactiveGos"></param>
     /// <param name="menus"></param>
     /// <param name="tabMenu"></param>
-    public void OpenShop(GameObject[] tabMenuActiveGos, GameObject[] tabMenuInactiveGos, GameObject[] menus, eTabMenu tabMenu)
+    public void OpenTabMenu(GameObject[] tabMenuActiveGos, GameObject[] tabMenuInactiveGos, GameObject[] menus, eTabMenu tabMenu)
     {
         for (int i = 0; i < tabMenuActiveGos.Length; i++) tabMenuActiveGos[i].SetActive(false);
         tabMenuActiveGos[(int)tabMenu].SetActive(true);

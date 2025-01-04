@@ -10,12 +10,17 @@ public class TabMenuButtonController : ButtonController
     {
         SetButtonEvent(Action);
 
-        tabMenuController.OpenShop(activeGos, inactiveGos, menus, TabMenuController.eTabMenu.TabMenuLobby);
+        tabMenuController.OpenTabMenu(activeGos, inactiveGos, menus, TabMenuController.eTabMenu.TabMenuLobby);
     }
 
     private void Action(object obj)
     {
-        tabMenuController.OpenShop(activeGos, inactiveGos, menus, (TabMenuController.eTabMenu)obj);
+        tabMenuController.OpenTabMenu(activeGos, inactiveGos, menus, (TabMenuController.eTabMenu)obj);
+    }
+
+    public void OpenTabMenuShop()
+    {
+        tabMenuController.OpenTabMenu(activeGos, inactiveGos, menus, TabMenuController.eTabMenu.TabMenuShop);
     }
 
     public bool CheckActive(int index)

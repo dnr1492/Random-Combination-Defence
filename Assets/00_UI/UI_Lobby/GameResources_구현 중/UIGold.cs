@@ -13,10 +13,6 @@ public class UIGold : UIGameResources
 
     private void Action()
     {
-        Debug.Log("Gold Button Click Event");
-
-        // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ //
-        // ===== 상점 페이지로 이동 구현 ===== //
-        // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ //
+        tabMenuButtonController.OpenTabMenuShop();
     }
 }
