@@ -79,9 +79,29 @@ public class PlayFabManager : MonoBehaviour
         PlayFabClientAPI.AddUserVirtualCurrency(request, 
             (result) => {
                 DisplayGameResources(uiGameResources, virtualCurrencyName);
-                Debug.Log("가상화폐 증가 완료 : " + result.Balance);
+                Debug.Log($"{virtualCurrencyName}가 {amount}만큼 증가 완료" +
+                    $"\n 총 금액 : {result.Balance}");
             }, 
             (error) => Debug.Log("가상화폐 증가 실패"));
+    }
+    #endregion
+
+    #region 가상화폐 감소
+    public void SubtractUserVirtualCurrency(UIGameResources uiGameResources, string virtualCurrencyName, int amount)
+    {
+        SubtractUserVirtualCurrencyRequest request = new SubtractUserVirtualCurrencyRequest
+        {
+            VirtualCurrency = virtualCurrencyName,
+            Amount = amount
+        };
+
+        PlayFabClientAPI.SubtractUserVirtualCurrency(request,
+            (result) => {
+                DisplayGameResources(uiGameResources, virtualCurrencyName);
+                Debug.Log($"{virtualCurrencyName}가 {amount}만큼 감소 완료" +
+                    $"\n 총 금액 : {result.Balance}");
+            },
+            (error) => Debug.Log($"가상화폐 감소 실패: {error.GenerateErrorReport()}"));
     }
     #endregion
 
@@ -211,8 +231,8 @@ public class PlayFabManager : MonoBehaviour
     //}
     #endregion
 
-    #region 비동기 로직 - 사용 (feat.최적화 / 로딩) 
-    public async void OnClickDrawCharactersAsync(UIGameResources uiGameResources, UIPurchaseVirtualCurrency uiPurchaseVirtualCurrency, string virtualCurrencyName, int amount, string catalogVersion, int drawCount)
+    #region 비동기 로직 - 사용 (feat.최적화 / 로딩 구현 필요) 
+    public async void OnClickDrawCharactersAsync(UIGameResources uiGameResources, UIPurchaseDrawCharacters uiPurchaseVirtualCurrency, string virtualCurrencyName, int amount, string catalogVersion, int drawCount)
     {
         //loadingPanel.SetActive(true);
 
@@ -221,7 +241,7 @@ public class PlayFabManager : MonoBehaviour
         //loadingPanel.SetActive(false);
     }
 
-    private async Task DrawCharactersAsync(UIGameResources uiGameResources, UIPurchaseVirtualCurrency uiPurchaseVirtualCurrency, string virtualCurrencyName, int amount, string catalogVersion, int drawCount)
+    private async Task DrawCharactersAsync(UIGameResources uiGameResources, UIPurchaseDrawCharacters uiPurchaseVirtualCurrency, string virtualCurrencyName, int amount, string catalogVersion, int drawCount)
     {
         //유저 인벤토리와 카탈로그 데이터를 뽑기 캐릭터 데이터로 변환하여 병렬로 가져오기
         var inventoryTask = GetUserInventoryAsync();
@@ -380,7 +400,7 @@ public class PlayFabManager : MonoBehaviour
     }
 
     //유저의 인벤토리 및 UI 갱신
-    private void UpdateInventoryAndUIAsync(UIGameResources uiGameResources, UIPurchaseVirtualCurrency uiPurchaseVirtualCurrency, List<string> itemIds, string virtualCurrencyName, GetUserInventoryResult inventoryResult)
+    private void UpdateInventoryAndUIAsync(UIGameResources uiGameResources, UIPurchaseDrawCharacters uiPurchaseVirtualCurrency, List<string> itemIds, string virtualCurrencyName, GetUserInventoryResult inventoryResult)
     {
         var dicDrawCharacterData = new Dictionary<string, DrawCharacterData>();
 

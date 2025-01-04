@@ -3,24 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIPurchaseVirtualCurrency : MonoBehaviour
+public class UIPurchaseDrawCharacters : MonoBehaviour
 {
     private Button btn;
-    private Text txtDraw, txtPrice;
-    private int amount, drawCount;
-    private string virtualCurrencyName;
+    private Text txtPrice, txtDraw;
+    private int price, drawCount;
     private string catalogVersion;
 
+    private readonly string addVirtualCurrencyName = "JE";
+ 
     [SerializeField] UIDrawCharacterPopup uiDrawCharacterPopup;
-    [SerializeField] UILightning uiLightning;
-    [SerializeField] UIGold uiGold;
     [SerializeField] UIJewel uiJewel;
 
     private void Awake()
     {
         btn = transform.Find("btn").GetComponentInChildren<Button>();
-        txtDraw = transform.Find("btn/txt_draw").GetComponentInChildren<Text>();
-        txtPrice = transform.Find("price/bg_price/txt_price").GetComponentInChildren<Text>();
+        txtPrice = transform.Find("price").GetComponentInChildren<Text>();
+        txtDraw = btn.GetComponentInChildren<Text>();
 
         Display();
 
@@ -30,18 +29,17 @@ public class UIPurchaseVirtualCurrency : MonoBehaviour
     private void Display()
     {
         string[] strs = gameObject.name.Split("_");
-        virtualCurrencyName = strs[1];
-        amount = int.Parse(strs[2]);
         catalogVersion = strs[0];
-        drawCount = int.Parse(strs[3]);
+        price = int.Parse(strs[1]);
+        drawCount = int.Parse(strs[2]);
 
+        txtPrice.text = price + " 보석";
         txtDraw.text = drawCount + "회 뽑기";
-        txtPrice.text = amount + " 보석";
     }
 
     private void Purchase()
     {
-        if (virtualCurrencyName == "JE") PlayFabManager.instance.OnClickDrawCharactersAsync(uiJewel, this, virtualCurrencyName, amount, catalogVersion, drawCount);
+        PlayFabManager.instance.OnClickDrawCharactersAsync(uiJewel, this, addVirtualCurrencyName, price, catalogVersion, drawCount);
     }
 
     public void DisplayDrawCharacters(Dictionary<string, PlayFabManager.DrawCharacterData> dicDrawCharacterData)
