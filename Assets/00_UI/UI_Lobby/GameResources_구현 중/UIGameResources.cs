@@ -21,9 +21,6 @@ public class UIGameResources : MonoBehaviour
     {
         btn.onClick.AddListener(() => { action(); });
 
-        // ============== 초기 로비 화면 로드 시 느리므로 최적화 필요 ================ // 
-        // ============== 초기 로비 화면 로드 시 느리므로 최적화 필요 ================ // 
-        // ============== 초기 로비 화면 로드 시 느리므로 최적화 필요 ================ // 
         PlayFabManager.instance.DisplayGameResources(this, virtualCurrencyName);
     }
 
