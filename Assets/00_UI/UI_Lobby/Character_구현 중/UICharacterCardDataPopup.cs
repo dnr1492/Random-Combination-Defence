@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UICharacterCardDataPopup : MonoBehaviour
 {
     [SerializeField] UICharacter uiCharacter;
-    [SerializeField] Image imgQuantity;
+    [SerializeField] Image imgCharacter, imgQuantity;
     [SerializeField] Text txtQuantity, txtCurLevel, txtName;
     [SerializeField] Text txtStatsDamage, txtStatsAttackSpeed, txtStatsAttackRange, txtStatsMoveSpeed;
     [SerializeField] Image[] imgBgLevel, imgBgDescription;
@@ -39,12 +39,12 @@ public class UICharacterCardDataPopup : MonoBehaviour
     {
         ResetData();
 
-        Dictionary<string, CharacterCardLevelInfoData> dicCharacterCardLevelInfoDatas = DataManager.instance.GetCharacterCardLevelInfoData();
+        Dictionary<string, CharacterCardLevelInfoData> dicCharacterCardLevelInfoDatas = DataManager.GetInstance().GetCharacterCardLevelInfoData();
         int level = int.Parse(curLevel);
 
-        txtQuantity.text = curQuantity + "/" + requiredLevelUpQuantity;
+        imgCharacter.sprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.ImgCharacter, name);
         imgQuantity.fillAmount = (float)curQuantity / requiredLevelUpQuantity;
-
+        txtQuantity.text = curQuantity + "/" + requiredLevelUpQuantity;
         txtCurLevel.text = "Lv. " + level;
         txtName.text = name;
 
@@ -64,7 +64,7 @@ public class UICharacterCardDataPopup : MonoBehaviour
 
         for (int i = 0; i < dicCharacterCardLevelInfoDatas.Count; i++)
         {
-            string key = name + (i + 2);  //虐 抗力) 林根2, 林根3 ...
+            string key = name + (i + 2);  //虐 抗力) 2何磐 矫累 - 林根2, 林根3 ...
             if (!dicCharacterCardLevelInfoDatas.ContainsKey(key)) continue;
 
             txtDescriptionLevel[i].text = "Lv. " + (i + 2);
@@ -88,8 +88,8 @@ public class UICharacterCardDataPopup : MonoBehaviour
 
     private void SetSkillInfoButton(string name)
     {
-        Dictionary<string, CharacterData> dicCharacterDatas = DataManager.instance.GetCharacterData();
-        Dictionary<string, CharacterSkillData> dicSkillDatas = DataManager.instance.GetCharacterSkillData();
+        Dictionary<string, CharacterData> dicCharacterDatas = DataManager.GetInstance().GetCharacterData();
+        Dictionary<string, CharacterSkillData> dicSkillDatas = DataManager.GetInstance().GetCharacterSkillData();
 
         List<CharacterSkillData> skillDatas = new List<CharacterSkillData>();
         if (dicSkillDatas.ContainsKey(dicCharacterDatas[name].skill_1_name)) skillDatas.Add(dicSkillDatas[dicCharacterDatas[name].skill_1_name]);

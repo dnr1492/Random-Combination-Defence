@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class DataManager
 {
-    public static DataManager instance = null;
+    private static DataManager instance = null;
 
     private DataManager() { }
 

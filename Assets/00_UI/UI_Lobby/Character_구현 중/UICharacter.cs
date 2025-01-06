@@ -18,7 +18,7 @@ public class UICharacter : MonoBehaviour
         {
             for (int i = 0; i < uiCharacterCards.Count; i++)
             {
-                if (data.Key == uiCharacterCards[i].GetName()) uiCharacterCards[i].Set(data.Value[0], data.Value[1], DataManager.instance.GetCharacterCardLevelQuentityData(data.Value[0], data.Value[2]));
+                if (data.Key == uiCharacterCards[i].GetName()) uiCharacterCards[i].Set(data.Value[0], data.Value[1], DataManager.GetInstance().GetCharacterCardLevelQuentityData(data.Value[0], data.Value[2]));
             }
         }
     }

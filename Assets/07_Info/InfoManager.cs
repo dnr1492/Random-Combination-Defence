@@ -18,8 +18,8 @@ public class InfoManager : MonoBehaviour
     public void SaveCharacterInfo(string name, int level)
     {
         var dicCharacterCardLevelInfoDatas = DataManager.GetInstance().GetCharacterCardLevelInfoData();
-        var dicCharacterDatas = DataManager.instance.GetCharacterData();
-        var dicSkillDatas = DataManager.instance.GetCharacterSkillData();
+        var dicCharacterDatas = DataManager.GetInstance().GetCharacterData();
+        var dicSkillDatas = DataManager.GetInstance().GetCharacterSkillData();
 
         float addDamage = 0;
         float addAttackSpeed = 0;

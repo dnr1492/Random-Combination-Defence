@@ -30,7 +30,7 @@ public class UIPlay : MonoBehaviour
 
     private void Awake()
     {
-        dicPlayMapDatas = DataManager.instance.GetPlayMapData();
+        dicPlayMapDatas = DataManager.GetInstance().GetPlayMapData();
     }
 
     private void Start()

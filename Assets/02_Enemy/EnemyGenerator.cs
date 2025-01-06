@@ -25,9 +25,9 @@ public class EnemyGenerator : MonoBehaviour
     {
         existingEnemys = new List<GameObject>();
 
-        dicPlayEnemyDatas = DataManager.instance.GetPlayEnemyData();
-        dicPlayWaveDatas = DataManager.instance.GetPlayWaveData();
-        dicPlayMapDatas = DataManager.instance.GetPlayMapData();
+        dicPlayEnemyDatas = DataManager.GetInstance().GetPlayEnemyData();
+        dicPlayWaveDatas = DataManager.GetInstance().GetPlayWaveData();
+        dicPlayMapDatas = DataManager.GetInstance().GetPlayMapData();
 
         arrEnemyPrefab = Resources.LoadAll<GameObject>("EnemyPrefabs");
     }

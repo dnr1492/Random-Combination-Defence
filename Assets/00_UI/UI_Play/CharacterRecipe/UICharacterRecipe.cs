@@ -17,13 +17,13 @@ public class UICharacterRecipe : MonoBehaviour
             arrRecipeList[i].gameObject.SetActive(false);
         }
 
-        var characterRecipeData = DataManager.instance.GetCharacterRecipeData();
+        var characterRecipeData = DataManager.GetInstance().GetCharacterRecipeData();
         if (!characterRecipeData.ContainsKey(selectionName)) {
             Debug.Log(selectionName + "의 Key가 존재하지 않습니다.");
             return;
         }
 
-        var dicCharacterDatas = DataManager.instance.GetCharacterData();
+        var dicCharacterDatas = DataManager.GetInstance().GetCharacterData();
         for (int i = 0; i < characterRecipeData[selectionName].Count; i++)
         {
             List<string> characterImagePaths = new List<string>();

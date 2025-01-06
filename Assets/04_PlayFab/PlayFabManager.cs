@@ -612,7 +612,7 @@ public class PlayFabManager : MonoBehaviour
             int tier = values[2];
             Debug.Log("현재 선택된 캐릭터" + "\n 키 : " + displayName + "\n 레벨 : " + values[0] + "\n 카드 보유량 : " + values[1] + "\n 티어 : " + values[2]);
 
-            int levelUpRemainingUses = DataManager.instance.GetCharacterCardLevelQuentityData(level, tier);
+            int levelUpRemainingUses = DataManager.GetInstance().GetCharacterCardLevelQuentityData(level, tier);
             Debug.Log("레벨업 요구량 : " + levelUpRemainingUses);
 
             for (int i = 0; i < result.Inventory.Count; i++)
@@ -673,7 +673,7 @@ public class PlayFabManager : MonoBehaviour
 
         DisplayCharacterCard(uiCharacter);
 
-        int levelUpRemainingUses = DataManager.instance.GetCharacterCardLevelQuentityData(dicCharacterLevelDatas[displayName], tier);
+        int levelUpRemainingUses = DataManager.GetInstance().GetCharacterCardLevelQuentityData(dicCharacterLevelDatas[displayName], tier);
         uiCharacterCardDataPopup.Open(dicCharacterLevelDatas[displayName].ToString(), displayName, remainingUses, levelUpRemainingUses);
     }
     #endregion

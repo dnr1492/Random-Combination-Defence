@@ -18,7 +18,10 @@ public class UILobby : MonoBehaviour
         DataManager.GetInstance().LoadPlayWaveData();
         DataManager.GetInstance().LoadPlayMapData();
         DataManager.GetInstance().LoadPlayEnemyData();
+
         PlayFabManager.instance.InitUserData("Characters");
+
+        SpriteManager.GetInstance().LoadSpriteAll();
 
         btnGameStart.onClick.AddListener(() => {
             //StartCoroutine(LoadScene("PlayScene"));

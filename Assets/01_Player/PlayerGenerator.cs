@@ -38,7 +38,7 @@ public class PlayerGenerator : MonoBehaviour
     {
         existingPlayers = new List<GameObject>();
 
-        dicPlayMapDatas = DataManager.instance.GetPlayMapData();
+        dicPlayMapDatas = DataManager.GetInstance().GetPlayMapData();
 
         btnDraw.onClick.AddListener(DrawRandom);
     }
