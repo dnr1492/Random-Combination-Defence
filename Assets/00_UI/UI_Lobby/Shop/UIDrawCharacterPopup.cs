@@ -32,7 +32,7 @@ public class UIDrawCharacterPopup : MonoBehaviour
         allSprites = Resources.LoadAll<Sprite>("image/character");
         foreach (Sprite sprite in allSprites)
         {
-            if (sprite.name.StartsWith(bgSpriteName)) {
+            if (sprite.name.StartsWith(bgSpriteName) && !sprite.name.Contains("outline")) {
                 string key = sprite.name.Replace(bgSpriteName, "");
                 bgSprites[key] = sprite;
             }
