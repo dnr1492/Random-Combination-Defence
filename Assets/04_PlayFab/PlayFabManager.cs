@@ -11,7 +11,7 @@ public class PlayFabManager : MonoBehaviour
     public static PlayFabManager instance = null;
 
     public enum Characters { ÁÖ¸ù, ÀÌ¼ø½Å, ÈçÇÑ, ¾ÈÈçÇÑ, Èñ±ÍÇÑ, À¯ÀÏÇÑ }
-    private enum CharacterTier { None, ÈçÇÑ, ¾ÈÈçÇÑ, Èñ±ÍÇÑ, À¯ÀÏÇÑ, Àü¼³ÀûÀÎ }
+    public enum CharacterTier { None, ÈçÇÑ, ¾ÈÈçÇÑ, Èñ±ÍÇÑ, À¯ÀÏÇÑ, Àü¼³ÀûÀÎ }
 
     private void Awake()
     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine.UI;
 public class UICharacterCardDataPopup : MonoBehaviour
 {
     [SerializeField] UICharacter uiCharacter;
-    [SerializeField] Image imgCharacter, imgQuantity;
+    [SerializeField] Image bgCharacter, bgCharacterOutline, imgCharacter, imgQuantity;
     [SerializeField] Text txtQuantity, txtCurLevel, txtName;
     [SerializeField] Text txtStatsDamage, txtStatsAttackSpeed, txtStatsAttackRange, txtStatsMoveSpeed;
     [SerializeField] Image[] imgBgLevel, imgBgDescription;
@@ -42,6 +43,14 @@ public class UICharacterCardDataPopup : MonoBehaviour
         Dictionary<string, CharacterCardLevelInfoData> dicCharacterCardLevelInfoDatas = DataManager.GetInstance().GetCharacterCardLevelInfoData();
         int level = int.Parse(curLevel);
 
+        var characterData = DataManager.GetInstance().GetCharacterData();
+        string itemClass = null;
+        foreach (PlayFabManager.CharacterTier tier in Enum.GetValues(typeof(PlayFabManager.CharacterTier))) {
+            if ((int)tier == characterData[name].tier) itemClass = tier.ToString();
+        }
+
+        bgCharacter.sprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.Bg, itemClass);
+        bgCharacterOutline.sprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.BgOutline, itemClass);
         imgCharacter.sprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.ImgCharacter, name);
         imgQuantity.fillAmount = (float)curQuantity / requiredLevelUpQuantity;
         txtQuantity.text = curQuantity + "/" + requiredLevelUpQuantity;
