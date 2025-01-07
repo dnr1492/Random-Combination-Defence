@@ -15,7 +15,7 @@
 - Tag를 Enemy로
 - BoxCollider2D 추가 및 IsTrigger를 true로 설정
 
-●등급 (Rating)
+●등급 (Tier)
 - 흔한 (Common, 흰색) => 평타
 - 안흔한 (Uncommon, 파란색) => 강한 평타
 - 희귀한 (Rare, 보라색) => 패시브 스킬 1개
@@ -101,3 +101,9 @@ ex)패시브류 - 책사진들)
 - UI 클릭 방지 비정상 작동
 - 컨테이너에 다른 종류의 플레이어가 한 곳에 추가되는 버그
 - 캐릭터 뽑기 최적화하기 (feat.뽑기 중일 때 로딩화면 고고싱)
+
+●보류
+- ItemClass가 현재 Tier로 사용되고 있는데 이것을
+  *ItemClass == Class
+  *ItemTier == Tier
+  로 변경해서 사용하기 (feat.CharacterData에 Class 추가하기 / UICharacterDataPopup에 병종 UI 추가하기)

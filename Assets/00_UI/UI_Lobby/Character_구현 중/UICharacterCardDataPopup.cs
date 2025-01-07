@@ -8,7 +8,7 @@ public class UICharacterCardDataPopup : MonoBehaviour
 {
     [SerializeField] UICharacter uiCharacter;
     [SerializeField] Image bgCharacter, bgCharacterOutline, imgCharacter, imgQuantity;
-    [SerializeField] Text txtQuantity, txtCurLevel, txtName;
+    [SerializeField] Text txtQuantity, txtCurLevel, txtClass, txtName;
     [SerializeField] Text txtStatsDamage, txtStatsAttackSpeed, txtStatsAttackRange, txtStatsMoveSpeed;
     [SerializeField] Image[] imgBgLevel, imgBgDescription;
     [SerializeField] Text[] txtDescriptionLevel, txtDescriptions;
@@ -40,14 +40,12 @@ public class UICharacterCardDataPopup : MonoBehaviour
     {
         ResetData();
 
-        Dictionary<string, CharacterCardLevelInfoData> dicCharacterCardLevelInfoDatas = DataManager.GetInstance().GetCharacterCardLevelInfoData();
-        int level = int.Parse(curLevel);
-
         var characterData = DataManager.GetInstance().GetCharacterData();
         string itemClass = null;
         foreach (PlayFabManager.CharacterTier tier in Enum.GetValues(typeof(PlayFabManager.CharacterTier))) {
             if ((int)tier == characterData[name].tier) itemClass = tier.ToString();
         }
+        int level = int.Parse(curLevel);
 
         bgCharacter.sprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.Bg, itemClass);
         bgCharacterOutline.sprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.BgOutline, itemClass);
@@ -55,6 +53,7 @@ public class UICharacterCardDataPopup : MonoBehaviour
         imgQuantity.fillAmount = (float)curQuantity / requiredLevelUpQuantity;
         txtQuantity.text = curQuantity + "/" + requiredLevelUpQuantity;
         txtCurLevel.text = "Lv. " + level;
+        //txtClass.text = 추후에 Class를 구현하면 할당하기
         txtName.text = name;
 
         SetSkillInfoButton(name);
@@ -71,6 +70,7 @@ public class UICharacterCardDataPopup : MonoBehaviour
             imgBgDescription[i - 1].color = gainColor;
         }
 
+        Dictionary<string, CharacterCardLevelInfoData> dicCharacterCardLevelInfoDatas = DataManager.GetInstance().GetCharacterCardLevelInfoData();
         for (int i = 0; i < dicCharacterCardLevelInfoDatas.Count; i++)
         {
             string key = name + (i + 2);  //키 예제) 2부터 시작 - 주몽2, 주몽3 ...

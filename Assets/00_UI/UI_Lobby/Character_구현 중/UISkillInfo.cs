@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,7 @@ public class UISkillInfo : MonoBehaviour
 
     private void Awake()
     {
-        img = GetComponent<Image>();
+        img = GetComponentsInChildren<Image>().FirstOrDefault(img => img.gameObject != gameObject);
         btn = GetComponent<Button>();
         btnRt = btn.GetComponent<RectTransform>();
     }

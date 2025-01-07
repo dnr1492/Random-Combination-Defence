@@ -7,6 +7,7 @@ public class UISkillDataPopup : MonoBehaviour
 {
     [SerializeField] Text txtSkillName, txtSkillDescription;
     [SerializeField] GameObject arrowGo;
+
     private RectTransform popupRt, btnRt;
 
     private void Awake()
