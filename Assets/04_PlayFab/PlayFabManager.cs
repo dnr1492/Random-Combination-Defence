@@ -96,7 +96,8 @@ public class PlayFabManager : MonoBehaviour
         };
 
         PlayFabClientAPI.SubtractUserVirtualCurrency(request,
-            (result) => {
+            (result) =>
+            {
                 DisplayGameResources(uiGameResources, virtualCurrencyName);
                 Debug.Log($"{virtualCurrencyName}가 {amount}만큼 감소 완료" +
                     $"\n 총 금액 : {result.Balance}");
@@ -306,7 +307,7 @@ public class PlayFabManager : MonoBehaviour
         UpdateInventoryAndUIAsync(uiGameResources, uiPurchaseVirtualCurrency, itemIds, virtualCurrencyName, inventoryResult);
     }
 
-    //유저 인벤토리 비동기
+    //유저 인벤토리 가져오기 비동기
     private Task<GetUserInventoryResult> GetUserInventoryAsync()
     {
         var tcs = new TaskCompletionSource<GetUserInventoryResult>();
@@ -591,50 +592,100 @@ public class PlayFabManager : MonoBehaviour
     }
     #endregion
 
-    #region UI 캐릭터 카드 레벨업
+    #region 보석으로 골드를 구매 - 비동기
+    public async Task PurchaseJewelToGoldAsync(UIGameResources uiJewel, UIGameResources uiGold, int price, int amount)
+    {
+        string addVirtualCurrencyName = "GD";
+        string subtractVirtualCurrencyName = "JE";
+
+        //유저 인벤토리 병렬로 가져오기
+        var inventoryTask = GetUserInventoryAsync();
+        await Task.WhenAll(inventoryTask);
+        var inventoryResult = inventoryTask.Result;
+
+        //유저 인벤토리 확인
+        if (inventoryResult == null ||
+            !inventoryResult.VirtualCurrency.ContainsKey(subtractVirtualCurrencyName) ||
+            inventoryResult.VirtualCurrency[subtractVirtualCurrencyName] < price)
+        {
+            Debug.Log("유저가 보유한 가상 화폐의 수량이 부족합니다.");
+            return;
+        }
+
+        //가상화폐 차감
+        var subtractTask = SubtractUserVirtualCurrencyAsync(subtractVirtualCurrencyName, price);
+        await subtractTask;
+        if (!subtractTask.Result)
+        {
+            Debug.LogError("가상 화폐 차감 실패");
+            return;
+        }
+
+        AddUserVirtualCurrency(uiGold, addVirtualCurrencyName, amount);
+        DisplayGameResources(uiJewel, subtractVirtualCurrencyName);
+    }
+    #endregion
+
+    #region 골드로 캐릭터 카드 레벨업 - 비동기
     private UICharacter uiCharacter;
     private UICharacterCardDataPopup uiCharacterCardDataPopup;
     private Dictionary<string, int> dicCharacterLevelDatas = new Dictionary<string, int>();
 
-    public void UpgradeCharacterCard(string displayName, UICharacterCardDataPopup uiCharacterCardDataPopup, UICharacter uiCharacter) => GetUserInventory(displayName, uiCharacterCardDataPopup, uiCharacter);
-
-    private void GetUserInventory(string displayName, UICharacterCardDataPopup uiCharacterCardDataPopup, UICharacter uiCharacter)
+    public async Task UpgradeCharacterCardLevelToGoldAsync(UICharacterCardDataPopup uiCharacterCardDataPopup, UICharacter uiCharacter, UIGameResources uiGold, string displayName, int price, int levelUpRemainingUses)
     {
         this.uiCharacter = uiCharacter;
         this.uiCharacterCardDataPopup = uiCharacterCardDataPopup;
 
-        PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(),
-        (result) =>
+        string subtractVirtualCurrencyName = "GD";
+
+        int[] values = dicAllCharacterDatas[displayName];
+        int level = values[0];  
+        int remainingUses = values[1];
+        int tier = values[2];
+        //Debug.Log("현재 선택된 캐릭터" + "\n 키 : " + displayName + "\n 레벨 : " + values[0] + "\n 카드 보유량 : " + values[1] + "\n 티어 : " + values[2]);
+
+        //유저 인벤토리 병렬로 가져오기
+        var inventoryTask = GetUserInventoryAsync();
+        await Task.WhenAll(inventoryTask);
+        var inventoryResult = inventoryTask.Result;
+
+        //유저 인벤토리 확인
+        if (inventoryResult == null ||
+            !inventoryResult.VirtualCurrency.ContainsKey(subtractVirtualCurrencyName) ||
+            inventoryResult.VirtualCurrency[subtractVirtualCurrencyName] < price)
         {
-            int[] values = dicAllCharacterDatas[displayName];
-            int level = values[0];
-            int remainingUses = values[1];
-            int tier = values[2];
-            Debug.Log("현재 선택된 캐릭터" + "\n 키 : " + displayName + "\n 레벨 : " + values[0] + "\n 카드 보유량 : " + values[1] + "\n 티어 : " + values[2]);
+            Debug.Log("유저가 보유한 가상 화폐의 수량이 부족합니다.");
+            return;
+        }
+        else if (levelUpRemainingUses > remainingUses)
+        {
+            Debug.Log("유저가 보유한 캐릭터 카드의 보유량 부족");
+            return;
+        }
 
-            int levelUpRemainingUses = DataManager.GetInstance().GetCharacterCardLevelQuentityData(level, tier);
-            Debug.Log("레벨업 요구량 : " + levelUpRemainingUses);
+        //가상화폐 차감
+        var subtractTask = SubtractUserVirtualCurrencyAsync(subtractVirtualCurrencyName, price);
+        await subtractTask;
+        if (!subtractTask.Result)
+        {
+            Debug.LogError("가상 화폐 차감 실패");
+            return;
+        }
 
-            for (int i = 0; i < result.Inventory.Count; i++)
+        //유저 캐릭터 카드 레벨업
+        for (int i = 0; i < inventoryResult.Inventory.Count; i++)
+        {
+            if (inventoryResult.Inventory[i].DisplayName == displayName) 
             {
-                if (result.Inventory[i].DisplayName == displayName)
-                {
-                    if (levelUpRemainingUses > remainingUses)
-                    {
-                        Debug.Log("카드 보유량 부족");
-                        return;
-                    }
-                    
-                    ConsumeItem(levelUpRemainingUses, result.Inventory[i].ItemInstanceId);
-
-                    remainingUses -= levelUpRemainingUses;
-                    level++;
-                }
+                ConsumeItem(levelUpRemainingUses, inventoryResult.Inventory[i].ItemInstanceId);
+                remainingUses -= levelUpRemainingUses;
+                level++;
+                break;
             }
+        }
 
-            GetUserData(displayName, level, remainingUses, tier);
-        },
-        (error) => { Debug.Log("유저 인벤토리 획득 실패"); });
+        GetUserData(displayName, level, remainingUses, tier);
+        DisplayGameResources(uiGold, subtractVirtualCurrencyName);
     }
 
     private void ConsumeItem(int consumeCount, string itemInstanceId)
@@ -677,72 +728,4 @@ public class PlayFabManager : MonoBehaviour
         uiCharacterCardDataPopup.Open(dicCharacterLevelDatas[displayName].ToString(), displayName, remainingUses, levelUpRemainingUses);
     }
     #endregion
-
-    //// ======================================================================================================== //
-    //// ======================================================================================================== //
-    //// ======================================================================================================== //
-
-    //public void PurchaseItem(string catalogVersion, string itemId, string virtualCurrency, int price)
-    //{
-    //    PurchaseItemRequest request = new PurchaseItemRequest()
-    //    {
-    //        CatalogVersion = catalogVersion,
-    //        ItemId = itemId,
-    //        VirtualCurrency = virtualCurrency,
-    //        Price = price,
-    //    };
-
-    //    PlayFabClientAPI.PurchaseItem(request,
-    //    (result) => { Debug.Log("아이템 구매 성공"); },
-    //    (error) => { Debug.Log("아이템 구매 실패 : " + error.ErrorMessage); });
-    //}
-
-    //// ======================================================================================
-
-    //public void GrantRandom(string playFabId, string tableId)
-    //{
-    //    PlayFab.ServerModels.EvaluateRandomResultTableRequest request = new PlayFab.ServerModels.EvaluateRandomResultTableRequest()
-    //    {
-    //        TableId = tableId
-    //    };
-
-    //    PlayFabServerAPI.EvaluateRandomResultTable(request, (result) => GrantItemsToUser(result, playFabId), OnGrantItemsToUserFailure);
-    //}
-
-    //private void GrantItemsToUser(PlayFab.ServerModels.EvaluateRandomResultTableResult tableResult, string playFabId)
-    //{
-    //    PlayFab.ServerModels.GrantItemsToUserRequest request = new PlayFab.ServerModels.GrantItemsToUserRequest()
-    //    {
-    //        PlayFabId = playFabId,
-    //        ItemIds = new List<string> { tableResult.ResultItemId }
-    //    };
-
-    //    PlayFabServerAPI.GrantItemsToUser(request, (result) => OnGrantItemsToUserSuccess(result), (error) => OnGrantItemsToUserFailure(error));
-    //}
-
-    //private void OnGrantItemsToUserSuccess(PlayFab.ServerModels.GrantItemsToUserResult result)
-    //{
-    //    Debug.Log("유저에게 아이템 주기 성공");
-    //}
-
-    //public void OnGrantItemsToUserFailure(PlayFabError error)
-    //{
-    //    Debug.Log("유저에게 아이템 주기 실패");
-    //}
-
-    //// ======================================================================================
-
-    //private void GrantCharacterToUser(string catalogVersion, string itemId, string setCharacterName)
-    //{
-    //    PlayFabClientAPI.GrantCharacterToUser(new GrantCharacterToUserRequest()
-    //    {
-    //        CatalogVersion = catalogVersion,
-    //        ItemId = itemId,
-    //        CharacterName = setCharacterName,
-    //    },
-    //    (result) => { Debug.Log("캐릭터 지급 성공 : " + result.CharacterId); },
-    //    (error) => { Debug.Log("캐릭터 지급 실패 : " + error.ErrorMessage); });
-    //}
-
-    //// ======================================================================================
 }

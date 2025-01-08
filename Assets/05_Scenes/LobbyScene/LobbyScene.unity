@@ -11740,6 +11740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiCharacter: {fileID: 1153071839}
+  uiGold: {fileID: 1753345798}
   bgCharacter: {fileID: 6291657180150399285}
   bgCharacterOutline: {fileID: 7731081726278299643}
   imgCharacter: {fileID: 7492738529018191755}
@@ -11805,6 +11806,7 @@ MonoBehaviour:
   - {fileID: 173651222}
   - {fileID: 427720773}
   - {fileID: 1257795132}
+  txtGoldPrice: {fileID: 1396164013}
 --- !u!222 &1174632292
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14831,7 +14833,7 @@ GameObject:
   - component: {fileID: 1396164014}
   - component: {fileID: 1396164013}
   m_Layer: 5
-  m_Name: txt_gold
+  m_Name: txt_gold_price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14890,7 +14892,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5,000
+  m_Text: 200000
 --- !u!222 &1396164014
 CanvasRenderer:
   m_ObjectHideFlags: 0

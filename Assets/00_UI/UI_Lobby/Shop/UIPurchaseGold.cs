@@ -9,8 +9,6 @@ public class UIPurchaseGold : MonoBehaviour
     private Text txtPrice, txtAmount;
     private int price, amount;
 
-    private readonly string addVirtualCurrencyName = "GD", subtractVirtualCurrencyName = "JE";
-
     [SerializeField] UIGold uiGold;
     [SerializeField] UIJewel uiJewel;
     
@@ -35,9 +33,8 @@ public class UIPurchaseGold : MonoBehaviour
         txtAmount.text = amount.ToString();
     }
 
-    private void Purchase()
+    private async void Purchase()
     {
-        PlayFabManager.instance.SubtractUserVirtualCurrency(uiJewel, subtractVirtualCurrencyName, price);
-        PlayFabManager.instance.AddUserVirtualCurrency(uiGold, addVirtualCurrencyName, amount);
+        await PlayFabManager.instance.PurchaseJewelToGoldAsync(uiJewel, uiGold, price, amount);
     }
 }

@@ -47,11 +47,11 @@ public class SpriteManager
         }
     }
 
-    public Sprite GetSprite(SpriteType spriteType, string name)
+    public Sprite GetSprite(SpriteType spriteType, string str)
     {
-        if (spriteType == SpriteType.Bg) return bgSprites[name];  //ItemClass로 찾기
-        else if (spriteType == SpriteType.BgOutline) return bgOutlineSprites[name];  //ItemClass로 찾기
-        else if (spriteType == SpriteType.ImgCharacter) return imgCharacterSprites[name];  //DisplayName으로 찾기
+        if (spriteType == SpriteType.Bg) return bgSprites[str];  //ItemClass로 찾기
+        else if (spriteType == SpriteType.BgOutline) return bgOutlineSprites[str];  //ItemClass로 찾기
+        else if (spriteType == SpriteType.ImgCharacter) return imgCharacterSprites[str];  //DisplayName으로 찾기
         else return null;
     }
 }
