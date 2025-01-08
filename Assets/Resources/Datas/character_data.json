@@ -8,8 +8,7 @@
     "tier": "5",
     "skill_1_name": "화살 날리기",
     "skill_2_name": "불화살 날리기",
-    "skill_3_name": "",
-    "character_image_path": "image/character/주몽"
+    "skill_3_name": ""
   },
   {
     "name": "이순신",
@@ -20,8 +19,7 @@
     "tier": "5",
     "skill_1_name": "",
     "skill_2_name": "",
-    "skill_3_name": "",
-    "character_image_path": "image/character/이순신"
+    "skill_3_name": ""
   },
   {
     "name": "유일한",
@@ -32,8 +30,7 @@
     "tier": "4",
     "skill_1_name": "",
     "skill_2_name": "",
-    "skill_3_name": "",
-    "character_image_path": "image/character/유일한"
+    "skill_3_name": ""
   },
   {
     "name": "희귀한",
@@ -44,8 +41,7 @@
     "tier": "3",
     "skill_1_name": "",
     "skill_2_name": "",
-    "skill_3_name": "",
-    "character_image_path": "image/character/희귀한"
+    "skill_3_name": ""
   },
   {
     "name": "안흔한",
@@ -56,8 +52,7 @@
     "tier": "2",
     "skill_1_name": "",
     "skill_2_name": "",
-    "skill_3_name": "",
-    "character_image_path": "image/character/안흔한"
+    "skill_3_name": ""
   },
   {
     "name": "흔한",
@@ -68,7 +63,6 @@
     "tier": "1",
     "skill_1_name": "테스트 스킬",
     "skill_2_name": "테스트 스킬 2",
-    "skill_3_name": "테스트 스킬 3",
-    "character_image_path": "image/character/흔한"
+    "skill_3_name": "테스트 스킬 3"
   }
 ]

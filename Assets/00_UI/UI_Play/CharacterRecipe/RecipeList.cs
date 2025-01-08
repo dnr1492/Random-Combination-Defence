@@ -11,6 +11,9 @@ public class RecipeList : MonoBehaviour
     private Color noneColor = new Color(1, 1, 1, 0.2f);
     private Button btnCombine;
 
+    //추후에 이름이 정해지면 삭제하기
+    private string tempNmae = "temp(이름)_";  
+
     private void Awake()
     {
         for (int i = 0; i < imgCharacters.Count; i++) imgCharacters[i].gameObject.SetActive(false);
@@ -28,27 +31,27 @@ public class RecipeList : MonoBehaviour
     /// <summary>
     /// 조합 레시피에 알맞게 이미지 할당
     /// </summary>
-    /// <param name="characterImagePaths"></param>
-    public void SetReferenceRecipe(List<string> characterImagePaths)
+    /// <param name="characterSprites"></param>
+    public void SetReferenceRecipe(List<Sprite> characterSprites)
     {
         for (int i = 0; i < imgCharacters.Count; i++)
         {
             //Result의 경우
             if (i == imgCharacters.Count - 1)
             {
-                imgCharacters[i].sprite = Resources.Load<Sprite>(characterImagePaths[characterImagePaths.Count - 1]);
+                imgCharacters[i].sprite = characterSprites[characterSprites.Count - 1];
                 imgCharacters[i].gameObject.SetActive(true);
             }
             //그 외
             else
             {
-                if (i + 1 >= characterImagePaths.Count)
+                if (i + 1 >= characterSprites.Count)
                 {
                     imgCharacters[i].sprite = null;
                     imgCharacters[i].gameObject.SetActive(false);
                     continue;
                 }
-                imgCharacters[i].sprite = Resources.Load<Sprite>(characterImagePaths[i]);
+                imgCharacters[i].sprite = characterSprites[i];
                 imgCharacters[i].gameObject.SetActive(true);
             }
         }

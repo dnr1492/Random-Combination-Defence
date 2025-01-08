@@ -26,16 +26,18 @@ public class UICharacterRecipe : MonoBehaviour
         var dicCharacterDatas = DataManager.GetInstance().GetCharacterData();
         for (int i = 0; i < characterRecipeData[selectionName].Count; i++)
         {
-            List<string> characterImagePaths = new List<string>();
+            List<Sprite> characterSprites = new List<Sprite>();
+            var recipe = characterRecipeData[selectionName][i];
+            var spriteType = SpriteManager.SpriteType.ImgCharacter;
 
-            if (!string.IsNullOrEmpty(characterRecipeData[selectionName][i].select_name)) characterImagePaths.Add(dicCharacterDatas[characterRecipeData[selectionName][i].select_name].character_image_path);
-            if (!string.IsNullOrEmpty(characterRecipeData[selectionName][i].recipe_name_a)) characterImagePaths.Add(dicCharacterDatas[characterRecipeData[selectionName][i].recipe_name_a].character_image_path);
-            if (!string.IsNullOrEmpty(characterRecipeData[selectionName][i].recipe_name_b)) characterImagePaths.Add(dicCharacterDatas[characterRecipeData[selectionName][i].recipe_name_b].character_image_path);
-            if (!string.IsNullOrEmpty(characterRecipeData[selectionName][i].recipe_name_c)) characterImagePaths.Add(dicCharacterDatas[characterRecipeData[selectionName][i].recipe_name_c].character_image_path);
-            if (!string.IsNullOrEmpty(characterRecipeData[selectionName][i].result_name)) characterImagePaths.Add(dicCharacterDatas[characterRecipeData[selectionName][i].result_name].character_image_path);
+            if (!string.IsNullOrEmpty(recipe.select_name)) characterSprites.Add(SpriteManager.GetInstance().GetSprite(spriteType, recipe.select_name));
+            if (!string.IsNullOrEmpty(recipe.recipe_name_a)) characterSprites.Add(SpriteManager.GetInstance().GetSprite(spriteType, recipe.recipe_name_a));
+            if (!string.IsNullOrEmpty(recipe.recipe_name_b)) characterSprites.Add(SpriteManager.GetInstance().GetSprite(spriteType, recipe.recipe_name_b));
+            if (!string.IsNullOrEmpty(recipe.recipe_name_c)) characterSprites.Add(SpriteManager.GetInstance().GetSprite(spriteType, recipe.recipe_name_c));
+            if (!string.IsNullOrEmpty(recipe.result_name)) characterSprites.Add(SpriteManager.GetInstance().GetSprite(spriteType, recipe.result_name));
 
             arrRecipeList[i].gameObject.SetActive(true);
-            arrRecipeList[i].SetReferenceRecipe(characterImagePaths);
+            arrRecipeList[i].SetReferenceRecipe(characterSprites);
         }
 
         SetReferenceRecipeHighlights(characterRecipeData, selectionName);

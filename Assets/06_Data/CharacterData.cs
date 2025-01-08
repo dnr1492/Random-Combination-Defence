@@ -14,5 +14,4 @@ public class CharacterData
     public string skill_1_name;
     public string skill_2_name;
     public string skill_3_name;
-    public string character_image_path;
 }
