@@ -17,7 +17,7 @@
 
 ●이름 (DisplayName)
 
-●등급 (Tier - TierName, TierNum)
+●등급 (Tier - TierName, TierNum) / (서버 - ItemClass)
 - 흔한 (Common, 흰색, 1) => 평타
 - 안흔한 (Uncommon, 파란색, 2) => 강한 평타
 - 희귀한 (Rare, 보라색, 3) => 패시브 스킬 1개
@@ -29,7 +29,7 @@
 ex)액티브류 - 주몽, 척준경, 이순신 같은 장수진들
 ex)패시브류 - 책사진들)
 
-●병종 (Class)
+●병종 (ClassType)
 - 검병 (깡공격력)
 - 창병 (스플래쉬)
 - 궁병 (사거리)
@@ -104,8 +104,14 @@ ex)패시브류 - 책사진들)
 - 컨테이너에 다른 종류의 플레이어가 한 곳에 추가되는 버그
 - 캐릭터 뽑기 최적화하기 (feat.뽑기 중일 때 로딩화면 고고싱)
 
-●보류
-- ItemClass가 현재 Tier로 사용되고 있는데 이것을
-  *ItemClass == Class
-  *ItemTier == Tier
-  로 변경해서 사용하기 (feat.CharacterData에 Class 추가하기 / UICharacterDataPopup에 병종 UI 추가하기)
+●리팩토링 목록
+- Awake() / Start() / Update() / OnEnable() / OnDisable() 체크
+- 변수명 통일시키기
+*이름 == DisplayName
+*등급 == TierNum(정수), TierName(문자열) ***서버의 경우 ItemClass***
+*병종 == ClassType
+- Debug.Log() 관리하기 
+*Debug.unityLogger.logEnabled = true;
+*Debug.unityLogger.logEnabled = false;
+- CharacterData 엑셀에 ClassType추가하기
+- UICharacterDataPopup에 병종 UI 추가하기)
