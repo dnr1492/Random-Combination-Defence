@@ -42,7 +42,7 @@ public abstract class PlayerCombat : MonoBehaviour
         //타겟이 존재하고 공격이 가능한 상태라면 공격
         if (curTargetEnemy != null && canAttack) 
         {
-            Debug.Log($"'{name}'의 스킬 언락 수 : {curCharacterInfo.unlockSkills.Count}");
+            DebugLogger.Log($"'{name}'의 스킬 언락 수 : {curCharacterInfo.unlockSkills.Count}");
 
             totalDamage = curCharacterInfo.damage;
             totalAttackDelay = curCharacterInfo.attackSpeed;
@@ -79,7 +79,7 @@ public abstract class PlayerCombat : MonoBehaviour
             if (curEnemyHp <= 0) curTargetEnemy = null;
         }
 
-        Debug.Log("이름 : " + curCharacterInfo.name
+        DebugLogger.Log("이름 : " + curCharacterInfo.name
             + "\n" + "데미지 : " + damage
             + "\n" + "공격속도 : " + attackSpeed);
 

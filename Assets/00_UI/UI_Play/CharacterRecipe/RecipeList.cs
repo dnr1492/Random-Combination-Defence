@@ -11,9 +11,6 @@ public class RecipeList : MonoBehaviour
     private Color noneColor = new Color(1, 1, 1, 0.2f);
     private Button btnCombine;
 
-    //추후에 이름이 정해지면 삭제하기
-    private string tempNmae = "temp(이름)_";  
-
     private void Awake()
     {
         for (int i = 0; i < imgCharacters.Count; i++) imgCharacters[i].gameObject.SetActive(false);
@@ -24,7 +21,6 @@ public class RecipeList : MonoBehaviour
             playerClickController.CancelObjects();
             string resultName = btnCombine.GetComponent<Image>().sprite.name;
             playerGenerator.Combine(imgCharacters, resultName);
-            Debug.Log("Combine");
         });
     }
 

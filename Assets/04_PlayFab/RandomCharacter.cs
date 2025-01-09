@@ -37,7 +37,7 @@ public static class RandomCharacter
         CharacterData selectedCharacter = WeightedRandomUtility.GetWeightedRandom(weightedCharacterList, randomValue);
 
         //선택된 CharacterData 객체 정보 출력
-        Debug.Log("Selected Character: " + selectedCharacter.displayName);
+        DebugLogger.Log("Selected Character: " + selectedCharacter.displayName);
 
         return selectedCharacter;
     }

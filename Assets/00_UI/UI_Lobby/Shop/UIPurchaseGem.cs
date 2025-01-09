@@ -41,7 +41,7 @@ public class UIPurchaseGem : MonoBehaviour
 
     private void Purchase(int price)
     {
-        Debug.Log("가격 : " + price);
+        DebugLogger.Log("가격 : " + price);
 
         // ===== 현금으로 구매 할 수 있도록 수정하기 ===== //
         // ===== 현금으로 구매 할 수 있도록 수정하기 ===== //

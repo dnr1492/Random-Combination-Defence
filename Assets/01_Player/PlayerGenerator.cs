@@ -73,27 +73,27 @@ public class PlayerGenerator : MonoBehaviour
         if (randomNnumber >= 0 && randomNnumber < 800)
         {
             curRating = Rating.Common;
-            Debug.Log("80% È®·ü·Î CommonÀ» »Ì¾Ò½À´Ï´Ù.");
+            DebugLogger.Log("80% È®·ü·Î CommonÀ» »Ì¾Ò½À´Ï´Ù.");
         }
         else if (randomNnumber >= 800 && randomNnumber < 900)
         {
             curRating = Rating.Uncommon;
-            Debug.Log("10% È®·ü·Î UncommonÀ» »Ì¾Ò½À´Ï´Ù.");
+            DebugLogger.Log("10% È®·ü·Î UncommonÀ» »Ì¾Ò½À´Ï´Ù.");
         }
         else if (randomNnumber >= 900 && randomNnumber <= 980)
         {
             curRating = Rating.Rare;
-            Debug.Log("2% È®·ü·Î Rare¸¦ »Ì¾Ò½À´Ï´Ù.");
+            DebugLogger.Log("2% È®·ü·Î Rare¸¦ »Ì¾Ò½À´Ï´Ù.");
         }
         else if (randomNnumber >= 980 && randomNnumber <= 995)
         {
             curRating = Rating.Unique;
-            Debug.Log("1.5% È®·ü·Î Unique¸¦ »Ì¾Ò½À´Ï´Ù.");
+            DebugLogger.Log("1.5% È®·ü·Î Unique¸¦ »Ì¾Ò½À´Ï´Ù.");
         }
         else
         {
             curRating = Rating.Legendary;
-            Debug.Log("0.5% È®·ü·Î Legendary¸¦ »Ì¾Ò½À´Ï´Ù.");
+            DebugLogger.Log("0.5% È®·ü·Î Legendary¸¦ »Ì¾Ò½À´Ï´Ù.");
         }
 
         int drawIndex;
@@ -213,6 +213,8 @@ public class PlayerGenerator : MonoBehaviour
                 return;
             }
         }
+
+        DebugLogger.Log("Ä³¸¯ÅÍ Á¶ÇÕ ¼º°ø");
     }
     #endregion
 

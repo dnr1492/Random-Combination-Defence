@@ -31,12 +31,12 @@ public class PlayFabManager : MonoBehaviour
         request.Password = password;
         request.Username = username;
 
-        PlayFabClientAPI.RegisterPlayFabUser(request, OnRegisterSuccess, (error) => Debug.Log("회원가입 실패 : " + error.ErrorMessage));
+        PlayFabClientAPI.RegisterPlayFabUser(request, OnRegisterSuccess, (error) => DebugLogger.Log("회원가입 실패 : " + error.ErrorMessage));
     }
 
     private void OnRegisterSuccess(RegisterPlayFabUserResult result)
     {
-        Debug.Log("회원가입 성공");
+        DebugLogger.Log("회원가입 성공");
     }
     #endregion
 
@@ -50,7 +50,7 @@ public class PlayFabManager : MonoBehaviour
         request.Email = email;
         request.Password = password;
 
-        PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, (error) => Debug.Log("로그인 실패 : " + error.ErrorMessage));
+        PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, (error) => DebugLogger.Log("로그인 실패 : " + error.ErrorMessage));
     }
 
     public bool CheckLoginSuccess()
@@ -60,7 +60,7 @@ public class PlayFabManager : MonoBehaviour
 
     private void OnLoginSuccess(LoginResult result)
     {
-        Debug.Log("로그인 성공");
+        DebugLogger.Log("로그인 성공");
 
         isLoginSuccess = true;
         curPlayfabId = result.PlayFabId;
@@ -79,10 +79,10 @@ public class PlayFabManager : MonoBehaviour
         PlayFabClientAPI.AddUserVirtualCurrency(request, 
             (result) => {
                 DisplayGameResources(uiGameResources, virtualCurrencyName);
-                Debug.Log($"{virtualCurrencyName}가 {amount}만큼 증가 완료" +
+                DebugLogger.Log($"{virtualCurrencyName}가 {amount}만큼 증가 완료" +
                     $"\n 총 금액 : {result.Balance}");
             }, 
-            (error) => Debug.Log("가상화폐 증가 실패"));
+            (error) => DebugLogger.Log("가상화폐 증가 실패"));
     }
     #endregion
 
@@ -99,10 +99,10 @@ public class PlayFabManager : MonoBehaviour
             (result) =>
             {
                 DisplayGameResources(uiGameResources, virtualCurrencyName);
-                Debug.Log($"{virtualCurrencyName}가 {amount}만큼 감소 완료" +
+                DebugLogger.Log($"{virtualCurrencyName}가 {amount}만큼 감소 완료" +
                     $"\n 총 금액 : {result.Balance}");
             },
-            (error) => Debug.Log($"가상화폐 감소 실패: {error.GenerateErrorReport()}"));
+            (error) => DebugLogger.Log($"가상화폐 감소 실패: {error.GenerateErrorReport()}"));
     }
     #endregion
 
@@ -139,9 +139,9 @@ public class PlayFabManager : MonoBehaviour
     //    PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), (result) =>
     //    {
     //        if (result.VirtualCurrency[virtualCurrencyName] >= amount) SubtractUserVirtualCurrency(uiGameResources, virtualCurrencyName, amount, catalogVersion, drawCount);
-    //        else Debug.Log("유저가 보유한 가상 화폐의 수량이 부족");
+    //        else DebugLogger.DebugLog("유저가 보유한 가상 화폐의 수량이 부족");
     //    },
-    //    (error) => { Debug.Log("유저 인벤토리 획득 실패"); });
+    //    (error) => { DebugLogger.DebugLog("유저 인벤토리 획득 실패"); });
     //}
 
     //private void SubtractUserVirtualCurrency(UIGameResources uiGameResources, string virtualCurrencyName, int amount, string catalogVersion, int drawCount)
@@ -158,7 +158,7 @@ public class PlayFabManager : MonoBehaviour
     //        GetCatalogItems(catalogVersion, drawCount);
     //        DisplayGameResources(uiGameResources, virtualCurrencyName);
     //    },
-    //    (error) => Debug.Log("가상화폐 감소 실패"));
+    //    (error) => DebugLogger.DebugLog("가상화폐 감소 실패"));
     //}
 
     //private void GetCatalogItems(string catalogVersion, int drawCount)
@@ -194,7 +194,7 @@ public class PlayFabManager : MonoBehaviour
 
     //        GrantItemsToUser(dicDrawCharacterData, itemIds);
     //    },
-    //    (error) => { Debug.Log("상점 불러오기 실패"); });
+    //    (error) => { DebugLogger.DebugLog("상점 불러오기 실패"); });
     //}
 
     //private void GrantItemsToUser(Dictionary<string, DrawCharacterData> dicDrawCharacterData, List<string> itemIds)
@@ -205,7 +205,7 @@ public class PlayFabManager : MonoBehaviour
     //        ItemIds = itemIds
     //    };
 
-    //    PlayFabServerAPI.GrantItemsToUser(request, result => GetUserInventory(dicDrawCharacterData, itemIds), (error) => { Debug.Log("유저에게 아이템 주기 실패"); });
+    //    PlayFabServerAPI.GrantItemsToUser(request, result => GetUserInventory(dicDrawCharacterData, itemIds), (error) => { DebugLogger.DebugLog("유저에게 아이템 주기 실패"); });
     //}
 
     //private void GetUserInventory(Dictionary<string, DrawCharacterData> dicDrawCharacterData, List<string> itemIds)
@@ -228,7 +228,7 @@ public class PlayFabManager : MonoBehaviour
 
     //        uiPurchaseVirtualCurrency.DisplayDrawCharacters(dicDrawCharacterData);
     //    },
-    //    (error) => { Debug.Log("유저 인벤토리 획득 실패"); });
+    //    (error) => { DebugLogger.DebugLog("유저 인벤토리 획득 실패"); });
     //}
     #endregion
 
@@ -258,7 +258,7 @@ public class PlayFabManager : MonoBehaviour
             !inventoryResult.VirtualCurrency.ContainsKey(virtualCurrencyName) ||
             inventoryResult.VirtualCurrency[virtualCurrencyName] < amount)
         {
-            Debug.Log("유저가 보유한 가상 화폐의 수량이 부족합니다.");
+            DebugLogger.Log("유저가 보유한 가상 화폐의 수량이 부족합니다.");
             return;
         }
 
@@ -267,7 +267,7 @@ public class PlayFabManager : MonoBehaviour
         await subtractTask;
         if (!subtractTask.Result)
         {
-            Debug.LogError("가상 화폐 차감 실패");
+            DebugLogger.Log("가상 화폐 차감 실패");
             return;
         }
 
@@ -297,11 +297,11 @@ public class PlayFabManager : MonoBehaviour
         bool isItemsGranted = await GrantItemsToUserAsync(itemIds);
         if (!isItemsGranted)
         {
-            Debug.LogError("아이템 지급 실패");
+            DebugLogger.Log("아이템 지급 실패");
             return;
         }
         endTime = Time.realtimeSinceStartup;
-        Debug.Log($"Step - Grant Items: {endTime - startTime} seconds '여기가 문제다...'");
+        DebugLogger.Log($"Step - Grant Items: {endTime - startTime} seconds '여기가 문제다...'");
 
         //유저 인벤토리 갱신 및 UI 업데이트
         UpdateInventoryAndUIAsync(uiGameResources, uiPurchaseVirtualCurrency, itemIds, virtualCurrencyName, inventoryResult);
@@ -316,7 +316,7 @@ public class PlayFabManager : MonoBehaviour
             result => tcs.SetResult(result),
             error =>
             {
-                Debug.LogError($"유저 인벤토리 획득 실패: {error.GenerateErrorReport()}");
+                DebugLogger.Log($"유저 인벤토리 획득 실패: {error.GenerateErrorReport()}");
                 tcs.SetResult(null);
             });
 
@@ -337,7 +337,7 @@ public class PlayFabManager : MonoBehaviour
             result => tcs.SetResult(true),
             error =>
             {
-                Debug.LogError($"가상 화폐 차감 실패: {error.GenerateErrorReport()}");
+                DebugLogger.Log($"가상 화폐 차감 실패: {error.GenerateErrorReport()}");
                 tcs.SetResult(false);
             });
 
@@ -372,7 +372,7 @@ public class PlayFabManager : MonoBehaviour
             },
             error =>
             {
-                Debug.LogError($"카탈로그 아이템 가져오기 실패: {error.GenerateErrorReport()}");
+                DebugLogger.Log($"카탈로그 아이템 가져오기 실패: {error.GenerateErrorReport()}");
                 tcs.SetResult(null);
             });
 
@@ -393,7 +393,7 @@ public class PlayFabManager : MonoBehaviour
                 success => tcs.SetResult(true),
                 error =>
                 {
-                    Debug.LogError($"유저에게 아이템 지급 실패: {error.GenerateErrorReport()}");
+                    DebugLogger.Log($"유저에게 아이템 지급 실패: {error.GenerateErrorReport()}");
                     tcs.SetResult(false);
                 });
 
@@ -448,7 +448,7 @@ public class PlayFabManager : MonoBehaviour
 
             GetUserData(displayNames);
         },
-        (error) => { Debug.Log("상점 불러오기 실패"); });
+        (error) => { DebugLogger.Log("상점 불러오기 실패"); });
     }
 
     private void GetUserData(List<string> displayNames)
@@ -471,7 +471,7 @@ public class PlayFabManager : MonoBehaviour
                 }
             }
         },
-        error => Debug.Log("유저 데이터 불러오기 실패"));
+        error => DebugLogger.Log("유저 데이터 불러오기 실패"));
     }
 
     private void UpdateUserData(string displayName, int level)
@@ -480,7 +480,7 @@ public class PlayFabManager : MonoBehaviour
             Data = new Dictionary<string, string>() { { displayName, level.ToString() } }
         },
         null,
-        error => Debug.Log("유저 데이터 저장 실패"));
+        error => DebugLogger.Log("유저 데이터 저장 실패"));
     }
 
     private void InitCharacterLevelData(string displayName, int curLevel)
@@ -502,7 +502,7 @@ public class PlayFabManager : MonoBehaviour
         (result) => {
             uiGameResources.DisplayGameResourceAmount(result.VirtualCurrency[virtualCurrencyName]);
         },
-        (error) => { Debug.Log("유저 인벤토리 획득 실패"); });
+        (error) => { DebugLogger.Log("유저 인벤토리 획득 실패"); });
     }
     #endregion
 
@@ -552,7 +552,7 @@ public class PlayFabManager : MonoBehaviour
 
             uiCharacter.DisplayCharacters(GetAllCharacterDatas());
         },
-        (error) => { Debug.Log("유저 인벤토리 획득 실패"); });
+        (error) => { DebugLogger.Log("유저 인벤토리 획득 실패"); });
     }
 
     private Dictionary<string, int[]> GetAllCharacterDatas()
@@ -561,31 +561,31 @@ public class PlayFabManager : MonoBehaviour
         {
             if (!dicAllCharacterDatas.ContainsKey(data.Key)) dicAllCharacterDatas.Add(data.Key, data.Value);
             else dicAllCharacterDatas[data.Key] = data.Value;
-            Debug.Log("키 : " + data.Key + "\n 레벨 : " + data.Value[0] + "\n 카드 보유량 : " + data.Value[1] + "\n 티어 : " + data.Value[2]);
+            DebugLogger.Log("키 : " + data.Key + "\n 레벨 : " + data.Value[0] + "\n 카드 보유량 : " + data.Value[1] + "\n 티어 : " + data.Value[2]);
         }
         foreach (var data in dicUniqueCharacterDatas)
         {
             if (!dicAllCharacterDatas.ContainsKey(data.Key)) dicAllCharacterDatas.Add(data.Key, data.Value);
             else dicAllCharacterDatas[data.Key] = data.Value;
-            Debug.Log("키 : " + data.Key + "\n 레벨 : " + data.Value[0] + "\n 카드 보유량 : " + data.Value[1] + "\n 티어 : " + data.Value[2]);
+            DebugLogger.Log("키 : " + data.Key + "\n 레벨 : " + data.Value[0] + "\n 카드 보유량 : " + data.Value[1] + "\n 티어 : " + data.Value[2]);
         }
         foreach (var data in dicRareCharacterDatas)
         {
             if (!dicAllCharacterDatas.ContainsKey(data.Key)) dicAllCharacterDatas.Add(data.Key, data.Value);
             else dicAllCharacterDatas[data.Key] = data.Value;
-            Debug.Log("키 : " + data.Key + "\n 레벨 : " + data.Value[0] + "\n 카드 보유량 : " + data.Value[1] + "\n 티어 : " + data.Value[2]);
+            DebugLogger.Log("키 : " + data.Key + "\n 레벨 : " + data.Value[0] + "\n 카드 보유량 : " + data.Value[1] + "\n 티어 : " + data.Value[2]);
         }
         foreach (var data in dicUncommonCharacterDatas)
         {
             if (!dicAllCharacterDatas.ContainsKey(data.Key)) dicAllCharacterDatas.Add(data.Key, data.Value);
             else dicAllCharacterDatas[data.Key] = data.Value;
-            Debug.Log("키 : " + data.Key + "\n 레벨 : " + data.Value[0] + "\n 카드 보유량 : " + data.Value[1] + "\n 티어 : " + data.Value[2]);
+            DebugLogger.Log("키 : " + data.Key + "\n 레벨 : " + data.Value[0] + "\n 카드 보유량 : " + data.Value[1] + "\n 티어 : " + data.Value[2]);
         }
         foreach (var data in dicCommonCharacterDatas)
         {
             if (!dicAllCharacterDatas.ContainsKey(data.Key)) dicAllCharacterDatas.Add(data.Key, data.Value);
             else dicAllCharacterDatas[data.Key] = data.Value;
-            Debug.Log("키 : " + data.Key + "\n 레벨 : " + data.Value[0] + "\n 카드 보유량 : " + data.Value[1] + "\n 티어 : " + data.Value[2]);
+            DebugLogger.Log("키 : " + data.Key + "\n 레벨 : " + data.Value[0] + "\n 카드 보유량 : " + data.Value[1] + "\n 티어 : " + data.Value[2]);
         }
 
         return dicAllCharacterDatas;
@@ -608,7 +608,7 @@ public class PlayFabManager : MonoBehaviour
             !inventoryResult.VirtualCurrency.ContainsKey(subtractVirtualCurrencyName) ||
             inventoryResult.VirtualCurrency[subtractVirtualCurrencyName] < price)
         {
-            Debug.Log("유저가 보유한 가상 화폐의 수량이 부족합니다.");
+            DebugLogger.Log("유저가 보유한 가상 화폐의 수량이 부족합니다.");
             return;
         }
 
@@ -617,7 +617,7 @@ public class PlayFabManager : MonoBehaviour
         await subtractTask;
         if (!subtractTask.Result)
         {
-            Debug.LogError("가상 화폐 차감 실패");
+            DebugLogger.Log("가상 화폐 차감 실패");
             return;
         }
 
@@ -642,7 +642,7 @@ public class PlayFabManager : MonoBehaviour
         int level = values[0];  
         int remainingUses = values[1];
         int tier = values[2];
-        //Debug.Log("현재 선택된 캐릭터" + "\n 키 : " + displayName + "\n 레벨 : " + values[0] + "\n 카드 보유량 : " + values[1] + "\n 티어 : " + values[2]);
+        DebugLogger.Log("현재 선택된 캐릭터" + "\n 키 : " + displayName + "\n 레벨 : " + values[0] + "\n 카드 보유량 : " + values[1] + "\n 티어 : " + values[2]);
 
         //유저 인벤토리 병렬로 가져오기
         var inventoryTask = GetUserInventoryAsync();
@@ -654,12 +654,12 @@ public class PlayFabManager : MonoBehaviour
             !inventoryResult.VirtualCurrency.ContainsKey(subtractVirtualCurrencyName) ||
             inventoryResult.VirtualCurrency[subtractVirtualCurrencyName] < price)
         {
-            Debug.Log("유저가 보유한 가상 화폐의 수량이 부족합니다.");
+            DebugLogger.Log("유저가 보유한 가상 화폐의 수량이 부족합니다.");
             return;
         }
         else if (levelUpRemainingUses > remainingUses)
         {
-            Debug.Log("유저가 보유한 캐릭터 카드의 보유량 부족");
+            DebugLogger.Log("유저가 보유한 캐릭터 카드의 보유량 부족");
             return;
         }
 
@@ -668,7 +668,7 @@ public class PlayFabManager : MonoBehaviour
         await subtractTask;
         if (!subtractTask.Result)
         {
-            Debug.LogError("가상 화폐 차감 실패");
+            DebugLogger.Log("가상 화폐 차감 실패");
             return;
         }
 
@@ -696,7 +696,7 @@ public class PlayFabManager : MonoBehaviour
             ItemInstanceId = itemInstanceId
         },
         null,
-        (error) => { Debug.Log("소모성 아이템 사용 실패"); });
+        (error) => { DebugLogger.Log("소모성 아이템 사용 실패"); });
     }
 
     private void GetUserData(string displayName, int level, int remainingUses, int tier)
@@ -710,7 +710,7 @@ public class PlayFabManager : MonoBehaviour
                 UpdateUserData(displayName, level);
             }
         },
-        error => Debug.Log("유저 데이터 불러오기 실패"));
+        error => DebugLogger.Log("유저 데이터 불러오기 실패"));
     }
 
     private void SaveCharacterLevelData(string displayName, int remainingUses, int tier)

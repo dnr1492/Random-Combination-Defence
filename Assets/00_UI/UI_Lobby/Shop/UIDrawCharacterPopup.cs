@@ -35,10 +35,10 @@ public class UIDrawCharacterPopup : MonoBehaviour
             var imgCharacterSprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.ImgCharacter, data.Value.displayName);
             uiDrawCharacterCard.Init(data.Value.displayName, data.Value.cardCount, bgSprtie, bgOutlineSprite, imgCharacterSprite);
             drawCharacterCardGos.Add(drawCharacterCardGo);
-            
-            //Debug.Log(data.Value.displayName);  //이름
-            //Debug.Log(data.Value.itemClass);  //티어
-            //Debug.Log(data.Value.cardCount);  //개수
+
+            DebugLogger.Log("DisplayName : " + data.Value.displayName);
+            DebugLogger.Log("Tier : " + data.Value.itemClass);
+            DebugLogger.Log("CardCount : " + data.Value.cardCount.ToString());
         }
     }
 

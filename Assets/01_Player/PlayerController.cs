@@ -92,14 +92,14 @@ public class PlayerController : MonoBehaviour
         {
             if (Vector2.Distance(transform.position, movePos) > stoppingDistance)
             {
-                //Debug.Log("이동 중");
+                DebugLogger.Log("이동 중");
                 transform.position = Vector2.MoveTowards(transform.position, new Vector3(movePos.x, movePos.y, transform.position.z), curCharacterInfo.moveSpeed * Time.deltaTime);
                 isMoving = true;
                 timer += Time.deltaTime;
                 //animator.SetBool(RUN, isMoving);
                 
                 if (timer >= 0.5f) {
-                    Debug.Log("일정 시간이 경과하여 stoppingDistance를 증가");
+                    DebugLogger.Log("일정 시간이 경과하여 stoppingDistance를 증가");
                     stoppingDistance += 0.1f;
                     timer = 0f;
                 }
@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
 
             if (isArrived)
             {
-                Debug.Log("이동 완료 후 자동으로 선택 해제");
+                DebugLogger.Log("이동 완료 후 자동으로 선택 해제");
                 playerClickController.CancelObject(gameObject);
                 stoppingDistance = 0;
                 yield break;

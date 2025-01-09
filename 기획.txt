@@ -110,8 +110,5 @@ ex)패시브류 - 책사진들)
 *이름 == DisplayName
 *등급 == TierNum(정수), TierName(문자열) ***서버의 경우 ItemClass***
 *병종 == ClassType
-- Debug.Log() 관리하기 
-*Debug.unityLogger.logEnabled = true;
-*Debug.unityLogger.logEnabled = false;
 - CharacterData 엑셀에 ClassType추가하기
-- UICharacterDataPopup에 병종 UI 추가하기)
+- UICharacterDataPopup에 병종 UI 추가하기

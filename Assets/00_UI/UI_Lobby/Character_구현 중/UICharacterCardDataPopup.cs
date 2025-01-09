@@ -139,11 +139,11 @@ public class UICharacterCardDataPopup : MonoBehaviour
     private bool IsMaxLevel(int levelUpRemainingUses)
     {
         if (levelUpRemainingUses == 0) {
-            Debug.Log("유저의 캐릭터 카드가 최대 레벨입니다.");
+            DebugLogger.Log("유저의 캐릭터 카드가 최대 레벨입니다.");
             return true;
         }
         else {
-            //Debug.Log("레벨업 요구량 : " + levelUpRemainingUses);
+            DebugLogger.Log("레벨업 요구량 : " + levelUpRemainingUses);
             return false;
         }
     }

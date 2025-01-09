@@ -80,7 +80,7 @@ public class InfoManager : MonoBehaviour
         string encodedJson = System.Convert.ToBase64String(bytes);
 
         File.WriteAllText(path, encodedJson);
-        Debug.Log(Application.persistentDataPath + "\n" + name + " 정보 저장");
+        DebugLogger.Log(Application.persistentDataPath + "\n" + name + " 정보 저장");
     }
 
     public CharacterInfo LoadCharacterInfo(string name)

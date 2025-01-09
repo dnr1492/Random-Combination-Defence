@@ -17,7 +17,7 @@ public class ButtonController : MonoBehaviour
             int index = i;
             btns[index].onClick.AddListener(() => {
                 action();
-                Debug.Log(index + " 번째 버튼의 이름 : " + btns[index].name + " 의 이벤트 할당");
+                DebugLogger.Log(index + " 번째 버튼의 이름 : " + btns[index].name + " 의 이벤트 할당");
             });
         }
     }
@@ -33,7 +33,7 @@ public class ButtonController : MonoBehaviour
             int index = i;
             btns[index].onClick.AddListener(() => {
                 action(index);
-                Debug.Log(index + " 번째 버튼의 이름 : " + btns[index].name + " 의 이벤트 할당");
+                DebugLogger.Log(index + " 번째 버튼의 이름 : " + btns[index].name + " 의 이벤트 할당");
             });
         }
     }
@@ -47,7 +47,7 @@ public class ButtonController : MonoBehaviour
         {
             int index = i;
             btns[index].onClick.RemoveAllListeners();
-            Debug.Log(index + " 번째 버튼의 이름 : " + btns[index].name + " 의 이벤트 제거");
+            DebugLogger.Log(index + " 번째 버튼의 이름 : " + btns[index].name + " 의 이벤트 제거");
         }
     }
 }

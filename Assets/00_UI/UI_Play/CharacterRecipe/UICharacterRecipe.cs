@@ -19,7 +19,7 @@ public class UICharacterRecipe : MonoBehaviour
 
         var characterRecipeData = DataManager.GetInstance().GetCharacterRecipeData();
         if (!characterRecipeData.ContainsKey(selectionName)) {
-            Debug.Log(selectionName + "의 Key가 존재하지 않습니다.");
+            DebugLogger.Log(selectionName + "의 Key가 존재하지 않습니다.");
             return;
         }
 

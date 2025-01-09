@@ -49,7 +49,7 @@ public class UICharacterInfo : MonoBehaviour
 
         if (characterInfo.skillDatas.Count == 0 || characterInfo.skillDatas == null)
         {
-            Debug.Log("스킬 부존재");
+            DebugLogger.Log("스킬이 존재하지 않습니다.");
             txtSkillName.text = "부존재";
             txtSkillDescription.text = "부존재";
             return;

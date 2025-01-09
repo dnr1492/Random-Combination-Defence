@@ -20,7 +20,7 @@ public class UIMainScreen : MonoBehaviour
             for (int i = 0; i < selectedPlayers.Count; i++) {
                 var player = selectedPlayers[i].GetComponent<PlayerController>();
                 playerContainer.Add(player);
-                Debug.Log(player.name + "이(가) 보관소로 이동했습니다.");
+                DebugLogger.Log(player.name + "이(가) 보관소로 이동했습니다.");
             }
             playerClickController.CancelObjects();
         });

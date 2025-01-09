@@ -33,7 +33,7 @@ public class PlayerClickController : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("One Click");
+                DebugLogger.Log("One Click");
                 GameObject clickObj = ClickObject();
                 if (clickObj == null) return;
                 else SelectSingle(clickObj);
@@ -42,7 +42,7 @@ public class PlayerClickController : MonoBehaviour
 
         if (isOneClick && ((Time.time - timer) > doubleClickSecond))
         {
-            Debug.Log("Double Click - Time Over");
+            DebugLogger.Log("Double Click - Time Over");
             isOneClick = false;
         }
 
@@ -62,13 +62,13 @@ public class PlayerClickController : MonoBehaviour
 
                 if (selectedName != clickObj.name)
                 {
-                    Debug.Log("One Click Object != Double Click Object");
+                    DebugLogger.Log("One Click Object != Double Click Object");
                     SelectSingle(clickObj);
                     return;
                 }
                 else
                 {
-                    Debug.Log("Double Click : " + clickObj.name);
+                    DebugLogger.Log("Double Click : " + clickObj.name);
                     SelectRatingAll(clickObj);
                 }
             }
@@ -100,7 +100,7 @@ public class PlayerClickController : MonoBehaviour
         selectedName = clickObj.name;
         selectedPlayers.Add(clickObj);
         clickObj.GetComponent<PlayerController>().InitClick(this, uiCharacterInfo, uiCharacterRecipe, true);
-        Debug.Log("이름이 " + selectedName + "인 개체군 단일 선택");
+        DebugLogger.Log("이름이 " + selectedName + "인 개체군 단일 선택");
     }
 
     /// <summary>
@@ -121,7 +121,7 @@ public class PlayerClickController : MonoBehaviour
                 if (playerController.CheckMoving()) continue;  //이동 중인 플레이어는 선택 대상에서 제외
                 selectedPlayers.Add(players[i]);
                 playerController.InitClick(this, uiCharacterInfo, uiCharacterRecipe, true);
-                Debug.Log("이름이 " + name + "인 개체군 전체 선택");
+                DebugLogger.Log("이름이 " + name + "인 개체군 전체 선택");
             }
         }
     }

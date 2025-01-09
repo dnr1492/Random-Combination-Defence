@@ -27,7 +27,7 @@ public class ColorManager
         }
         else
         {
-            Debug.LogError("Hex 코드 형식이 잘못되었습니다.");
+            DebugLogger.Log("Hex 코드 형식이 잘못되었습니다.");
         }
 
         return new Color32(r, g, b, a);

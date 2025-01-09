@@ -38,7 +38,7 @@ public class PlayerContainer : MonoBehaviour
                 if (tile == targetFindTile)
                 {
                     Vector3Int cellPosition = new Vector3Int(x + bounds.xMin, y + bounds.yMin, 0);
-                    Debug.Log("Target Tile found at : " + cellPosition);
+                    DebugLogger.Log("Target Tile found at : " + cellPosition);
 
                     //특정 타일에 Transform 생성
                     Vector3 worldPosition = containerTilemap.CellToWorld(cellPosition);
@@ -47,7 +47,7 @@ public class PlayerContainer : MonoBehaviour
                     containerTrs.Add(containerTr.transform);
                     containerCountTexts.Add(containerTr.GetComponentInChildren<ContainerCountText>());
                 }
-                //else Debug.Log("Not Tile found");
+                else DebugLogger.Log("Not Tile found");
             }
         }
     }
@@ -58,7 +58,7 @@ public class PlayerContainer : MonoBehaviour
     {
         player.name = player.name.Replace(player.name, player.name + "(Container)");  //'Container에 있는 플레이어'와 'Main에 있는 플레이어'를 구분
         players.Add(player);
-        Debug.Log("Added player name : " + player.name);
+        DebugLogger.Log("Added player name : " + player.name);
         SetPosition(player);
         SetScale(player, Vector3.one * 4);
     }
@@ -93,7 +93,7 @@ public class PlayerContainer : MonoBehaviour
         PlayerController foundPlayer = players.Find(player => player.name == name);
         if (foundPlayer == null)
         {
-            Debug.Log($"Player name {name} not found.");
+            DebugLogger.Log($"Player name {name} not found.");
             return null;
         }
         DecreaseContainerPlayer(foundPlayer, action);
@@ -105,7 +105,7 @@ public class PlayerContainer : MonoBehaviour
     public List<PlayerController> GetAll(string name, Action<GameObject> action)
     {
         List<PlayerController> foundPlayers = players.FindAll(player => player.name == name);
-        if (foundPlayers == null) Debug.Log($"Player name {name} not found.");
+        if (foundPlayers == null) DebugLogger.Log($"Player name {name} not found.");
         for (int i = 0; i < foundPlayers.Count; i++)
         {
             DecreaseContainerPlayer(foundPlayers[i], action);
@@ -120,7 +120,7 @@ public class PlayerContainer : MonoBehaviour
     public void Delete(string name)
     {
         PlayerController foundPlayer = players.Find(p => p.name == name);
-        if (foundPlayer == null) Debug.Log($"Player name {name} not found.");
+        if (foundPlayer == null) DebugLogger.Log($"Player name {name} not found.");
         DecreaseContainerPlayer(foundPlayer, DeletePlayer);
         players.Remove(foundPlayer);
     }
