@@ -550,12 +550,12 @@ public class PlayFabManager : MonoBehaviour
                 }
             }
 
-            uiCharacter.DisplayCharacters(CombineDictionary());
+            uiCharacter.DisplayCharacters(GetAllCharacterDatas());
         },
         (error) => { Debug.Log("유저 인벤토리 획득 실패"); });
     }
 
-    private Dictionary<string, int[]> CombineDictionary()
+    private Dictionary<string, int[]> GetAllCharacterDatas()
     {
         foreach (var data in dicLegendaryCharacterDatas)
         {

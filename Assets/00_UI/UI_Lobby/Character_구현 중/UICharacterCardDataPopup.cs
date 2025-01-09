@@ -46,14 +46,14 @@ public class UICharacterCardDataPopup : MonoBehaviour
         ResetData();
 
         var characterData = DataManager.GetInstance().GetCharacterData();
-        string itemClass = null;
+        string tierName = null;
         foreach (PlayFabManager.CharacterTier tier in Enum.GetValues(typeof(PlayFabManager.CharacterTier))) {
-            if ((int)tier == characterData[displayName].tier) itemClass = tier.ToString();
+            if ((int)tier == characterData[displayName].tier) tierName = tier.ToString();
         }
         int level = int.Parse(curLevel);
 
-        bgCharacter.sprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.Bg, itemClass);
-        bgCharacterOutline.sprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.BgOutline, itemClass);
+        bgCharacter.sprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.Bg, tierName);
+        bgCharacterOutline.sprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.BgOutline, tierName);
         imgCharacter.sprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.ImgCharacter, displayName);
         imgQuantity.fillAmount = (float)curQuantity / requiredLevelUpQuantity;
         txtQuantity.text = curQuantity + "/" + requiredLevelUpQuantity;
@@ -113,8 +113,7 @@ public class UICharacterCardDataPopup : MonoBehaviour
         if (dicSkillDatas.ContainsKey(dicCharacterDatas[name].skill_2_name)) skillDatas.Add(dicSkillDatas[dicCharacterDatas[name].skill_2_name]);
         if (dicSkillDatas.ContainsKey(dicCharacterDatas[name].skill_3_name)) skillDatas.Add(dicSkillDatas[dicCharacterDatas[name].skill_3_name]);
 
-        for (int i = 0; i < skillDatas.Count; i++)
-        {
+        for (int i = 0; i < skillDatas.Count; i++) {
             btnSkillInfos[i].SetActive(true);
             btnSkillInfos[i].GetComponent<UISkillInfo>().Set(skillDatas[i], dicCharacterDatas[name].damage.ToString());
         }
@@ -122,19 +121,16 @@ public class UICharacterCardDataPopup : MonoBehaviour
 
     private void ResetData()
     {
-        for (int i = 0; i < btnSkillInfos.Length; i++)
-        {
+        for (int i = 0; i < btnSkillInfos.Length; i++) {
             btnSkillInfos[i].SetActive(false);
         }
 
-        for (int i = 0; i < imgBgLevel.Length; i++)
-        {
+        for (int i = 0; i < imgBgLevel.Length; i++) {
             imgBgLevel[i].color = defaultColor;
             imgBgDescription[i].color = defaultColor;
         }
 
-        for (int i = 0; i < txtDescriptionLevel.Length; i++)
-        {
+        for (int i = 0; i < txtDescriptionLevel.Length; i++) {
             txtDescriptionLevel[i].text = string.Empty;
             txtDescriptions[i].text = string.Empty;
         }

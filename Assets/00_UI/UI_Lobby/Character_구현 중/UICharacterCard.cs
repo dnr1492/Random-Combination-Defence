@@ -1,20 +1,22 @@
+using System.Xml.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UICharacterCard : MonoBehaviour
 {
+    [SerializeField] UICharacterCardDataPopup uiCharacterDataPopup;
     [SerializeField] Text txtName, txtLevel, txtQuantity;
-    [SerializeField] Image imgCharacter, imgQuantity;
+    [SerializeField] Image bg, bgOutline, imgCharacter, imgQuantity;
     [SerializeField] Button btn;
-    [SerializeField] GameObject uiCharacterDataPopupPrefab;
 
     private void Awake()
     {
         btn.onClick.AddListener(() => {
-            uiCharacterDataPopupPrefab.SetActive(true);
+            uiCharacterDataPopup.gameObject.SetActive(true);
             string[] levelStrs = txtLevel.text.Split(".");
             string[] quantityStrs = txtQuantity.text.Split("/");
-            uiCharacterDataPopupPrefab.GetComponent<UICharacterCardDataPopup>().Open(levelStrs[1], txtName.text, int.Parse(quantityStrs[0]), int.Parse(quantityStrs[1]));
+            uiCharacterDataPopup.Open(levelStrs[1], txtName.text, int.Parse(quantityStrs[0]), int.Parse(quantityStrs[1]));
         });
 
         //비활성화를 표현
@@ -22,19 +24,20 @@ public class UICharacterCard : MonoBehaviour
         btn.interactable = false;
     }
 
-    public void Set(int level, int curQuantity, int requiredLevelUpQuantity)
+    public void Set(string displayName, int level, int curQuantity, int requiredLevelUpQuantity,
+        Sprite bg, Sprite bgOutline, Sprite imgCharacter)
     {
+        txtName.text = displayName;
         txtLevel.text = "Lv. " + level.ToString();
         txtQuantity.text = curQuantity + "/" + requiredLevelUpQuantity;
         imgQuantity.fillAmount = (float)curQuantity / requiredLevelUpQuantity;
 
-        //활성화를 표현
-        imgCharacter.color = new Color(imgCharacter.color.r, imgCharacter.color.g, imgCharacter.color.b, 1);  
-        btn.interactable = true;
-    }
+        this.bg.sprite = bg;
+        this.bgOutline.sprite = bgOutline;
+        this.imgCharacter.sprite = imgCharacter;
 
-    public string GetName()
-    {
-        return txtName.text;
+        //활성화를 표현
+        this.imgCharacter.color = new Color(this.imgCharacter.color.r, this.imgCharacter.color.g, this.imgCharacter.color.b, 1);  
+        btn.interactable = true;
     }
 }
