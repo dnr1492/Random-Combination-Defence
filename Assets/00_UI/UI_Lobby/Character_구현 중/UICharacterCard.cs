@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UICharacterCard : MonoBehaviour
 {
     [SerializeField] UICharacterCardDataPopup uiCharacterDataPopup;
-    [SerializeField] Text txtName, txtLevel, txtQuantity;
+    [SerializeField] Text txtDisplayName, txtLevel, txtQuantity;
     [SerializeField] Image bg, bgOutline, imgCharacter, imgQuantity;
     [SerializeField] Button btn;
 
@@ -16,7 +16,7 @@ public class UICharacterCard : MonoBehaviour
             uiCharacterDataPopup.gameObject.SetActive(true);
             string[] levelStrs = txtLevel.text.Split(".");
             string[] quantityStrs = txtQuantity.text.Split("/");
-            uiCharacterDataPopup.Open(levelStrs[1], txtName.text, int.Parse(quantityStrs[0]), int.Parse(quantityStrs[1]));
+            uiCharacterDataPopup.Open(levelStrs[1], txtDisplayName.text, int.Parse(quantityStrs[0]), int.Parse(quantityStrs[1]));
         });
 
         //비활성화를 표현
@@ -27,7 +27,7 @@ public class UICharacterCard : MonoBehaviour
     public void Set(string displayName, int level, int curQuantity, int requiredLevelUpQuantity,
         Sprite bg, Sprite bgOutline, Sprite imgCharacter)
     {
-        txtName.text = displayName;
+        txtDisplayName.text = displayName;
         txtLevel.text = "Lv. " + level.ToString();
         txtQuantity.text = curQuantity + "/" + requiredLevelUpQuantity;
         imgQuantity.fillAmount = (float)curQuantity / requiredLevelUpQuantity;

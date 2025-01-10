@@ -11,23 +11,23 @@ public class UICharacterRecipe : MonoBehaviour
         arrRecipeList = GetComponentsInChildren<RecipeList>();
     }
 
-    public void SetReferenceRecipe(string selectionName)
+    public void SetReferenceRecipe(string displayName)
     {
         for (int i = 0; i < arrRecipeList.Length; i++) {
             arrRecipeList[i].gameObject.SetActive(false);
         }
 
         var characterRecipeData = DataManager.GetInstance().GetCharacterRecipeData();
-        if (!characterRecipeData.ContainsKey(selectionName)) {
-            DebugLogger.Log(selectionName + "의 Key가 존재하지 않습니다.");
+        if (!characterRecipeData.ContainsKey(displayName)) {
+            DebugLogger.Log(displayName + "의 Key가 존재하지 않습니다.");
             return;
         }
 
         var dicCharacterDatas = DataManager.GetInstance().GetCharacterData();
-        for (int i = 0; i < characterRecipeData[selectionName].Count; i++)
+        for (int i = 0; i < characterRecipeData[displayName].Count; i++)
         {
             List<Sprite> characterSprites = new List<Sprite>();
-            var recipe = characterRecipeData[selectionName][i];
+            var recipe = characterRecipeData[displayName][i];
             var spriteType = SpriteManager.SpriteType.ImgCharacter;
 
             if (!string.IsNullOrEmpty(recipe.select_name)) characterSprites.Add(SpriteManager.GetInstance().GetSprite(spriteType, recipe.select_name));
@@ -40,44 +40,44 @@ public class UICharacterRecipe : MonoBehaviour
             arrRecipeList[i].SetReferenceRecipe(characterSprites);
         }
 
-        SetReferenceRecipeHighlights(characterRecipeData, selectionName);
+        SetReferenceRecipeHighlights(characterRecipeData, displayName);
     }
 
-    private void SetReferenceRecipeHighlights(Dictionary<string, List<CharacterRecipeData>> characterRecipeData, string selectionName)
+    private void SetReferenceRecipeHighlights(Dictionary<string, List<CharacterRecipeData>> characterRecipeData, string displayName)
     {
-        var recipeCount = characterRecipeData[selectionName].Count;
-        var existingPlayers = PlayerGenerator.ExistingPlayers;
+        var recipeCount = characterRecipeData[displayName].Count;
+        var existingCharacters = CharacterGenerator.ExistingCharacters;
 
         for (int i = 0; i < recipeCount; i++)
         {
-            var recipe = characterRecipeData[selectionName][i];
+            var recipe = characterRecipeData[displayName][i];
 
-            //현재 존재하는 플레이어 개수
-            var dicExistingPlayerCount = new Dictionary<string, int>();
-            foreach (var player in existingPlayers)
+            //현재 존재하는 캐릭터 개수
+            var dicExistingCharacterCount = new Dictionary<string, int>();
+            foreach (var character in existingCharacters)
             {
                 //조합 레시피에 중복되는 재료가 존재하므로 개수 중첩 방지 (if - else if ...)
-                if (player.name == recipe.select_name) {
-                    if (!dicExistingPlayerCount.ContainsKey(player.name)) dicExistingPlayerCount.Add(player.name, 1);
-                    else dicExistingPlayerCount[player.name]++;
+                if (character.name == recipe.select_name) {
+                    if (!dicExistingCharacterCount.ContainsKey(character.name)) dicExistingCharacterCount.Add(character.name, 1);
+                    else dicExistingCharacterCount[character.name]++;
                 }
-                else if (player.name == recipe.recipe_name_a) {
-                    if (!dicExistingPlayerCount.ContainsKey(player.name)) dicExistingPlayerCount.Add(player.name, 1);
-                    else dicExistingPlayerCount[player.name]++;
+                else if (character.name == recipe.recipe_name_a) {
+                    if (!dicExistingCharacterCount.ContainsKey(character.name)) dicExistingCharacterCount.Add(character.name, 1);
+                    else dicExistingCharacterCount[character.name]++;
                 }
-                else if (player.name == recipe.recipe_name_b) {
-                    if (!dicExistingPlayerCount.ContainsKey(player.name)) dicExistingPlayerCount.Add(player.name, 1);
-                    else dicExistingPlayerCount[player.name]++;
+                else if (character.name == recipe.recipe_name_b) {
+                    if (!dicExistingCharacterCount.ContainsKey(character.name)) dicExistingCharacterCount.Add(character.name, 1);
+                    else dicExistingCharacterCount[character.name]++;
                 }
-                else if (player.name == recipe.recipe_name_c) {
-                    if (!dicExistingPlayerCount.ContainsKey(player.name)) dicExistingPlayerCount.Add(player.name, 1);
-                    else dicExistingPlayerCount[player.name]++;
+                else if (character.name == recipe.recipe_name_c) {
+                    if (!dicExistingCharacterCount.ContainsKey(character.name)) dicExistingCharacterCount.Add(character.name, 1);
+                    else dicExistingCharacterCount[character.name]++;
                 }
             }
 
             //조합 레시피에서 요구하는 재료 개수
             var dicRequierdRecipeCount = new Dictionary<string, int>();
-            foreach (PlayFabManager.Characters characterType in System.Enum.GetValues(typeof(PlayFabManager.Characters)))
+            foreach (PlayFabManager.CharacterDisplayName characterType in System.Enum.GetValues(typeof(PlayFabManager.CharacterDisplayName)))
             {
                 //조합 레시피에 중복되는 재료가 존재하므로 개수 중첩 허용 (if - if ...)
                 if (recipe.select_name == characterType.ToString())
@@ -102,7 +102,7 @@ public class UICharacterRecipe : MonoBehaviour
                 }
             }
 
-            arrRecipeList[i].SetReferenceRecipeHighlights(dicExistingPlayerCount, dicRequierdRecipeCount);
+            arrRecipeList[i].SetReferenceRecipeHighlights(dicExistingCharacterCount, dicRequierdRecipeCount);
         }
     }
 }

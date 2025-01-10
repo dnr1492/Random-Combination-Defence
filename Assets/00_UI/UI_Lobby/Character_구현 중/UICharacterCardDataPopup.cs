@@ -9,7 +9,7 @@ public class UICharacterCardDataPopup : MonoBehaviour
     [SerializeField] UICharacter uiCharacter;
     [SerializeField] UIGold uiGold;
     [SerializeField] Image bgCharacter, bgCharacterOutline, imgCharacter, imgQuantity;
-    [SerializeField] Text txtQuantity, txtCurLevel, txtClass, txtName;
+    [SerializeField] Text txtQuantity, txtCurLevel, txtClass, txtDisplayName;
     [SerializeField] Text txtStatsDamage, txtStatsAttackSpeed, txtStatsAttackRange, txtStatsMoveSpeed;
     [SerializeField] Image[] imgBgLevel, imgBgDescription;
     [SerializeField] Text[] txtDescriptionLevel, txtDescriptions;
@@ -59,7 +59,7 @@ public class UICharacterCardDataPopup : MonoBehaviour
         txtQuantity.text = curQuantity + "/" + requiredLevelUpQuantity;
         txtCurLevel.text = "Lv. " + level;
         //txtClass.text = 추후에 Class(병종)를 구현하면 할당하기 (***ItemClass(Tier)랑은 다른 개념임)
-        txtName.text = displayName;
+        txtDisplayName.text = displayName;
         txtGoldPrice.text = "2000";  //추후에 동적으로 증가율 설정해서 할당하기 ex) int.Parse(txtGoldPrice.text) * 2 또는 int.Parse(txtGoldPrice.text) * level
 
         SetSkillInfoButton(displayName);
@@ -103,19 +103,19 @@ public class UICharacterCardDataPopup : MonoBehaviour
         txtStatsMoveSpeed.text = characterInfo.moveSpeed.ToString();
     }
 
-    private void SetSkillInfoButton(string name)
+    private void SetSkillInfoButton(string displayName)
     {
         Dictionary<string, CharacterData> dicCharacterDatas = DataManager.GetInstance().GetCharacterData();
         Dictionary<string, CharacterSkillData> dicSkillDatas = DataManager.GetInstance().GetCharacterSkillData();
 
         List<CharacterSkillData> skillDatas = new List<CharacterSkillData>();
-        if (dicSkillDatas.ContainsKey(dicCharacterDatas[name].skill_1_name)) skillDatas.Add(dicSkillDatas[dicCharacterDatas[name].skill_1_name]);
-        if (dicSkillDatas.ContainsKey(dicCharacterDatas[name].skill_2_name)) skillDatas.Add(dicSkillDatas[dicCharacterDatas[name].skill_2_name]);
-        if (dicSkillDatas.ContainsKey(dicCharacterDatas[name].skill_3_name)) skillDatas.Add(dicSkillDatas[dicCharacterDatas[name].skill_3_name]);
+        if (dicSkillDatas.ContainsKey(dicCharacterDatas[displayName].skill_1_name)) skillDatas.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_1_name]);
+        if (dicSkillDatas.ContainsKey(dicCharacterDatas[displayName].skill_2_name)) skillDatas.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_2_name]);
+        if (dicSkillDatas.ContainsKey(dicCharacterDatas[displayName].skill_3_name)) skillDatas.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_3_name]);
 
         for (int i = 0; i < skillDatas.Count; i++) {
             btnSkillInfos[i].SetActive(true);
-            btnSkillInfos[i].GetComponent<UISkillInfo>().Set(skillDatas[i], dicCharacterDatas[name].damage.ToString());
+            btnSkillInfos[i].GetComponent<UISkillInfo>().Set(skillDatas[i], dicCharacterDatas[displayName].damage.ToString());
         }
     }
 

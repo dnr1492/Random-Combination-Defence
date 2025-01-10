@@ -15,9 +15,11 @@
 - Tag를 Enemy로
 - BoxCollider2D 추가 및 IsTrigger를 true로 설정
 
-●이름 (DisplayName)
+●캐릭터(Character) (변수명: DisplayName)
 
-●등급 (Tier - TierName, TierNum) / (서버 - ItemClass)
+●적(Enemy) (변수명: EnemyName)
+
+●등급 (변수명 (클라): TierName, TierNum) / (변수명 (서버): ItemClass)
 - 흔한 (Common, 흰색, 1) => 평타
 - 안흔한 (Uncommon, 파란색, 2) => 강한 평타
 - 희귀한 (Rare, 보라색, 3) => 패시브 스킬 1개
@@ -29,7 +31,7 @@
 ex)액티브류 - 주몽, 척준경, 이순신 같은 장수진들
 ex)패시브류 - 책사진들)
 
-●병종 (ClassType)
+●병종 (변수명: ClassType)
 - 검병 (깡공격력)
 - 창병 (스플래쉬)
 - 궁병 (사거리)
@@ -107,7 +109,6 @@ ex)패시브류 - 책사진들)
 ●리팩토링 목록
 - Awake() / Start() / Update() / OnEnable() / OnDisable() 체크
 - 변수명 통일시키기
-*이름 == DisplayName
 *등급 == TierNum(정수), TierName(문자열) ***서버의 경우 ItemClass***
 *병종 == ClassType
 - CharacterData 엑셀에 ClassType추가하기

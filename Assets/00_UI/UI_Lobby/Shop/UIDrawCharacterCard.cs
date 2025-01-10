@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIDrawCharacterCard : MonoBehaviour
 {
     [SerializeField] Image bg, bgOutline, imgCharacter;
-    [SerializeField] Text txtName, txtGainQuantity;
+    [SerializeField] Text txtDisplayName, txtGainQuantity;
 
     public void Init(string displayName, int cardCount, Sprite bg, Sprite bgOutline, Sprite imgCharacter)
     {
@@ -14,7 +14,7 @@ public class UIDrawCharacterCard : MonoBehaviour
         this.bgOutline.sprite = bgOutline;
         this.imgCharacter.sprite = imgCharacter;
 
-        txtName.text = displayName;
+        txtDisplayName.text = displayName;
         txtGainQuantity.text = cardCount.ToString();
     }
 }

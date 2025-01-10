@@ -5,7 +5,7 @@ using UnityEngine;
 [SerializeField]
 public class CharacterData
 {
-    public string name;
+    public string display_name;
     public float damage;
     public float attack_speed;
     public float attack_range;

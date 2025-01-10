@@ -4,7 +4,7 @@ using System.Data;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-public abstract class PlayerCombat : MonoBehaviour
+public abstract class CharacterCombat : MonoBehaviour
 {
     protected CharacterInfo curCharacterInfo;
     protected List<CharacterSkillData> characterSkillDatas;
@@ -79,7 +79,7 @@ public abstract class PlayerCombat : MonoBehaviour
             if (curEnemyHp <= 0) curTargetEnemy = null;
         }
 
-        DebugLogger.Log("이름 : " + curCharacterInfo.name
+        DebugLogger.Log("이름 : " + curCharacterInfo.displayName
             + "\n" + "데미지 : " + damage
             + "\n" + "공격속도 : " + attackSpeed);
 
@@ -89,9 +89,9 @@ public abstract class PlayerCombat : MonoBehaviour
     }
     #endregion
 
-    #region 플레이어의 공격 사거리 안에 있는지 확인
+    #region 캐릭터의 공격 사거리 안에 있는지 확인
     /// <summary>
-    /// 플레이어의 공격 사거리 안에 있는지 확인
+    /// 캐릭터의 공격 사거리 안에 있는지 확인
     /// </summary>
     /// <param name="target"></param>
     /// <returns></returns>
@@ -103,9 +103,9 @@ public abstract class PlayerCombat : MonoBehaviour
     }
     #endregion
 
-    #region 플레이어와 가장 가까운 적을 찾기
+    #region 캐릭터와 가장 가까운 적을 찾기
     /// <summary>
-    /// 플레이어와 가장 가까운 적을 찾기
+    /// 캐릭터와 가장 가까운 적을 찾기
     /// </summary>
     /// <returns></returns>
     private GameObject FindClosestEnemy()

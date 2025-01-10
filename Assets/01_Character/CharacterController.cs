@@ -5,12 +5,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
 
-public class PlayerController : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
-    private PlayerClickController playerClickController;
+    private CharacterClickController characterClickController;
     private CameraController cameraController;
     private CharacterInfo curCharacterInfo;
-    private Tilemap targetTilemap;
+    private Tilemap mainTilemap;
     private Vector3 movePos;
     private bool isSelected = false;
     private bool isWaited = false;
@@ -22,18 +22,18 @@ public class PlayerController : MonoBehaviour
     private const string IDLE = "Idle";
     private const string RUN = "Run";
 
-    public void Init(CameraController cameraController, Tilemap targetTilemap)
+    public void Init(CameraController cameraController, Tilemap mainTilemap)
     {
         this.cameraController = cameraController;
-        this.targetTilemap = targetTilemap;
+        this.mainTilemap = mainTilemap;
     }
 
-    public void InitClick(PlayerClickController playerClickController, UICharacterInfo uiCharacterInfo, UICharacterRecipe uiCharacterRecipe, bool isSelected)
+    public void InitClick(CharacterClickController characterClickController, UICharacterInfo uiCharacterInfo, UICharacterRecipe uiCharacterRecipe, bool isSelected)
     {
-        this.playerClickController = playerClickController;
+        this.characterClickController = characterClickController;
         this.isSelected = isSelected;
 
-        if (gameObject.activeSelf) StartCoroutine(WaitOneFrame());  //플레이어를 선택하자마자 움직이는 것을 방지
+        if (gameObject.activeSelf) StartCoroutine(WaitOneFrame());  //캐릭터를 선택하자마자 움직이는 것을 방지
 
         uiCharacterInfo.gameObject.SetActive(isSelected);
         uiCharacterRecipe.gameObject.SetActive(isSelected);
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.red;
             uiCharacterInfo.Init(curCharacterInfo);
-            uiCharacterRecipe.SetReferenceRecipe(playerClickController.GetSelectedPlayers()[0].name);
+            uiCharacterRecipe.SetReferenceRecipe(characterClickController.GetSelectedCharacters()[0].name);
         }
         else gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
@@ -67,8 +67,8 @@ public class PlayerController : MonoBehaviour
     private bool CheckTilemap()
     {
         Vector2 worldPosition = cameraController.mainCam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3Int gridPosition = targetTilemap.WorldToCell(worldPosition);
-        if (targetTilemap.HasTile(gridPosition)) return true;
+        Vector3Int gridPosition = mainTilemap.WorldToCell(worldPosition);
+        if (mainTilemap.HasTile(gridPosition)) return true;
         else return false;
     }
 
@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
             if (isArrived)
             {
                 DebugLogger.Log("이동 완료 후 자동으로 선택 해제");
-                playerClickController.CancelObject(gameObject);
+                characterClickController.CancelObject(gameObject);
                 stoppingDistance = 0;
                 yield break;
             }

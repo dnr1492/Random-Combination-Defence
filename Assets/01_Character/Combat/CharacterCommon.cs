@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerCommon : PlayerCombat
+public class CharacterCommon : CharacterCombat
 {
     protected override void AttackPassiveSkill_1(int index)
     {

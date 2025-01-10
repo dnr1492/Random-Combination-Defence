@@ -45,8 +45,8 @@ public class DataManager
         CharacterCardLevelInfoData[] arrCardLevelInfoData = JsonConvert.DeserializeObject<CharacterCardLevelInfoData[]>(json);
         foreach (CharacterCardLevelInfoData cardLevelInfoData in arrCardLevelInfoData)
         {
-            if (!dicCharacterCardLevelInfoDatas.ContainsKey(cardLevelInfoData.name)) {
-                dicCharacterCardLevelInfoDatas.Add(cardLevelInfoData.name, cardLevelInfoData);
+            if (!dicCharacterCardLevelInfoDatas.ContainsKey(cardLevelInfoData.display_name)) {
+                dicCharacterCardLevelInfoDatas.Add(cardLevelInfoData.display_name, cardLevelInfoData);
             }
         }
     }
@@ -58,8 +58,8 @@ public class DataManager
         CharacterData[] arrCharactersData = JsonConvert.DeserializeObject<CharacterData[]>(json);
         foreach (CharacterData charactersData in arrCharactersData)
         {
-            if (!dicCharacterDatas.ContainsKey(charactersData.name)) {
-                dicCharacterDatas.Add(charactersData.name, charactersData);
+            if (!dicCharacterDatas.ContainsKey(charactersData.display_name)) {
+                dicCharacterDatas.Add(charactersData.display_name, charactersData);
             }
         }
     }

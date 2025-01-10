@@ -15,7 +15,7 @@ public class InfoManager : MonoBehaviour
         return instance;
     }
 
-    public void SaveCharacterInfo(string name, int level)
+    public void SaveCharacterInfo(string displayName, int level)
     {
         var dicCharacterCardLevelInfoDatas = DataManager.GetInstance().GetCharacterCardLevelInfoData();
         var dicCharacterDatas = DataManager.GetInstance().GetCharacterData();
@@ -29,23 +29,23 @@ public class InfoManager : MonoBehaviour
         List<CharacterSkillData> skillDatas = new List<CharacterSkillData>();
 
         //1. 스킬 데이터 및 기본(Basic) 스킬 분류
-        if (dicSkillDatas.ContainsKey(dicCharacterDatas[name].skill_1_name)) {
-            skillDatas.Add(dicSkillDatas[dicCharacterDatas[name].skill_1_name]);
-            if (dicSkillDatas[dicCharacterDatas[name].skill_1_name].skill_basic) unlockSkills.Add(dicSkillDatas[dicCharacterDatas[name].skill_1_name].skill_basic);
+        if (dicSkillDatas.ContainsKey(dicCharacterDatas[displayName].skill_1_name)) {
+            skillDatas.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_1_name]);
+            if (dicSkillDatas[dicCharacterDatas[displayName].skill_1_name].skill_basic) unlockSkills.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_1_name].skill_basic);
         }
-        if (dicSkillDatas.ContainsKey(dicCharacterDatas[name].skill_2_name)) {
-            skillDatas.Add(dicSkillDatas[dicCharacterDatas[name].skill_2_name]);
-            if (dicSkillDatas[dicCharacterDatas[name].skill_2_name].skill_basic) unlockSkills.Add(dicSkillDatas[dicCharacterDatas[name].skill_2_name].skill_basic);
+        if (dicSkillDatas.ContainsKey(dicCharacterDatas[displayName].skill_2_name)) {
+            skillDatas.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_2_name]);
+            if (dicSkillDatas[dicCharacterDatas[displayName].skill_2_name].skill_basic) unlockSkills.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_2_name].skill_basic);
         }
-        if (dicSkillDatas.ContainsKey(dicCharacterDatas[name].skill_3_name)) {
-            skillDatas.Add(dicSkillDatas[dicCharacterDatas[name].skill_3_name]);
-            if (dicSkillDatas[dicCharacterDatas[name].skill_3_name].skill_basic) unlockSkills.Add(dicSkillDatas[dicCharacterDatas[name].skill_3_name].skill_basic);
+        if (dicSkillDatas.ContainsKey(dicCharacterDatas[displayName].skill_3_name)) {
+            skillDatas.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_3_name]);
+            if (dicSkillDatas[dicCharacterDatas[displayName].skill_3_name].skill_basic) unlockSkills.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_3_name].skill_basic);
         }
         
         //2. 해당 캐릭터 카드의 레벨 데이터 정리
         for (int i = 0; i < dicCharacterCardLevelInfoDatas.Count; i++)
         {
-            string key = name + (i + 2);  //키 예제) 주몽2, 주몽3 ...
+            string key = displayName + (i + 2);  //키 예제) 주몽2, 주몽3 ...
             if (!dicCharacterCardLevelInfoDatas.ContainsKey(key)) continue;
 
             if (level < i + 2) continue;
@@ -58,21 +58,21 @@ public class InfoManager : MonoBehaviour
 
         //3. 캐릭터 정보 저장
         SaveCharacterInfo(level, 
-            name,
-            dicCharacterDatas[name].damage + addDamage,
-            dicCharacterDatas[name].attack_speed + addAttackSpeed,
-            dicCharacterDatas[name].attack_range + addAttackRange,
-            dicCharacterDatas[name].move_speed + addMoveSpeed,
+            displayName,
+            dicCharacterDatas[displayName].damage + addDamage,
+            dicCharacterDatas[displayName].attack_speed + addAttackSpeed,
+            dicCharacterDatas[displayName].attack_range + addAttackRange,
+            dicCharacterDatas[displayName].move_speed + addMoveSpeed,
             skillDatas,
             unlockSkills
         );
     }
 
-    private void SaveCharacterInfo(int level, string name, float damage, float attackSpeed, float attackRange, float moveSpeed, List<CharacterSkillData> skillDatas, List<bool> unlockSkills)
+    private void SaveCharacterInfo(int level, string displayName, float damage, float attackSpeed, float attackRange, float moveSpeed, List<CharacterSkillData> skillDatas, List<bool> unlockSkills)
     {
-        string path = Application.persistentDataPath + "/" + name + "_info.json";
+        string path = Application.persistentDataPath + "/" + displayName + "_info.json";
 
-        CharacterInfo characterInfo = new CharacterInfo(level, name, damage, attackSpeed, attackRange, moveSpeed, skillDatas, unlockSkills);
+        CharacterInfo characterInfo = new CharacterInfo(level, displayName, damage, attackSpeed, attackRange, moveSpeed, skillDatas, unlockSkills);
         string characterJson = JsonConvert.SerializeObject(characterInfo);
 
         //UTF8로 암호화
@@ -80,15 +80,15 @@ public class InfoManager : MonoBehaviour
         string encodedJson = System.Convert.ToBase64String(bytes);
 
         File.WriteAllText(path, encodedJson);
-        DebugLogger.Log(Application.persistentDataPath + "\n" + name + " 정보 저장");
+        DebugLogger.Log(Application.persistentDataPath + "\n" + displayName + " 정보 저장");
     }
 
-    public CharacterInfo LoadCharacterInfo(string name)
+    public CharacterInfo LoadCharacterInfo(string displayName)
     {
-        int index = name.IndexOf("(Clone)");
-        if (index > 0) name = name.Substring(0, index);
+        int index = displayName.IndexOf("(Clone)");
+        if (index > 0) displayName = displayName.Substring(0, index);
 
-        string path = Application.persistentDataPath + "/" + name + "_info.json";
+        string path = Application.persistentDataPath + "/" + displayName + "_info.json";
 
         string characterJson = File.ReadAllText(path);
 

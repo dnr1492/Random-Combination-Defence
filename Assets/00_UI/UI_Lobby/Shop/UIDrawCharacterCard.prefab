@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 696244808887978006}
   - component: {fileID: 696244808887978007}
   m_Layer: 5
-  m_Name: txt_name
+  m_Name: txt_displayName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -369,7 +369,7 @@ MonoBehaviour:
   bg: {fileID: 696244808780747144}
   bgOutline: {fileID: 3869625579622137670}
   imgCharacter: {fileID: 4107977572975087414}
-  txtName: {fileID: 696244808887978007}
+  txtDisplayName: {fileID: 696244808887978007}
   txtGainQuantity: {fileID: 696244807199538343}
 --- !u!1 &6708898250859349223
 GameObject:

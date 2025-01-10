@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 109549415}
   - component: {fileID: 109549414}
   m_Layer: 0
-  m_Name: PlayerContainer
+  m_Name: CharacterContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 109549413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4c2ac36f4c01e14e8e69e50034fe705, type: 3}
+  m_Script: {fileID: 11500000, guid: feaaea5c3d353244ab47db4a9b0bcbc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetFindTile: {fileID: 11400000, guid: 9eb7e430546c1c846aebb97177633138, type: 2}
@@ -2079,8 +2079,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb45f06a25213ff448e7d968b64ee208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerGenerator: {fileID: 4326864797516581488}
-  playerClickController: {fileID: 4326864797334597463}
+  characterGenerator: {fileID: 4326864797516581488}
+  characterClickController: {fileID: 4326864797334597463}
   imgCharacters:
   - {fileID: 798175889}
   - {fileID: 1567260632}
@@ -2547,8 +2547,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb45f06a25213ff448e7d968b64ee208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerGenerator: {fileID: 4326864797516581488}
-  playerClickController: {fileID: 4326864797334597463}
+  characterGenerator: {fileID: 4326864797516581488}
+  characterClickController: {fileID: 4326864797334597463}
   imgCharacters:
   - {fileID: 918478868}
   - {fileID: 222997129}
@@ -3228,8 +3228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb45f06a25213ff448e7d968b64ee208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerGenerator: {fileID: 4326864797516581488}
-  playerClickController: {fileID: 4326864797334597463}
+  characterGenerator: {fileID: 4326864797516581488}
+  characterClickController: {fileID: 4326864797334597463}
   imgCharacters:
   - {fileID: 1821319213}
   - {fileID: 161784178}
@@ -23428,7 +23428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imgCharacter: {fileID: 3457793468322360496}
   txtLevel: {fileID: 3457793466847403673}
-  txtName: {fileID: 3457793468666783454}
+  txtDisplayName: {fileID: 3457793468666783454}
   txtDamage: {fileID: 3457793467310063005}
   txtAttackSpeed: {fileID: 3457793467857079446}
   txtAttackRange: {fileID: 3457793467372868788}
@@ -23982,7 +23982,7 @@ GameObject:
   - component: {fileID: 3457793468666783455}
   - component: {fileID: 3457793468666783454}
   m_Layer: 5
-  m_Name: txt_name
+  m_Name: txt_displayName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24041,7 +24041,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: name
+  m_Text: display name
 --- !u!222 &3457793468666783455
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24201,7 +24201,7 @@ GameObject:
   - component: {fileID: 3457793468754373907}
   - component: {fileID: 3457793468754373906}
   m_Layer: 5
-  m_Name: bg_name
+  m_Name: bg_displayName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24889,8 +24889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb45f06a25213ff448e7d968b64ee208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerGenerator: {fileID: 4326864797516581488}
-  playerClickController: {fileID: 4326864797334597463}
+  characterGenerator: {fileID: 4326864797516581488}
+  characterClickController: {fileID: 4326864797334597463}
   imgCharacters:
   - {fileID: 3917106179447354387}
   - {fileID: 3917106179865566914}
@@ -25744,9 +25744,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d700980f1835cde46aeb310356c1dcd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerClickController: {fileID: 4326864797334597463}
-  playerContainer: {fileID: 109549414}
-  playerGenerator: {fileID: 4326864797516581488}
+  characterClickController: {fileID: 4326864797334597463}
+  characterContainer: {fileID: 109549414}
+  characterGenerator: {fileID: 4326864797516581488}
   cameraController: {fileID: 4326864798265907466}
   btnGet: {fileID: 4326864796417597256}
   btnGetAll: {fileID: 4326864798281628740}
@@ -25846,9 +25846,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e1390b82563d84ea19029ca884efcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerClickController: {fileID: 4326864797334597463}
-  playerContainer: {fileID: 109549414}
-  playerGenerator: {fileID: 4326864797516581488}
+  characterClickController: {fileID: 4326864797334597463}
+  characterContainer: {fileID: 109549414}
+  characterGenerator: {fileID: 4326864797516581488}
   cameraController: {fileID: 4326864798265907466}
   btnAdd: {fileID: 4326864797425710015}
   btnMoveContainerScreen: {fileID: 4326864798246441389}
@@ -25963,7 +25963,7 @@ GameObject:
   - component: {fileID: 4326864797334597462}
   - component: {fileID: 4326864797334597463}
   m_Layer: 0
-  m_Name: PlayerClickController
+  m_Name: CharacterClickController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25993,7 +25993,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4326864797334597461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dd4f186bd816eb4eab7b75497304bc8, type: 3}
+  m_Script: {fileID: 11500000, guid: e4812758aa9c5c14dba4179ae6032d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   uiCharacterInfo: {fileID: 3457793468410449897}
@@ -26395,12 +26395,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4326864797516581503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 179f4f25642be804cb9dc093a66c0226, type: 3}
+  m_Script: {fileID: 11500000, guid: e299d214d3007f140a43aae1f58cc60e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   uiPlay: {fileID: 1134828071}
   cameraController: {fileID: 4326864798265907466}
-  targetTilemap: {fileID: 1686957594}
+  mainTilemap: {fileID: 1686957594}
   btnDraw: {fileID: 4326864798033486387}
   uiCharacterRecipe: {fileID: 727409152}
 --- !u!4 &4326864797516581489
@@ -26429,7 +26429,7 @@ GameObject:
   - component: {fileID: 4326864797516581489}
   - component: {fileID: 4326864797516581488}
   m_Layer: 0
-  m_Name: PlayerGenerator
+  m_Name: CharacterGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27185,7 +27185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCam: {fileID: 4326864796769224743}
   containerCam: {fileID: 4326864797502245247}
-  playerClickController: {fileID: 4326864797334597463}
+  characterClickController: {fileID: 4326864797334597463}
   containerTilemap: {fileID: 1634687150855477504}
 --- !u!4 &4326864798265907467
 Transform:

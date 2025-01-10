@@ -5,20 +5,20 @@ using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 using System.Linq;
 
-public class PlayerGenerator : MonoBehaviour
+public class CharacterGenerator : MonoBehaviour
 {
-    public static List<GameObject> ExistingPlayers { get => existingPlayers; private set => existingPlayers = value; }
-    private static List<GameObject> existingPlayers;  //존재하는 플레이어들
+    public static List<GameObject> ExistingCharacters { get => existingCharacters; private set => existingCharacters = value; }
+    private static List<GameObject> existingCharacters;  //존재하는 캐릭터들
 
-    private enum Rating { Common, Uncommon, Rare, Unique, Legendary }
+    private enum Tier { Common, Uncommon, Rare, Unique, Legendary }
 
     private Dictionary<int, PlayMapData> dicPlayMapDatas;
 
     [SerializeField] UIPlay uiPlay;
     [SerializeField] CameraController cameraController;
-    [SerializeField] Tilemap targetTilemap;
+    [SerializeField] Tilemap mainTilemap;
 
-    [Header("플레이어 랜덤 뽑기")]
+    [Header("캐릭터 랜덤 뽑기")]
     [SerializeField] Button btnDraw;
     private GameObject[] arrCommonRating, arrUncommonRating, arrRareRating, arrUniqueRating, arrLegendaryRating;
     private readonly int drawMinRatingPercentage = 0;
@@ -26,17 +26,17 @@ public class PlayerGenerator : MonoBehaviour
     private readonly int drawGold = -1;
     private readonly int drawPopulation = 5;
 
-    [Header("플레이어 위치 정렬")]
+    [Header("캐릭터 위치 정렬")]
     private readonly int originCount = 100;
     private int minusX = 0, minusY = 0, plusX = 0, plusY = 0;
 
-    [Header("플레이어 조합")]
+    [Header("캐릭터 조합")]
     [SerializeField] UICharacterRecipe uiCharacterRecipe;
-    private List<GameObject> playerCombinationGos = new List<GameObject>();
+    private List<GameObject> characterCombinationGos = new List<GameObject>();
 
     private void Awake()
     {
-        existingPlayers = new List<GameObject>();
+        existingCharacters = new List<GameObject>();
 
         dicPlayMapDatas = DataManager.GetInstance().GetPlayMapData();
 
@@ -45,20 +45,20 @@ public class PlayerGenerator : MonoBehaviour
 
     private void Start()
     {
-        arrCommonRating = Resources.LoadAll<GameObject>("PlayerPrefabs/0_Common");
-        arrUncommonRating = Resources.LoadAll<GameObject>("PlayerPrefabs/1_Uncommon");
-        arrRareRating = Resources.LoadAll<GameObject>("PlayerPrefabs/2_Rare");
-        arrUniqueRating = Resources.LoadAll<GameObject>("PlayerPrefabs/3_Unique");
-        arrLegendaryRating = Resources.LoadAll<GameObject>("PlayerPrefabs/4_Legendary");
+        arrCommonRating = Resources.LoadAll<GameObject>("CharacterPrefabs/0_Common");
+        arrUncommonRating = Resources.LoadAll<GameObject>("CharacterPrefabs/1_Uncommon");
+        arrRareRating = Resources.LoadAll<GameObject>("CharacterPrefabs/2_Rare");
+        arrUniqueRating = Resources.LoadAll<GameObject>("CharacterPrefabs/3_Unique");
+        arrLegendaryRating = Resources.LoadAll<GameObject>("CharacterPrefabs/4_Legendary");
 
-        playerCombinationGos.AddRange(arrCommonRating);
-        playerCombinationGos.AddRange(arrUncommonRating);
-        playerCombinationGos.AddRange(arrRareRating);
-        playerCombinationGos.AddRange(arrUniqueRating);
-        playerCombinationGos.AddRange(arrLegendaryRating);
+        characterCombinationGos.AddRange(arrCommonRating);
+        characterCombinationGos.AddRange(arrUncommonRating);
+        characterCombinationGos.AddRange(arrRareRating);
+        characterCombinationGos.AddRange(arrUniqueRating);
+        characterCombinationGos.AddRange(arrLegendaryRating);
     }
 
-    #region 플레이어 랜덤 뽑기
+    #region 캐릭터 랜덤 뽑기
     public void DrawRandom()
     {
         if (CanDraw()) {
@@ -68,78 +68,78 @@ public class PlayerGenerator : MonoBehaviour
         else return;
 
         GameObject target;
-        Rating curRating;
+        Tier curRating;
         int randomNnumber = Random.Range(drawMinRatingPercentage, drawMaxRatingPercentage);
         if (randomNnumber >= 0 && randomNnumber < 800)
         {
-            curRating = Rating.Common;
+            curRating = Tier.Common;
             DebugLogger.Log("80% 확률로 Common을 뽑았습니다.");
         }
         else if (randomNnumber >= 800 && randomNnumber < 900)
         {
-            curRating = Rating.Uncommon;
+            curRating = Tier.Uncommon;
             DebugLogger.Log("10% 확률로 Uncommon을 뽑았습니다.");
         }
         else if (randomNnumber >= 900 && randomNnumber <= 980)
         {
-            curRating = Rating.Rare;
+            curRating = Tier.Rare;
             DebugLogger.Log("2% 확률로 Rare를 뽑았습니다.");
         }
         else if (randomNnumber >= 980 && randomNnumber <= 995)
         {
-            curRating = Rating.Unique;
+            curRating = Tier.Unique;
             DebugLogger.Log("1.5% 확률로 Unique를 뽑았습니다.");
         }
         else
         {
-            curRating = Rating.Legendary;
+            curRating = Tier.Legendary;
             DebugLogger.Log("0.5% 확률로 Legendary를 뽑았습니다.");
         }
 
         int drawIndex;
-        if (curRating == Rating.Common)
+        if (curRating == Tier.Common)
         {
             drawIndex = Random.Range(0, arrCommonRating.Length);
             target = Instantiate(arrCommonRating[drawIndex]);
             target.name = Rename(target.name);
-            existingPlayers.Add(target);
+            existingCharacters.Add(target);
         }
-        else if (curRating == Rating.Uncommon)
+        else if (curRating == Tier.Uncommon)
         {
             drawIndex = Random.Range(0, arrUncommonRating.Length);
             target = Instantiate(arrUncommonRating[drawIndex]);
             target.name = Rename(target.name);
-            existingPlayers.Add(target);
+            existingCharacters.Add(target);
         }
-        else if (curRating == Rating.Rare)
+        else if (curRating == Tier.Rare)
         {
             drawIndex = Random.Range(0, arrRareRating.Length);
             target = Instantiate(arrRareRating[drawIndex]);
             target.name = Rename(target.name);
-            existingPlayers.Add(target);
+            existingCharacters.Add(target);
         }
-        else if (curRating == Rating.Unique)
+        else if (curRating == Tier.Unique)
         {
             drawIndex = Random.Range(0, arrUniqueRating.Length);
             target = Instantiate(arrUniqueRating[drawIndex]);
             target.name = Rename(target.name);
-            existingPlayers.Add(target);
+            existingCharacters.Add(target);
         }
         else /*if (curRating == Rating.Legendary)*/
         {
             drawIndex = Random.Range(0, arrLegendaryRating.Length);
             target = Instantiate(arrLegendaryRating[drawIndex]);
             target.name = Rename(target.name);
-            existingPlayers.Add(target);
+            existingCharacters.Add(target);
         }
 
         if (target == null) return;
-        else target.GetComponent<PlayerController>().Init(cameraController, targetTilemap);
+        else target.GetComponent<CharacterController>().Init(cameraController, mainTilemap);
         Sort(target);
     }
     #endregion
 
-    #region 플레이어 위치 정렬
+    #region 캐릭터 위치 정렬
     public void Sort(GameObject target)
     {
         for (int i = 0; i < originCount; i++)
@@ -166,7 +166,7 @@ public class PlayerGenerator : MonoBehaviour
     }
     #endregion
 
-    #region 플레이어 조합
+    #region 캐릭터 조합
     public void Combine(List<Image> imgCharacters, string resultName)
     {
         DeleteRecipeIngredient(imgCharacters, resultName);
@@ -177,21 +177,21 @@ public class PlayerGenerator : MonoBehaviour
         //Result 제외
         var temp = imgCharacters.Take(imgCharacters.Count - 1).ToList();
        
-        List<string> characterNames = temp
+        List<string> characterDisplayNames = temp
             .Where(c => c.gameObject.activeSelf)
             .Select(c => c.sprite.name)
             .ToList();
 
-        for (int i = existingPlayers.Count - 1; i >= 0; i--)
+        for (int i = existingCharacters.Count - 1; i >= 0; i--)
         {
-            var player = existingPlayers[i];
-            for (int j = 0; j < characterNames.Count; j++)
+            var character = existingCharacters[i];
+            for (int j = 0; j < characterDisplayNames.Count; j++)
             {
-                if (player.name == characterNames[j])
+                if (character.name == characterDisplayNames[j])
                 {
-                    characterNames.RemoveAt(j);
-                    existingPlayers.RemoveAt(i);
-                    Destroy(player);
+                    characterDisplayNames.RemoveAt(j);
+                    existingCharacters.RemoveAt(i);
+                    Destroy(character);
                     break;
                 }
             }
@@ -202,12 +202,12 @@ public class PlayerGenerator : MonoBehaviour
 
     private void CreateRecipeResult(string resultName)
     {
-        foreach (GameObject playerCombinationPool in playerCombinationGos) {
-            if (playerCombinationPool.name == resultName) {
-                GameObject resultGo = Instantiate(playerCombinationPool);
+        foreach (GameObject characterCombinationPool in characterCombinationGos) {
+            if (characterCombinationPool.name == resultName) {
+                GameObject resultGo = Instantiate(characterCombinationPool);
                 resultGo.name = Rename(resultGo.name);
-                resultGo.GetComponent<PlayerController>().Init(cameraController, targetTilemap);
-                existingPlayers.Add(resultGo);
+                resultGo.GetComponent<CharacterController>().Init(cameraController, mainTilemap);
+                existingCharacters.Add(resultGo);
                 Sort(resultGo);
                 uiCharacterRecipe.gameObject.SetActive(false);
                 return;

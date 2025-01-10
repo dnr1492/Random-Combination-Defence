@@ -7,7 +7,7 @@ using UnityEngine.Tilemaps;
 public class CameraController : MonoBehaviour
 {
     public Camera mainCam, containerCam;
-    [SerializeField] PlayerClickController playerClickController;
+    [SerializeField] CharacterClickController characterClickController;
     [SerializeField] Tilemap /*mainTilemap,*/ containerTilemap;
 
     private void Awake()
@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        if (playerClickController.GetSelectedPlayers().Count == 0) UpdatePanningSetting();
+        if (characterClickController.GetSelectedCharacters().Count == 0) UpdatePanningSetting();
     }
 
     private void AdjustCameraSize(Tilemap tilemap, Camera cam)

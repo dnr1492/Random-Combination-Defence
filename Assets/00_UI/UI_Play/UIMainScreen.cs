@@ -5,24 +5,24 @@ using UnityEngine.UI;
 
 public class UIMainScreen : MonoBehaviour
 {
-    [SerializeField] PlayerClickController playerClickController;
-    [SerializeField] PlayerContainer playerContainer;
-    [SerializeField] PlayerGenerator playerGenerator;
+    [SerializeField] CharacterClickController characterClickController;
+    [SerializeField] CharacterContainer characterContainer;
+    [SerializeField] CharacterGenerator characterGenerator;
     [SerializeField] CameraController cameraController;
 
     [SerializeField] Button btnAdd, btnMoveContainerScreen;
 
     private void Awake()
     {
-        var selectedPlayers = playerClickController.GetSelectedPlayers();
+        var selectedCharacters = characterClickController.GetSelectedCharacters();
 
         btnAdd.onClick.AddListener(() => {    
-            for (int i = 0; i < selectedPlayers.Count; i++) {
-                var player = selectedPlayers[i].GetComponent<PlayerController>();
-                playerContainer.Add(player);
-                DebugLogger.Log(player.name + "이(가) 보관소로 이동했습니다.");
+            for (int i = 0; i < selectedCharacters.Count; i++) {
+                var character = selectedCharacters[i].GetComponent<CharacterController>();
+                characterContainer.Add(character);
+                DebugLogger.Log(character.name + "이(가) 보관소로 이동했습니다.");
             }
-            playerClickController.CancelObjects();
+            characterClickController.CancelObjects();
         });
 
         btnMoveContainerScreen.onClick.AddListener(() => {

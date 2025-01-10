@@ -5,34 +5,34 @@ using UnityEngine.UI;
 
 public class UIContainerScreen : MonoBehaviour
 {
-    [SerializeField] PlayerClickController playerClickController;
-    [SerializeField] PlayerContainer playerContainer;
-    [SerializeField] PlayerGenerator playerGenerator;
+    [SerializeField] CharacterClickController characterClickController;
+    [SerializeField] CharacterContainer characterContainer;
+    [SerializeField] CharacterGenerator characterGenerator;
     [SerializeField] CameraController cameraController;
 
     [SerializeField] Button btnGet, btnGetAll, btnDelete, btnMovePlayScreen;
 
     private void Awake()
     {
-        var selectedPlayers = playerClickController.GetSelectedPlayers();
+        var selectedCharacters = characterClickController.GetSelectedCharacters();
 
         btnGet.onClick.AddListener(() => {
-            var player = playerContainer.Get(selectedPlayers[0].name, ReturnDeckPosition);
-            playerClickController.CancelObject(player.gameObject);
-            DebugLogger.Log(player.name + "를 보관소에서 가져왔습니다.");
+            var character = characterContainer.Get(selectedCharacters[0].name, ReturnDeckPosition);
+            characterClickController.CancelObject(character.gameObject);
+            DebugLogger.Log(character.name + "를 보관소에서 가져왔습니다.");
         });
 
         btnGetAll.onClick.AddListener(() => {
-            var players = playerContainer.GetAll(selectedPlayers[0].name, ReturnDeckPosition);
-            playerClickController.CancelObjects();
-            DebugLogger.Log(players[0].name + "의 개체군을 보관소에서 모두 가져왔습니다.");
+            var characters = characterContainer.GetAll(selectedCharacters[0].name, ReturnDeckPosition);
+            characterClickController.CancelObjects();
+            DebugLogger.Log(characters[0].name + "의 개체군을 보관소에서 모두 가져왔습니다.");
         });
 
         btnDelete.onClick.AddListener(() => {
-            var player = selectedPlayers[0].GetComponent<PlayerController>();
-            playerClickController.CancelObject(player.gameObject);
-            playerContainer.Delete(player.name);
-            DebugLogger.Log(player.name + "이(가) 보관소에서 삭제됐습니다.");
+            var character = selectedCharacters[0].GetComponent<CharacterController>();
+            characterClickController.CancelObject(character.gameObject);
+            characterContainer.Delete(character.name);
+            DebugLogger.Log(character.name + "이(가) 보관소에서 삭제됐습니다.");
         });
 
         btnMovePlayScreen.onClick.AddListener(() => {
@@ -41,8 +41,8 @@ public class UIContainerScreen : MonoBehaviour
         });
     }
 
-    private void ReturnDeckPosition(GameObject player)
+    private void ReturnDeckPosition(GameObject character)
     {
-        playerGenerator.Sort(player);
+        characterGenerator.Sort(character);
     }
 }

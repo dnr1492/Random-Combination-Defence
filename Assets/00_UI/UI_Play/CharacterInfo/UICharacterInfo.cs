@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UICharacterInfo : MonoBehaviour
 {
     [SerializeField] Image imgCharacter;
-    [SerializeField] Text txtLevel, txtName, txtDamage, txtAttackSpeed, txtAttackRange, txtMoveSpeed, txtSkillName, txtSkillDescription;
+    [SerializeField] Text txtLevel, txtDisplayName, txtDamage, txtAttackSpeed, txtAttackRange, txtMoveSpeed, txtSkillName, txtSkillDescription;
 
     private enum SelectSkill { One, Two, Three, Four, Five, Six, Seven }
     private SelectSkill curSelectSkill;
@@ -27,7 +27,7 @@ public class UICharacterInfo : MonoBehaviour
         gameObject.SetActive(true);
 
         txtLevel.text = "Lv. " + characterInfo.level.ToString();
-        txtName.text = characterInfo.name;
+        txtDisplayName.text = characterInfo.displayName;
         txtDamage.text = characterInfo.damage.ToString();
         txtAttackSpeed.text = characterInfo.attackSpeed.ToString();
         txtAttackRange.text = characterInfo.attackRange.ToString();

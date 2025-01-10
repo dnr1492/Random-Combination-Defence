@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DebugLogger
 {
-     static DebugLogger()
+    static DebugLogger()
     {
 #if UNITY_EDITOR
         Debug.unityLogger.logEnabled = true;

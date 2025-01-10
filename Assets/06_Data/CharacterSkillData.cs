@@ -6,7 +6,7 @@ using UnityEngine;
 public class CharacterSkillData
 {
     public string skill_name;
-    public string character_name;
+    public string character_displayName;
     public string skill_description;
     public string skill_image_path;
     public string skill_damage;

@@ -87,10 +87,10 @@ public class EnemyGenerator : MonoBehaviour
         isSpawning = false;
     }
 
-    private GameObject GetEnemyByName(string name)
+    private GameObject GetEnemyByName(string enemyName)
     {
         for (int i = 0; i < arrEnemyPrefab.Length; i++) {
-            if (arrEnemyPrefab[i].name == name) return arrEnemyPrefab[i];
+            if (arrEnemyPrefab[i].name == enemyName) return arrEnemyPrefab[i];
         }
         return null;
     }

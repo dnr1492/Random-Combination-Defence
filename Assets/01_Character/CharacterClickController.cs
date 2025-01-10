@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlayerClickController : MonoBehaviour
+public class CharacterClickController : MonoBehaviour
 {
     [SerializeField] UICharacterInfo uiCharacterInfo;
     [SerializeField] UICharacterRecipe uiCharacterRecipe;
     [SerializeField] CameraController cameraController;
     private Camera curCam;
-    private List<GameObject> selectedPlayers = new List<GameObject>();  //선택한 플레이어들
-    private const string TAG_PLAYER = "Player";
+    private List<GameObject> selectedCharacters = new List<GameObject>();  //선택한 캐릭터들
+    private const string TAG_CHARACTER = "Character";
 
     private bool isOneClick = false;
     private float doubleClickSecond = 0.25f;
     private double timer = 0;
-    private string selectedName;
+    private string selectedDisplayName;
 
-    public List<GameObject> GetSelectedPlayers() => selectedPlayers;
+    public List<GameObject> GetSelectedCharacters() => selectedCharacters;
 
     private void Update()
     {
@@ -60,7 +60,7 @@ public class PlayerClickController : MonoBehaviour
                 GameObject clickObj = ClickObject();
                 if (clickObj == null) return;
 
-                if (selectedName != clickObj.name)
+                if (selectedDisplayName != clickObj.name)
                 {
                     DebugLogger.Log("One Click Object != Double Click Object");
                     SelectSingle(clickObj);
@@ -84,7 +84,7 @@ public class PlayerClickController : MonoBehaviour
         Vector3 worldPos = curCam.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(worldPos, curCam.transform.forward, Mathf.Infinity);
 
-        if (hit.collider == null || !hit.collider.CompareTag(TAG_PLAYER)) return null;
+        if (hit.collider == null || !hit.collider.CompareTag(TAG_CHARACTER)) return null;
         GameObject target = hit.collider.gameObject;
         return target;
     }
@@ -97,10 +97,10 @@ public class PlayerClickController : MonoBehaviour
     {
         CancelObjects();
 
-        selectedName = clickObj.name;
-        selectedPlayers.Add(clickObj);
-        clickObj.GetComponent<PlayerController>().InitClick(this, uiCharacterInfo, uiCharacterRecipe, true);
-        DebugLogger.Log("이름이 " + selectedName + "인 개체군 단일 선택");
+        selectedDisplayName = clickObj.name;
+        selectedCharacters.Add(clickObj);
+        clickObj.GetComponent<CharacterController>().InitClick(this, uiCharacterInfo, uiCharacterRecipe, true);
+        DebugLogger.Log("이름이 " + selectedDisplayName + "인 개체군 단일 선택");
     }
 
     /// <summary>
@@ -111,17 +111,17 @@ public class PlayerClickController : MonoBehaviour
     {
         CancelObjects();
 
-        string name = clickObj.name;
-        List<GameObject> players = PlayerGenerator.ExistingPlayers;
-        for (int i = 0; i < players.Count; i++)
+        string displayName = clickObj.name;
+        List<GameObject> characters = CharacterGenerator.ExistingCharacters;
+        for (int i = 0; i < characters.Count; i++)
         {
-            if (players[i].name == name)
+            if (characters[i].name == displayName)
             {
-                PlayerController playerController = players[i].GetComponent<PlayerController>();
-                if (playerController.CheckMoving()) continue;  //이동 중인 플레이어는 선택 대상에서 제외
-                selectedPlayers.Add(players[i]);
-                playerController.InitClick(this, uiCharacterInfo, uiCharacterRecipe, true);
-                DebugLogger.Log("이름이 " + name + "인 개체군 전체 선택");
+                CharacterController characterController = characters[i].GetComponent<CharacterController>();
+                if (characterController.CheckMoving()) continue;  //이동 중인 캐릭터는 선택 대상에서 제외
+                selectedCharacters.Add(characters[i]);
+                characterController.InitClick(this, uiCharacterInfo, uiCharacterRecipe, true);
+                DebugLogger.Log("이름이 " + displayName + "인 개체군 전체 선택");
             }
         }
     }
@@ -132,15 +132,15 @@ public class PlayerClickController : MonoBehaviour
     /// <param name="cancelObj"></param>
     public void CancelObject(GameObject cancelObj)
     {
-        for (int i = 0; i < selectedPlayers.Count; i++)
+        for (int i = 0; i < selectedCharacters.Count; i++)
         {
-            if (selectedPlayers[i] == cancelObj)
+            if (selectedCharacters[i] == cancelObj)
             {
-                selectedPlayers[i].GetComponent<PlayerController>().InitClick(this, uiCharacterInfo, uiCharacterRecipe, false);
-                selectedPlayers.Remove(selectedPlayers[i]);
+                selectedCharacters[i].GetComponent<CharacterController>().InitClick(this, uiCharacterInfo, uiCharacterRecipe, false);
+                selectedCharacters.Remove(selectedCharacters[i]);
             }
         }
-        selectedName = null;
+        selectedDisplayName = null;
     }
 
     /// <summary>
@@ -148,8 +148,8 @@ public class PlayerClickController : MonoBehaviour
     /// </summary>
     public void CancelObjects()
     {
-        for (int i = 0; i < selectedPlayers.Count; i++) selectedPlayers[i].GetComponent<PlayerController>().InitClick(this, uiCharacterInfo, uiCharacterRecipe, false);
-        selectedPlayers.RemoveRange(0, selectedPlayers.Count);
-        selectedName = null;
+        for (int i = 0; i < selectedCharacters.Count; i++) selectedCharacters[i].GetComponent<CharacterController>().InitClick(this, uiCharacterInfo, uiCharacterRecipe, false);
+        selectedCharacters.RemoveRange(0, selectedCharacters.Count);
+        selectedDisplayName = null;
     }
 }

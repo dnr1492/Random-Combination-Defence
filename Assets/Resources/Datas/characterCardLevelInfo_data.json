@@ -1,101 +1,101 @@
 [
   {
-    "name": "주몽2",
+    "display_name": "주몽2",
     "increase": 5,
     "description": "공격력을 {0}만큼 증가시킵니다."
   },
   {
-    "name": "주몽3",
+    "display_name": "주몽3",
     "increase": 2,
     "description": "공격속도를 {0}만큼 증가시킵니다."
   },
   {
-    "name": "주몽4",
+    "display_name": "주몽4",
     "increase": 0,
     "description": "~ 스킬을 획득합니다."
   },
   {
-    "name": "주몽5",
+    "display_name": "주몽5",
     "increase": 10,
     "description": "이동속도를 {0}만큼 증가시킵니다."
   },
   {
-    "name": "주몽6",
+    "display_name": "주몽6",
     "increase": 0,
     "description": " ~ 스킬을 획득합니다."
   },
   {
-    "name": "주몽7",
+    "display_name": "주몽7",
     "increase": 5,
     "description": "공격력을 {0}만큼 증가시킵니다."
   },
   {
-    "name": "주몽8",
+    "display_name": "주몽8",
     "increase": 5,
     "description": "공격력을 {0}만큼 증가시킵니다."
   },
   {
-    "name": "주몽9",
+    "display_name": "주몽9",
     "increase": 10,
     "description": "공격력을 {0}만큼 증가시킵니다."
   },
   {
-    "name": "주몽10",
+    "display_name": "주몽10",
     "increase": 2,
     "description": "공격속도를 {0}만큼 증가시킵니다."
   },
   {
-    "name": "주몽11",
+    "display_name": "주몽11",
     "increase": 10,
     "description": "이동속도를 {0}만큼 증가시킵니다."
   },
   {
-    "name": "흔한2",
+    "display_name": "흔한2",
     "increase": 5,
     "description": "공격력을 {0}만큼 증가시킵니다."
   },
   {
-    "name": "흔한3",
+    "display_name": "흔한3",
     "increase": 2,
     "description": "공격속도를 {0}만큼 증가시킵니다."
   },
   {
-    "name": "흔한4",
+    "display_name": "흔한4",
     "increase": 0,
     "description": "~ 스킬을 획득합니다."
   },
   {
-    "name": "흔한5",
+    "display_name": "흔한5",
     "increase": 10,
     "description": "이동속도를 {0}만큼 증가시킵니다."
   },
   {
-    "name": "흔한6",
+    "display_name": "흔한6",
     "increase": 0,
     "description": " ~ 스킬을 획득합니다."
   },
   {
-    "name": "흔한7",
+    "display_name": "흔한7",
     "increase": 5,
     "description": "공격력을 {0}만큼 증가시킵니다."
   },
   {
-    "name": "흔한8",
+    "display_name": "흔한8",
     "increase": 5,
     "description": "공격력을 {0}만큼 증가시킵니다."
   },
   {
-    "name": "흔한9",
+    "display_name": "흔한9",
     "increase": 10,
     "description": "공격력을 {0}만큼 증가시킵니다."
   },
   {
-    "name": "흔한10",
+    "display_name": "흔한10",
     "increase": 2,
     "description": "공격속도를 {0}만큼 증가시킵니다."
   },
   {
-    "name": "흔한11",
+    "display_name": "흔한11",
     "increase": 10,
     "description": "이동속도를 {0}만큼 증가시킵니다."
   }

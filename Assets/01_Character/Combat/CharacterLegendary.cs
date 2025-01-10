@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerLegendary : PlayerCombat
+public class CharacterLegendary : CharacterCombat
 {
     protected override void AttackPassiveSkill_1(int index)
     {

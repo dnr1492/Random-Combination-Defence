@@ -10,7 +10,7 @@ public class PlayFabManager : MonoBehaviour
 {
     public static PlayFabManager instance = null;
 
-    public enum Characters { 주몽, 이순신, 흔한, 안흔한, 희귀한, 유일한 }
+    public enum CharacterDisplayName { 주몽, 이순신, 흔한, 안흔한, 희귀한, 유일한 }
     public enum CharacterTier { None, 흔한, 안흔한, 희귀한, 유일한, 전설적인 }
 
     private void Awake()
@@ -355,17 +355,17 @@ public class PlayFabManager : MonoBehaviour
                 var characterDatas = new List<RandomCharacter.CharacterData>();
                 foreach (var catalogItem in result.Catalog)
                 {
-                    if (catalogItem.DisplayName == Characters.주몽.ToString())
+                    if (catalogItem.DisplayName == CharacterDisplayName.주몽.ToString())
                         characterDatas.Add(new RandomCharacter.CharacterData(weightLegendaryJumong, catalogItem.DisplayName, catalogItem.ItemId));
-                    else if (catalogItem.DisplayName == Characters.이순신.ToString())
+                    else if (catalogItem.DisplayName == CharacterDisplayName.이순신.ToString())
                         characterDatas.Add(new RandomCharacter.CharacterData(weightLegendaryAdmiralYi, catalogItem.DisplayName, catalogItem.ItemId));
-                    else if (catalogItem.DisplayName == Characters.유일한.ToString())
+                    else if (catalogItem.DisplayName == CharacterDisplayName.유일한.ToString())
                         characterDatas.Add(new RandomCharacter.CharacterData(weightUniqueCharacter, catalogItem.DisplayName, catalogItem.ItemId));
-                    else if (catalogItem.DisplayName == Characters.희귀한.ToString())
+                    else if (catalogItem.DisplayName == CharacterDisplayName.희귀한.ToString())
                         characterDatas.Add(new RandomCharacter.CharacterData(weightRareCharacter, catalogItem.DisplayName, catalogItem.ItemId));
-                    else if (catalogItem.DisplayName == Characters.안흔한.ToString())
+                    else if (catalogItem.DisplayName == CharacterDisplayName.안흔한.ToString())
                         characterDatas.Add(new RandomCharacter.CharacterData(weightUncommonCharacter, catalogItem.DisplayName, catalogItem.ItemId));
-                    else if (catalogItem.DisplayName == Characters.흔한.ToString())
+                    else if (catalogItem.DisplayName == CharacterDisplayName.흔한.ToString())
                         characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId));
                 }
                 tcs.SetResult(characterDatas);
@@ -431,7 +431,7 @@ public class PlayFabManager : MonoBehaviour
     #endregion
     #endregion
 
-    #region 신규 플레이어 데이터 설정
+    #region 신규 캐릭터 데이터 설정
     public void InitUserData(string catalogVersion) => GetCatalogItems(catalogVersion);
 
     private void GetCatalogItems(string catalogVersion)
@@ -456,9 +456,9 @@ public class PlayFabManager : MonoBehaviour
         PlayFabClientAPI.GetUserData(new GetUserDataRequest() { PlayFabId = curPlayfabId },
         result =>
         {
-            for (int i = 0; i < Enum.GetNames(typeof(Characters)).Length; i++)
+            for (int i = 0; i < Enum.GetNames(typeof(CharacterDisplayName)).Length; i++)
             {
-                if (result.Data.ContainsKey(Enum.GetNames(typeof(Characters))[i]))
+                if (result.Data.ContainsKey(Enum.GetNames(typeof(CharacterDisplayName))[i]))
                 {
                     InitCharacterLevelData(displayNames[i], int.Parse(result.Data[displayNames[i]].Value));
                     continue;
