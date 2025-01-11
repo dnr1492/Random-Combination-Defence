@@ -108,7 +108,4 @@ ex)패시브류 - 책사진들)
 
 ●리팩토링 목록
 - Awake() / Start() / Update() / OnEnable() / OnDisable() 체크
-- 변수명 통일시키기
-*병종 == ClassType
-- CharacterData 엑셀에 ClassType추가하기
 - UICharacterDataPopup에 병종 UI 추가하기
