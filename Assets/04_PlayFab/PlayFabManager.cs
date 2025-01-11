@@ -117,13 +117,13 @@ public class PlayFabManager : MonoBehaviour
     public struct DrawCharacterData
     {
         public string displayName;
-        public string itemClass;
+        public string tierName;
         public int cardCount;
 
-        public DrawCharacterData(string displayName, string itemClass, int cardCount)
+        public DrawCharacterData(string displayName, string tierName, int cardCount)
         {
             this.displayName = displayName;
-            this.itemClass = itemClass;
+            this.tierName = tierName;
             this.cardCount = cardCount;
         }
     }
@@ -416,7 +416,7 @@ public class PlayFabManager : MonoBehaviour
                     var existingData = dicDrawCharacterData[drawCharacterData.displayName];
                     dicDrawCharacterData[drawCharacterData.displayName] = new DrawCharacterData(
                         existingData.displayName,
-                        existingData.itemClass,
+                        existingData.tierName,
                         existingData.cardCount + 1
                     );
                 }
@@ -641,7 +641,7 @@ public class PlayFabManager : MonoBehaviour
         int[] values = dicAllCharacterDatas[displayName];
         int level = values[0];  
         int remainingUses = values[1];
-        int tier = values[2];
+        int tierNum = values[2];
         DebugLogger.Log("현재 선택된 캐릭터" + "\n 키 : " + displayName + "\n 레벨 : " + values[0] + "\n 카드 보유량 : " + values[1] + "\n 티어 : " + values[2]);
 
         //유저 인벤토리 병렬로 가져오기
@@ -684,7 +684,7 @@ public class PlayFabManager : MonoBehaviour
             }
         }
 
-        GetUserData(displayName, level, remainingUses, tier);
+        GetUserData(displayName, level, remainingUses, tierNum);
         DisplayGameResources(uiGold, subtractVirtualCurrencyName);
     }
 
@@ -699,32 +699,32 @@ public class PlayFabManager : MonoBehaviour
         (error) => { DebugLogger.Log("소모성 아이템 사용 실패"); });
     }
 
-    private void GetUserData(string displayName, int level, int remainingUses, int tier)
+    private void GetUserData(string displayName, int level, int remainingUses, int tierNum)
     {
         PlayFabClientAPI.GetUserData(new GetUserDataRequest() { PlayFabId = curPlayfabId },
         result =>
         {
             if (result.Data.ContainsKey(displayName))
             {
-                SaveCharacterLevelData(displayName, remainingUses, tier);
+                SaveCharacterLevelData(displayName, remainingUses, tierNum);
                 UpdateUserData(displayName, level);
             }
         },
         error => DebugLogger.Log("유저 데이터 불러오기 실패"));
     }
 
-    private void SaveCharacterLevelData(string displayName, int remainingUses, int tier)
+    private void SaveCharacterLevelData(string displayName, int remainingUses, int tierNum)
     {
         if (dicCharacterLevelDatas.ContainsKey(displayName))
         {
             dicCharacterLevelDatas[displayName] += 1;
-            dicAllCharacterDatas[displayName] = new int[] { dicCharacterLevelDatas[displayName], remainingUses, tier };
+            dicAllCharacterDatas[displayName] = new int[] { dicCharacterLevelDatas[displayName], remainingUses, tierNum };
         }
         else return;
 
         DisplayCharacterCard(uiCharacter);
 
-        int levelUpRemainingUses = DataManager.GetInstance().GetCharacterCardLevelQuentityData(dicCharacterLevelDatas[displayName], tier);
+        int levelUpRemainingUses = DataManager.GetInstance().GetCharacterCardLevelQuentityData(dicCharacterLevelDatas[displayName], tierNum);
         uiCharacterCardDataPopup.Open(dicCharacterLevelDatas[displayName].ToString(), displayName, remainingUses, levelUpRemainingUses);
     }
     #endregion

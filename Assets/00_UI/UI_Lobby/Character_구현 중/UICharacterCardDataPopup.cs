@@ -48,7 +48,7 @@ public class UICharacterCardDataPopup : MonoBehaviour
         var characterData = DataManager.GetInstance().GetCharacterData();
         string tierName = null;
         foreach (PlayFabManager.CharacterTier tier in Enum.GetValues(typeof(PlayFabManager.CharacterTier))) {
-            if ((int)tier == characterData[displayName].tier) tierName = tier.ToString();
+            if ((int)tier == characterData[displayName].tier_num) tierName = tier.ToString();
         }
         int level = int.Parse(curLevel);
 
@@ -86,7 +86,7 @@ public class UICharacterCardDataPopup : MonoBehaviour
             txtDescriptions[i].text = string.Format(dicCharacterCardLevelInfoDatas[key].description, dicCharacterCardLevelInfoDatas[key].increase);
         }
 
-        int levelUpRemainingUses = DataManager.GetInstance().GetCharacterCardLevelQuentityData(level, characterData[displayName].tier);
+        int levelUpRemainingUses = DataManager.GetInstance().GetCharacterCardLevelQuentityData(level, characterData[displayName].tier_num);
         if (IsMaxLevel(levelUpRemainingUses)) btnUpgrade.interactable = false;
         else btnUpgrade.interactable = true;
         btnUpgrade.onClick.RemoveAllListeners();
@@ -143,7 +143,7 @@ public class UICharacterCardDataPopup : MonoBehaviour
             return true;
         }
         else {
-            DebugLogger.Log("레벨업 요구량 : " + levelUpRemainingUses);
+            DebugLogger.Log("카드 레벨업 요구량 : " + levelUpRemainingUses);
             return false;
         }
     }

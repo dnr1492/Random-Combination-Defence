@@ -49,8 +49,8 @@ public class SpriteManager
 
     public Sprite GetSprite(SpriteType spriteType, string str)
     {
-        if (spriteType == SpriteType.Bg) return bgSprites[str];  //ItemClass, TierName으로 찾기
-        else if (spriteType == SpriteType.BgOutline) return bgOutlineSprites[str];  //ItemClass, TierName으로 찾기
+        if (spriteType == SpriteType.Bg) return bgSprites[str];  //TierName, ItemClass로 찾기
+        else if (spriteType == SpriteType.BgOutline) return bgOutlineSprites[str];  //TierName, ItemClass로 찾기
         else if (spriteType == SpriteType.ImgCharacter) return imgCharacterSprites[str];  //DisplayName으로 찾기
         else return null;
     }

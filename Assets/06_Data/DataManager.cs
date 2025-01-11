@@ -152,15 +152,15 @@ public class DataManager
 
     public Dictionary<string, PlayEnemyData> GetPlayEnemyData() => dicPlayEnemyDatas;
 
-    public int GetCharacterCardLevelQuentityData(int level, int tier)
+    public int GetCharacterCardLevelQuentityData(int level, int tierNum)
     {
         if (dicCharacterCardLevelDatas.ContainsKey(level))
         {
-            if (tier == 1) return dicCharacterCardLevelDatas[level].quentity_tier_1;
-            else if (tier == 2) return dicCharacterCardLevelDatas[level].quentity_tier_2;
-            else if (tier == 3) return dicCharacterCardLevelDatas[level].quentity_tier_3;
-            else if (tier == 4) return dicCharacterCardLevelDatas[level].quentity_tier_4;
-            else if (tier == 5) return dicCharacterCardLevelDatas[level].quentity_tier_5;
+            if (tierNum == 1) return dicCharacterCardLevelDatas[level].quentity_tier_1;
+            else if (tierNum == 2) return dicCharacterCardLevelDatas[level].quentity_tier_2;
+            else if (tierNum == 3) return dicCharacterCardLevelDatas[level].quentity_tier_3;
+            else if (tierNum == 4) return dicCharacterCardLevelDatas[level].quentity_tier_4;
+            else if (tierNum == 5) return dicCharacterCardLevelDatas[level].quentity_tier_5;
             else return 0;
         }
         else return 0;

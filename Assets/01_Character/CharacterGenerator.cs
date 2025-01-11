@@ -10,7 +10,7 @@ public class CharacterGenerator : MonoBehaviour
     public static List<GameObject> ExistingCharacters { get => existingCharacters; private set => existingCharacters = value; }
     private static List<GameObject> existingCharacters;  //Á¸ÀçÇÏ´Â Ä³¸¯ÅÍµé
 
-    private enum Tier { Common, Uncommon, Rare, Unique, Legendary }
+    //private enum Tier { Common, Uncommon, Rare, Unique, Legendary }
 
     private Dictionary<int, PlayMapData> dicPlayMapDatas;
 
@@ -68,64 +68,64 @@ public class CharacterGenerator : MonoBehaviour
         else return;
 
         GameObject target;
-        Tier curRating;
+        PlayFabManager.CharacterTier tier;
         int randomNnumber = Random.Range(drawMinRatingPercentage, drawMaxRatingPercentage);
         if (randomNnumber >= 0 && randomNnumber < 800)
         {
-            curRating = Tier.Common;
-            DebugLogger.Log("80% È®·ü·Î CommonÀ» »Ì¾Ò½À´Ï´Ù.");
+            tier = PlayFabManager.CharacterTier.ÈçÇÑ;
+            DebugLogger.Log("80% È®·ü·Î ÈçÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
         }
         else if (randomNnumber >= 800 && randomNnumber < 900)
         {
-            curRating = Tier.Uncommon;
-            DebugLogger.Log("10% È®·ü·Î UncommonÀ» »Ì¾Ò½À´Ï´Ù.");
+            tier = PlayFabManager.CharacterTier.¾ÈÈçÇÑ;
+            DebugLogger.Log("10% È®·ü·Î ¾ÈÈçÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
         }
         else if (randomNnumber >= 900 && randomNnumber <= 980)
         {
-            curRating = Tier.Rare;
-            DebugLogger.Log("2% È®·ü·Î Rare¸¦ »Ì¾Ò½À´Ï´Ù.");
+            tier = PlayFabManager.CharacterTier.Èñ±ÍÇÑ;
+            DebugLogger.Log("2% È®·ü·Î Èñ±ÍÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
         }
         else if (randomNnumber >= 980 && randomNnumber <= 995)
         {
-            curRating = Tier.Unique;
-            DebugLogger.Log("1.5% È®·ü·Î Unique¸¦ »Ì¾Ò½À´Ï´Ù.");
+            tier = PlayFabManager.CharacterTier.À¯ÀÏÇÑ;
+            DebugLogger.Log("1.5% È®·ü·Î À¯ÀÏÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
         }
         else
         {
-            curRating = Tier.Legendary;
-            DebugLogger.Log("0.5% È®·ü·Î Legendary¸¦ »Ì¾Ò½À´Ï´Ù.");
+            tier = PlayFabManager.CharacterTier.Àü¼³ÀûÀÎ;
+            DebugLogger.Log("0.5% È®·ü·Î Àü¼³ÀûÀÎ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
         }
 
         int drawIndex;
-        if (curRating == Tier.Common)
+        if (tier == PlayFabManager.CharacterTier.ÈçÇÑ)
         {
             drawIndex = Random.Range(0, arrCommonRating.Length);
             target = Instantiate(arrCommonRating[drawIndex]);
             target.name = Rename(target.name);
             existingCharacters.Add(target);
         }
-        else if (curRating == Tier.Uncommon)
+        else if (tier == PlayFabManager.CharacterTier.¾ÈÈçÇÑ)
         {
             drawIndex = Random.Range(0, arrUncommonRating.Length);
             target = Instantiate(arrUncommonRating[drawIndex]);
             target.name = Rename(target.name);
             existingCharacters.Add(target);
         }
-        else if (curRating == Tier.Rare)
+        else if (tier == PlayFabManager.CharacterTier.Èñ±ÍÇÑ)
         {
             drawIndex = Random.Range(0, arrRareRating.Length);
             target = Instantiate(arrRareRating[drawIndex]);
             target.name = Rename(target.name);
             existingCharacters.Add(target);
         }
-        else if (curRating == Tier.Unique)
+        else if (tier == PlayFabManager.CharacterTier.À¯ÀÏÇÑ)
         {
             drawIndex = Random.Range(0, arrUniqueRating.Length);
             target = Instantiate(arrUniqueRating[drawIndex]);
             target.name = Rename(target.name);
             existingCharacters.Add(target);
         }
-        else /*if (curRating == Rating.Legendary)*/
+        else /*if (tier == PlayFabManager.CharacterTier.Àü¼³ÀûÀÎ)*/
         {
             drawIndex = Random.Range(0, arrLegendaryRating.Length);
             target = Instantiate(arrLegendaryRating[drawIndex]);
