@@ -307,6 +307,7 @@ MonoBehaviour:
   targetFindTile: {fileID: 11400000, guid: 9eb7e430546c1c846aebb97177633138, type: 2}
   containerTilemap: {fileID: 1634687150855477504}
   containerTileTransformPrefab: {fileID: 7259450743956367097, guid: eab87105599767f468c9175a87e63307, type: 3}
+  uiPlay: {fileID: 1134828071}
 --- !u!4 &109549415
 Transform:
   m_ObjectHideFlags: 0
@@ -551,6 +552,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193442423}
   m_CullTransparentMesh: 1
+--- !u!1 &195344673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 195344674}
+  m_Layer: 0
+  m_Name: enemyParant
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &195344674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195344673}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4326864798078191323}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &197097161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,6 +1138,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388182990}
   m_CullTransparentMesh: 1
+--- !u!1 &485863283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 485863284}
+  m_Layer: 0
+  m_Name: characterParant
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &485863284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485863283}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4326864798078191323}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &536823329
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,7 +2099,7 @@ GameObject:
   - component: {fileID: 934735738}
   - component: {fileID: 934735737}
   m_Layer: 5
-  m_Name: RecipeList_4
+  m_Name: UIRecipeList_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2081,6 +2144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterGenerator: {fileID: 4326864797516581488}
   characterClickController: {fileID: 4326864797334597463}
+  uiPlay: {fileID: 1134828071}
   imgCharacters:
   - {fileID: 798175889}
   - {fileID: 1567260632}
@@ -2504,7 +2568,7 @@ GameObject:
   - component: {fileID: 1150418929}
   - component: {fileID: 1150418928}
   m_Layer: 5
-  m_Name: RecipeList_2
+  m_Name: UIRecipeList_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2549,6 +2613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterGenerator: {fileID: 4326864797516581488}
   characterClickController: {fileID: 4326864797334597463}
+  uiPlay: {fileID: 1134828071}
   imgCharacters:
   - {fileID: 918478868}
   - {fileID: 222997129}
@@ -3124,10 +3189,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4326864797334597462}
-  - {fileID: 4326864797726636724}
-  - {fileID: 4326864798265907467}
   - {fileID: 4326864797516581489}
+  - {fileID: 4326864797726636724}
+  - {fileID: 4326864797334597462}
+  - {fileID: 4326864798265907467}
   - {fileID: 109549415}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -3221,7 +3286,7 @@ GameObject:
   - component: {fileID: 1679968761}
   - component: {fileID: 1679968760}
   m_Layer: 5
-  m_Name: RecipeList_3
+  m_Name: UIRecipeList_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3266,6 +3331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterGenerator: {fileID: 4326864797516581488}
   characterClickController: {fileID: 4326864797334597463}
+  uiPlay: {fileID: 1134828071}
   imgCharacters:
   - {fileID: 1821319213}
   - {fileID: 161784178}
@@ -24927,6 +24993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterGenerator: {fileID: 4326864797516581488}
   characterClickController: {fileID: 4326864797334597463}
+  uiPlay: {fileID: 1134828071}
   imgCharacters:
   - {fileID: 3917106179447354387}
   - {fileID: 3917106179865566914}
@@ -24972,7 +25039,7 @@ GameObject:
   - component: {fileID: 3917106181339073920}
   - component: {fileID: 3917106181339073914}
   m_Layer: 5
-  m_Name: RecipeList_1
+  m_Name: UIRecipeList_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25735,7 +25802,7 @@ Canvas:
   m_GameObject: {fileID: 4326864797193270120}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -25837,7 +25904,7 @@ Canvas:
   m_GameObject: {fileID: 4326864797194471215}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -26018,7 +26085,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1630954630}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4326864797334597463
 MonoBehaviour:
@@ -26437,6 +26504,7 @@ MonoBehaviour:
   uiPlay: {fileID: 1134828071}
   cameraController: {fileID: 4326864798265907466}
   mainTilemap: {fileID: 1686957594}
+  characterParant: {fileID: 485863284}
   btnDraw: {fileID: 4326864798033486387}
   uiCharacterRecipe: {fileID: 727409152}
 --- !u!4 &4326864797516581489
@@ -26452,7 +26520,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1630954630}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4326864797516581503
 GameObject:
@@ -26623,6 +26691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiPlay: {fileID: 1134828071}
+  enemyParant: {fileID: 195344674}
 --- !u!4 &4326864797726636724
 Transform:
   m_ObjectHideFlags: 0
@@ -26928,6 +26997,8 @@ Transform:
   m_Children:
   - {fileID: 4326864797194471203}
   - {fileID: 4326864797193270124}
+  - {fileID: 485863284}
+  - {fileID: 195344674}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27236,7 +27307,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1630954630}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4326864798281628738
 GameObject:

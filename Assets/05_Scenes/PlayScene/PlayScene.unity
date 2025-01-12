@@ -426,9 +426,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e1390b82563d84ea19029ca884efcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerClickController: {fileID: 2015518479}
-  playerContainer: {fileID: 182989216}
-  playerGenerator: {fileID: 1937340968}
+  characterClickController: {fileID: 0}
+  characterContainer: {fileID: 0}
+  characterGenerator: {fileID: 0}
   cameraController: {fileID: 1202661714}
   btnAdd: {fileID: 1976861671}
   btnMoveContainerScreen: {fileID: 1190666741}
@@ -546,9 +546,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d700980f1835cde46aeb310356c1dcd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerClickController: {fileID: 2015518479}
-  playerContainer: {fileID: 182989216}
-  playerGenerator: {fileID: 1937340968}
+  characterClickController: {fileID: 0}
+  characterContainer: {fileID: 0}
+  characterGenerator: {fileID: 0}
   cameraController: {fileID: 1202661714}
   btnGet: {fileID: 838479632}
   btnGetAll: {fileID: 1087425564}
@@ -8802,8 +8802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCam: {fileID: 519420031}
   containerCam: {fileID: 1915009319}
-  playerClickController: {fileID: 2015518479}
-  mainTilemap: {fileID: 1134769758}
+  characterClickController: {fileID: 0}
   containerTilemap: {fileID: 2028473437}
 --- !u!4 &1202661715
 Transform:
@@ -9682,6 +9681,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59176019156ab6842b542f561ea4ec2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiPlay: {fileID: 0}
+  enemyParant: {fileID: 0}
 --- !u!4 &1740917484
 Transform:
   m_ObjectHideFlags: 0
@@ -15650,7 +15651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imgCharacter: {fileID: 1956547997}
   txtLevel: {fileID: 76894759}
-  txtName: {fileID: 294714273}
+  txtDisplayName: {fileID: 0}
   txtDamage: {fileID: 1532123399}
   txtAttackSpeed: {fileID: 1042673929}
   txtAttackRange: {fileID: 1315311850}

@@ -17,6 +17,7 @@ public class CharacterGenerator : MonoBehaviour
     [SerializeField] UIPlay uiPlay;
     [SerializeField] CameraController cameraController;
     [SerializeField] Tilemap mainTilemap;
+    [SerializeField] Transform characterParant;
 
     [Header("Ä³¸¯ÅÍ ·£´ý »Ì±â")]
     [SerializeField] Button btnDraw;
@@ -24,7 +25,6 @@ public class CharacterGenerator : MonoBehaviour
     private readonly int drawMinRatingPercentage = 0;
     private readonly int drawMaxRatingPercentage = 1000;
     private readonly int drawGold = -1;
-    private readonly int drawPopulation = 5;
 
     [Header("Ä³¸¯ÅÍ À§Ä¡ Á¤·Ä")]
     private readonly int originCount = 100;
@@ -63,7 +63,7 @@ public class CharacterGenerator : MonoBehaviour
     {
         if (CanDraw()) {
             uiPlay.SetUI_Gold(drawGold);
-            uiPlay.SetUI_Population(drawPopulation);
+            uiPlay.SetUI_Population(true);
         }
         else return;
 
@@ -100,35 +100,35 @@ public class CharacterGenerator : MonoBehaviour
         if (tier == PlayFabManager.CharacterTier.ÈçÇÑ)
         {
             drawIndex = Random.Range(0, arrCommonRating.Length);
-            target = Instantiate(arrCommonRating[drawIndex]);
+            target = Instantiate(arrCommonRating[drawIndex], characterParant);
             target.name = Rename(target.name);
             existingCharacters.Add(target);
         }
         else if (tier == PlayFabManager.CharacterTier.¾ÈÈçÇÑ)
         {
             drawIndex = Random.Range(0, arrUncommonRating.Length);
-            target = Instantiate(arrUncommonRating[drawIndex]);
+            target = Instantiate(arrUncommonRating[drawIndex], characterParant);
             target.name = Rename(target.name);
             existingCharacters.Add(target);
         }
         else if (tier == PlayFabManager.CharacterTier.Èñ±ÍÇÑ)
         {
             drawIndex = Random.Range(0, arrRareRating.Length);
-            target = Instantiate(arrRareRating[drawIndex]);
+            target = Instantiate(arrRareRating[drawIndex], characterParant);
             target.name = Rename(target.name);
             existingCharacters.Add(target);
         }
         else if (tier == PlayFabManager.CharacterTier.À¯ÀÏÇÑ)
         {
             drawIndex = Random.Range(0, arrUniqueRating.Length);
-            target = Instantiate(arrUniqueRating[drawIndex]);
+            target = Instantiate(arrUniqueRating[drawIndex], characterParant);
             target.name = Rename(target.name);
             existingCharacters.Add(target);
         }
         else /*if (tier == PlayFabManager.CharacterTier.Àü¼³ÀûÀÎ)*/
         {
             drawIndex = Random.Range(0, arrLegendaryRating.Length);
-            target = Instantiate(arrLegendaryRating[drawIndex]);
+            target = Instantiate(arrLegendaryRating[drawIndex], characterParant);
             target.name = Rename(target.name);
             existingCharacters.Add(target);
         }

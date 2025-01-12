@@ -2,10 +2,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RecipeList : MonoBehaviour
+public class UIRecipeList : MonoBehaviour
 {
     [SerializeField] CharacterGenerator characterGenerator;
     [SerializeField] CharacterClickController characterClickController;
+    [SerializeField] UIPlay uiPlay;
     [SerializeField] List<Image> imgCharacters = new List<Image>();  //Result Æ÷ÇÔ
     private Color highlightsColor = new Color(1, 1, 1, 1);
     private Color noneColor = new Color(1, 1, 1, 0.2f);
@@ -21,6 +22,7 @@ public class RecipeList : MonoBehaviour
             characterClickController.CancelObjects();
             string resultName = btnCombine.GetComponent<Image>().sprite.name;
             characterGenerator.Combine(imgCharacters, resultName);
+            uiPlay.SetUI_Population(false);
         });
     }
 

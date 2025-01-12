@@ -108,4 +108,3 @@ ex)패시브류 - 책사진들)
 
 ●리팩토링 목록
 - Awake() / Start() / Update() / OnEnable() / OnDisable() 체크
-- UICharacterDataPopup에 병종 UI 추가하기

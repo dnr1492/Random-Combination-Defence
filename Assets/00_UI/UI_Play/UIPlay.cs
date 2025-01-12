@@ -37,7 +37,7 @@ public class UIPlay : MonoBehaviour
     {
         SetUI_Gold(0);
         SetUI_DarkGold(0);
-        SetUI_Population(0);
+        SetUI_Population(true, true);
     }
 
     public void SetUI_Wave(int curWave)
@@ -68,9 +68,13 @@ public class UIPlay : MonoBehaviour
         txtDarkGold.text = curDarkGold.ToString();
     }
 
-    public void SetUI_Population(int population)
+    public void SetUI_Population(bool isIncrease, bool isInit = false)
     {
-        curPopulation += population;
+        if (!isInit) {
+            if (isIncrease) curPopulation++;
+            else curPopulation--;
+        }
+
         txtPopulation.text = string.Format(strPopulation, curPopulation, dicPlayMapDatas[GetCurMapId].maximum_population);
     }
 

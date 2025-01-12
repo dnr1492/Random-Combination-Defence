@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class UICharacterRecipe : MonoBehaviour
 {
-    private RecipeList[] arrRecipeList;
+    private UIRecipeList[] arrRecipeList;
 
     private void Awake()
     {
-        arrRecipeList = GetComponentsInChildren<RecipeList>();
+        arrRecipeList = GetComponentsInChildren<UIRecipeList>();
     }
 
     public void SetReferenceRecipe(string displayName)
@@ -23,7 +23,6 @@ public class UICharacterRecipe : MonoBehaviour
             return;
         }
 
-        var dicCharacterDatas = DataManager.GetInstance().GetCharacterData();
         for (int i = 0; i < characterRecipeData[displayName].Count; i++)
         {
             List<Sprite> characterSprites = new List<Sprite>();

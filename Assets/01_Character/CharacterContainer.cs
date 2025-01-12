@@ -18,6 +18,9 @@ public class CharacterContainer : MonoBehaviour
     private List<CharacterController> characters = new List<CharacterController>();
     private Dictionary<string, Transform> dicContainerTrs = new Dictionary<string, Transform>();
 
+    [Header("UI")]
+    [SerializeField] UIPlay uiPlay;
+
     private void Start()
     {
         FindTilePositions();
@@ -123,6 +126,7 @@ public class CharacterContainer : MonoBehaviour
         if (foundCharacter == null) DebugLogger.Log($"Character display name {displayName} not found.");
         DecreaseContainerCharacter(foundCharacter, DeleteCharacter);
         characters.Remove(foundCharacter);
+        uiPlay.SetUI_Population(false);
     }
 
     private void DeleteCharacter(GameObject characterGo)
@@ -168,5 +172,11 @@ public class CharacterContainer : MonoBehaviour
     private void SetScale(CharacterController character, Vector3 setScale)
     {
         character.transform.localScale = setScale;
+    }
+
+    private string Rename(string name)
+    {
+        name = name.Split("(")[0];
+        return name;
     }
 }

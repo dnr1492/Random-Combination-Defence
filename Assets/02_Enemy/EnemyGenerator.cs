@@ -9,6 +9,7 @@ public class EnemyGenerator : MonoBehaviour
     private static List<GameObject> existingEnemys;  //존재하는 적들
 
     [SerializeField] UIPlay uiPlay;
+    [SerializeField] Transform enemyParant;
 
     private Dictionary<string, PlayEnemyData> dicPlayEnemyDatas;
     private Dictionary<int, PlayWaveData> dicPlayWaveDatas;
@@ -72,7 +73,7 @@ public class EnemyGenerator : MonoBehaviour
     {
         for (int i = 0; i < dicPlayWaveDatas[curWaveIndex].wave_enemy_count; i++)
         {
-            GameObject go = Instantiate(GetEnemyByName(dicPlayWaveDatas[curWaveIndex].wave_enemy_name), Waypoint.waypoints[0].position, Waypoint.waypoints[0].rotation);
+            GameObject go = Instantiate(GetEnemyByName(dicPlayWaveDatas[curWaveIndex].wave_enemy_name), Waypoint.waypoints[0].position, Waypoint.waypoints[0].rotation, enemyParant);
             go.name = Rename(go.name);
             go.GetComponent<EnemyController>().Init(uiPlay, dicPlayEnemyDatas[go.name].enemy_hp, dicPlayEnemyDatas[go.name].enemy_speed, dicPlayEnemyDatas[go.name].drop_gold, dicPlayEnemyDatas[go.name].drop_dark_gold);
             existingEnemys.Add(go);

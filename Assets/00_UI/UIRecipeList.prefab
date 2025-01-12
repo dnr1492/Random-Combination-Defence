@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1726992582602171826}
   - component: {fileID: 1726992582602171720}
   m_Layer: 5
-  m_Name: RecipeList
+  m_Name: UIRecipeList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,12 +96,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb45f06a25213ff448e7d968b64ee208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characters:
-  - {fileID: 1726992583898242087}
-  - {fileID: 1726992584348317430}
-  - {fileID: 1726992582995236263}
-  - {fileID: 1726992583506192665}
-  - {fileID: 2426272294099754747}
+  characterGenerator: {fileID: 0}
+  characterClickController: {fileID: 0}
+  uiPlay: {fileID: 0}
+  imgCharacters:
+  - {fileID: 1726992583898242081}
+  - {fileID: 1726992584348317424}
+  - {fileID: 1726992582995236257}
+  - {fileID: 1726992583506192667}
+  - {fileID: 2426272294099754745}
 --- !u!1 &1726992582640585270
 GameObject:
   m_ObjectHideFlags: 0
