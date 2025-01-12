@@ -10,12 +10,13 @@ public class UIMainScreen : MonoBehaviour
     [SerializeField] CharacterGenerator characterGenerator;
     [SerializeField] CameraController cameraController;
 
-    [SerializeField] Button btnAdd, btnMoveContainerScreen;
+    [SerializeField] Button btnDraw, btnAdd, btnMoveContainer;
 
     private void Awake()
     {
-        var selectedCharacters = characterClickController.GetSelectedCharacters();
+        btnDraw.onClick.AddListener(characterGenerator.DrawRandom);
 
+        var selectedCharacters = characterClickController.GetSelectedCharacters();
         btnAdd.onClick.AddListener(() => {    
             for (int i = 0; i < selectedCharacters.Count; i++) {
                 var character = selectedCharacters[i].GetComponent<CharacterController>();
@@ -25,7 +26,7 @@ public class UIMainScreen : MonoBehaviour
             characterClickController.CancelObjects();
         });
 
-        btnMoveContainerScreen.onClick.AddListener(() => {
+        btnMoveContainer.onClick.AddListener(() => {
             cameraController.OnContainerCamera();
             UIScreenController.OnContainerScreen();
         });

@@ -10,8 +10,6 @@ public class CharacterGenerator : MonoBehaviour
     public static List<GameObject> ExistingCharacters { get => existingCharacters; private set => existingCharacters = value; }
     private static List<GameObject> existingCharacters;  //존재하는 캐릭터들
 
-    //private enum Tier { Common, Uncommon, Rare, Unique, Legendary }
-
     private Dictionary<int, PlayMapData> dicPlayMapDatas;
 
     [SerializeField] UIPlay uiPlay;
@@ -39,8 +37,6 @@ public class CharacterGenerator : MonoBehaviour
         existingCharacters = new List<GameObject>();
 
         dicPlayMapDatas = DataManager.GetInstance().GetPlayMapData();
-
-        btnDraw.onClick.AddListener(DrawRandom);
     }
 
     private void Start()

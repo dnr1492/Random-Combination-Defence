@@ -47,7 +47,7 @@ public abstract class CharacterCombat : MonoBehaviour
             totalDamage = curCharacterInfo.damage;
             totalAttackDelay = curCharacterInfo.attackSpeed;
 
-            for (int i = /*characterSkillDatas.Count*/ curCharacterInfo.unlockSkills.Count - 1; i >= 0; i--)
+            for (int i = curCharacterInfo.unlockSkills.Count - 1; i >= 0; i--)
             {
                 if (Random.Range(0, 100f) <= characterSkillDatas[i].skill_triggerChance)
                 {

@@ -10,7 +10,7 @@ public class UIScreenController : MonoBehaviour
     private void Awake()
     {
         mainScreen = gameObject.transform.Find("UIMainScreen").GetComponent<UIMainScreen>();
-        containerScreen = gameObject.transform.Find("UIContainerScreen").GetComponent<UIContainerScreen>();
+        containerScreen = gameObject.transform.Find("UIContainerScreen_UI리소스 적용 전").GetComponent<UIContainerScreen>();
 
         containerScreen.gameObject.SetActive(false);
     }
