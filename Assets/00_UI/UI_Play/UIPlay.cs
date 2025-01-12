@@ -9,23 +9,23 @@ public class UIPlay : MonoBehaviour
     private Dictionary<int, PlayMapData> dicPlayMapDatas;
     
     [SerializeField] Text txtWave, txtWaveTimer, txtEnemyCount;
-    [SerializeField] Text txtGold, txtDarkGold, txtPopulation;
+    [SerializeField] Text txtGold, txtDiamond, txtPopulation;
     [SerializeField] GameObject gameOverPrefab;
 
-    private readonly string strWave = "{0} Wave";
+    private readonly string strWave = "Wave {0} / {1}";
     private readonly string strWaveTimer = "Next Wave : {0} Second";
     private readonly string strWaveSpawning = "적 생성 중";
-    private readonly string strEnemyCount = "{0} <- 패배 \n Enemy Count : {1}";
-    private readonly string strPopulation = "{0}/{1}";
+    private readonly string strEnemyCount = "Enemy Count : {0} / {1}";
+    private readonly string strPopulation = "{0} / {1}";
 
     private int curEnemyCount = 0;
     private int curGold = 5;
-    private int curDarkGold = 0;
+    private int curDiamond = 0;
     private int curPopulation = 0;
 
     public int GetCurMapId { get; private set; } = 10000;
     public int GetCurGold { get => curGold; private set => curGold = value; }
-    public int GetCurDarkGold { get => curDarkGold; private set => curDarkGold = value; }
+    public int GetCurDiamond { get => curDiamond; private set => curDiamond = value; }
     public int GetCurPopulation { get => curPopulation; private set => curPopulation = value; }
 
     private void Awake()
@@ -36,14 +36,14 @@ public class UIPlay : MonoBehaviour
     private void Start()
     {
         SetUI_Gold(0);
-        SetUI_DarkGold(0);
+        SetUI_Diamond(0);
         SetUI_Population(true, true);
     }
 
     public void SetUI_Wave(int curWave)
     {
         if (curWave == 0) txtWave.text = "시작";
-        else txtWave.text = string.Format(strWave, curWave);
+        else txtWave.text = string.Format(strWave, curWave, dicPlayMapDatas[GetCurMapId].maximum_wave);
     }
 
     public void SetUI_WaveTimer(int curWaveTimer) => txtWaveTimer.text = string.Format(strWaveTimer, curWaveTimer);
@@ -53,7 +53,7 @@ public class UIPlay : MonoBehaviour
     public void SetUI_EnemyCount(int enemyCount)
     {
         curEnemyCount += enemyCount;
-        txtEnemyCount.text = string.Format(strEnemyCount, dicPlayMapDatas[GetCurMapId].maximum_enemy_count, curEnemyCount);
+        txtEnemyCount.text = string.Format(strEnemyCount, curEnemyCount, dicPlayMapDatas[GetCurMapId].maximum_enemy_count);
     }
 
     public void SetUI_Gold(int gold)
@@ -62,10 +62,10 @@ public class UIPlay : MonoBehaviour
         txtGold.text = curGold.ToString();
     }
 
-    public void SetUI_DarkGold(int darkGold)
+    public void SetUI_Diamond(int diamond)
     {
-        curDarkGold += darkGold;
-        txtDarkGold.text = curDarkGold.ToString();
+        curDiamond += diamond;
+        txtDiamond.text = curDiamond.ToString();
     }
 
     public void SetUI_Population(bool isIncrease, bool isInit = false)
