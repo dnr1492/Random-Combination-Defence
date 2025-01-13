@@ -208,7 +208,7 @@ public class CharacterGenerator : MonoBehaviour
     {
         foreach (GameObject characterCombinationPool in characterCombinationGos) {
             if (characterCombinationPool.name == resultName) {
-                GameObject resultGo = Instantiate(characterCombinationPool);
+                GameObject resultGo = Instantiate(characterCombinationPool, characterParant);
                 resultGo.name = Rename(resultGo.name);
                 resultGo.GetComponent<CharacterController>().Init(cameraController, mainTilemap);
                 existingCharacters.Add(resultGo);

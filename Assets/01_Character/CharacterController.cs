@@ -10,6 +10,7 @@ public class CharacterController : MonoBehaviour
     private CameraController cameraController;
     private CharacterInfo curCharacterInfo;
     private GameObject selectingGo;
+    private RectTransform uiAttackRangeRt;
     private Tilemap mainTilemap;
     private Vector3 movePos;
     private bool isSelected = false;
@@ -43,8 +44,13 @@ public class CharacterController : MonoBehaviour
             uiCharacterInfo.Init(curCharacterInfo);
             uiCharacterRecipe.SetReferenceRecipe(characterClickController.GetSelectedCharacters()[0].name);
             Select(isSelected);
+            ShowAttackRangeUI(isSelected);
         }
-        else Select(isSelected);
+        else
+        {
+            Select(isSelected);
+            ShowAttackRangeUI(isSelected);
+        }
     }
 
     private void Awake()
@@ -53,6 +59,9 @@ public class CharacterController : MonoBehaviour
 
         selectingGo = transform.Find("Selecting").gameObject;
         Select(isSelected);
+
+        uiAttackRangeRt = transform.Find("AttackRange").GetComponent<RectTransform>();
+        ShowAttackRangeUI(isSelected);
 
         movePos = transform.position;
         //animator = GetComponent<Animator>();
@@ -148,4 +157,14 @@ public class CharacterController : MonoBehaviour
     /// </summary>
     /// <param name="isActive"></param>
     private void Select(bool isActive) => selectingGo.SetActive(isActive);
+
+    /// <summary>
+    /// 공격 범위를 UI로 표시
+    /// </summary>
+    /// <param name="isActive"></param>
+    private void ShowAttackRangeUI(bool isActive)
+    {
+        uiAttackRangeRt.gameObject.SetActive(isActive);
+        uiAttackRangeRt.sizeDelta = new Vector3(curCharacterInfo.attackRange * 2, curCharacterInfo.attackRange * 2, 1);
+    }
 }
