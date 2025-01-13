@@ -172,11 +172,19 @@ public class CharacterGenerator : MonoBehaviour
     {
         //Result 제외
         var temp = imgCharacters.Take(imgCharacters.Count - 1).ToList();
-       
+
+        //1. 가독성 중시
         List<string> characterDisplayNames = temp
             .Where(c => c.gameObject.activeSelf)
             .Select(c => c.sprite.name)
             .ToList();
+
+        ////2. 성능 중시
+        //foreach (var displayName in temp) {
+        //    if (displayName.gameObject.activeSelf) {
+        //        characterDisplayNames.Add(displayName.sprite.name);
+        //    }
+        //}
 
         for (int i = existingCharacters.Count - 1; i >= 0; i--)
         {

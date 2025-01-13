@@ -430,8 +430,9 @@ MonoBehaviour:
   characterContainer: {fileID: 0}
   characterGenerator: {fileID: 0}
   cameraController: {fileID: 1202661714}
+  btnDraw: {fileID: 0}
   btnAdd: {fileID: 1976861671}
-  btnMoveContainerScreen: {fileID: 1190666741}
+  btnMoveContainer: {fileID: 0}
 --- !u!1 &130007856
 GameObject:
   m_ObjectHideFlags: 0

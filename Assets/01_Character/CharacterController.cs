@@ -1,4 +1,3 @@
-using GooglePlayGames.BasicApi;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +9,7 @@ public class CharacterController : MonoBehaviour
     private CharacterClickController characterClickController;
     private CameraController cameraController;
     private CharacterInfo curCharacterInfo;
+    private GameObject selectingGo;
     private Tilemap mainTilemap;
     private Vector3 movePos;
     private bool isSelected = false;
@@ -33,23 +33,26 @@ public class CharacterController : MonoBehaviour
         this.characterClickController = characterClickController;
         this.isSelected = isSelected;
 
-        if (gameObject.activeSelf) StartCoroutine(WaitOneFrame());  //캐릭터를 선택하자마자 움직이는 것을 방지
+        //캐릭터를 선택하자마자 움직이는 것을 방지
+        if (gameObject.activeSelf) StartCoroutine(WaitOneFrame());  
 
         uiCharacterInfo.gameObject.SetActive(isSelected);
         uiCharacterRecipe.gameObject.SetActive(isSelected);
 
-        if (isSelected)
-        {
-            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        if (isSelected) {
             uiCharacterInfo.Init(curCharacterInfo);
             uiCharacterRecipe.SetReferenceRecipe(characterClickController.GetSelectedCharacters()[0].name);
+            Select(isSelected);
         }
-        else gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        else Select(isSelected);
     }
 
     private void Awake()
     {
         curCharacterInfo = InfoManager.GetInstance().LoadCharacterInfo(gameObject.name);
+
+        selectingGo = transform.Find("Selecting").gameObject;
+        Select(isSelected);
 
         movePos = transform.position;
         //animator = GetComponent<Animator>();
@@ -139,4 +142,10 @@ public class CharacterController : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     public bool CheckMoving() => isMoving;
+
+    /// <summary>
+    /// 선택
+    /// </summary>
+    /// <param name="isActive"></param>
+    private void Select(bool isActive) => selectingGo.SetActive(isActive);
 }
