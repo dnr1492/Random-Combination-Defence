@@ -4,7 +4,7 @@
     "character_displayName": "주몽",
     "skill_description": "화살을 날려서 {0}데미지를 입힙니다.",
     "skill_image_path": "image/skill/주몽/bow",
-    "skill_damage": "{0} * 2",
+    "skill_damage": "{0} * 5",
     "skill_triggerChance": "10",
     "skill_effect": "",
     "skill_basic": "TRUE"
@@ -14,7 +14,7 @@
     "character_displayName": "주몽",
     "skill_description": "불화살을 날려서 {0}데미지를 입힙니다.",
     "skill_image_path": "image/skill/주몽/fireBow",
-    "skill_damage": "{0} * 2.5",
+    "skill_damage": "{0} * 10",
     "skill_triggerChance": "5",
     "skill_effect": "추가적으로 5초간 스킬 데미지의 200%만큼 지속 피해를 입힙니다.",
     "skill_basic": "FALSE"
@@ -44,7 +44,7 @@
     "character_displayName": "흔한",
     "skill_description": "훨씬 더 강한 공격으로 {0}데미지를 입힙니다.",
     "skill_image_path": "image/skill/흔한/test",
-    "skill_damage": "{0} * 5",
+    "skill_damage": "{0} * 4",
     "skill_triggerChance": "0.5",
     "skill_effect": "공격 후 4초간 패닉에 빠집니다.",
     "skill_basic": "FALSE"

@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 4982563660706698967}
   - component: {fileID: 6821111189712595985}
   m_Layer: 0
-  m_Name: Test_Boss_1
+  m_Name: Test_Boss_2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -410,7 +410,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 75dcab0e768764b4e8208cbdcd504098, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3408ca7ca5a2e4e43ad819170cdff141, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -146,6 +146,9 @@ public abstract class CharacterCombat : MonoBehaviour
     /// <param name="skillIndex"></param>
     protected void AddAttackDelay(int skillIndex)
     {
+        // ===== 지속데미지 등 효과가 다양한데 현재는 공격 딜레이만 추가하는 중이므로 추후에 수정 요망 ===== //
+        // ===== 지속데미지 등 효과가 다양한데 현재는 공격 딜레이만 추가하는 중이므로 추후에 수정 요망 ===== //
+        // ===== 지속데미지 등 효과가 다양한데 현재는 공격 딜레이만 추가하는 중이므로 추후에 수정 요망 ===== //
         MatchCollection matches = Regex.Matches(characterSkillDatas[skillIndex].skill_effect, @"\d+");
         foreach (Match match in matches) {
             totalAttackDelay += float.Parse(match.Value);

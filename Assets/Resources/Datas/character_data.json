@@ -2,9 +2,9 @@
   {
     "display_name": "주몽",
     "damage": "20",
-    "attack_speed": "1",
+    "attack_speed": "2",
     "attack_range": "5",
-    "move_speed": "10",
+    "move_speed": "5",
     "tier_num": "5",
     "class_type": "궁병",
     "skill_1_name": "화살 날리기",
@@ -14,7 +14,7 @@
   {
     "display_name": "이순신",
     "damage": "15",
-    "attack_speed": "1.2",
+    "attack_speed": "2.5",
     "attack_range": "7",
     "move_speed": "5",
     "tier_num": "5",
@@ -26,7 +26,7 @@
   {
     "display_name": "유일한",
     "damage": "10",
-    "attack_speed": "1.8",
+    "attack_speed": "1.5",
     "attack_range": "4",
     "move_speed": "4",
     "tier_num": "4",
@@ -38,7 +38,7 @@
   {
     "display_name": "희귀한",
     "damage": "5",
-    "attack_speed": "2",
+    "attack_speed": "1.25",
     "attack_range": "3",
     "move_speed": "3",
     "tier_num": "3",
@@ -50,7 +50,7 @@
   {
     "display_name": "안흔한",
     "damage": "3",
-    "attack_speed": "2.5",
+    "attack_speed": "1",
     "attack_range": "2",
     "move_speed": "2",
     "tier_num": "2",
@@ -62,7 +62,7 @@
   {
     "display_name": "흔한",
     "damage": "1",
-    "attack_speed": "3",
+    "attack_speed": "1",
     "attack_range": "1",
     "move_speed": "1",
     "tier_num": "1",
