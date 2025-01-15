@@ -71,6 +71,8 @@ public class EnemyGenerator : MonoBehaviour
 
     private IEnumerator SpawnEnemy()
     {
+        GameObject previousEnemy = null;
+
         for (int i = 0; i < dicPlayWaveDatas[curWaveIndex].wave_enemy_count; i++)
         {
             GameObject go = Instantiate(GetEnemyByName(dicPlayWaveDatas[curWaveIndex].wave_enemy_name), Waypoint.waypoints[0].position, Waypoint.waypoints[0].rotation, enemyParant);
@@ -80,6 +82,22 @@ public class EnemyGenerator : MonoBehaviour
             isSpawning = true;
             uiPlay.SetUI_EnemyCount(1);
             uiPlay.SetUI_GameOver(RestartGame);
+
+            // ===== 구현 중 ===== //
+            // ===== 구현 중 ===== //
+            // ===== 구현 중 ===== //
+            if (previousEnemy != null) {
+                // 거리 기준으로 대기 시간 계산
+                float distanceToPrevious = Vector3.Distance(previousEnemy.transform.position, go.transform.position);
+                float minimumDistance = 0; // 원하는 간격 (단위: 유닛)
+
+                // 간격이 부족할 경우 대기
+                while (distanceToPrevious < minimumDistance) {
+                    yield return null;
+                    distanceToPrevious = Vector3.Distance(previousEnemy.transform.position, go.transform.position);
+                }
+            }
+            previousEnemy = go;
             yield return new WaitForSeconds(spawnWaitingTimer);
         }
 
