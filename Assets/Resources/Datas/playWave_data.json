@@ -3,72 +3,72 @@
     "wave_id": 0,
     "wave_enemy_name": "Test_1",
     "wave_enemy_count": 15,
-    "wave_timer": 5
+    "wave_timer": 15
   },
   {
     "wave_id": 1,
     "wave_enemy_name": "Test_2",
     "wave_enemy_count": 15,
-    "wave_timer": 5
+    "wave_timer": 30
   },
   {
     "wave_id": 2,
     "wave_enemy_name": "Test_3",
     "wave_enemy_count": 15,
-    "wave_timer": 5
+    "wave_timer": 30
   },
   {
     "wave_id": 3,
     "wave_enemy_name": "Test_4",
     "wave_enemy_count": 15,
-    "wave_timer": 5
+    "wave_timer": 30
   },
   {
     "wave_id": 4,
     "wave_enemy_name": "Test_5",
     "wave_enemy_count": 15,
-    "wave_timer": 5
+    "wave_timer": 30
   },
   {
     "wave_id": 5,
     "wave_enemy_name": "Test_Boss_1",
     "wave_enemy_count": 1,
-    "wave_timer": 5
+    "wave_timer": 60
   },
   {
     "wave_id": 6,
     "wave_enemy_name": "Test_6",
     "wave_enemy_count": 15,
-    "wave_timer": 5
+    "wave_timer": 30
   },
   {
     "wave_id": 7,
     "wave_enemy_name": "Test_7",
     "wave_enemy_count": 15,
-    "wave_timer": 5
+    "wave_timer": 30
   },
   {
     "wave_id": 8,
     "wave_enemy_name": "Test_8",
     "wave_enemy_count": 15,
-    "wave_timer": 5
+    "wave_timer": 30
   },
   {
     "wave_id": 9,
     "wave_enemy_name": "Test_9",
     "wave_enemy_count": 15,
-    "wave_timer": 5
+    "wave_timer": 30
   },
   {
     "wave_id": 10,
     "wave_enemy_name": "Test_10",
     "wave_enemy_count": 15,
-    "wave_timer": 5
+    "wave_timer": 30
   },
   {
     "wave_id": 11,
     "wave_enemy_name": "Test_Boss_2",
     "wave_enemy_count": 1,
-    "wave_timer": 5
+    "wave_timer": 60
   }
 ]

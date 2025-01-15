@@ -20,7 +20,8 @@ public class EnemyGenerator : MonoBehaviour
     private int curWaveIndex;  //현재 진행 중인 웨이브
     private bool startTimer = false;  //시간 체크 시작 유무
     private bool isSpawning = false;  //생성 중 유무
-    private float spawnWaitingTimer = 0.25f;  //적 생성 대기 시간
+    //private float spawnWaitingTimer = 0.25f;  //적 생성 대기 시간
+    private float unitMinimumDistance = 1f;  //유닛 간 원하는 간격
 
     private void Awake()
     {
@@ -71,8 +72,6 @@ public class EnemyGenerator : MonoBehaviour
 
     private IEnumerator SpawnEnemy()
     {
-        GameObject previousEnemy = null;
-
         for (int i = 0; i < dicPlayWaveDatas[curWaveIndex].wave_enemy_count; i++)
         {
             GameObject go = Instantiate(GetEnemyByName(dicPlayWaveDatas[curWaveIndex].wave_enemy_name), Waypoint.waypoints[0].position, Waypoint.waypoints[0].rotation, enemyParant);
@@ -83,22 +82,13 @@ public class EnemyGenerator : MonoBehaviour
             uiPlay.SetUI_EnemyCount(1);
             uiPlay.SetUI_GameOver(RestartGame);
 
-            // ===== 구현 중 ===== //
-            // ===== 구현 중 ===== //
-            // ===== 구현 중 ===== //
-            if (previousEnemy != null) {
-                // 거리 기준으로 대기 시간 계산
-                float distanceToPrevious = Vector3.Distance(previousEnemy.transform.position, go.transform.position);
-                float minimumDistance = 0; // 원하는 간격 (단위: 유닛)
-
-                // 간격이 부족할 경우 대기
-                while (distanceToPrevious < minimumDistance) {
-                    yield return null;
-                    distanceToPrevious = Vector3.Distance(previousEnemy.transform.position, go.transform.position);
-                }
+            //일정 간격 유지
+            while (true) {
+                int currentWaypointIndex = 0;
+                float progress = currentWaypointIndex + Vector3.Distance(go.transform.position, Waypoint.waypoints[currentWaypointIndex].position);
+                if (progress >= unitMinimumDistance) break;
+                yield return null;
             }
-            previousEnemy = go;
-            yield return new WaitForSeconds(spawnWaitingTimer);
         }
 
         curWaveIndex++;
