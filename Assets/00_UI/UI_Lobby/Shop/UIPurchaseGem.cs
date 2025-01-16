@@ -22,7 +22,7 @@ public class UIPurchaseGem : MonoBehaviour
         Display();
 
         btn.onClick.AddListener(() => {
-            Purchase(price);
+            PurchaseAsync(price);
         });
     }
 
@@ -39,13 +39,19 @@ public class UIPurchaseGem : MonoBehaviour
         txtAmount.text = amount.ToString();
     }
 
-    private void Purchase(int price)
+    private async void PurchaseAsync(int price)
     {
         DebugLogger.Log("가격 : " + price);
 
         // ===== 현금으로 구매 할 수 있도록 수정하기 ===== //
         // ===== 현금으로 구매 할 수 있도록 수정하기 ===== //
         // ===== 현금으로 구매 할 수 있도록 수정하기 ===== //
-        PlayFabManager.instance.AddUserVirtualCurrency(uiJewel, addVirtualCurrencyName, amount);
+        try {
+            LoadingManager.ShowLoading();
+            await PlayFabManager.instance.AddUserVirtualCurrencyAsync(uiJewel, addVirtualCurrencyName, amount);
+        }
+        finally {
+            LoadingManager.HideLoading();
+        }
     }
 }

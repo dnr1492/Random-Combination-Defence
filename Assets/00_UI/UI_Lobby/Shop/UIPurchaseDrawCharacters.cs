@@ -23,7 +23,7 @@ public class UIPurchaseDrawCharacters : MonoBehaviour
 
         Display();
 
-        btn.onClick.AddListener(Purchase);
+        btn.onClick.AddListener(PurchaseAsync);
     }
 
     private void Display()
@@ -37,9 +37,15 @@ public class UIPurchaseDrawCharacters : MonoBehaviour
         txtDraw.text = drawCount + "È¸ »Ì±â";
     }
 
-    private void Purchase()
+    private async void PurchaseAsync()
     {
-        PlayFabManager.instance.OnClickDrawCharactersAsync(uiJewel, this, addVirtualCurrencyName, price, catalogVersion, drawCount);
+        try {
+            LoadingManager.ShowLoading();
+            await PlayFabManager.instance.DrawCharactersAsync(uiJewel, this, addVirtualCurrencyName, price, catalogVersion, drawCount);
+        }
+        finally {
+            LoadingManager.HideLoading();
+        }
     }
 
     public void DisplayDrawCharacters(Dictionary<string, PlayFabManager.DrawCharacterData> dicDrawCharacterData)

@@ -1467,7 +1467,7 @@ GameObject:
   - component: {fileID: 4544832078345648841}
   - component: {fileID: 4544832078345648838}
   m_Layer: 5
-  m_Name: bg_name
+  m_Name: bg_displayName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1760,7 +1760,7 @@ GameObject:
   - component: {fileID: 4544832078416169868}
   - component: {fileID: 4544832078416169869}
   m_Layer: 5
-  m_Name: txt_name
+  m_Name: txt_displayName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3904,8 +3904,8 @@ MonoBehaviour:
   imgQuantity: {fileID: 4544832078540876483}
   txtQuantity: {fileID: 4544832080020142077}
   txtCurLevel: {fileID: 4544832079290118848}
-  txtClass: {fileID: 4544832079157214911}
-  txtName: {fileID: 4544832078416169869}
+  txtClassType: {fileID: 4544832079157214911}
+  txtDisplayName: {fileID: 4544832078416169869}
   txtStatsDamage: {fileID: 4544832078825240669}
   txtStatsAttackSpeed: {fileID: 4544832079971374866}
   txtStatsAttackRange: {fileID: 4544832077950586792}
@@ -3976,7 +3976,7 @@ GameObject:
   - component: {fileID: 4544832079093564489}
   - component: {fileID: 4544832079093564486}
   m_Layer: 5
-  m_Name: bg_class
+  m_Name: bg_classType
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4391,7 +4391,7 @@ GameObject:
   - component: {fileID: 4544832079157214910}
   - component: {fileID: 4544832079157214911}
   m_Layer: 5
-  m_Name: txt_class
+  m_Name: txt_classType
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

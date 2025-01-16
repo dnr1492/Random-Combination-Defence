@@ -20,7 +20,7 @@ public class UIPurchaseGold : MonoBehaviour
        
         Display();
 
-        btn.onClick.AddListener(Purchase);
+        btn.onClick.AddListener(PurchaseAsync);
     }
 
     private void Display()
@@ -33,8 +33,14 @@ public class UIPurchaseGold : MonoBehaviour
         txtAmount.text = amount.ToString();
     }
 
-    private async void Purchase()
+    private async void PurchaseAsync()
     {
-        await PlayFabManager.instance.PurchaseJewelToGoldAsync(uiJewel, uiGold, price, amount);
+        try {
+            LoadingManager.ShowLoading();
+            await PlayFabManager.instance.PurchaseJewelToGoldAsync(uiJewel, uiGold, price, amount);
+        }
+        finally {
+            LoadingManager.HideLoading();
+        }
     }
 }

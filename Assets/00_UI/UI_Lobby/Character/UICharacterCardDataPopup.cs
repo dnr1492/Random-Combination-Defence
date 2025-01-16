@@ -90,8 +90,10 @@ public class UICharacterCardDataPopup : MonoBehaviour
         if (IsMaxLevel(levelUpRemainingUses)) btnUpgrade.interactable = false;
         else btnUpgrade.interactable = true;
         btnUpgrade.onClick.RemoveAllListeners();
-        btnUpgrade.onClick.AddListener(async () => {
-            await PlayFabManager.instance.UpgradeCharacterCardLevelToGoldAsync(this, uiCharacter, uiGold, displayName, int.Parse(txtGoldPrice.text), levelUpRemainingUses);
+        btnUpgrade.onClick.AddListener(() => {
+            string tempDisplayname = displayName;
+            int tempLevelUpRemainingUses = levelUpRemainingUses;
+            UpgradeAsync(tempDisplayname, tempLevelUpRemainingUses);
         });
 
         InfoManager.GetInstance().SaveCharacterInfo(displayName, level);
@@ -145,6 +147,17 @@ public class UICharacterCardDataPopup : MonoBehaviour
         else {
             DebugLogger.Log("카드 레벨업 요구량 : " + levelUpRemainingUses);
             return false;
+        }
+    }
+
+    private async void UpgradeAsync(string displayName, int levelUpRemainingUses)
+    {
+        try {
+            LoadingManager.ShowLoading();
+            await PlayFabManager.instance.UpgradeCharacterCardLevelToGoldAsync(this, uiCharacter, uiGold, displayName, int.Parse(txtGoldPrice.text), levelUpRemainingUses);
+        }
+        finally {
+            LoadingManager.HideLoading();
         }
     }
 }

@@ -442,7 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiCharacterDataPopup: {fileID: 0}
-  txtName: {fileID: 6194849669001627791}
+  txtDisplayName: {fileID: 6194849669001627791}
   txtLevel: {fileID: 6194849669404997540}
   txtQuantity: {fileID: 819956036369236221}
   bg: {fileID: 819956036532032090}
@@ -462,7 +462,7 @@ GameObject:
   - component: {fileID: 6194849669001627784}
   - component: {fileID: 6194849669001627791}
   m_Layer: 5
-  m_Name: txt_name
+  m_Name: txt_displayName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
