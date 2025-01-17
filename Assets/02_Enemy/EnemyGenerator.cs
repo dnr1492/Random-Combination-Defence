@@ -20,7 +20,6 @@ public class EnemyGenerator : MonoBehaviour
     private int curWaveIndex;  //현재 진행 중인 웨이브
     private bool startTimer = false;  //시간 체크 시작 유무
     private bool isSpawning = false;  //생성 중 유무
-    //private float spawnWaitingTimer = 0.25f;  //적 생성 대기 시간
     private float unitMinimumDistance = 1f;  //유닛 간 원하는 간격
 
     private void Awake()
@@ -39,7 +38,7 @@ public class EnemyGenerator : MonoBehaviour
         startTimer = !startTimer;
         curWaveTimer = dicPlayWaveDatas[curWaveIndex].wave_timer;
 
-        uiPlay.SetUI_Wave(curWaveIndex);
+        uiPlay.SetUI_Wave(curWaveIndex, dicPlayEnemyDatas.Count);
         uiPlay.SetUI_WaveTimer((int)curWaveTimer);
         uiPlay.SetUI_EnemyCount(0);
     }
@@ -61,7 +60,7 @@ public class EnemyGenerator : MonoBehaviour
         if (IsMaximumWave()) return false;
 
         if (curWaveTimer <= 0) {
-            if (!IsMaximumWave()) uiPlay.SetUI_Wave(curWaveIndex + 1);
+            if (!IsMaximumWave()) uiPlay.SetUI_Wave(curWaveIndex + 1, dicPlayEnemyDatas.Count);
             StartCoroutine(SpawnEnemy());
             return true;
         }
@@ -112,7 +111,7 @@ public class EnemyGenerator : MonoBehaviour
 
     private bool IsMaximumWave()
     {
-        if (curWaveIndex >= dicPlayMapDatas[uiPlay.GetCurMapId].maximum_wave) return true;
+        if (curWaveIndex >= dicPlayEnemyDatas.Count) return true;
         return false;
     }
 
@@ -133,6 +132,6 @@ public class EnemyGenerator : MonoBehaviour
         //UI 초기화
         uiPlay.SetUI_EnemyCount(-count);
         uiPlay.SetUI_WaveTimer((int)curWaveTimer);
-        uiPlay.SetUI_Wave(curWaveIndex);
+        uiPlay.SetUI_Wave(curWaveIndex, dicPlayEnemyDatas.Count);
     }
 }

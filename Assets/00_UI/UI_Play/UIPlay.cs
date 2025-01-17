@@ -40,10 +40,10 @@ public class UIPlay : MonoBehaviour
         SetUI_Population(true, true);
     }
 
-    public void SetUI_Wave(int curWave)
+    public void SetUI_Wave(int curWave, int maxWave)
     {
         if (curWave == 0) txtWave.text = "½ÃÀÛ";
-        else txtWave.text = string.Format(strWave, curWave, dicPlayMapDatas[GetCurMapId].maximum_wave);
+        else txtWave.text = string.Format(strWave, curWave, maxWave);
     }
 
     public void SetUI_WaveTimer(int curWaveTimer) => txtWaveTimer.text = string.Format(strWaveTimer, curWaveTimer);
