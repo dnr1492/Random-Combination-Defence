@@ -1,82 +1,92 @@
-[
-    {
-        "level": 1,
-        "quentity_tier_1": 2,
-        "quentity_tier_2": 4,
-        "quentity_tier_3": 6,
-        "quentity_tier_4": 8,
-        "quentity_tier_5": 10
-    },
-    {
-        "level": 2,
-        "quentity_tier_1": 4,
-        "quentity_tier_2": 8,
-        "quentity_tier_3": 12,
-        "quentity_tier_4": 16,
-        "quentity_tier_5": 20
-    },
-    {
-        "level": 3,
-        "quentity_tier_1": 6,
-        "quentity_tier_2": 12,
-        "quentity_tier_3": 18,
-        "quentity_tier_4": 24,
-        "quentity_tier_5": 30
-    },
-    {
-        "level": 4,
-        "quentity_tier_1": 8,
-        "quentity_tier_2": 16,
-        "quentity_tier_3": 24,
-        "quentity_tier_4": 32,
-        "quentity_tier_5": 40
-    },
-    {
-        "level": 5,
-        "quentity_tier_1": 10,
-        "quentity_tier_2": 20,
-        "quentity_tier_3": 30,
-        "quentity_tier_4": 40,
-        "quentity_tier_5": 50
-    },
-    {
-        "level": 6,
-        "quentity_tier_1": 12,
-        "quentity_tier_2": 24,
-        "quentity_tier_3": 36,
-        "quentity_tier_4": 48,
-        "quentity_tier_5": 60
-    },
-    {
-        "level": 7,
-        "quentity_tier_1": 14,
-        "quentity_tier_2": 28,
-        "quentity_tier_3": 42,
-        "quentity_tier_4": 56,
-        "quentity_tier_5": 70
-    },
-    {
-        "level": 8,
-        "quentity_tier_1": 16,
-        "quentity_tier_2": 32,
-        "quentity_tier_3": 48,
-        "quentity_tier_4": 64,
-        "quentity_tier_5": 80
-    },
-    {
-        "level": 9,
-        "quentity_tier_1": 18,
-        "quentity_tier_2": 36,
-        "quentity_tier_3": 54,
-        "quentity_tier_4": 72,
-        "quentity_tier_5": 90
-    },
-    {
-        "level": 10,
-        "quentity_tier_1": 20,
-        "quentity_tier_2": 40,
-        "quentity_tier_3": 60,
-        "quentity_tier_4": 80,
-        "quentity_tier_5": 100
-    }
-]
+{
+    "characterCardLevelDatas": [
+        {
+            "level": 1,
+            "quantityTierCommon": 10,
+            "quantityTierUncommon": 8,
+            "quantityTierRare": 6,
+            "quantityTierUniqe": 4,
+            "quantityTierLegendary": 2
+        },
+        {
+            "level": 2,
+            "quantityTierCommon": 20,
+            "quantityTierUncommon": 16,
+            "quantityTierRare": 12,
+            "quantityTierUniqe": 8,
+            "quantityTierLegendary": 4
+        },
+        {
+            "level": 3,
+            "quantityTierCommon": 30,
+            "quantityTierUncommon": 24,
+            "quantityTierRare": 18,
+            "quantityTierUniqe": 12,
+            "quantityTierLegendary": 6
+        },
+        {
+            "level": 4,
+            "quantityTierCommon": 40,
+            "quantityTierUncommon": 32,
+            "quantityTierRare": 24,
+            "quantityTierUniqe": 16,
+            "quantityTierLegendary": 8
+        },
+        {
+            "level": 5,
+            "quantityTierCommon": 50,
+            "quantityTierUncommon": 40,
+            "quantityTierRare": 30,
+            "quantityTierUniqe": 20,
+            "quantityTierLegendary": 10
+        },
+        {
+            "level": 6,
+            "quantityTierCommon": 60,
+            "quantityTierUncommon": 48,
+            "quantityTierRare": 36,
+            "quantityTierUniqe": 24,
+            "quantityTierLegendary": 12
+        },
+        {
+            "level": 7,
+            "quantityTierCommon": 70,
+            "quantityTierUncommon": 56,
+            "quantityTierRare": 42,
+            "quantityTierUniqe": 28,
+            "quantityTierLegendary": 14
+        },
+        {
+            "level": 8,
+            "quantityTierCommon": 80,
+            "quantityTierUncommon": 64,
+            "quantityTierRare": 48,
+            "quantityTierUniqe": 32,
+            "quantityTierLegendary": 16
+        },
+        {
+            "level": 9,
+            "quantityTierCommon": 90,
+            "quantityTierUncommon": 72,
+            "quantityTierRare": 54,
+            "quantityTierUniqe": 36,
+            "quantityTierLegendary": 18
+        },
+        {
+            "level": 10,
+            "quantityTierCommon": 100,
+            "quantityTierUncommon": 80,
+            "quantityTierRare": 60,
+            "quantityTierUniqe": 40,
+            "quantityTierLegendary": 20
+        },
+        {
+            "level": 11,
+            "quantityTierCommon": 110,
+            "quantityTierUncommon": 88,
+            "quantityTierRare": 66,
+            "quantityTierUniqe": 44,
+            "quantityTierLegendary": 22
+        }
+    ]
+}

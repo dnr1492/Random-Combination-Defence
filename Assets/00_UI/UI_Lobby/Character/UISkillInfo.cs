@@ -24,12 +24,12 @@ public class UISkillInfo : MonoBehaviour
         UISkillDataPopup uiSkillDataPopup = uiSkillDataPopupGo.GetComponent<UISkillDataPopup>();
 
         btn.onClick.AddListener(() => {
-            string skillDamage = string.Format(skillData.skill_damage, damage);
-            string skillDescription = string.Format(skillData.skill_description, skillDamage) + " " + skillData.skill_effect;
-            uiSkillDataPopup.Init(skillData.skill_name, skillDescription, btn.transform.position, btnRt);
+            string skillDamage = string.Format(skillData.skillDamage, damage);
+            string skillDescription = string.Format(skillData.skillDescription, skillDamage) + " " + skillData.skillEffect;
+            uiSkillDataPopup.Init(skillData.skillName, skillDescription, btn.transform.position, btnRt);
             uiSkillDataPopupGo.SetActive(true);
         });
 
-        img.sprite = Resources.Load<Sprite>(skillData.skill_image_path);
+        img.sprite = Resources.Load<Sprite>(skillData.skillImagePath);
     }
 }

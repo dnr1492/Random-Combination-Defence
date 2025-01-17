@@ -57,8 +57,8 @@ public class UICharacterInfo : MonoBehaviour
 
         curSelectSkill = SelectSkill.One;
         arrCb[(int)curSelectSkill].SetSelect(true);
-        txtSkillName.text = characterInfo.skillDatas[(int)curSelectSkill].skill_name;
-        txtSkillDescription.text = characterInfo.skillDatas[(int)curSelectSkill].skill_description;
+        txtSkillName.text = characterInfo.skillDatas[(int)curSelectSkill].skillName;
+        txtSkillDescription.text = characterInfo.skillDatas[(int)curSelectSkill].skillDescription;
 
         for (int i = 0; i < arrBtnSkill.Length; i++)
         {
@@ -67,8 +67,8 @@ public class UICharacterInfo : MonoBehaviour
             arrBtnSkill[index].onClick.AddListener(() => {
                 curSelectSkill = (SelectSkill)index;
                 for (int i = 0; i < arrCb.Length; i++) arrCb[i].SetSelect(i == (int)curSelectSkill);
-                txtSkillName.text = characterInfo.skillDatas[(int)curSelectSkill].skill_name;
-                txtSkillDescription.text = characterInfo.skillDatas[(int)curSelectSkill].skill_description;
+                txtSkillName.text = characterInfo.skillDatas[(int)curSelectSkill].skillName;
+                txtSkillDescription.text = characterInfo.skillDatas[(int)curSelectSkill].skillDescription;
             });
         }
     }

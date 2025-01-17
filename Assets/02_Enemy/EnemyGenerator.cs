@@ -36,7 +36,7 @@ public class EnemyGenerator : MonoBehaviour
     private void OnEnable()
     {
         startTimer = !startTimer;
-        curWaveTimer = dicPlayWaveDatas[curWaveIndex].wave_timer;
+        curWaveTimer = dicPlayWaveDatas[curWaveIndex].waveTimer;
 
         uiPlay.SetUI_Wave(curWaveIndex, dicPlayEnemyDatas.Count);
         uiPlay.SetUI_WaveTimer((int)curWaveTimer);
@@ -71,11 +71,11 @@ public class EnemyGenerator : MonoBehaviour
 
     private IEnumerator SpawnEnemy()
     {
-        for (int i = 0; i < dicPlayWaveDatas[curWaveIndex].wave_enemy_count; i++)
+        for (int i = 0; i < dicPlayWaveDatas[curWaveIndex].waveEnemyCount; i++)
         {
-            GameObject go = Instantiate(GetEnemyByName(dicPlayWaveDatas[curWaveIndex].wave_enemy_name), Waypoint.waypoints[0].position, Waypoint.waypoints[0].rotation, enemyParant);
+            GameObject go = Instantiate(GetEnemyByName(dicPlayWaveDatas[curWaveIndex].waveEnemyName), Waypoint.waypoints[0].position, Waypoint.waypoints[0].rotation, enemyParant);
             go.name = Rename(go.name);
-            go.GetComponent<EnemyController>().Init(uiPlay, dicPlayEnemyDatas[go.name].enemy_hp, dicPlayEnemyDatas[go.name].enemy_speed, dicPlayEnemyDatas[go.name].drop_gold, dicPlayEnemyDatas[go.name].drop_dark_gold);
+            go.GetComponent<EnemyController>().Init(uiPlay, dicPlayEnemyDatas[go.name].enemyHp, dicPlayEnemyDatas[go.name].enemySpeed, dicPlayEnemyDatas[go.name].dropGold, dicPlayEnemyDatas[go.name].dropDarkGold);
             existingEnemys.Add(go);
             isSpawning = true;
             uiPlay.SetUI_EnemyCount(1);
@@ -83,6 +83,7 @@ public class EnemyGenerator : MonoBehaviour
 
             //일정 간격 유지
             while (true) {
+                if (go == null) break;
                 int currentWaypointIndex = 0;
                 float progress = currentWaypointIndex + Vector3.Distance(go.transform.position, Waypoint.waypoints[currentWaypointIndex].position);
                 if (progress >= unitMinimumDistance) break;
@@ -91,7 +92,7 @@ public class EnemyGenerator : MonoBehaviour
         }
 
         curWaveIndex++;
-        if (!IsMaximumWave()) curWaveTimer = dicPlayWaveDatas[curWaveIndex].wave_timer;
+        if (!IsMaximumWave()) curWaveTimer = dicPlayWaveDatas[curWaveIndex].waveTimer;
         isSpawning = false;
     }
 
@@ -127,7 +128,7 @@ public class EnemyGenerator : MonoBehaviour
         //현재 웨이브 초기화
         StopAllCoroutines();
         isSpawning = false;
-        curWaveTimer = dicPlayWaveDatas[curWaveIndex].wave_timer;
+        curWaveTimer = dicPlayWaveDatas[curWaveIndex].waveTimer;
 
         //UI 초기화
         uiPlay.SetUI_EnemyCount(-count);

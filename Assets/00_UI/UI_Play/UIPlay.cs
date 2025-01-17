@@ -53,7 +53,7 @@ public class UIPlay : MonoBehaviour
     public void SetUI_EnemyCount(int enemyCount)
     {
         curEnemyCount += enemyCount;
-        txtEnemyCount.text = string.Format(strEnemyCount, curEnemyCount, dicPlayMapDatas[GetCurMapId].maximum_enemy_count);
+        txtEnemyCount.text = string.Format(strEnemyCount, curEnemyCount, dicPlayMapDatas[GetCurMapId].maximumEnemyCount);
     }
 
     public void SetUI_Gold(int gold)
@@ -75,12 +75,12 @@ public class UIPlay : MonoBehaviour
             else curPopulation--;
         }
 
-        txtPopulation.text = string.Format(strPopulation, curPopulation, dicPlayMapDatas[GetCurMapId].maximum_population);
+        txtPopulation.text = string.Format(strPopulation, curPopulation, dicPlayMapDatas[GetCurMapId].maximumPopulation);
     }
 
     public void SetUI_GameOver(UnityAction restartGameAction)
     {
-        if (curEnemyCount >= dicPlayMapDatas[GetCurMapId].maximum_enemy_count) {
+        if (curEnemyCount >= dicPlayMapDatas[GetCurMapId].maximumEnemyCount) {
             Instantiate(gameOverPrefab).GetComponent<GameOver>().Init(restartGameAction);
         }
     }

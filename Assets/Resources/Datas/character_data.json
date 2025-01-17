@@ -1,74 +1,76 @@
-[
-  {
-    "display_name": "주몽",
-    "damage": "20",
-    "attack_speed": "2",
-    "attack_range": "5",
-    "move_speed": "5",
-    "tier_num": "5",
-    "class_type": "궁병",
-    "skill_1_name": "화살 날리기",
-    "skill_2_name": "불화살 날리기",
-    "skill_3_name": ""
-  },
-  {
-    "display_name": "이순신",
-    "damage": "15",
-    "attack_speed": "2.5",
-    "attack_range": "7",
-    "move_speed": "5",
-    "tier_num": "5",
-    "class_type": "궁병",
-    "skill_1_name": "",
-    "skill_2_name": "",
-    "skill_3_name": ""
-  },
-  {
-    "display_name": "유일한",
-    "damage": "10",
-    "attack_speed": "1.5",
-    "attack_range": "4",
-    "move_speed": "4",
-    "tier_num": "4",
-    "class_type": "책사",
-    "skill_1_name": "",
-    "skill_2_name": "",
-    "skill_3_name": ""
-  },
-  {
-    "display_name": "희귀한",
-    "damage": "5",
-    "attack_speed": "1.25",
-    "attack_range": "3",
-    "move_speed": "3",
-    "tier_num": "3",
-    "class_type": "창병",
-    "skill_1_name": "",
-    "skill_2_name": "",
-    "skill_3_name": ""
-  },
-  {
-    "display_name": "안흔한",
-    "damage": "3",
-    "attack_speed": "1",
-    "attack_range": "2",
-    "move_speed": "2",
-    "tier_num": "2",
-    "class_type": "군사",
-    "skill_1_name": "",
-    "skill_2_name": "",
-    "skill_3_name": ""
-  },
-  {
-    "display_name": "흔한",
-    "damage": "1",
-    "attack_speed": "1",
-    "attack_range": "1",
-    "move_speed": "1",
-    "tier_num": "1",
-    "class_type": "검병",
-    "skill_1_name": "테스트 스킬",
-    "skill_2_name": "테스트 스킬 2",
-    "skill_3_name": "테스트 스킬 3"
-  }
-]
+{
+    "characterDatas": [
+        {
+            "displayName": "주몽",
+            "damage": 30.0,
+            "attackSpeed": 2.0,
+            "attackRange": 5.0,
+            "moveSpeed": 5.0,
+            "tierNum": 5,
+            "classType": "궁병",
+            "skill_1_name": "화살 날리기",
+            "skill_2_name": "불화살 날리기",
+            "skill_3_name": ""
+        },
+        {
+            "displayName": "이순신",
+            "damage": 20.0,
+            "attackSpeed": 2.5,
+            "attackRange": 7.0,
+            "moveSpeed": 5.0,
+            "tierNum": 5,
+            "classType": "궁병",
+            "skill_1_name": "",
+            "skill_2_name": "",
+            "skill_3_name": ""
+        },
+        {
+            "displayName": "유일한",
+            "damage": 15.0,
+            "attackSpeed": 1.5,
+            "attackRange": 4.0,
+            "moveSpeed": 4.0,
+            "tierNum": 4,
+            "classType": "책사",
+            "skill_1_name": "",
+            "skill_2_name": "",
+            "skill_3_name": ""
+        },
+        {
+            "displayName": "희귀한",
+            "damage": 10.0,
+            "attackSpeed": 1.25,
+            "attackRange": 3.0,
+            "moveSpeed": 3.0,
+            "tierNum": 3,
+            "classType": "창병",
+            "skill_1_name": "",
+            "skill_2_name": "",
+            "skill_3_name": ""
+        },
+        {
+            "displayName": "안흔한",
+            "damage": 7.0,
+            "attackSpeed": 1.0,
+            "attackRange": 2.0,
+            "moveSpeed": 2.0,
+            "tierNum": 2,
+            "classType": "군사",
+            "skill_1_name": "",
+            "skill_2_name": "",
+            "skill_3_name": ""
+        },
+        {
+            "displayName": "흔한",
+            "damage": 3.0,
+            "attackSpeed": 1.0,
+            "attackRange": 1.0,
+            "moveSpeed": 1.0,
+            "tierNum": 1,
+            "classType": "검병",
+            "skill_1_name": "테스트 스킬",
+            "skill_2_name": "테스트 스킬 2",
+            "skill_3_name": "테스트 스킬 3"
+        }
+    ]
+}

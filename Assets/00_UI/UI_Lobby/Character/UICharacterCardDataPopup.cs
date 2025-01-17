@@ -49,7 +49,7 @@ public class UICharacterCardDataPopup : MonoBehaviour
         var characterData = DataManager.GetInstance().GetCharacterData();
         string tierName = null;
         foreach (PlayFabManager.CharacterTier tier in Enum.GetValues(typeof(PlayFabManager.CharacterTier))) {
-            if ((int)tier == characterData[displayName].tier_num) tierName = tier.ToString();
+            if ((int)tier == characterData[displayName].tierNum) tierName = tier.ToString();
         }
         int level = int.Parse(curLevel);
 
@@ -59,7 +59,7 @@ public class UICharacterCardDataPopup : MonoBehaviour
         imgQuantity.fillAmount = (float)curQuantity / requiredLevelUpQuantity;
         txtQuantity.text = curQuantity + "/" + requiredLevelUpQuantity;
         txtCurLevel.text = "Lv. " + level;
-        txtClassType.text = characterData[displayName].class_type;
+        txtClassType.text = characterData[displayName].classType;
         txtDisplayName.text = displayName;
         txtGoldPrice.text = "2000";  //추후에 동적으로 증가율 설정해서 할당하기 ex) int.Parse(txtGoldPrice.text) * 2 또는 int.Parse(txtGoldPrice.text) * level
 
@@ -92,7 +92,7 @@ public class UICharacterCardDataPopup : MonoBehaviour
             }
         }
 
-        int levelUpRemainingUses = DataManager.GetInstance().GetCharacterCardLevelQuentityData(level, characterData[displayName].tier_num);
+        int levelUpRemainingUses = DataManager.GetInstance().GetCharacterCardLevelQuentityData(level, characterData[displayName].tierNum);
         if (IsMaxLevel(levelUpRemainingUses)) btnUpgrade.interactable = false;
         else btnUpgrade.interactable = true;
         btnUpgrade.onClick.RemoveAllListeners();

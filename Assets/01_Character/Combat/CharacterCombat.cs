@@ -49,12 +49,15 @@ public abstract class CharacterCombat : MonoBehaviour
 
             for (int i = curCharacterInfo.unlockSkills.Count - 1; i >= 0; i--)
             {
-                if (Random.Range(0, 100f) <= characterSkillDatas[i].skill_triggerChance)
+                //curCharacterInfo.unlockSkills.Count : 3
+                //characterSkillDatas : 2
+
+                if (Random.Range(0, 100f) <= characterSkillDatas[i].skillTriggerChance)
                 {
                     //스킬 우선순위
-                    if (i == 2) AttackPassiveSkill_3(i);
-                    else if (i == 1) AttackPassiveSkill_2(i);
-                    else if (i == 0) AttackPassiveSkill_1(i);
+                    if (i == 2) AttackPassiveSkill_3(characterSkillDatas[i].skillName, i);
+                    else if (i == 1) AttackPassiveSkill_2(characterSkillDatas[i].skillName, i);
+                    else if (i == 0) AttackPassiveSkill_1(characterSkillDatas[i].skillName, i);
                     break;
                 }
             }
@@ -149,7 +152,7 @@ public abstract class CharacterCombat : MonoBehaviour
         // ===== 지속데미지 등 효과가 다양한데 현재는 공격 딜레이만 추가하는 중이므로 추후에 수정 요망 ===== //
         // ===== 지속데미지 등 효과가 다양한데 현재는 공격 딜레이만 추가하는 중이므로 추후에 수정 요망 ===== //
         // ===== 지속데미지 등 효과가 다양한데 현재는 공격 딜레이만 추가하는 중이므로 추후에 수정 요망 ===== //
-        MatchCollection matches = Regex.Matches(characterSkillDatas[skillIndex].skill_effect, @"\d+");
+        MatchCollection matches = Regex.Matches(characterSkillDatas[skillIndex].skillEffect, @"\d+");
         foreach (Match match in matches) {
             totalAttackDelay += float.Parse(match.Value);
         }
@@ -172,9 +175,9 @@ public abstract class CharacterCombat : MonoBehaviour
         return System.Convert.ToSingle(result);
     }
 
-    protected abstract void AttackPassiveSkill_1(int index);
+    protected abstract void AttackPassiveSkill_1(string skillName, int index);
 
-    protected abstract void AttackPassiveSkill_2(int index);
+    protected abstract void AttackPassiveSkill_2(string skillName, int index);
 
-    protected abstract void AttackPassiveSkill_3(int index);
+    protected abstract void AttackPassiveSkill_3(string skillName, int index);
 }

@@ -18,21 +18,21 @@ public class UICharacterRecipe : MonoBehaviour
 
         var characterRecipeData = DataManager.GetInstance().GetCharacterRecipeData();
         if (!characterRecipeData.ContainsKey(displayName)) {
-            DebugLogger.Log(displayName + "의 Key가 존재하지 않습니다.");
+            DebugLogger.Log(displayName + "의 조합법이 존재하지 않습니다.");
             return;
         }
 
         for (int i = 0; i < characterRecipeData[displayName].Count; i++)
-        {
+        {   
             List<Sprite> characterSprites = new List<Sprite>();
             var recipe = characterRecipeData[displayName][i];
             var spriteType = SpriteManager.SpriteType.ImgCharacter;
 
-            if (!string.IsNullOrEmpty(recipe.select_name)) characterSprites.Add(SpriteManager.GetInstance().GetSprite(spriteType, recipe.select_name));
-            if (!string.IsNullOrEmpty(recipe.recipe_name_a)) characterSprites.Add(SpriteManager.GetInstance().GetSprite(spriteType, recipe.recipe_name_a));
-            if (!string.IsNullOrEmpty(recipe.recipe_name_b)) characterSprites.Add(SpriteManager.GetInstance().GetSprite(spriteType, recipe.recipe_name_b));
-            if (!string.IsNullOrEmpty(recipe.recipe_name_c)) characterSprites.Add(SpriteManager.GetInstance().GetSprite(spriteType, recipe.recipe_name_c));
-            if (!string.IsNullOrEmpty(recipe.result_name)) characterSprites.Add(SpriteManager.GetInstance().GetSprite(spriteType, recipe.result_name));
+            if (!string.IsNullOrEmpty(recipe.selectName)) characterSprites.Add(SpriteManager.GetInstance().GetSprite(spriteType, recipe.selectName));
+            if (!string.IsNullOrEmpty(recipe.recipeNameA)) characterSprites.Add(SpriteManager.GetInstance().GetSprite(spriteType, recipe.recipeNameA));
+            if (!string.IsNullOrEmpty(recipe.recipeNameB)) characterSprites.Add(SpriteManager.GetInstance().GetSprite(spriteType, recipe.recipeNameB));
+            if (!string.IsNullOrEmpty(recipe.recipeNameC)) characterSprites.Add(SpriteManager.GetInstance().GetSprite(spriteType, recipe.recipeNameC));
+            if (!string.IsNullOrEmpty(recipe.resultName)) characterSprites.Add(SpriteManager.GetInstance().GetSprite(spriteType, recipe.resultName));
 
             arrRecipeList[i].gameObject.SetActive(true);
             arrRecipeList[i].SetReferenceRecipe(characterSprites);
@@ -55,19 +55,19 @@ public class UICharacterRecipe : MonoBehaviour
             foreach (var character in existingCharacters)
             {
                 //조합 레시피에 중복되는 재료가 존재하므로 개수 중첩 방지 (if - else if ...)
-                if (character.name == recipe.select_name) {
+                if (character.name == recipe.selectName) {
                     if (!dicExistingCharacterCount.ContainsKey(character.name)) dicExistingCharacterCount.Add(character.name, 1);
                     else dicExistingCharacterCount[character.name]++;
                 }
-                else if (character.name == recipe.recipe_name_a) {
+                else if (character.name == recipe.recipeNameA) {
                     if (!dicExistingCharacterCount.ContainsKey(character.name)) dicExistingCharacterCount.Add(character.name, 1);
                     else dicExistingCharacterCount[character.name]++;
                 }
-                else if (character.name == recipe.recipe_name_b) {
+                else if (character.name == recipe.recipeNameB) {
                     if (!dicExistingCharacterCount.ContainsKey(character.name)) dicExistingCharacterCount.Add(character.name, 1);
                     else dicExistingCharacterCount[character.name]++;
                 }
-                else if (character.name == recipe.recipe_name_c) {
+                else if (character.name == recipe.recipeNameC) {
                     if (!dicExistingCharacterCount.ContainsKey(character.name)) dicExistingCharacterCount.Add(character.name, 1);
                     else dicExistingCharacterCount[character.name]++;
                 }
@@ -78,25 +78,25 @@ public class UICharacterRecipe : MonoBehaviour
             foreach (PlayFabManager.CharacterDisplayName characterType in System.Enum.GetValues(typeof(PlayFabManager.CharacterDisplayName)))
             {
                 //조합 레시피에 중복되는 재료가 존재하므로 개수 중첩 허용 (if - if ...)
-                if (recipe.select_name == characterType.ToString())
+                if (recipe.selectName == characterType.ToString())
                 {
-                    if (!dicRequierdRecipeCount.ContainsKey(recipe.select_name)) dicRequierdRecipeCount.Add(recipe.select_name, 1);
-                    else dicRequierdRecipeCount[recipe.select_name]++;
+                    if (!dicRequierdRecipeCount.ContainsKey(recipe.selectName)) dicRequierdRecipeCount.Add(recipe.selectName, 1);
+                    else dicRequierdRecipeCount[recipe.selectName]++;
                 }
-                if (recipe.recipe_name_a == characterType.ToString())
+                if (recipe.recipeNameA == characterType.ToString())
                 {
-                    if (!dicRequierdRecipeCount.ContainsKey(recipe.recipe_name_a)) dicRequierdRecipeCount.Add(recipe.recipe_name_a, 1);
-                    else dicRequierdRecipeCount[recipe.recipe_name_a]++;
+                    if (!dicRequierdRecipeCount.ContainsKey(recipe.recipeNameA)) dicRequierdRecipeCount.Add(recipe.recipeNameA, 1);
+                    else dicRequierdRecipeCount[recipe.recipeNameA]++;
                 }
-                if (recipe.recipe_name_b == characterType.ToString())
+                if (recipe.recipeNameB == characterType.ToString())
                 {
-                    if (!dicRequierdRecipeCount.ContainsKey(recipe.recipe_name_b)) dicRequierdRecipeCount.Add(recipe.recipe_name_b, 1);
-                    else dicRequierdRecipeCount[recipe.recipe_name_b]++;
+                    if (!dicRequierdRecipeCount.ContainsKey(recipe.recipeNameB)) dicRequierdRecipeCount.Add(recipe.recipeNameB, 1);
+                    else dicRequierdRecipeCount[recipe.recipeNameB]++;
                 }
-                if (recipe.recipe_name_c == characterType.ToString())
+                if (recipe.recipeNameC == characterType.ToString())
                 {
-                    if (!dicRequierdRecipeCount.ContainsKey(recipe.recipe_name_c)) dicRequierdRecipeCount.Add(recipe.recipe_name_c, 1);
-                    else dicRequierdRecipeCount[recipe.recipe_name_c]++;
+                    if (!dicRequierdRecipeCount.ContainsKey(recipe.recipeNameC)) dicRequierdRecipeCount.Add(recipe.recipeNameC, 1);
+                    else dicRequierdRecipeCount[recipe.recipeNameC]++;
                 }
             }
 

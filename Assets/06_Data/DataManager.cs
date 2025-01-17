@@ -1,6 +1,5 @@
-using System.Collections.Generic;
 using Newtonsoft.Json;
-using UnityEditor;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DataManager
@@ -28,11 +27,11 @@ public class DataManager
     {
         dicCharacterCardLevelDatas = new Dictionary<int, CharacterCardLevelData>();
         string json = Resources.Load<TextAsset>("Datas/characterCardLevel_data").text;
-        CharacterCardLevelData[] arrCardLevelData = JsonConvert.DeserializeObject<CharacterCardLevelData[]>(json);
-        foreach (CharacterCardLevelData cardLevelData in arrCardLevelData)
+        CharacterCardLevelDataList characterCardLevelDataList = JsonConvert.DeserializeObject<CharacterCardLevelDataList>(json);
+        foreach (var data in characterCardLevelDataList.characterCardLevelDatas)
         {
-            if (!dicCharacterCardLevelDatas.ContainsKey(cardLevelData.level)) {
-                dicCharacterCardLevelDatas.Add(cardLevelData.level, cardLevelData);
+            if (!dicCharacterCardLevelDatas.ContainsKey(data.level)) {
+                dicCharacterCardLevelDatas.Add(data.level, data);
             }
         }
     }
@@ -40,14 +39,12 @@ public class DataManager
     public void LoadCharacterCardLevelInfoData()
     {
         characterCardLevelInfoDatas = new List<Dictionary<string, CharacterCardData>>();
-
         string json = Resources.Load<TextAsset>("Datas/characterCardLevelInfo_data").text;
         CharacterCardDataList characterCardDataList = JsonConvert.DeserializeObject<CharacterCardDataList>(json);
         Dictionary<string, CharacterCardData> dicCharacterCardData = new Dictionary<string, CharacterCardData>();
         foreach (var character in characterCardDataList.characterCardDatas)
         {
-            if (!dicCharacterCardData.ContainsKey(character.display_name))
-            {
+            if (!dicCharacterCardData.ContainsKey(character.display_name)) {
                 dicCharacterCardData.Add(character.display_name, character);
 
                 //디버그 출력
@@ -57,7 +54,6 @@ public class DataManager
                 }
             }
         }
-
         characterCardLevelInfoDatas.Add(dicCharacterCardData);
     }
 
@@ -65,11 +61,11 @@ public class DataManager
     {
         dicCharacterDatas = new Dictionary<string, CharacterData>();
         string json = Resources.Load<TextAsset>("Datas/character_data").text;
-        CharacterData[] arrCharactersData = JsonConvert.DeserializeObject<CharacterData[]>(json);
-        foreach (CharacterData charactersData in arrCharactersData)
+        CharacterDataList characterDataList = JsonConvert.DeserializeObject<CharacterDataList>(json);
+        foreach (CharacterData charactersData in characterDataList.characterDatas)
         {
-            if (!dicCharacterDatas.ContainsKey(charactersData.display_name)) {
-                dicCharacterDatas.Add(charactersData.display_name, charactersData);
+            if (!dicCharacterDatas.ContainsKey(charactersData.displayName)) {
+                dicCharacterDatas.Add(charactersData.displayName, charactersData);
             }
         }
     }
@@ -78,11 +74,11 @@ public class DataManager
     {
         dicCharacterSkillDatas = new Dictionary<string, CharacterSkillData>();
         string json = Resources.Load<TextAsset>("Datas/characterSkill_data").text;
-        CharacterSkillData[] arrCharacterSkillData = JsonConvert.DeserializeObject<CharacterSkillData[]>(json);
-        foreach (CharacterSkillData characterSkillData in arrCharacterSkillData)
+        CharacterSkillDataList CharacterSkillDataList = JsonConvert.DeserializeObject<CharacterSkillDataList>(json);
+        foreach (CharacterSkillData characterSkillData in CharacterSkillDataList.characterSkillDatas)
         {
-            if (!dicCharacterSkillDatas.ContainsKey(characterSkillData.skill_name)) {
-                dicCharacterSkillDatas.Add(characterSkillData.skill_name, characterSkillData);
+            if (!dicCharacterSkillDatas.ContainsKey(characterSkillData.skillName)) {
+                dicCharacterSkillDatas.Add(characterSkillData.skillName, characterSkillData);
             }
         }
     }
@@ -91,19 +87,19 @@ public class DataManager
     {
         dicCharacterRecipeDatas = new Dictionary<string, List<CharacterRecipeData>>();
         string json = Resources.Load<TextAsset>("Datas/characterRecipe_data").text;
-        CharacterRecipeData[] arrCharacterRecipeData = JsonConvert.DeserializeObject<CharacterRecipeData[]>(json);
-        foreach (CharacterRecipeData characterRecipeData in arrCharacterRecipeData)
+        CharacterRecipeDataList characterRecipeDataList = JsonConvert.DeserializeObject<CharacterRecipeDataList>(json);
+        foreach (CharacterRecipeData characterRecipeData in characterRecipeDataList.characterRecipeDatas)
         {
             ////성능 개선 전
-            //if (dicCharacterRecipeDatas.ContainsKey(characterRecipeData.select_name)) {
-            //    dicCharacterRecipeDatas[characterRecipeData.select_name].Add(characterRecipeData);
+            //if (dicCharacterRecipeDatas.ContainsKey(characterRecipeData.selectName)) {
+            //    dicCharacterRecipeDatas[characterRecipeData.selectName].Add(characterRecipeData);
             //}
-            //else dicCharacterRecipeDatas[characterRecipeData.select_name] = new List<CharacterRecipeData> { characterRecipeData };
+            //else dicCharacterRecipeDatas[characterRecipeData.selectName] = new List<CharacterRecipeData> { characterRecipeData };
 
             //성능 개선 후
-            if (!dicCharacterRecipeDatas.TryGetValue(characterRecipeData.select_name, out var recipeList)) {
+            if (!dicCharacterRecipeDatas.TryGetValue(characterRecipeData.selectName, out var recipeList)) {
                 recipeList = new List<CharacterRecipeData>();
-                dicCharacterRecipeDatas[characterRecipeData.select_name] = recipeList;
+                dicCharacterRecipeDatas[characterRecipeData.selectName] = recipeList;
             }
             recipeList.Add(characterRecipeData);
         }
@@ -113,11 +109,11 @@ public class DataManager
     {
         dicPlayWaveDatas = new Dictionary<int, PlayWaveData>();
         string json = Resources.Load<TextAsset>("Datas/playWave_data").text;
-        PlayWaveData[] arrPlayWaveData = JsonConvert.DeserializeObject<PlayWaveData[]>(json);
-        foreach (PlayWaveData playWaveData in arrPlayWaveData)
+        PlayWaveDataList PlayWaveDataList = JsonConvert.DeserializeObject<PlayWaveDataList>(json);
+        foreach (PlayWaveData playWaveData in PlayWaveDataList.playWaveDatas)
         {
-            if (!dicPlayWaveDatas.ContainsKey(playWaveData.wave_id)) {
-                dicPlayWaveDatas.Add(playWaveData.wave_id, playWaveData);
+            if (!dicPlayWaveDatas.ContainsKey(playWaveData.waveId)) {
+                dicPlayWaveDatas.Add(playWaveData.waveId, playWaveData);
             }
         }
     }
@@ -126,11 +122,11 @@ public class DataManager
     {
         dicPlayMapDatas = new Dictionary<int, PlayMapData>();
         string json = Resources.Load<TextAsset>("Datas/playMap_data").text;
-        PlayMapData[] arrPlayMapData = JsonConvert.DeserializeObject<PlayMapData[]>(json);
-        foreach (PlayMapData playMapData in arrPlayMapData)
+        PlayMapDataList playMapDataList = JsonConvert.DeserializeObject<PlayMapDataList>(json);
+        foreach (PlayMapData playMapData in playMapDataList.playMapDatas)
         {
-            if (!dicPlayMapDatas.ContainsKey(playMapData.map_id)) {
-                dicPlayMapDatas.Add(playMapData.map_id, playMapData);
+            if (!dicPlayMapDatas.ContainsKey(playMapData.mapId)) {
+                dicPlayMapDatas.Add(playMapData.mapId, playMapData);
             }
         }
     }
@@ -139,11 +135,11 @@ public class DataManager
     {
         dicPlayEnemyDatas = new Dictionary<string, PlayEnemyData>();
         string json = Resources.Load<TextAsset>("Datas/playEnemy_data").text;
-        PlayEnemyData[] arrPlayEnemyData = JsonConvert.DeserializeObject<PlayEnemyData[]>(json);
-        foreach (PlayEnemyData playEnemyData in arrPlayEnemyData)
+        PlayEnemyDataList playEnemyDataList = JsonConvert.DeserializeObject<PlayEnemyDataList>(json);
+        foreach (PlayEnemyData playEnemyData in playEnemyDataList.playEnemyDatas)
         {
-            if (!dicPlayEnemyDatas.ContainsKey(playEnemyData.enemy_name)) {
-                dicPlayEnemyDatas.Add(playEnemyData.enemy_name, playEnemyData);
+            if (!dicPlayEnemyDatas.ContainsKey(playEnemyData.enemyName)) {
+                dicPlayEnemyDatas.Add(playEnemyData.enemyName, playEnemyData);
             }
         }
     }
@@ -166,11 +162,11 @@ public class DataManager
     {
         if (dicCharacterCardLevelDatas.ContainsKey(level))
         {
-            if (tierNum == 1) return dicCharacterCardLevelDatas[level].quentity_tier_1;
-            else if (tierNum == 2) return dicCharacterCardLevelDatas[level].quentity_tier_2;
-            else if (tierNum == 3) return dicCharacterCardLevelDatas[level].quentity_tier_3;
-            else if (tierNum == 4) return dicCharacterCardLevelDatas[level].quentity_tier_4;
-            else if (tierNum == 5) return dicCharacterCardLevelDatas[level].quentity_tier_5;
+            if (tierNum == 1) return dicCharacterCardLevelDatas[level].quantityTierCommon;
+            else if (tierNum == 2) return dicCharacterCardLevelDatas[level].quantityTierUncommon;
+            else if (tierNum == 3) return dicCharacterCardLevelDatas[level].quantityTierRare;
+            else if (tierNum == 4) return dicCharacterCardLevelDatas[level].quantityTierUniqe;
+            else if (tierNum == 5) return dicCharacterCardLevelDatas[level].quantityTierLegendary;
             else return 0;
         }
         else return 0;

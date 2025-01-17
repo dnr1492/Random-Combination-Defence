@@ -31,15 +31,15 @@ public class InfoManager : MonoBehaviour
         //1. 스킬 데이터 및 기본(Basic) 스킬 분류
         if (dicSkillDatas.ContainsKey(dicCharacterDatas[displayName].skill_1_name)) {
             skillDatas.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_1_name]);
-            if (dicSkillDatas[dicCharacterDatas[displayName].skill_1_name].skill_basic) unlockSkills.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_1_name].skill_basic);
+            if (dicSkillDatas[dicCharacterDatas[displayName].skill_1_name].skillBasic) unlockSkills.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_1_name].skillBasic);
         }
         if (dicSkillDatas.ContainsKey(dicCharacterDatas[displayName].skill_2_name)) {
             skillDatas.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_2_name]);
-            if (dicSkillDatas[dicCharacterDatas[displayName].skill_2_name].skill_basic) unlockSkills.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_2_name].skill_basic);
+            if (dicSkillDatas[dicCharacterDatas[displayName].skill_2_name].skillBasic) unlockSkills.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_2_name].skillBasic);
         }
         if (dicSkillDatas.ContainsKey(dicCharacterDatas[displayName].skill_3_name)) {
             skillDatas.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_3_name]);
-            if (dicSkillDatas[dicCharacterDatas[displayName].skill_3_name].skill_basic) unlockSkills.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_3_name].skill_basic);
+            if (dicSkillDatas[dicCharacterDatas[displayName].skill_3_name].skillBasic) unlockSkills.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_3_name].skillBasic);
         }
 
         //2. 해당 캐릭터 카드의 레벨 데이터 정리
@@ -56,11 +56,14 @@ public class InfoManager : MonoBehaviour
         {
             foreach (var lv in foundCharacterCardData.levels)
             {
-                addDamage += lv.damage;
-                addAttackSpeed += lv.attackSpeed;
-                addMoveSpeed += lv.moveSpeed;
-                unlockSkills.Add(true);
-                DebugLogger.Log($"레벨 {lv.level}: {lv.description}, 공격력: {lv.damage}, 공격속도: {lv.attackSpeed}, 이동속도: {lv.moveSpeed}, 스킬: {lv.skill}");
+                if (level >= lv.level)
+                {
+                    addDamage += lv.damage;
+                    addAttackSpeed += lv.attackSpeed;
+                    addMoveSpeed += lv.moveSpeed;
+                    if (lv.skill != string.Empty) unlockSkills.Add(true);
+                    DebugLogger.Log($"레벨 {lv.level}: {lv.description}, 공격력: {lv.damage}, 공격속도: {lv.attackSpeed}, 이동속도: {lv.moveSpeed}, 스킬: {lv.skill}");
+                }
             }
         }
 
@@ -68,9 +71,9 @@ public class InfoManager : MonoBehaviour
         SaveCharacterInfo(level, 
             displayName,
             dicCharacterDatas[displayName].damage + addDamage,
-            dicCharacterDatas[displayName].attack_speed + addAttackSpeed,
-            dicCharacterDatas[displayName].attack_range + addAttackRange,
-            dicCharacterDatas[displayName].move_speed + addMoveSpeed,
+            dicCharacterDatas[displayName].attackSpeed + addAttackSpeed,
+            dicCharacterDatas[displayName].attackRange + addAttackRange,
+            dicCharacterDatas[displayName].moveSpeed + addMoveSpeed,
             skillDatas,
             unlockSkills
         );
@@ -97,7 +100,6 @@ public class InfoManager : MonoBehaviour
         if (index > 0) displayName = displayName.Substring(0, index);
 
         string path = Application.persistentDataPath + "/" + displayName + "_info.json";
-
         string characterJson = File.ReadAllText(path);
 
         //UTF8로 복호화
