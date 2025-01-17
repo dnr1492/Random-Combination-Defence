@@ -41,19 +41,27 @@ public class InfoManager : MonoBehaviour
             skillDatas.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_3_name]);
             if (dicSkillDatas[dicCharacterDatas[displayName].skill_3_name].skill_basic) unlockSkills.Add(dicSkillDatas[dicCharacterDatas[displayName].skill_3_name].skill_basic);
         }
-        
-        //2. 해당 캐릭터 카드의 레벨 데이터 정리
-        for (int i = 0; i < dicCharacterCardLevelInfoDatas.Count; i++)
-        {
-            string key = displayName + (i + 2);  //키 예제) 주몽2, 주몽3 ...
-            if (!dicCharacterCardLevelInfoDatas.ContainsKey(key)) continue;
 
-            if (level < i + 2) continue;
-            if (dicCharacterCardLevelInfoDatas[key].description.Contains("공격력")) addDamage += dicCharacterCardLevelInfoDatas[key].increase;
-            if (dicCharacterCardLevelInfoDatas[key].description.Contains("공격속도")) addAttackSpeed += dicCharacterCardLevelInfoDatas[key].increase;
-            if (dicCharacterCardLevelInfoDatas[key].description.Contains("공격사거리")) addAttackRange += dicCharacterCardLevelInfoDatas[key].increase;
-            if (dicCharacterCardLevelInfoDatas[key].description.Contains("이동속도")) addMoveSpeed += dicCharacterCardLevelInfoDatas[key].increase;
-            if (dicCharacterCardLevelInfoDatas[key].description.Contains("스킬")) unlockSkills.Add(true);
+        //2. 해당 캐릭터 카드의 레벨 데이터 정리
+        CharacterCardData foundCharacterCardData = null;
+        foreach (var dict in dicCharacterCardLevelInfoDatas)
+        {
+            if (dict.ContainsKey(displayName))
+            {
+                foundCharacterCardData = dict[displayName];
+                break;
+            }
+        }
+        if (foundCharacterCardData != null)
+        {
+            foreach (var lv in foundCharacterCardData.levels)
+            {
+                addDamage += lv.damage;
+                addAttackSpeed += lv.attackSpeed;
+                addMoveSpeed += lv.moveSpeed;
+                unlockSkills.Add(true);
+                DebugLogger.Log($"레벨 {lv.level}: {lv.description}, 공격력: {lv.damage}, 공격속도: {lv.attackSpeed}, 이동속도: {lv.moveSpeed}, 스킬: {lv.skill}");
+            }
         }
 
         //3. 캐릭터 정보 저장

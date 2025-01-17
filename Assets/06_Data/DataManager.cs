@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using UnityEditor;
 using UnityEngine;
 
 public class DataManager
@@ -15,7 +16,7 @@ public class DataManager
     }
 
     private Dictionary<int, CharacterCardLevelData> dicCharacterCardLevelDatas;
-    private Dictionary<string, CharacterCardLevelInfoData> dicCharacterCardLevelInfoDatas;
+    private List<Dictionary<string, CharacterCardData>> characterCardLevelInfoDatas;
     private Dictionary<string, CharacterData> dicCharacterDatas;
     private Dictionary<string, CharacterSkillData> dicCharacterSkillDatas;
     private Dictionary<string, List<CharacterRecipeData>> dicCharacterRecipeDatas;
@@ -38,15 +39,26 @@ public class DataManager
 
     public void LoadCharacterCardLevelInfoData()
     {
-        dicCharacterCardLevelInfoDatas = new Dictionary<string, CharacterCardLevelInfoData>();
+        characterCardLevelInfoDatas = new List<Dictionary<string, CharacterCardData>>();
+
         string json = Resources.Load<TextAsset>("Datas/characterCardLevelInfo_data").text;
-        CharacterCardLevelInfoData[] arrCardLevelInfoData = JsonConvert.DeserializeObject<CharacterCardLevelInfoData[]>(json);
-        foreach (CharacterCardLevelInfoData cardLevelInfoData in arrCardLevelInfoData)
+        CharacterCardDataList characterCardDataList = JsonConvert.DeserializeObject<CharacterCardDataList>(json);
+        Dictionary<string, CharacterCardData> dicCharacterCardData = new Dictionary<string, CharacterCardData>();
+        foreach (var character in characterCardDataList.characterCardDatas)
         {
-            if (!dicCharacterCardLevelInfoDatas.ContainsKey(cardLevelInfoData.display_name)) {
-                dicCharacterCardLevelInfoDatas.Add(cardLevelInfoData.display_name, cardLevelInfoData);
+            if (!dicCharacterCardData.ContainsKey(character.display_name))
+            {
+                dicCharacterCardData.Add(character.display_name, character);
+
+                //디버그 출력
+                DebugLogger.Log($"캐릭터 이름: {character.display_name}");
+                foreach (var level in character.levels) {
+                    DebugLogger.Log($"레벨 {level.level}: {level.description}");
+                }
             }
         }
+
+        characterCardLevelInfoDatas.Add(dicCharacterCardData);
     }
 
     public void LoadCharacterData()
@@ -136,7 +148,7 @@ public class DataManager
         }
     }
 
-    public Dictionary<string, CharacterCardLevelInfoData> GetCharacterCardLevelInfoData() => dicCharacterCardLevelInfoDatas;
+    public List<Dictionary<string, CharacterCardData>> GetCharacterCardLevelInfoData() => characterCardLevelInfoDatas;
 
     public Dictionary<string, CharacterData> GetCharacterData() => dicCharacterDatas;
 

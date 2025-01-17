@@ -19,6 +19,7 @@ public class UICharacterCardDataPopup : MonoBehaviour
 
     private Color defaultColor;
     private Color gainColor;
+    private int indexLevelOffset = 2;
 
     private void Awake()
     {
@@ -67,7 +68,6 @@ public class UICharacterCardDataPopup : MonoBehaviour
         // ↓↓↓↓↓↓↓↓↓↓ addSkills을 활용하여 추후 획득한 스킬 추가 로직 구현하기 ↓↓↓↓↓↓↓↓↓↓ //
         //                                                                                                    //
         //                                                                                                    //
-        //                                                                                                    //
         // ↑↑↑↑↑↑↑↑↑↑ addSkills을 활용하여 추후 획득한 스킬 추가 로직 구현하기 ↑↑↑↑↑↑↑↑↑↑ //
 
         for (int i = 1; i < level; i++)
@@ -76,14 +76,20 @@ public class UICharacterCardDataPopup : MonoBehaviour
             imgBgDescription[i - 1].color = gainColor;
         }
 
-        Dictionary<string, CharacterCardLevelInfoData> dicCharacterCardLevelInfoDatas = DataManager.GetInstance().GetCharacterCardLevelInfoData();
-        for (int i = 0; i < dicCharacterCardLevelInfoDatas.Count; i++)
-        {
-            string key = displayName + (i + 2);  //키 예제) 2부터 시작 - 주몽2, 주몽3 ...
-            if (!dicCharacterCardLevelInfoDatas.ContainsKey(key)) continue;
-
-            txtDescriptionLevel[i].text = "Lv. " + (i + 2);
-            txtDescriptions[i].text = string.Format(dicCharacterCardLevelInfoDatas[key].description, dicCharacterCardLevelInfoDatas[key].increase);
+        var dicCharacterCardLevelInfoDatas = DataManager.GetInstance().GetCharacterCardLevelInfoData();
+        CharacterCardData foundCharacterCardData = null;
+        foreach (var dict in dicCharacterCardLevelInfoDatas) {
+            if (dict.ContainsKey(displayName)) {
+                foundCharacterCardData = dict[displayName];
+                break;
+            }
+        }
+        if (foundCharacterCardData != null) {
+            foreach (var lv in foundCharacterCardData.levels) {
+                txtDescriptionLevel[lv.level - indexLevelOffset].text = "Lv. " + lv.level.ToString();
+                txtDescriptions[lv.level - indexLevelOffset].text = lv.description;
+                DebugLogger.Log($"레벨 {lv.level}: {lv.description}, 공격력: {lv.damage}, 공격속도: {lv.attackSpeed}, 이동속도: {lv.moveSpeed}, 스킬: {lv.skill}");
+            }
         }
 
         int levelUpRemainingUses = DataManager.GetInstance().GetCharacterCardLevelQuentityData(level, characterData[displayName].tier_num);
