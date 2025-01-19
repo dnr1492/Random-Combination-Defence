@@ -71,8 +71,6 @@ public class InitMain : MonoBehaviour
                     break;
                 }
             }
-
-            //timer += Time.deltaTime;
             yield return Time.deltaTime;
         }
     }
