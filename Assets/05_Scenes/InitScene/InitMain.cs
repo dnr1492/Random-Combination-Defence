@@ -54,7 +54,6 @@ public class InitMain : MonoBehaviour
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
         asyncOperation.allowSceneActivation = false;
 
-        //float timer = 0f;
         float timer = Time.deltaTime * 3;  //60 FPS
 
         while (!asyncOperation.isDone) {
@@ -64,7 +63,7 @@ public class InitMain : MonoBehaviour
             }
             else {
                 progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, 1f, timer);
-                if (/*progressBar.fillAmount == 1.0f*/ progressBar.fillAmount >= 0.99f) {
+                if (progressBar.fillAmount >= 0.99f) {
                     progressBarBg.gameObject.SetActive(false);
                     txtLoading.text = "Press Touch to Start";
                     btnLoading.gameObject.SetActive(true);

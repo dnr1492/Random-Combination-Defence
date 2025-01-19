@@ -24,8 +24,8 @@ public class UILobby : MonoBehaviour
         SpriteManager.GetInstance().LoadSpriteAll();
 
         btnGameStart.onClick.AddListener(() => {
-            //StartCoroutine(LoadScene("PlayScene"));
-            StartCoroutine(LoadScene("PlayScene_Iso"));
+            //StartCoroutine(LoadScene("PlayScene_Iso"));
+            StartCoroutine(LoadScene("PlayScene_Test"));
         });
     }
 

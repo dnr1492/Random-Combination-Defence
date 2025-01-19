@@ -8,7 +8,10 @@ public class CameraController : MonoBehaviour
 {
     public Camera mainCam, containerCam;
     [SerializeField] CharacterClickController characterClickController;
-    [SerializeField] Tilemap /*mainTilemap,*/ containerTilemap;
+    [SerializeField] Tilemap mainTilemap, containerTilemap;
+    [SerializeField] RectTransform safeAreaRect;
+
+    private readonly int camOffsetY = 4;
 
     private void Awake()
     {
@@ -17,19 +20,18 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        //AdjustCameraSize(mainTilemap, mainCam);
-        AdjustCameraSize(containerTilemap, containerCam);
+        AdjustCameraSizeAndPosition(mainTilemap, mainCam);
+        AdjustCameraSizeAndPosition(containerTilemap, containerCam);
     }
 
     private void Update()
     {
-        if (characterClickController.GetSelectedCharacters().Count == 0) UpdatePanningSetting();
+        //if (characterClickController.GetSelectedCharacters().Count == 0) UpdatePanningSetting();
     }
 
-    private void AdjustCameraSize(Tilemap tilemap, Camera cam)
+    private void AdjustCameraSizeAndPosition(Tilemap tilemap, Camera cam)
     {
-        // *** 카메라의 사이즈를 조절하는 로직이며, 카메라의 포지션은 에디터상에서 수동으로 조절 요망 *** //
-
+        #region 카메라 사이즈 조절
         //타일맵의 바운더리(경계)를 가져옵니다.
         BoundsInt tilemapBounds = tilemap.cellBounds;
         Vector3 tilemapSize = new Vector3(tilemapBounds.size.x, tilemapBounds.size.y, 0);
@@ -56,6 +58,31 @@ public class CameraController : MonoBehaviour
             float differenceInSize = tilemapAspect / screenAspect;
             cam.orthographicSize = tilemapWorldSize.y / 2 * differenceInSize;
         }
+        #endregion
+
+        #region 카메라 위치 조절
+        Vector2 safeAreaMin = safeAreaRect.anchorMin;
+        float safeAreaOffsetRatio = safeAreaMin.y;
+        float safeAreaOffsetY = cam.orthographicSize * 2 * safeAreaOffsetRatio;
+
+        //타일맵 중심
+        Vector3Int tilemapCenterInt = new Vector3Int(
+            Mathf.RoundToInt(tilemap.cellBounds.center.x),
+            Mathf.RoundToInt(tilemap.cellBounds.center.y),
+            Mathf.RoundToInt(tilemap.cellBounds.center.z)
+        );
+        //타일맵 중심의 월드 좌표
+        Vector3 tilemapCenter = tilemap.CellToWorld(tilemapCenterInt);
+
+        //타일맵 높이의 1/4만큼 아래로 이동
+        float verticalOffset = -tilemapWorldSize.y / camOffsetY;
+
+        cam.transform.position = new Vector3(
+            tilemapCenter.x,
+            tilemapCenter.y + verticalOffset - safeAreaOffsetY,  //Safe Area와 verticalOffset 반영
+            cam.transform.position.z
+        );
+        #endregion
     }
 
     public void OnContainerCamera()

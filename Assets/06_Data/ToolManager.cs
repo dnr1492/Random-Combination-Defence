@@ -3,6 +3,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
 public class ToolManager
 {
     private static void LoadDataFromJSON<T>(T data, string fileName)
@@ -503,3 +504,4 @@ public class ToolManager
     }
     #endregion
 }
+#endif
