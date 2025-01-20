@@ -18,8 +18,7 @@ public class GameOver : MonoBehaviour
         Time.timeScale = 0;
 
         btnQuitToLobby.onClick.AddListener(() => {
-            Time.timeScale = 1;
-            SceneManager.LoadScene("LobbyScene", LoadSceneMode.Single);
+            StartCoroutine(LoadingManager.LoadScene("LobbyScene", () => Time.timeScale = 1));
         });
 
         btnRestartGame.onClick.AddListener(() => {
