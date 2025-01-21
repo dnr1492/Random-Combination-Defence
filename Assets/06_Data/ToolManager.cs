@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
@@ -21,24 +22,116 @@ public class ToolManager
     }
 
     #region CharacterCardLevelInfoData
-    private static string[] characterDisplayNames = { "흔한", "안흔한", "희귀한", "유일한", "주몽", "이순신" };
+    private static string[] characterDisplayNames = Enum.GetNames(typeof(PlayFabManager.CharacterDisplayName));
     private static readonly Dictionary<string, Dictionary<int, CharacterCardLevelInfoData>> characterConfigs = new Dictionary<string, Dictionary<int, CharacterCardLevelInfoData>>()
         {
+            #region Tier: 흔한
             {
-                "흔한", new Dictionary<int, CharacterCardLevelInfoData>
+            "검병", new Dictionary<int, CharacterCardLevelInfoData>
                 {
                     { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
-                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(흔한) 테스트 1" } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(검병) 테스트 1" } },
                     { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
                     { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
                     { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
                     { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
                     { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
                     { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
-                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(흔한) 테스트 2" } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(검병) 테스트 2" } },
                     { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
                 }
             },
+            {
+                "창병", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(창병) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(창병) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "궁병", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(궁병) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(궁병) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "보급병", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(보급병) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(보급병) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "광전사", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(광전사) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(광전사) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "군사", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(군사) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(군사) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "책사", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(책사) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(책사) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            #endregion
             {
                 "안흔한", new Dictionary<int, CharacterCardLevelInfoData>
                 {
@@ -278,19 +371,99 @@ public class ToolManager
             skill_2_name = "",
             skill_3_name = ""
         });
+        #region Tier: 흔한
         list.characterDatas.Add(new CharacterData
         {
-            displayName = "흔한",
-            damage = 3f,
+            displayName = "검병",
+            damage = 7f,
             attackSpeed = 1f,
-            attackRange = 1f,
-            moveSpeed = 1f,
-            tierNum = 1,
+            attackRange = 2f,
+            moveSpeed = 2f,
+            tierNum = 2,
             classType = "검병",
-            skill_1_name = "테스트 스킬",
-            skill_2_name = "테스트 스킬 2",
-            skill_3_name = "테스트 스킬 3"
+            skill_1_name = "",
+            skill_2_name = "",
+            skill_3_name = ""
         });
+        list.characterDatas.Add(new CharacterData
+        {
+            displayName = "창병",
+            damage = 7f,
+            attackSpeed = 1f,
+            attackRange = 2f,
+            moveSpeed = 2f,
+            tierNum = 2,
+            classType = "창병",
+            skill_1_name = "",
+            skill_2_name = "",
+            skill_3_name = ""
+        });
+        list.characterDatas.Add(new CharacterData
+        {
+            displayName = "궁병",
+            damage = 7f,
+            attackSpeed = 1f,
+            attackRange = 2f,
+            moveSpeed = 2f,
+            tierNum = 2,
+            classType = "궁병",
+            skill_1_name = "",
+            skill_2_name = "",
+            skill_3_name = ""
+        });
+        list.characterDatas.Add(new CharacterData
+        {
+            displayName = "보급병",
+            damage = 7f,
+            attackSpeed = 1f,
+            attackRange = 2f,
+            moveSpeed = 2f,
+            tierNum = 2,
+            classType = "보급병",
+            skill_1_name = "",
+            skill_2_name = "",
+            skill_3_name = ""
+        });
+        list.characterDatas.Add(new CharacterData
+        {
+            displayName = "광전사",
+            damage = 7f,
+            attackSpeed = 1f,
+            attackRange = 2f,
+            moveSpeed = 2f,
+            tierNum = 2,
+            classType = "광전사",
+            skill_1_name = "",
+            skill_2_name = "",
+            skill_3_name = ""
+        });
+        list.characterDatas.Add(new CharacterData
+        {
+            displayName = "군사",
+            damage = 7f,
+            attackSpeed = 1f,
+            attackRange = 2f,
+            moveSpeed = 2f,
+            tierNum = 2,
+            classType = "군사",
+            skill_1_name = "",
+            skill_2_name = "",
+            skill_3_name = ""
+        });
+        list.characterDatas.Add(new CharacterData
+        {
+            displayName = "책사",
+            damage = 7f,
+            attackSpeed = 1f,
+            attackRange = 2f,
+            moveSpeed = 2f,
+            tierNum = 2,
+            classType = "책사",
+            skill_1_name = "",
+            skill_2_name = "",
+            skill_3_name = ""
+        });
+        #endregion
 
         LoadDataFromJSON(list, "character_data.json");
     }
@@ -347,14 +520,64 @@ public class ToolManager
             recipeNameC = "",
             resultName = "희귀한"
         });
+        #region Tier: 흔한
         list.characterRecipeDatas.Add(new CharacterRecipeData
         {
-            selectName = "흔한",
-            recipeNameA = "흔한",
+            selectName = "검병",
+            recipeNameA = "검병",
             recipeNameB = "",
             recipeNameC = "",
             resultName = "안흔한"
         });
+        list.characterRecipeDatas.Add(new CharacterRecipeData
+        {
+            selectName = "창병",
+            recipeNameA = "창병",
+            recipeNameB = "",
+            recipeNameC = "",
+            resultName = "안흔한"
+        });
+        list.characterRecipeDatas.Add(new CharacterRecipeData
+        {
+            selectName = "궁병",
+            recipeNameA = "궁병",
+            recipeNameB = "",
+            recipeNameC = "",
+            resultName = "안흔한"
+        });
+        list.characterRecipeDatas.Add(new CharacterRecipeData
+        {
+            selectName = "보급병",
+            recipeNameA = "보급병",
+            recipeNameB = "",
+            recipeNameC = "",
+            resultName = "안흔한"
+        });
+        list.characterRecipeDatas.Add(new CharacterRecipeData
+        {
+            selectName = "광전사",
+            recipeNameA = "광전사",
+            recipeNameB = "",
+            recipeNameC = "",
+            resultName = "안흔한"
+        });
+        list.characterRecipeDatas.Add(new CharacterRecipeData
+        {
+            selectName = "군사",
+            recipeNameA = "군사",
+            recipeNameB = "",
+            recipeNameC = "",
+            resultName = "안흔한"
+        });
+        list.characterRecipeDatas.Add(new CharacterRecipeData
+        {
+            selectName = "책사",
+            recipeNameA = "책사",
+            recipeNameB = "",
+            recipeNameC = "",
+            resultName = "안흔한"
+        });
+        #endregion
 
         LoadDataFromJSON(list, "characterRecipe_data.json");
     }
@@ -391,39 +614,6 @@ public class ToolManager
             skillDamage = "{0} * 10",
             skillTriggerChance = 5f,
             skillEffect = "추가적으로 5초간 스킬 데미지의 200%만큼 지속 피해를 입힙니다.",
-            skillBasic = false
-        });
-        list.characterSkillDatas.Add(new CharacterSkillData
-        {
-            skillName = "테스트 스킬",
-            characterDisplayName = "흔한",
-            skillDescription = "강한 공격으로 {0}데미지를 입힙니다.",
-            skillImagePath = "image/skill/흔한/test",
-            skillDamage = "{0} * 2",
-            skillTriggerChance = 30f,
-            skillEffect = "공격 후 2초간 패닉에 빠집니다.",
-            skillBasic = true
-        });
-        list.characterSkillDatas.Add(new CharacterSkillData
-        {
-            skillName = "테스트 스킬 2",
-            characterDisplayName = "흔한",
-            skillDescription = "조금 더 강한 공격으로 {0}데미지를 입힙니다.",
-            skillImagePath = "image/skill/흔한/test",
-            skillDamage = "{0} * 3",
-            skillTriggerChance = 5f,
-            skillEffect = "공격 후 3초간 패닉에 빠집니다.",
-            skillBasic = false
-        });
-        list.characterSkillDatas.Add(new CharacterSkillData
-        {
-            skillName = "테스트 스킬 3",
-            characterDisplayName = "흔한",
-            skillDescription = "훨씬 더 강한 공격으로 {0}데미지를 입힙니다.",
-            skillImagePath = "image/skill/흔한/test",
-            skillDamage = "{0} * 4",
-            skillTriggerChance = 0.5f,
-            skillEffect = "공격 후 4초간 패닉에 빠집니다.",
             skillBasic = false
         });
 

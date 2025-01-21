@@ -21,7 +21,7 @@ public class UICharacter : MonoBehaviour
         StartCoroutine(Delay());
     }
 
-    public void DisplayCharacters(Dictionary<string, int[]> dicAllCharacterDatas)
+    public void DisplayCharacters(Dictionary<string, PlayFabManager.StructCharacterCardData> dicAllCharacterDatas)
     {
         string displayName;
         int level;
@@ -39,9 +39,9 @@ public class UICharacter : MonoBehaviour
             if (index < uiCharacterCards.Count)
             {
                 displayName = data.Key;
-                level = data.Value[0];
-                quantity = data.Value[1];
-                tierNum = data.Value[2];
+                level = data.Value.Level;
+                quantity = data.Value.quantity;
+                tierNum = data.Value.TierNum;
 
                 foreach (PlayFabManager.CharacterTier tier in Enum.GetValues(typeof(PlayFabManager.CharacterTier))) {
                     if ((int)tier == tierNum) tierName = tier.ToString();

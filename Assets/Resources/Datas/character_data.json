@@ -61,16 +61,88 @@
             "skill_3_name": ""
         },
         {
-            "displayName": "흔한",
-            "damage": 3.0,
+            "displayName": "검병",
+            "damage": 7.0,
             "attackSpeed": 1.0,
-            "attackRange": 1.0,
-            "moveSpeed": 1.0,
-            "tierNum": 1,
+            "attackRange": 2.0,
+            "moveSpeed": 2.0,
+            "tierNum": 2,
             "classType": "검병",
-            "skill_1_name": "테스트 스킬",
-            "skill_2_name": "테스트 스킬 2",
-            "skill_3_name": "테스트 스킬 3"
+            "skill_1_name": "",
+            "skill_2_name": "",
+            "skill_3_name": ""
+        },
+        {
+            "displayName": "창병",
+            "damage": 7.0,
+            "attackSpeed": 1.0,
+            "attackRange": 2.0,
+            "moveSpeed": 2.0,
+            "tierNum": 2,
+            "classType": "창병",
+            "skill_1_name": "",
+            "skill_2_name": "",
+            "skill_3_name": ""
+        },
+        {
+            "displayName": "궁병",
+            "damage": 7.0,
+            "attackSpeed": 1.0,
+            "attackRange": 2.0,
+            "moveSpeed": 2.0,
+            "tierNum": 2,
+            "classType": "궁병",
+            "skill_1_name": "",
+            "skill_2_name": "",
+            "skill_3_name": ""
+        },
+        {
+            "displayName": "보급병",
+            "damage": 7.0,
+            "attackSpeed": 1.0,
+            "attackRange": 2.0,
+            "moveSpeed": 2.0,
+            "tierNum": 2,
+            "classType": "보급병",
+            "skill_1_name": "",
+            "skill_2_name": "",
+            "skill_3_name": ""
+        },
+        {
+            "displayName": "광전사",
+            "damage": 7.0,
+            "attackSpeed": 1.0,
+            "attackRange": 2.0,
+            "moveSpeed": 2.0,
+            "tierNum": 2,
+            "classType": "광전사",
+            "skill_1_name": "",
+            "skill_2_name": "",
+            "skill_3_name": ""
+        },
+        {
+            "displayName": "군사",
+            "damage": 7.0,
+            "attackSpeed": 1.0,
+            "attackRange": 2.0,
+            "moveSpeed": 2.0,
+            "tierNum": 2,
+            "classType": "군사",
+            "skill_1_name": "",
+            "skill_2_name": "",
+            "skill_3_name": ""
+        },
+        {
+            "displayName": "책사",
+            "damage": 7.0,
+            "attackSpeed": 1.0,
+            "attackRange": 2.0,
+            "moveSpeed": 2.0,
+            "tierNum": 2,
+            "classType": "책사",
+            "skill_1_name": "",
+            "skill_2_name": "",
+            "skill_3_name": ""
         }
     ]
 }
