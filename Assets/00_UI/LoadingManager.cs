@@ -1,6 +1,9 @@
+using PlayFab.GroupsModels;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,6 +12,7 @@ public class LoadingManager : MonoBehaviour
 {
     private static LoadingManager instance;
     private GameObject loginLoading, loading;
+    private readonly WaitForSecondsRealtime waitForSecondsRealtime = new WaitForSecondsRealtime(1f);
     private readonly float speed = 1f;
 
     [Header("로그인 로딩 화면")]
@@ -48,8 +52,7 @@ public class LoadingManager : MonoBehaviour
     {
         if (instance == null) return;
 
-        if (instance.loginLoading == null)
-        {
+        if (instance.loginLoading == null) {
             instance.loginLoading = Instantiate(instance.loginLoadingPrefab);
             instance.loginLoading.SetActive(true);
             if (instance.progressBarBg == null) instance.progressBarBg = instance.loginLoading.transform.Find("progressBarBg").GetComponent<Image>();
@@ -101,34 +104,29 @@ public class LoadingManager : MonoBehaviour
         }
     }
 
-    #region 씬 로드 - 동기 / Additive / 데이터 로드
-    public static IEnumerator LoadSceneAdditive(string loadSceneName, string unloadSceneName)
+    #region (비동기) 씬 로드 - Additive / 데이터, 씬 로딩
+    public static IEnumerator LoadSceneAdditive(string loadSceneName, string unloadSceneName, Action onComplete = null)
     {
         ShowLoginLoading();
 
         yield return new WaitUntil(() => PlayFabManager.instance.CheckLoginSuccess());
 
-        //데이터 로드 작업
+        #region 데이터 로딩 작업
         IEnumerator[] loadTasks = new IEnumerator[] {
-        LoadStep(() => DataManager.GetInstance().LoadCharacterCardLevelData()),
-        LoadStep(() => DataManager.GetInstance().LoadCharacterCardLevelInfoData()),
-        LoadStep(() => DataManager.GetInstance().LoadCharacterData()),
-        LoadStep(() => DataManager.GetInstance().LoadCharacterSkillData()),
-        LoadStep(() => DataManager.GetInstance().LoadCharacterRecipeData()),
-        LoadStep(() => DataManager.GetInstance().LoadPlayWaveData()),
-        LoadStep(() => DataManager.GetInstance().LoadPlayMapData()),
-        LoadStep(() => DataManager.GetInstance().LoadPlayEnemyData()),
-        LoadStep(() => SpriteManager.GetInstance().LoadSpriteAll()),
-        LoadStep(() => PlayFabManager.instance.InitUserData("Characters")),
-        LoadSceneAdditiveTask(loadSceneName, progress => {
-                instance.progressBar.fillAmount = progress;
-                instance.txtLoading.text = $"Loading Scene... {Mathf.RoundToInt(progress * 100)}%";
-            })
+        LoadDataStep(() => DataManager.GetInstance().LoadCharacterCardLevelData()),
+        LoadDataStep(() => DataManager.GetInstance().LoadCharacterCardLevelInfoData()),
+        LoadDataStep(() => DataManager.GetInstance().LoadCharacterData()),
+        LoadDataStep(() => DataManager.GetInstance().LoadCharacterSkillData()),
+        LoadDataStep(() => DataManager.GetInstance().LoadCharacterRecipeData()),
+        LoadDataStep(() => DataManager.GetInstance().LoadPlayWaveData()),
+        LoadDataStep(() => DataManager.GetInstance().LoadPlayMapData()),
+        LoadDataStep(() => DataManager.GetInstance().LoadPlayEnemyData()),
+        LoadDataStep(() => SpriteManager.GetInstance().LoadSpriteAll()),
+        LoadDataStep(() => PlayFabManager.instance.InitUserData("Characters")),
         };
 
         float totalSteps = loadTasks.Length;
         float completeSteps = 0f;
-        instance.progressBar.fillAmount = 0f;
 
         foreach (var task in loadTasks)
         {
@@ -137,46 +135,56 @@ public class LoadingManager : MonoBehaviour
             instance.progressBar.fillAmount = completeSteps / totalSteps;
             instance.txtLoading.text = $"Loading Data... {Mathf.RoundToInt((completeSteps / totalSteps) * 100)}%";
         }
+        #endregion
 
         yield return new WaitUntil(() => instance.progressBar.fillAmount == 1);
-        instance.progressBarBg.gameObject.SetActive(false);
-        instance.txtLoading.text = "Press Touch to Start";
-        instance.btnLoading.gameObject.SetActive(true);
-        instance.btnLoading.onClick.AddListener(() => {
-            HideLoginLoading();
-            SceneManager.UnloadSceneAsync(unloadSceneName);
-        });
-    }
+        yield return instance.waitForSecondsRealtime;
 
-    private static IEnumerator LoadStep(Action loadAction)
-    {
-        yield return null;
-        loadAction.Invoke();
-    }
-
-    private static IEnumerator LoadSceneAdditiveTask(string loadSceneName, Action<float> onProgress)
-    {
+        #region 씬 로딩 작업
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(loadSceneName, LoadSceneMode.Additive);
         asyncOperation.allowSceneActivation = false;
 
-        while (!asyncOperation.isDone) {
+        instance.progressBar.fillAmount = 0f;
+        instance.txtLoading.text = $"Loading Scene... {Mathf.RoundToInt(instance.progressBar.fillAmount * 100)}%";
+
+        while (true) {
             if (asyncOperation.progress < 0.9f) {
                 float progress = Mathf.Clamp01(asyncOperation.progress / 0.9f);
-                onProgress?.Invoke(progress);
+                instance.progressBar.fillAmount = progress;
+                instance.txtLoading.text = $"Loading Scene... {Mathf.RoundToInt(progress * 100)}%";
             }
             else {
-                yield return new WaitForSeconds(2f);
-                onProgress?.Invoke(1f);
+                instance.progressBar.fillAmount = 1;
+                instance.txtLoading.text = $"Loading Scene... {Mathf.RoundToInt(1 * 100)}%";
+                asyncOperation.allowSceneActivation = true;
                 break;
             }
             yield return null;
         }
+        #endregion
 
-        asyncOperation.allowSceneActivation = true;
+        yield return new WaitUntil(() => asyncOperation.allowSceneActivation);
+        instance.txtLoading.text = $"Loading Final...";
+        yield return instance.waitForSecondsRealtime;
+
+        instance.txtLoading.text = "Press Touch to Start";
+        instance.progressBarBg.gameObject.SetActive(false);
+        instance.btnLoading.gameObject.SetActive(true);
+        instance.btnLoading.onClick.AddListener(() => {
+            SceneManager.UnloadSceneAsync(unloadSceneName);
+            HideLoginLoading();
+            onComplete?.Invoke();
+        });
+    }
+
+    private static IEnumerator LoadDataStep(Action loadAction)
+    {
+        yield return null;
+        loadAction.Invoke();
     }
     #endregion
 
-    #region 씬 로드 - 동기
+    #region (비동기) 씬 로드
     public static IEnumerator LoadScene(string loadSceneName, Action onComplete = null)
     {
         yield return new WaitUntil(() => PlayFabManager.instance.CheckLoginSuccess());
@@ -184,10 +192,13 @@ public class LoadingManager : MonoBehaviour
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(loadSceneName);
         asyncOperation.allowSceneActivation = false;
 
-        while (!asyncOperation.isDone) {
+        while (true) {
+            if (!asyncOperation.isDone) {
+                yield return null;
+            }
             asyncOperation.allowSceneActivation = true;
             onComplete?.Invoke();
-            yield return Time.deltaTime;
+            break;
         }
     }
     #endregion

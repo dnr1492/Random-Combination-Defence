@@ -14,6 +14,7 @@
 *** 적 관련 에딧 설정 ***
 - Tag를 Enemy로
 - BoxCollider2D 추가 및 IsTrigger를 true로 설정
+- order in layer를 500으로 변경
 
 ●캐릭터(Character) (변수명: DisplayName)
 
@@ -105,7 +106,3 @@ ex)패시브류 - 책사진들)
 - UI 클릭 방지 비정상 작동
 - 컨테이너에 다른 종류의 플레이어가 한 곳에 추가되는 버그
 - 캐릭터 뽑기 최적화하기 (feat.뽑기 중일 때 로딩화면 고고싱)
-- 사각형 고정맵으로 변경하기 !!!
-
-●리팩토링 목록
-- Awake() / Start() / Update() / OnEnable() / OnDisable() 체크

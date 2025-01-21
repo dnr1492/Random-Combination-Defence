@@ -11,7 +11,6 @@ public class UILobby : MonoBehaviour
     private void Awake()
     {
         btnGameStart.onClick.AddListener(() => {
-            //StartCoroutine(LoadScene("PlayScene_Iso"));
             StartCoroutine(LoadingManager.LoadScene("PlayScene_Test"));
         });
     }
