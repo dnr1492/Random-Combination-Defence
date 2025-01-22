@@ -538,12 +538,7 @@ public class PlayFabManager : MonoBehaviour
     #endregion
 
     #region UI 캐릭터 표시
-    private Dictionary<string, StructCharacterCardData> dicLegendaryCharacterDatas = new Dictionary<string, StructCharacterCardData>();
-    private Dictionary<string, StructCharacterCardData> dicUniqueCharacterDatas = new Dictionary<string, StructCharacterCardData>();
-    private Dictionary<string, StructCharacterCardData> dicRareCharacterDatas = new Dictionary<string, StructCharacterCardData>();
-    private Dictionary<string, StructCharacterCardData> dicUncommonCharacterDatas = new Dictionary<string, StructCharacterCardData>();
-    private Dictionary<string, StructCharacterCardData> dicCommonCharacterDatas = new Dictionary<string, StructCharacterCardData>();
-    private Dictionary<string, StructCharacterCardData> dicAllCharacterDatas = new Dictionary<string, StructCharacterCardData>();
+    private Dictionary<string, StructCharacterCardData> dicAllCharacterCardDatas = new Dictionary<string, StructCharacterCardData>();
 
     public struct StructCharacterCardData
     {
@@ -562,13 +557,14 @@ public class PlayFabManager : MonoBehaviour
         {
             //Tier를 추가할 시 해당 딕셔너리 안에 Enum 및 딕셔너리 추가
             var allTierDictionaries = new Dictionary<string, Dictionary<string, StructCharacterCardData>> {
-     { CharacterTier.전설적인.ToString(), new Dictionary<string, StructCharacterCardData>() },
-    { CharacterTier.유일한.ToString(), new Dictionary<string, StructCharacterCardData>() },
-    { CharacterTier.희귀한.ToString(), new Dictionary<string, StructCharacterCardData>() },
-    { CharacterTier.안흔한.ToString(), new Dictionary<string, StructCharacterCardData>() },
-    { CharacterTier.흔한.ToString(), new Dictionary<string, StructCharacterCardData>() },
-};
+                { CharacterTier.전설적인.ToString(), new Dictionary<string, StructCharacterCardData>() },
+                { CharacterTier.유일한.ToString(), new Dictionary<string, StructCharacterCardData>() },
+                { CharacterTier.희귀한.ToString(), new Dictionary<string, StructCharacterCardData>() },
+                { CharacterTier.안흔한.ToString(), new Dictionary<string, StructCharacterCardData>() },
+                { CharacterTier.흔한.ToString(), new Dictionary<string, StructCharacterCardData>() },
+            };
 
+            //Tier별로 분류 (데이터 추가 및 갱신)
             for (int i = 0; i < result.Inventory.Count; i++)
             {
                 var item = result.Inventory[i];
@@ -598,59 +594,66 @@ public class PlayFabManager : MonoBehaviour
 
             //캐릭터 카드가 0개일 경우 레벨1로 데이터 추가
             //단, 전설적인 Tier일 경우 레벨0으로 데이터 추가
+            var characterDatas = DataManager.GetInstance().GetCharacterData();
             var displayNames = Enum.GetNames(typeof(CharacterDisplayName));
             foreach (var tier in allTierDictionaries) {
-                var targetDictionary = tier.Value;
+                var targetDictionary = tier.Value;  //현재 티어의 Dictionary
                 foreach (var displayName in displayNames) {
-                    if (!targetDictionary.ContainsKey(displayName)) {
-                        int defaultLevel = tier.Key == CharacterTier.전설적인.ToString() ? 0 : 1;
-                        targetDictionary.Add(displayName, new StructCharacterCardData
-                        {
-                            Level = defaultLevel,
-                            quantity = 0,
-                            TierNum = (int)Enum.Parse(typeof(CharacterTier), tier.Key),
-                            itemId = displayName
-                        });
-                    }
+                    //DataManager에서 displayName의 데이터를 가져옴
+                    //데이터가 없으면 스킵
+                    if (!characterDatas.TryGetValue(displayName, out var characterData)) continue;
+
+                    //가져온 데이터의 TierNum과 현재 루프의 TierNum 비교
+                    //TierNum이 현재 tier.Key(TierNum)와 일치하지 않으면 스킵
+                    int characterTierNum = characterData.tierNum;
+                    int currentTierNum = (int)Enum.Parse(typeof(CharacterTier), tier.Key);
+                    if (characterTierNum != currentTierNum) continue;
+
+                    //이미 존재하는 경우 스킵
+                    if (targetDictionary.ContainsKey(displayName)) continue;
+
+                    //전설적인 티어는 기본 Level 0, 나머지는 기본 Level 1
+                    int defaultLevel = tier.Key == CharacterTier.전설적인.ToString() ? 0 : 1;
+
+                    //데이터 추가
+                    targetDictionary.Add(displayName, new StructCharacterCardData
+                    {
+                        Level = defaultLevel,
+                        quantity = 0,
+                        TierNum = characterTierNum,  //DataManager에서 가져온 TierNum 사용
+                        itemId = displayName
+                    });
                 }
             }
 
-            // ===== itemIdList를 유저에게 아이템 지급하는 로직을 호출해서 전달하기 ===== //
-            // ===== itemIdList를 유저에게 아이템 지급하는 로직을 호출해서 전달하기 ===== //
-            // ===== itemIdList를 유저에게 아이템 지급하는 로직을 호출해서 전달하기 ===== //
-            //itemId 리스트 생성
-            var itemIdList = new List<string>();
-            foreach (var tier in allTierDictionaries) {
-                foreach (var entry in tier.Value) {
-                    itemIdList.Add(entry.Value.itemId);
+            //모든 캐릭터 카드 데이터를 통합
+            foreach (var dictionary in allTierDictionaries) {
+                foreach (var data in dictionary.Value) {
+                    //키가 없으면 추가, 있으면 업데이트
+                    dicAllCharacterCardDatas[data.Key] = data.Value;
+                    DebugLogger.Log($"키 : {data.Key}\n레벨 : {data.Value.Level}\n카드 보유량 : {data.Value.quantity}\n티어 : {data.Value.TierNum}\n아이템 ID : {data.Value.itemId}");
                 }
             }
 
-            uiCharacter.DisplayCharacters(GetAllCharacterDatas());
+            //// ===== 1. GrantItemsToUserAsync(itemIdList) 이거 호출 안하면 기존 데이터의 레벨이 안 불러와지는게 문제 =====
+            //// ===== 2. 첫 캐릭터 뽑기 시 UI 표출이 되지 않는 문제 =====
+            //// ===== 3. 첫 캐릭터 뽑기 후 캐릭터 카드 표시하는 탭 메뉴 클릭 시 반영이 되지 않는 문제 =====
+            //// ===== itemIdList를 유저에게 아이템 지급하는 로직을 호출해서 전달하기 => 필요할까 ??? ===== //
+            //// ===== itemIdList를 유저에게 아이템 지급하는 로직을 호출해서 전달하기 => 필요할까 ??? ===== //
+            //// ===== itemIdList를 유저에게 아이템 지급하는 로직을 호출해서 전달하기 => 필요할까 ??? ===== //
+            ////itemId 리스트 생성
+            //var itemIdList = new List<string>();
+            //foreach (var tier in allTierDictionaries) {
+            //    foreach (var entry in tier.Value) {
+            //        itemIdList.Add(entry.Value.itemId);
+            //        Debug.Log(entry.Key + " : " + entry.Value.quantity);
+            //    }
+            //}
+            ////GrantItemsToUserAsync(itemIdList);
+
+            uiCharacter.DisplayCharacters(dicAllCharacterCardDatas);
         },
         (error) => { DebugLogger.Log("유저 인벤토리 획득 실패"); });
-    }
-
-    private Dictionary<string, StructCharacterCardData> GetAllCharacterDatas()
-    {
-        //Tier를 추가할 시 해당 리스트 안에 딕셔너리 추가
-        var allCharacterDictionaries = new List<Dictionary<string, StructCharacterCardData>> {
-            dicLegendaryCharacterDatas,
-            dicUniqueCharacterDatas,
-            dicRareCharacterDatas,
-            dicUncommonCharacterDatas,
-            dicCommonCharacterDatas
-        };
-
-        foreach (var dictionary in allCharacterDictionaries) {
-            foreach (var data in dictionary) {
-                //키가 없으면 추가, 있으면 업데이트
-                dicAllCharacterDatas[data.Key] = data.Value;  
-                DebugLogger.Log($"키 : {data.Key}\n레벨 : {data.Value.Level}\n카드 보유량 : {data.Value.quantity}\n티어 : {data.Value.TierNum}\n아이템 ID : {data.Value.itemId}");
-            }
-        }
-
-        return dicAllCharacterDatas;
     }
     #endregion
 
@@ -700,7 +703,7 @@ public class PlayFabManager : MonoBehaviour
 
         string subtractVirtualCurrencyName = "GD";
 
-        StructCharacterCardData data = dicAllCharacterDatas[displayName];
+        StructCharacterCardData data = dicAllCharacterCardDatas[displayName];
         int level = data.Level;  
         int remainingUses = data.quantity;
         int tierNum = data.TierNum;
@@ -781,7 +784,7 @@ public class PlayFabManager : MonoBehaviour
         if (dicCharacterLevelDatas.ContainsKey(displayName))
         {
             dicCharacterLevelDatas[displayName] += 1;
-            dicAllCharacterDatas[displayName] = new StructCharacterCardData {
+            dicAllCharacterCardDatas[displayName] = new StructCharacterCardData {
                 Level = dicCharacterLevelDatas[displayName],
                 quantity = remainingUses,
                 TierNum = tierNum,
