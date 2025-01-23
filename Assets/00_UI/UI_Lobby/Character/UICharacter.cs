@@ -39,9 +39,9 @@ public class UICharacter : MonoBehaviour
             if (index < uiCharacterCards.Count)
             {
                 displayName = data.Key;
-                level = data.Value.Level;
+                level = data.Value.level;
                 quantity = data.Value.quantity;
-                tierNum = data.Value.TierNum;
+                tierNum = data.Value.tierNum;
 
                 foreach (PlayFabManager.CharacterTier tier in Enum.GetValues(typeof(PlayFabManager.CharacterTier))) {
                     if ((int)tier == tierNum) tierName = tier.ToString();

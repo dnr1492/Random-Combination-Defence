@@ -11,12 +11,14 @@ public static class RandomCharacter
         public float weight;  //CharacterData 객체 내부에 가중치를 정의합니다.
         public string displayName;
         public string itemId;
+        public string itemClass;
 
-        public CharacterData(float weight, string displayName, string itemId)
+        public CharacterData(float weight, string displayName, string itemId, string itemClass)
         {
             this.weight = weight;
             this.displayName = displayName;
             this.itemId = itemId;
+            this.itemClass = itemClass;
         }
     }
 
@@ -25,21 +27,21 @@ public static class RandomCharacter
         ////CharacterData 객체를 담는 리스트 생성 예제
         //List<CharacterData> characterList = new List<CharacterData>
         //{
-        //    new CharacterData(0.4f, "주몽", "1"),
-        //    new CharacterData(0.3f, "이순신", "2"),
-        //    new CharacterData(0.3f, "히틀러", "3")
+        //    new CharacterData(0.4f, "주몽", "1", "전설적인"),
+        //    new CharacterData(0.3f, "이순신", "2", "전설적인"),
+        //    new CharacterData(0.3f, "히틀러", "3", "전설적인")
         //};
 
         //CharacterData 리스트를 WeightedItem 리스트로 변환
         List<WeightedItem<CharacterData>> weightedCharacterList = characterList.ToWeightedItemList(character => character.weight);
 
-        //가중치에 따라 무작위로 CharacterData 객체를 선택합니다.
-        CharacterData selectedCharacter = WeightedRandomUtility.GetWeightedRandom(weightedCharacterList, randomValue);
+        //가중치에 따라 무작위로 CharacterData 객체를 뽑습니다.
+        CharacterData drawnCharacter = WeightedRandomUtility.GetWeightedRandom(weightedCharacterList, randomValue);
 
-        //선택된 CharacterData 객체 정보 출력
-        DebugLogger.Log("Selected Character: " + selectedCharacter.displayName);
+        //뽑힌 CharacterData 객체 정보 출력
+        DebugLogger.Log("Draw Character: " + drawnCharacter.displayName);
 
-        return selectedCharacter;
+        return drawnCharacter;
     }
 }
 

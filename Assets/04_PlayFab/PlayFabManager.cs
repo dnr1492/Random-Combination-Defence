@@ -269,7 +269,7 @@ public class PlayFabManager : MonoBehaviour
         await Task.WhenAll(inventoryTask, catalogTask);
 
         var inventoryResult = inventoryTask.Result;
-        var characterDatas = catalogTask.Result;
+        var allCatalogCharacterDatas = catalogTask.Result;
         
         //유저 인벤토리 확인
         if (inventoryResult == null ||
@@ -300,7 +300,7 @@ public class PlayFabManager : MonoBehaviour
             var drawnItems = new List<string>();
             for (int i = 0; i < drawCount; i++)
             {
-                var characterData = RandomCharacter.DrawRandomCharacter(characterDatas, randomValues[i]);
+                var characterData = RandomCharacter.DrawRandomCharacter(allCatalogCharacterDatas, randomValues[i]);
                 drawnItems.Add(characterData.itemId);
             }
             return drawnItems;
@@ -322,7 +322,7 @@ public class PlayFabManager : MonoBehaviour
         DebugLogger.Log($"Step - Grant Items: {endTime - startTime} seconds '여기가 문제다...'");
 
         //유저 인벤토리 갱신 및 UI 업데이트
-        UpdateInventoryAndUIAsync(uiGameResources, uiPurchaseVirtualCurrency, itemIds, virtualCurrencyName, inventoryResult);
+        UpdateInventoryAndUIAsync(uiGameResources, uiPurchaseVirtualCurrency, itemIds, virtualCurrencyName, allCatalogCharacterDatas);
     }
 
     //유저 인벤토리 가져오기 비동기
@@ -374,30 +374,30 @@ public class PlayFabManager : MonoBehaviour
                 foreach (var catalogItem in result.Catalog)
                 {
                     if (catalogItem.DisplayName == CharacterDisplayName.주몽.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightLegendaryJumong, catalogItem.DisplayName, catalogItem.ItemId));
+                        characterDatas.Add(new RandomCharacter.CharacterData(weightLegendaryJumong, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
                     else if (catalogItem.DisplayName == CharacterDisplayName.이순신.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightLegendaryAdmiralYi, catalogItem.DisplayName, catalogItem.ItemId));
+                        characterDatas.Add(new RandomCharacter.CharacterData(weightLegendaryAdmiralYi, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
                     else if (catalogItem.DisplayName == CharacterDisplayName.유일한.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightUniqueCharacter, catalogItem.DisplayName, catalogItem.ItemId));
+                        characterDatas.Add(new RandomCharacter.CharacterData(weightUniqueCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
                     else if (catalogItem.DisplayName == CharacterDisplayName.희귀한.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightRareCharacter, catalogItem.DisplayName, catalogItem.ItemId));
+                        characterDatas.Add(new RandomCharacter.CharacterData(weightRareCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
                     else if (catalogItem.DisplayName == CharacterDisplayName.안흔한.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightUncommonCharacter, catalogItem.DisplayName, catalogItem.ItemId));
+                        characterDatas.Add(new RandomCharacter.CharacterData(weightUncommonCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
                     #region Tier: 흔한
                     else if (catalogItem.DisplayName == CharacterDisplayName.검병.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId));
+                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
                     else if (catalogItem.DisplayName == CharacterDisplayName.창병.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId));
+                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
                     else if (catalogItem.DisplayName == CharacterDisplayName.궁병.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId));
+                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
                     else if (catalogItem.DisplayName == CharacterDisplayName.보급병.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId));
+                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
                     else if (catalogItem.DisplayName == CharacterDisplayName.광전사.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId));
+                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
                     else if (catalogItem.DisplayName == CharacterDisplayName.군사.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId));
+                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
                     else if (catalogItem.DisplayName == CharacterDisplayName.책사.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId));
+                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
                     #endregion
                 }
                 tcs.SetResult(characterDatas);
@@ -433,16 +433,16 @@ public class PlayFabManager : MonoBehaviour
     }
 
     //유저의 인벤토리 및 UI 갱신
-    private void UpdateInventoryAndUIAsync(UIGameResources uiGameResources, UIPurchaseDrawCharacters uiPurchaseVirtualCurrency, List<string> itemIds, string virtualCurrencyName, GetUserInventoryResult inventoryResult)
+    private void UpdateInventoryAndUIAsync(UIGameResources uiGameResources, UIPurchaseDrawCharacters uiPurchaseVirtualCurrency, List<string> itemIds, string virtualCurrencyName, List<RandomCharacter.CharacterData> allCatalogCharacterDatas)
     {
         var dicDrawCharacterData = new Dictionary<string, DrawCharacterData>();
 
         foreach (var itemId in itemIds)
         {
-            var matchingItems = inventoryResult.Inventory.Where(item => item.ItemId == itemId);
+            var matchingItems = allCatalogCharacterDatas.Where(item => item.itemId == itemId);
             foreach (var item in matchingItems)
             {
-                var drawCharacterData = new DrawCharacterData(item.DisplayName, item.ItemClass, 1);
+                var drawCharacterData = new DrawCharacterData(item.displayName, item.itemClass, 1);
                 if (dicDrawCharacterData.ContainsKey(drawCharacterData.displayName))
                 {
                     var existingData = dicDrawCharacterData[drawCharacterData.displayName];
@@ -464,26 +464,9 @@ public class PlayFabManager : MonoBehaviour
     #endregion
 
     #region 신규 캐릭터 데이터 설정
-    public void InitUserData(string catalogVersion) => GetCatalogItems(catalogVersion);
+    public void InitUserData(string catalogVersion) => GetUserData();
 
-    private void GetCatalogItems(string catalogVersion)
-    {
-        PlayFabClientAPI.GetCatalogItems(new GetCatalogItemsRequest() { CatalogVersion = catalogVersion }, (result) =>
-        {
-            List<string> displayNames = new List<string>();
-
-            for (int i = 0; i < result.Catalog.Count; i++)
-            {
-                CatalogItem CatalogItem = result.Catalog[i];
-                displayNames.Add(CatalogItem.DisplayName);
-            }
-
-            GetUserData(displayNames);
-        },
-        (error) => { DebugLogger.Log("상점 불러오기 실패"); });
-    }
-
-    private void GetUserData(List<string> displayNames)
+    private void GetUserData()
     {
         PlayFabClientAPI.GetUserData(new GetUserDataRequest() { PlayFabId = curPlayfabId },
         result =>
@@ -542,9 +525,9 @@ public class PlayFabManager : MonoBehaviour
 
     public struct StructCharacterCardData
     {
-        public int Level;        //레벨
+        public int level;        //레벨
         public int quantity;     //카드 개수
-        public int TierNum;      //티어 
+        public int tierNum;      //티어 
         public string itemId;    //아이템 ID (DisplayName과 동일)
     }
 
@@ -555,101 +538,38 @@ public class PlayFabManager : MonoBehaviour
         PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(),
         (result) =>
         {
-            //Tier를 추가할 시 해당 딕셔너리 안에 Enum 및 딕셔너리 추가
-            var allTierDictionaries = new Dictionary<string, Dictionary<string, StructCharacterCardData>> {
-                { CharacterTier.전설적인.ToString(), new Dictionary<string, StructCharacterCardData>() },
-                { CharacterTier.유일한.ToString(), new Dictionary<string, StructCharacterCardData>() },
-                { CharacterTier.희귀한.ToString(), new Dictionary<string, StructCharacterCardData>() },
-                { CharacterTier.안흔한.ToString(), new Dictionary<string, StructCharacterCardData>() },
-                { CharacterTier.흔한.ToString(), new Dictionary<string, StructCharacterCardData>() },
-            };
-
-            //Tier별로 분류 (데이터 추가 및 갱신)
-            for (int i = 0; i < result.Inventory.Count; i++)
+            var characterNames = Enum.GetNames(typeof(CharacterDisplayName));
+            foreach (var name in characterNames)
             {
-                var item = result.Inventory[i];
-                if (allTierDictionaries.ContainsKey(item.ItemClass))
+                var item = result.Inventory.FirstOrDefault(i => i.DisplayName == name);
+
+                //유저 인벤토리에 캐릭터가 있는 경우
+                if (item != null)
                 {
-                    var targetDictionary = allTierDictionaries[item.ItemClass];
-                    if (!targetDictionary.ContainsKey(item.DisplayName)) {
-                        targetDictionary.Add(item.DisplayName, new StructCharacterCardData
-                        {
-                            Level = dicCharacterLevelDatas[item.DisplayName],
-                            quantity = (int)item.RemainingUses,
-                            TierNum = (int)Enum.Parse(typeof(CharacterTier), item.ItemClass),
-                            itemId = item.DisplayName
-                        });
-                    }
-                    else {
-                        targetDictionary[item.DisplayName] = new StructCharacterCardData
-                        {
-                            Level = dicCharacterLevelDatas[item.DisplayName],
-                            quantity = (int)item.RemainingUses,
-                            TierNum = (int)Enum.Parse(typeof(CharacterTier), item.ItemClass),
-                            itemId = item.DisplayName
-                        };
-                    }
-                }
-            }
-
-            //캐릭터 카드가 0개일 경우 레벨1로 데이터 추가
-            //단, 전설적인 Tier일 경우 레벨0으로 데이터 추가
-            var characterDatas = DataManager.GetInstance().GetCharacterData();
-            var displayNames = Enum.GetNames(typeof(CharacterDisplayName));
-            foreach (var tier in allTierDictionaries) {
-                var targetDictionary = tier.Value;  //현재 티어의 Dictionary
-                foreach (var displayName in displayNames) {
-                    //DataManager에서 displayName의 데이터를 가져옴
-                    //데이터가 없으면 스킵
-                    if (!characterDatas.TryGetValue(displayName, out var characterData)) continue;
-
-                    //가져온 데이터의 TierNum과 현재 루프의 TierNum 비교
-                    //TierNum이 현재 tier.Key(TierNum)와 일치하지 않으면 스킵
-                    int characterTierNum = characterData.tierNum;
-                    int currentTierNum = (int)Enum.Parse(typeof(CharacterTier), tier.Key);
-                    if (characterTierNum != currentTierNum) continue;
-
-                    //이미 존재하는 경우 스킵
-                    if (targetDictionary.ContainsKey(displayName)) continue;
-
-                    //전설적인 티어는 기본 Level 0, 나머지는 기본 Level 1
-                    int defaultLevel = tier.Key == CharacterTier.전설적인.ToString() ? 0 : 1;
-
-                    //데이터 추가
-                    targetDictionary.Add(displayName, new StructCharacterCardData
+                    var info = InfoManager.instance.LoadCharacterInfo(item.DisplayName);
+                    dicAllCharacterCardDatas[name] = new StructCharacterCardData
                     {
-                        Level = defaultLevel,
+                        level = info.level,
+                        quantity = (int)item.RemainingUses,
+                        tierNum = Enum.TryParse(typeof(CharacterTier), item.ItemClass, out var enumValue)
+                                           ? (int)enumValue
+                                           : 0,
+                        itemId = item.ItemId
+                    };
+                }
+                //유저 인벤토리에 캐릭터가 없는 경우
+                else
+                {
+                    var info = InfoManager.instance.LoadCharacterInfo(name);
+                    dicAllCharacterCardDatas[name] = new StructCharacterCardData
+                    {
+                        level = info.level,
                         quantity = 0,
-                        TierNum = characterTierNum,  //DataManager에서 가져온 TierNum 사용
-                        itemId = displayName
-                    });
+                        tierNum = info.tierNum,
+                        itemId = info.displayName
+                    };
                 }
             }
-
-            //모든 캐릭터 카드 데이터를 통합
-            foreach (var dictionary in allTierDictionaries) {
-                foreach (var data in dictionary.Value) {
-                    //키가 없으면 추가, 있으면 업데이트
-                    dicAllCharacterCardDatas[data.Key] = data.Value;
-                    DebugLogger.Log($"키 : {data.Key}\n레벨 : {data.Value.Level}\n카드 보유량 : {data.Value.quantity}\n티어 : {data.Value.TierNum}\n아이템 ID : {data.Value.itemId}");
-                }
-            }
-
-            //// ===== 1. GrantItemsToUserAsync(itemIdList) 이거 호출 안하면 기존 데이터의 레벨이 안 불러와지는게 문제 =====
-            //// ===== 2. 첫 캐릭터 뽑기 시 UI 표출이 되지 않는 문제 =====
-            //// ===== 3. 첫 캐릭터 뽑기 후 캐릭터 카드 표시하는 탭 메뉴 클릭 시 반영이 되지 않는 문제 =====
-            //// ===== itemIdList를 유저에게 아이템 지급하는 로직을 호출해서 전달하기 => 필요할까 ??? ===== //
-            //// ===== itemIdList를 유저에게 아이템 지급하는 로직을 호출해서 전달하기 => 필요할까 ??? ===== //
-            //// ===== itemIdList를 유저에게 아이템 지급하는 로직을 호출해서 전달하기 => 필요할까 ??? ===== //
-            ////itemId 리스트 생성
-            //var itemIdList = new List<string>();
-            //foreach (var tier in allTierDictionaries) {
-            //    foreach (var entry in tier.Value) {
-            //        itemIdList.Add(entry.Value.itemId);
-            //        Debug.Log(entry.Key + " : " + entry.Value.quantity);
-            //    }
-            //}
-            ////GrantItemsToUserAsync(itemIdList);
 
             uiCharacter.DisplayCharacters(dicAllCharacterCardDatas);
         },
@@ -704,11 +624,11 @@ public class PlayFabManager : MonoBehaviour
         string subtractVirtualCurrencyName = "GD";
 
         StructCharacterCardData data = dicAllCharacterCardDatas[displayName];
-        int level = data.Level;  
+        int level = data.level;  
         int remainingUses = data.quantity;
-        int tierNum = data.TierNum;
+        int tierNum = data.tierNum;
         string itemId = data.itemId;
-        DebugLogger.Log($"현재 선택된 캐릭터 (key) : {displayName}\n레벨 : {data.Level}\n카드 보유량 : {data.quantity}\n티어 : {data.TierNum}\n아이템 ID : {data.itemId}");
+        DebugLogger.Log($"현재 선택된 캐릭터 (key) : {displayName}\n레벨 : {data.level}\n카드 보유량 : {data.quantity}\n티어 : {data.tierNum}\n아이템 ID : {data.itemId}");
 
         //유저 인벤토리 병렬로 가져오기
         var inventoryTask = GetUserInventoryAsync();
@@ -785,9 +705,9 @@ public class PlayFabManager : MonoBehaviour
         {
             dicCharacterLevelDatas[displayName] += 1;
             dicAllCharacterCardDatas[displayName] = new StructCharacterCardData {
-                Level = dicCharacterLevelDatas[displayName],
+                level = dicCharacterLevelDatas[displayName],
                 quantity = remainingUses,
-                TierNum = tierNum,
+                tierNum = tierNum,
                 itemId = itemId
             };
         }
