@@ -9,10 +9,8 @@ public class ThumbnailExample : MonoBehaviour
     public ThumbnailGenerator thumbnailGenerator;
     
 
-    private void Awake()
+    private void Start()
     {
-        btnGeneratorThumbnail.onClick.AddListener(() => {
-            StartCoroutine(thumbnailGenerator.Generate());
-        });
+        StartCoroutine(thumbnailGenerator.Generate());
     }
 }
