@@ -36,29 +36,22 @@
             "resultName": "희귀한"
         },
         {
-            "selectName": "검병",
-            "recipeNameA": "검병",
+            "selectName": "검사",
+            "recipeNameA": "검사",
             "recipeNameB": "",
             "recipeNameC": "",
             "resultName": "안흔한"
         },
         {
-            "selectName": "창병",
-            "recipeNameA": "창병",
+            "selectName": "창술사",
+            "recipeNameA": "창술사",
             "recipeNameB": "",
             "recipeNameC": "",
             "resultName": "안흔한"
         },
         {
-            "selectName": "궁병",
-            "recipeNameA": "궁병",
-            "recipeNameB": "",
-            "recipeNameC": "",
-            "resultName": "안흔한"
-        },
-        {
-            "selectName": "보급병",
-            "recipeNameA": "보급병",
+            "selectName": "궁사",
+            "recipeNameA": "궁사",
             "recipeNameB": "",
             "recipeNameC": "",
             "resultName": "안흔한"

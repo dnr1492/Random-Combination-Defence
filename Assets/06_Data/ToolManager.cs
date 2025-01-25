@@ -27,62 +27,47 @@ public class ToolManager
         {
             #region Tier: 흔한
             {
-            "검병", new Dictionary<int, CharacterCardLevelInfoData>
+            "검사", new Dictionary<int, CharacterCardLevelInfoData>
                 {
                     { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
-                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(검병) 테스트 1" } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(검사) 테스트 1" } },
                     { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
                     { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
                     { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
                     { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
                     { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
                     { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
-                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(검병) 테스트 2" } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(검사) 테스트 2" } },
                     { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
                 }
             },
             {
-                "창병", new Dictionary<int, CharacterCardLevelInfoData>
+                "창술사", new Dictionary<int, CharacterCardLevelInfoData>
                 {
                     { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
-                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(창병) 테스트 1" } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(창술사) 테스트 1" } },
                     { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
                     { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
                     { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
                     { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
                     { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
                     { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
-                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(창병) 테스트 2" } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(창술사) 테스트 2" } },
                     { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
                 }
             },
             {
-                "궁병", new Dictionary<int, CharacterCardLevelInfoData>
+                "궁사", new Dictionary<int, CharacterCardLevelInfoData>
                 {
                     { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
-                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(궁병) 테스트 1" } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(궁사) 테스트 1" } },
                     { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
                     { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
                     { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
                     { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
                     { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
                     { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
-                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(궁병) 테스트 2" } },
-                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
-                }
-            },
-            {
-                "보급병", new Dictionary<int, CharacterCardLevelInfoData>
-                {
-                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
-                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(보급병) 테스트 1" } },
-                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
-                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
-                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
-                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
-                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
-                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
-                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(보급병) 테스트 2" } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(궁사) 테스트 2" } },
                     { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
                 }
             },
@@ -374,52 +359,39 @@ public class ToolManager
         #region Tier: 흔한
         list.characterDatas.Add(new CharacterData
         {
-            displayName = "검병",
+            displayName = "검사",
             damage = 7f,
             attackSpeed = 1f,
             attackRange = 2f,
             moveSpeed = 2f,
             tierNum = 1,
-            classType = "검병",
+            classType = "검사",
             skill_1_name = "",
             skill_2_name = "",
             skill_3_name = ""
         });
         list.characterDatas.Add(new CharacterData
         {
-            displayName = "창병",
+            displayName = "창술사",
             damage = 7f,
             attackSpeed = 1f,
             attackRange = 2f,
             moveSpeed = 2f,
             tierNum = 1,
-            classType = "창병",
+            classType = "창술사",
             skill_1_name = "",
             skill_2_name = "",
             skill_3_name = ""
         });
         list.characterDatas.Add(new CharacterData
         {
-            displayName = "궁병",
+            displayName = "궁사",
             damage = 7f,
             attackSpeed = 1f,
             attackRange = 2f,
             moveSpeed = 2f,
             tierNum = 1,
-            classType = "궁병",
-            skill_1_name = "",
-            skill_2_name = "",
-            skill_3_name = ""
-        });
-        list.characterDatas.Add(new CharacterData
-        {
-            displayName = "보급병",
-            damage = 7f,
-            attackSpeed = 1f,
-            attackRange = 2f,
-            moveSpeed = 2f,
-            tierNum = 1,
-            classType = "보급병",
+            classType = "궁사",
             skill_1_name = "",
             skill_2_name = "",
             skill_3_name = ""
@@ -523,32 +495,24 @@ public class ToolManager
         #region Tier: 흔한
         list.characterRecipeDatas.Add(new CharacterRecipeData
         {
-            selectName = "검병",
-            recipeNameA = "검병",
+            selectName = "검사",
+            recipeNameA = "검사",
             recipeNameB = "",
             recipeNameC = "",
             resultName = "안흔한"
         });
         list.characterRecipeDatas.Add(new CharacterRecipeData
         {
-            selectName = "창병",
-            recipeNameA = "창병",
+            selectName = "창술사",
+            recipeNameA = "창술사",
             recipeNameB = "",
             recipeNameC = "",
             resultName = "안흔한"
         });
         list.characterRecipeDatas.Add(new CharacterRecipeData
         {
-            selectName = "궁병",
-            recipeNameA = "궁병",
-            recipeNameB = "",
-            recipeNameC = "",
-            resultName = "안흔한"
-        });
-        list.characterRecipeDatas.Add(new CharacterRecipeData
-        {
-            selectName = "보급병",
-            recipeNameA = "보급병",
+            selectName = "궁사",
+            recipeNameA = "궁사",
             recipeNameB = "",
             recipeNameC = "",
             resultName = "안흔한"

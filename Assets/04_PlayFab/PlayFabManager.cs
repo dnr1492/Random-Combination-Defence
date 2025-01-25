@@ -10,7 +10,7 @@ public class PlayFabManager : MonoBehaviour
 {
     public static PlayFabManager instance = null;
 
-    public enum CharacterDisplayName { 검병, 창병, 궁병, 보급병, 광전사, 군사, 책사, 안흔한, 희귀한, 유일한, 주몽, 이순신 }
+    public enum CharacterDisplayName { 검사, 창술사, 궁사, 광전사, 군사, 책사, 안흔한, 희귀한, 유일한, 주몽, 이순신 }
     public enum CharacterTier { None, 흔한, 안흔한, 희귀한, 유일한, 전설적인 }
 
     private void Awake()
@@ -138,8 +138,7 @@ public class PlayFabManager : MonoBehaviour
     private readonly float weightUncommonCharacter = 300f;  //23.474%
     private readonly float weightRareCharacter = 50f;  //3.912%
     private readonly float weightUniqueCharacter = 25f;  //1.956%
-    private readonly float weightLegendaryJumong = 1.5f;  //0.117%
-    private readonly float weightLegendaryAdmiralYi = 1.5f;  //0.117%
+    private readonly float weightLegendaryCharacter = 3.0f;  //0.235%
 
     public struct DrawCharacterData
     {
@@ -371,35 +370,29 @@ public class PlayFabManager : MonoBehaviour
             result =>
             {
                 var characterDatas = new List<RandomCharacter.CharacterData>();
+
+                //Enum에서 유효한 DisplayName 목록 가져오기
+                var validDisplayNames = Enum.GetValues(typeof(CharacterDisplayName))
+                    .Cast<CharacterDisplayName>()
+                    .Select(name => name.ToString())
+                    .ToHashSet();
+
                 foreach (var catalogItem in result.Catalog)
                 {
-                    if (catalogItem.DisplayName == CharacterDisplayName.주몽.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightLegendaryJumong, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
-                    else if (catalogItem.DisplayName == CharacterDisplayName.이순신.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightLegendaryAdmiralYi, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
-                    else if (catalogItem.DisplayName == CharacterDisplayName.유일한.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightUniqueCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
-                    else if (catalogItem.DisplayName == CharacterDisplayName.희귀한.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightRareCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
-                    else if (catalogItem.DisplayName == CharacterDisplayName.안흔한.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightUncommonCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
-                    #region Tier: 흔한
-                    else if (catalogItem.DisplayName == CharacterDisplayName.검병.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
-                    else if (catalogItem.DisplayName == CharacterDisplayName.창병.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
-                    else if (catalogItem.DisplayName == CharacterDisplayName.궁병.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
-                    else if (catalogItem.DisplayName == CharacterDisplayName.보급병.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
-                    else if (catalogItem.DisplayName == CharacterDisplayName.광전사.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
-                    else if (catalogItem.DisplayName == CharacterDisplayName.군사.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
-                    else if (catalogItem.DisplayName == CharacterDisplayName.책사.ToString())
-                        characterDatas.Add(new RandomCharacter.CharacterData(weightCommonCharacter, catalogItem.DisplayName, catalogItem.ItemId, catalogItem.ItemClass));
-                    #endregion
+                    //현재 아이템의 DisplayName이 Enum에 없거나 이미 리스트에 존재하면 스킵
+                    if (!validDisplayNames.Contains(catalogItem.DisplayName) ||
+                        characterDatas.Exists(data => data.displayName == catalogItem.DisplayName))
+                        continue;
+
+                    //유효한 아이템을 리스트에 추가
+                    characterDatas.Add(new RandomCharacter.CharacterData(
+                        SetWeight(catalogItem.ItemClass),
+                        catalogItem.DisplayName,
+                        catalogItem.ItemId,
+                        catalogItem.ItemClass
+                    ));
                 }
+
                 tcs.SetResult(characterDatas);
             },
             error =>
@@ -409,6 +402,17 @@ public class PlayFabManager : MonoBehaviour
             });
 
         return tcs.Task;
+    }
+
+    //Tier 가중치 설정
+    private float SetWeight(string itemClass)
+    {
+        if (itemClass == CharacterTier.흔한.ToString()) return weightCommonCharacter;
+        else if (itemClass == CharacterTier.안흔한.ToString()) return weightUncommonCharacter;
+        else if (itemClass == CharacterTier.희귀한.ToString()) return weightRareCharacter;
+        else if (itemClass == CharacterTier.유일한.ToString()) return weightUniqueCharacter;
+        else if (itemClass == CharacterTier.전설적인.ToString()) return weightLegendaryCharacter;
+        return 0;
     }
 
     //유저에게 아이템 지급 비동기
