@@ -481,7 +481,7 @@ public class ToolManager
             selectName = "»Ò±Õ«—",
             recipeNameA = "»Ò±Õ«—",
             recipeNameB = "æ»»Á«—",
-            recipeNameC = "»Á«—",
+            recipeNameC = "±§¿¸ªÁ",
             resultName = "¿Ø¿œ«—"
         });
         list.characterRecipeDatas.Add(new CharacterRecipeData

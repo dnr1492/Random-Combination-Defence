@@ -8,6 +8,11 @@
 - SPUM으로 캐릭터 디자인 
 -> 캐릭터 최상위에 CapsuleCollider2D(feat.Offset Y 0.35 / Size X 0.25 Y 0.55) 추가 및 수정 
 -> ThumbnailScene으로 캐릭터 스프라이트 저장
+- Tag를 Character로 변경
+-> Layer를 티어에 해당되도록 변경
+-> Selecting, AttackRange 프리팹 추가
+-> Rigidbody2D, CharacterController, Commbat~티어 관련 추가
+-> Scale 2로 수정
 
 ●적(Enemy) (변수명: EnemyName)
 - Tag를 Enemy로 변경
@@ -72,11 +77,6 @@
 -> 저하 => 방어력, 이동속도
 -> 상태이상 => 기절
 
-●버그
-- UI 클릭 방지 비정상 작동
-- 컨테이너에 다른 종류의 플레이어가 한 곳에 추가되는 버그
-- 캐릭터 뽑기 최적화하기
-
 ●컨텐츠
 
 *맵 내 일반 유닛 보관소 
@@ -95,3 +95,12 @@
 
 ***계속 도전하게 할 메리트가 뭐가 있을까?? 
     => 업적 !? 영구적인 추가 능력치 !?
+
+●버그
+- UI 클릭 방지 비정상 작동
+- 컨테이너에 다른 종류의 플레이어가 한 곳에 추가되는 버그
+- 캐릭터 뽑기 최적화하기
+- ***캐릭터 캐릭 특성에 맞게 다시 디자인 
+-> 캐릭터 이미지의 크기를 좀 더 정밀하게 맞출 수는 없는건가... 
+-> UICharacterDataPopup의 img_Character / UICharacterCard의 img_Character / UIDrawCharacterCard의 img_Character에 Aspect Ratio Fitter로 높이만 조절 가능하도록 해놨으므로 Image.SetNativeActive() 되도록 코딩
+(feat.근데 UICharacterCard의 img_Character / UIDrawCharacterCard의 img_Character도 동일하게 구현해야 되는가에 대한 의문...)

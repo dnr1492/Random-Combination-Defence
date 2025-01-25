@@ -325,9 +325,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderCamera: {fileID: 1385002818}
-  spumGos:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  spumGos: []
   thumbnailWidth: 128
   thumbnailHeight: 128

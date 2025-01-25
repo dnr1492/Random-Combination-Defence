@@ -8,7 +8,7 @@ public class UICharacterCardDataPopup : MonoBehaviour
 {
     [SerializeField] UICharacter uiCharacter;
     [SerializeField] UIGold uiGold;
-    [SerializeField] Image bgCharacter, bgCharacterOutline, imgCharacter, imgQuantity;
+    [SerializeField] Image imgCharacter, imgQuantity;
     [SerializeField] Text txtQuantity, txtCurLevel, txtClassType, txtDisplayName;
     [SerializeField] Text txtStatsDamage, txtStatsAttackSpeed, txtStatsAttackRange, txtStatsMoveSpeed;
     [SerializeField] Image[] imgBgLevel, imgBgDescription;
@@ -47,14 +47,8 @@ public class UICharacterCardDataPopup : MonoBehaviour
         ResetData();
 
         var characterData = DataManager.GetInstance().GetCharacterData();
-        string tierName = null;
-        foreach (PlayFabManager.CharacterTier tier in Enum.GetValues(typeof(PlayFabManager.CharacterTier))) {
-            if ((int)tier == characterData[displayName].tierNum) tierName = tier.ToString();
-        }
         int level = int.Parse(curLevel);
 
-        bgCharacter.sprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.Bg, tierName);
-        bgCharacterOutline.sprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.BgOutline, tierName);
         imgCharacter.sprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.ImgCharacter, displayName);
         imgQuantity.fillAmount = (float)curQuantity / requiredLevelUpQuantity;
         txtQuantity.text = curQuantity + "/" + requiredLevelUpQuantity;

@@ -5,11 +5,11 @@ using UnityEngine.TextCore.Text;
 
 public class ThumbnailGenerator : MonoBehaviour
 {
-    public Camera renderCamera; // SPUM 캐릭터를 캡처할 카메라
-    public GameObject[] spumGos; // SPUM 캐릭터 오브젝트
+    public Camera renderCamera; // 캐릭터를 캡처할 카메라
+    public GameObject[] spumGos; // 캐릭터 오브젝트
     public int thumbnailWidth = 128; // 썸네일 가로 크기
     public int thumbnailHeight = 128; // 썸네일 세로 크기
-    private string savePath = "05_Scenes/notBuild_ThumbnailScene"; // 저장 경로 (Assets 폴더 기준)
+    private string savePath = "05_Scenes/notBuild_ThumbnailScene/SPUM"; // 저장 경로 (Assets 폴더 기준)
     private Sprite[] sprites;
 
     public IEnumerator Generate()
@@ -80,14 +80,17 @@ public class ThumbnailGenerator : MonoBehaviour
             // 6. Texture2D를 Sprite로 변환
             Sprite thumbnail = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
 
-            // 7. RenderTexture 해제
-            RenderTexture.active = null;
-            renderCamera.targetTexture = null;
-            Destroy(renderTexture);
+            //// 7. RenderTexture 해제
+            //RenderTexture.active = null;
+            //renderCamera.targetTexture = null;
+            //Destroy(renderTexture);
 
             sprites[i] = thumbnail;
 
             yield return new WaitForSeconds(1);
+            RenderTexture.active = null;
+            renderCamera.targetTexture = null;
+            Destroy(renderTexture);
         }
     }
 
@@ -124,38 +127,6 @@ public class ThumbnailGenerator : MonoBehaviour
     /// </summary>
     private void AdjustCameraSizeForThumbnail(GameObject targetObject, Camera renderCamera)
     {
-        //CapsuleCollider2D collider2D = targetObject.GetComponent<CapsuleCollider2D>();
-        //Bounds bounds = collider2D.bounds;
-
-        //// 1. 객체 크기 계산
-        //float objectHeight = bounds.size.y;
-        //float objectWidth = bounds.size.x;
-
-        //// 2. 패딩 비율 (1.5f = 50% 여유 공간 추가)
-        //float paddingFactor = 1.5f;
-
-        //// 3. 카메라 Orthographic Size 계산
-        //float orthographicHeight = (objectHeight / 2f) * paddingFactor;
-        //float orthographicWidth = (objectWidth / 2f) * paddingFactor;
-
-        //// 4. 카메라의 세로 크기와 가로 크기를 비교
-        //if (orthographicWidth / renderCamera.aspect > orthographicHeight)
-        //{
-        //    renderCamera.orthographicSize = orthographicWidth / renderCamera.aspect;
-        //}
-        //else
-        //{
-        //    renderCamera.orthographicSize = orthographicHeight;
-        //}
-
-        //// 5. 카메라 위치 설정
-        //renderCamera.transform.position = new Vector3(bounds.center.x, bounds.center.y, renderCamera.transform.position.z);
-
-        // ============================================================================================================================= //
-        // ============================================================================================================================= //
-        // ============================================================================================================================= //
-
-        //CapsuleCollider2D collider2D = targetObject.GetComponent<CapsuleCollider2D>();
         Collider2D collider2D = targetObject.GetComponent<Collider2D>();
 
         Bounds bounds = collider2D.bounds;
@@ -163,6 +134,6 @@ public class ThumbnailGenerator : MonoBehaviour
 
         renderCamera.transform.position = new Vector3(objectCenter.x, objectCenter.y, renderCamera.transform.position.z);
         renderCamera.orthographic = true;
-        renderCamera.orthographicSize = 0.5f;  //3f;
+        renderCamera.orthographicSize = 0.75f;  //0.5f;;
     }
 }

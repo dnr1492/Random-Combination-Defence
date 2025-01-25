@@ -143,7 +143,7 @@ public class CharacterGenerator : MonoBehaviour
             float randomX = Random.Range(-0.5f + minusX, 0.5f + plusX);
             float randomY = Random.Range(-0.5f + minusY, 0.5f + plusY);
             Vector3 randomVector = new Vector3(randomX, randomY, 0);
-            Collider2D col = Physics2D.OverlapBox(randomVector, target.GetComponent<BoxCollider2D>().size / 2, 0);
+            Collider2D col = Physics2D.OverlapBox(randomVector, target.GetComponent<Collider2D>().bounds.size / 2, 0);
             if (col == null)
             {
                 target.transform.position = randomVector;
