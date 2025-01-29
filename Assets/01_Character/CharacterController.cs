@@ -11,6 +11,7 @@ public class CharacterController : MonoBehaviour
     private CharacterInfo curCharacterInfo;
     private GameObject selectingGo;
     private RectTransform uiAttackRangeRt;
+    private Vector3 parantScale;
     private Tilemap mainTilemap;
     private Vector3 movePos;
     private bool isSelected = false;
@@ -165,6 +166,8 @@ public class CharacterController : MonoBehaviour
     private void ShowAttackRangeUI(bool isActive)
     {
         uiAttackRangeRt.gameObject.SetActive(isActive);
-        uiAttackRangeRt.sizeDelta = new Vector3(curCharacterInfo.attackRange * 2, curCharacterInfo.attackRange * 2, 1);
+        uiAttackRangeRt.sizeDelta = new Vector2(
+            curCharacterInfo.attackRange * 2 / transform.lossyScale.x, 
+            curCharacterInfo.attackRange * 2 / transform.lossyScale.y);
     }
 }

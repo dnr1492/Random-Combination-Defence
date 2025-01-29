@@ -12,12 +12,13 @@
 -> Layer를 티어에 해당되도록 변경
 -> Selecting(SPUM은 Shadow를 지우고 추가), AttackRange 프리팹 추가
 -> Rigidbody2D, CharacterController, Commbat~티어 관련 추가
--> Scale 2로 수정
+-> Scale 2.5f로 수정
 
 ●적(Enemy) (변수명: EnemyName)
 - Tag를 Enemy로 변경
 -> BoxCollider2D 추가 및 IsTrigger를 true로 설정
 -> order in layer를 500으로 변경
+-> Scale 1.5f로 수정
 
 ●등급 (변수명 (클라): TierName, TierNum) / (변수명 (서버): ItemClass)
 - 흔한 (Common, 흰색, 1) => 평타
