@@ -20,7 +20,7 @@ public class EnemyGenerator : MonoBehaviour
     private int curWaveIndex;  //현재 진행 중인 웨이브
     private bool startTimer = false;  //시간 체크 시작 유무
     private bool isSpawning = false;  //생성 중 유무
-    private float unitMinimumDistance = 1f;  //유닛 간 원하는 간격
+    private float unitMinimumDistance = 2f;  //유닛 간 원하는 간격 (Enemy Scale 1 -> 1f, 2 -> 1.5f, 3 -> 2f)
 
     private void Awake()
     {

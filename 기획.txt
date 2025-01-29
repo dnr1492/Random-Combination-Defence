@@ -4,13 +4,13 @@
 - 운빨존많겜
 - 운빨디펜스
 
-●캐릭터(Character) (변수명: DisplayName)
-- SPUM으로 캐릭터 디자인 
+●캐릭터(Character) (변수명: DisplayName) / (변수명 (서버): ItemId와 동일)
+- 1. SPUM으로 캐릭터 디자인 
 -> 캐릭터 최상위에 CapsuleCollider2D(feat.Offset Y 0.35 / Size X 0.25 Y 0.55) 추가 및 수정 
--> ThumbnailScene으로 캐릭터 스프라이트 저장
-- Tag를 Character로 변경
+-> ThumbnailScene에서 해당 캐릭터의 스프라이트를 따로 저장
+- 2. Tag를 Character로 변경
 -> Layer를 티어에 해당되도록 변경
--> Selecting, AttackRange 프리팹 추가
+-> Selecting(SPUM은 Shadow를 지우고 추가), AttackRange 프리팹 추가
 -> Rigidbody2D, CharacterController, Commbat~티어 관련 추가
 -> Scale 2로 수정
 
@@ -25,16 +25,25 @@
 - 희귀한 (Rare, 보라색, 3) => 패시브 스킬 1개
 - 유일한 (Unique, 주황색, 4) => 패시브 스킬 2개
 - 전설적인 (Legendary, 빨간색, 5) => 패시브 스킬 3개
+- (6.초월함 - ex)명량대첩 이순신)
 (액티브 스킬은... 글쎄... 버프형은 가능할 지라도...) 
 (레전드 등급의 경우 게임 중 1개만 조합 가능하도록...)
 
-●병종 (변수명: ClassType)
-- 검사 (깡공격력)
-- 창술사 (스플래쉬)
-- 궁사 (사거리)
-- 광전사 (공속)
-- 책사 (버프, 디버프)
-- 군사 (방관 또는 방어무시, 상태이상)
+●병종 (변수명: ClassType) => 삭제 요망
+●병종 대체 (변수명: DamageType) => 추가 요망
+- 데미지 종류 - 물리, 마법, 방어관통, 체력퍼센트
+- 깡공격력, 광역, 사거리, 공속
+- 버프(공증, 공속증)
+- 디버프(방깎)
+- 상태이상(이감, 스턴)
+
+●조합
+- 전사 (기본)
+- 도적 (빠른 공속, 짧은 공격 사거리)
+- 마법사 (마법 데미지)
+- 궁수 (넓은 공격 사거리)
+- 광전사 (높은 공격력)
+- 창술사 (광역)
 
 ●BM 구조
 

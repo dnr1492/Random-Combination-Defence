@@ -41,11 +41,11 @@ public class CharacterGenerator : MonoBehaviour
 
     private void Start()
     {
-        arrCommonRating = Resources.LoadAll<GameObject>("CharacterPrefabs/0_Common");
-        arrUncommonRating = Resources.LoadAll<GameObject>("CharacterPrefabs/1_Uncommon");
-        arrRareRating = Resources.LoadAll<GameObject>("CharacterPrefabs/2_Rare");
-        arrUniqueRating = Resources.LoadAll<GameObject>("CharacterPrefabs/3_Unique");
-        arrLegendaryRating = Resources.LoadAll<GameObject>("CharacterPrefabs/4_Legendary");
+        arrCommonRating = Resources.LoadAll<GameObject>("CharacterPrefabs/00_Common");
+        arrUncommonRating = Resources.LoadAll<GameObject>("CharacterPrefabs/01_Uncommon");
+        arrRareRating = Resources.LoadAll<GameObject>("CharacterPrefabs/02_Rare");
+        arrUniqueRating = Resources.LoadAll<GameObject>("CharacterPrefabs/03_Unique");
+        arrLegendaryRating = Resources.LoadAll<GameObject>("CharacterPrefabs/04_Legendary");
 
         characterCombinationGos.AddRange(arrCommonRating);
         characterCombinationGos.AddRange(arrUncommonRating);
@@ -63,34 +63,34 @@ public class CharacterGenerator : MonoBehaviour
         }
         else return;
 
-        GameObject target;
-        PlayFabManager.CharacterTier tier;
+        GameObject target = null;
+        PlayFabManager.CharacterTier tier = PlayFabManager.CharacterTier.None;
         int randomNnumber = Random.Range(drawMinRatingPercentage, drawMaxRatingPercentage);
         if (randomNnumber >= 0 && randomNnumber < 800)
         {
             tier = PlayFabManager.CharacterTier.ÈçÇÑ;
             DebugLogger.Log("80% È®·ü·Î ÈçÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
         }
-        else if (randomNnumber >= 800 && randomNnumber < 900)
-        {
-            tier = PlayFabManager.CharacterTier.¾ÈÈçÇÑ;
-            DebugLogger.Log("10% È®·ü·Î ¾ÈÈçÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
-        }
-        else if (randomNnumber >= 900 && randomNnumber <= 980)
-        {
-            tier = PlayFabManager.CharacterTier.Èñ±ÍÇÑ;
-            DebugLogger.Log("2% È®·ü·Î Èñ±ÍÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
-        }
-        else if (randomNnumber >= 980 && randomNnumber <= 995)
-        {
-            tier = PlayFabManager.CharacterTier.À¯ÀÏÇÑ;
-            DebugLogger.Log("1.5% È®·ü·Î À¯ÀÏÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
-        }
-        else
-        {
-            tier = PlayFabManager.CharacterTier.Àü¼³ÀûÀÎ;
-            DebugLogger.Log("0.5% È®·ü·Î Àü¼³ÀûÀÎ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
-        }
+        //else if (randomNnumber >= 800 && randomNnumber < 900)
+        //{
+        //    tier = PlayFabManager.CharacterTier.¾ÈÈçÇÑ;
+        //    DebugLogger.Log("10% È®·ü·Î ¾ÈÈçÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
+        //}
+        //else if (randomNnumber >= 900 && randomNnumber <= 980)
+        //{
+        //    tier = PlayFabManager.CharacterTier.Èñ±ÍÇÑ;
+        //    DebugLogger.Log("2% È®·ü·Î Èñ±ÍÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
+        //}
+        //else if (randomNnumber >= 980 && randomNnumber <= 995)
+        //{
+        //    tier = PlayFabManager.CharacterTier.À¯ÀÏÇÑ;
+        //    DebugLogger.Log("1.5% È®·ü·Î À¯ÀÏÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
+        //}
+        //else
+        //{
+        //    tier = PlayFabManager.CharacterTier.Àü¼³ÀûÀÎ;
+        //    DebugLogger.Log("0.5% È®·ü·Î Àü¼³ÀûÀÎ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
+        //}
 
         int drawIndex;
         if (tier == PlayFabManager.CharacterTier.ÈçÇÑ)
@@ -121,7 +121,7 @@ public class CharacterGenerator : MonoBehaviour
             target.name = Rename(target.name);
             existingCharacters.Add(target);
         }
-        else /*if (tier == PlayFabManager.CharacterTier.Àü¼³ÀûÀÎ)*/
+        else if (tier == PlayFabManager.CharacterTier.Àü¼³ÀûÀÎ)
         {
             drawIndex = Random.Range(0, arrLegendaryRating.Length);
             target = Instantiate(arrLegendaryRating[drawIndex], characterParant);

@@ -10,6 +10,7 @@ public class ThumbnailGenerator : MonoBehaviour
     public int thumbnailWidth = 128; // 썸네일 가로 크기
     public int thumbnailHeight = 128; // 썸네일 세로 크기
     private string savePath = "05_Scenes/notBuild_ThumbnailScene/SPUM"; // 저장 경로 (Assets 폴더 기준)
+    private float camOrthographicSize = 1.1f;
     private Sprite[] sprites;
 
     public IEnumerator Generate()
@@ -134,6 +135,6 @@ public class ThumbnailGenerator : MonoBehaviour
 
         renderCamera.transform.position = new Vector3(objectCenter.x, objectCenter.y, renderCamera.transform.position.z);
         renderCamera.orthographic = true;
-        renderCamera.orthographicSize = 0.75f;  //0.5f;;
+        renderCamera.orthographicSize = camOrthographicSize;
     }
 }

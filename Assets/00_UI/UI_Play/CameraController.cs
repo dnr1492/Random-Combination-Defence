@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] Tilemap mainTilemap, containerTilemap;
     [SerializeField] RectTransform safeAreaRect;
 
-    private readonly int camOffsetY = 4;
+    private readonly int camOffsetY = 6;
 
     private void Awake()
     {
@@ -74,7 +74,7 @@ public class CameraController : MonoBehaviour
         //타일맵 중심의 월드 좌표
         Vector3 tilemapCenter = tilemap.CellToWorld(tilemapCenterInt);
 
-        //타일맵 높이의 1/4만큼 아래로 이동
+        //타일맵 높이의 1/6만큼 아래로 이동
         float verticalOffset = -tilemapWorldSize.y / camOffsetY;
 
         cam.transform.position = new Vector3(

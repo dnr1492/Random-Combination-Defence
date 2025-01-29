@@ -1,81 +1,11 @@
 {
     "characterRecipeDatas": [
         {
-            "selectName": "유일한",
-            "recipeNameA": "유일한",
-            "recipeNameB": "희귀한",
-            "recipeNameC": "안흔한",
-            "resultName": "주몽"
-        },
-        {
-            "selectName": "유일한",
-            "recipeNameA": "유일한",
-            "recipeNameB": "희귀한",
-            "recipeNameC": "안흔한",
-            "resultName": "이순신"
-        },
-        {
-            "selectName": "희귀한",
-            "recipeNameA": "희귀한",
-            "recipeNameB": "희귀한",
-            "recipeNameC": "",
-            "resultName": "유일한"
-        },
-        {
-            "selectName": "희귀한",
-            "recipeNameA": "희귀한",
-            "recipeNameB": "안흔한",
-            "recipeNameC": "광전사",
-            "resultName": "유일한"
-        },
-        {
-            "selectName": "안흔한",
-            "recipeNameA": "안흔한",
+            "selectName": "전사",
+            "recipeNameA": "도적",
             "recipeNameB": "",
             "recipeNameC": "",
-            "resultName": "희귀한"
-        },
-        {
-            "selectName": "검사",
-            "recipeNameA": "검사",
-            "recipeNameB": "",
-            "recipeNameC": "",
-            "resultName": "안흔한"
-        },
-        {
-            "selectName": "창술사",
-            "recipeNameA": "창술사",
-            "recipeNameB": "",
-            "recipeNameC": "",
-            "resultName": "안흔한"
-        },
-        {
-            "selectName": "궁사",
-            "recipeNameA": "궁사",
-            "recipeNameB": "",
-            "recipeNameC": "",
-            "resultName": "안흔한"
-        },
-        {
-            "selectName": "광전사",
-            "recipeNameA": "광전사",
-            "recipeNameB": "",
-            "recipeNameC": "",
-            "resultName": "안흔한"
-        },
-        {
-            "selectName": "군사",
-            "recipeNameA": "군사",
-            "recipeNameB": "",
-            "recipeNameC": "",
-            "resultName": "안흔한"
-        },
-        {
-            "selectName": "책사",
-            "recipeNameA": "책사",
-            "recipeNameB": "",
-            "recipeNameC": "",
-            "resultName": "안흔한"
+            "resultName": "마법사"
         }
     ]
 }

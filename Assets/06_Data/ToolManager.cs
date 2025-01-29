@@ -27,172 +27,52 @@ public class ToolManager
         {
             #region Tier: 흔한
             {
-            "검사", new Dictionary<int, CharacterCardLevelInfoData>
+                "전사", new Dictionary<int, CharacterCardLevelInfoData>
                 {
                     { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
-                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(검사) 테스트 1" } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(전사) 테스트 1" } },
                     { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
                     { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
                     { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
                     { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
                     { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
                     { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
-                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(검사) 테스트 2" } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(전사) 테스트 2" } },
                     { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
                 }
             },
             {
-                "창술사", new Dictionary<int, CharacterCardLevelInfoData>
+                "도적", new Dictionary<int, CharacterCardLevelInfoData>
                 {
                     { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
-                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(창술사) 테스트 1" } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(도적) 테스트 1" } },
                     { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
                     { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
                     { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
                     { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
                     { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
                     { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
-                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(창술사) 테스트 2" } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(도적) 테스트 2" } },
                     { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
                 }
             },
             {
-                "궁사", new Dictionary<int, CharacterCardLevelInfoData>
+                "마법사", new Dictionary<int, CharacterCardLevelInfoData>
                 {
                     { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
-                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(궁사) 테스트 1" } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(마법사) 테스트 1" } },
                     { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
                     { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
                     { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
                     { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
                     { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
                     { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
-                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(궁사) 테스트 2" } },
-                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
-                }
-            },
-            {
-                "광전사", new Dictionary<int, CharacterCardLevelInfoData>
-                {
-                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
-                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(광전사) 테스트 1" } },
-                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
-                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
-                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
-                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
-                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
-                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
-                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(광전사) 테스트 2" } },
-                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
-                }
-            },
-            {
-                "군사", new Dictionary<int, CharacterCardLevelInfoData>
-                {
-                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
-                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(군사) 테스트 1" } },
-                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
-                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
-                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
-                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
-                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
-                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
-                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(군사) 테스트 2" } },
-                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
-                }
-            },
-            {
-                "책사", new Dictionary<int, CharacterCardLevelInfoData>
-                {
-                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
-                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(책사) 테스트 1" } },
-                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
-                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
-                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
-                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
-                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
-                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
-                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(책사) 테스트 2" } },
-                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
-                }
-            },
-            #endregion
-            {
-                "안흔한", new Dictionary<int, CharacterCardLevelInfoData>
-                {
-                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
-                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(안흔한) 테스트 1" } },
-                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
-                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
-                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
-                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
-                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
-                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
-                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(안흔한) 테스트 2" } },
-                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
-                }
-            },
-            {
-                "희귀한", new Dictionary<int, CharacterCardLevelInfoData>
-                {
-                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
-                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(희귀한) 테스트 1" } },
-                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
-                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
-                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
-                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
-                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
-                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
-                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(희귀한) 테스트 2" } },
-                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
-                }
-            },
-            {
-                "유일한", new Dictionary<int, CharacterCardLevelInfoData>
-                {
-                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
-                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(유일한) 테스트 1" } },
-                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
-                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
-                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
-                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
-                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
-                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
-                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(유일한) 테스트 2" } },
-                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
-                }
-            },
-            {
-                "주몽", new Dictionary<int, CharacterCardLevelInfoData>
-                {
-                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
-                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(주몽) 테스트 1" } },
-                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
-                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
-                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
-                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
-                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
-                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
-                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(주몽) 테스트 2" } },
-                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
-                }
-            },
-            {
-                "이순신", new Dictionary<int, CharacterCardLevelInfoData>
-                {
-                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
-                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(이순신) 테스트 1" } },
-                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
-                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
-                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
-                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
-                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
-                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
-                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(이순신) 테스트 2" } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(마법사) 테스트 2" } },
                     { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
                 }
             }
-        };
+            #endregion
+    };
 
     [MenuItem("정재욱/Generate characterCardLevelInfo_data")]
     private static void GenerateCharacterCardLevelInfoData()
@@ -291,146 +171,42 @@ public class ToolManager
         };
 
         //데이터 추가
-        list.characterDatas.Add(new CharacterData
-        {
-            displayName = "주몽",
-            damage = 30f,
-            attackSpeed = 2f,
-            attackRange = 5f,
-            moveSpeed = 5f,
-            tierNum = 5,
-            classType = "궁병",
-            skill_1_name = "화살 날리기",
-            skill_2_name = "불화살 날리기",
-            skill_3_name = ""
-        });
-        list.characterDatas.Add(new CharacterData
-        {
-            displayName = "이순신",
-            damage = 20f,
-            attackSpeed = 2.5f,
-            attackRange = 7f,
-            moveSpeed = 5f,
-            tierNum = 5,
-            classType = "궁병",
-            skill_1_name = "",
-            skill_2_name = "",
-            skill_3_name = ""
-        });
-        list.characterDatas.Add(new CharacterData
-        {
-            displayName = "유일한",
-            damage = 15f,
-            attackSpeed = 1.5f,
-            attackRange = 4f,
-            moveSpeed = 4f,
-            tierNum = 4,
-            classType = "책사",
-            skill_1_name = "",
-            skill_2_name = "",
-            skill_3_name = ""
-        });
-        list.characterDatas.Add(new CharacterData
-        {
-            displayName = "희귀한",
-            damage = 10f,
-            attackSpeed = 1.25f,
-            attackRange = 3f,
-            moveSpeed = 3f,
-            tierNum = 3,
-            classType = "창병",
-            skill_1_name = "",
-            skill_2_name = "",
-            skill_3_name = ""
-        });
-        list.characterDatas.Add(new CharacterData
-        {
-            displayName = "안흔한",
-            damage = 7f,
-            attackSpeed = 1f,
-            attackRange = 2f,
-            moveSpeed = 2f,
-            tierNum = 2,
-            classType = "군사",
-            skill_1_name = "",
-            skill_2_name = "",
-            skill_3_name = ""
-        });
         #region Tier: 흔한
         list.characterDatas.Add(new CharacterData
         {
-            displayName = "검사",
+            displayName = "전사",
             damage = 7f,
             attackSpeed = 1f,
             attackRange = 2f,
             moveSpeed = 2f,
             tierNum = 1,
-            classType = "검사",
+            classType = "",
             skill_1_name = "",
             skill_2_name = "",
             skill_3_name = ""
         });
         list.characterDatas.Add(new CharacterData
         {
-            displayName = "창술사",
+            displayName = "도적",
             damage = 7f,
             attackSpeed = 1f,
             attackRange = 2f,
             moveSpeed = 2f,
             tierNum = 1,
-            classType = "창술사",
+            classType = "",
             skill_1_name = "",
             skill_2_name = "",
             skill_3_name = ""
         });
         list.characterDatas.Add(new CharacterData
         {
-            displayName = "궁사",
+            displayName = "마법사",
             damage = 7f,
             attackSpeed = 1f,
             attackRange = 2f,
             moveSpeed = 2f,
             tierNum = 1,
-            classType = "궁사",
-            skill_1_name = "",
-            skill_2_name = "",
-            skill_3_name = ""
-        });
-        list.characterDatas.Add(new CharacterData
-        {
-            displayName = "광전사",
-            damage = 7f,
-            attackSpeed = 1f,
-            attackRange = 2f,
-            moveSpeed = 2f,
-            tierNum = 1,
-            classType = "광전사",
-            skill_1_name = "",
-            skill_2_name = "",
-            skill_3_name = ""
-        });
-        list.characterDatas.Add(new CharacterData
-        {
-            displayName = "군사",
-            damage = 7f,
-            attackSpeed = 1f,
-            attackRange = 2f,
-            moveSpeed = 2f,
-            tierNum = 1,
-            classType = "군사",
-            skill_1_name = "",
-            skill_2_name = "",
-            skill_3_name = ""
-        });
-        list.characterDatas.Add(new CharacterData
-        {
-            displayName = "책사",
-            damage = 7f,
-            attackSpeed = 1f,
-            attackRange = 2f,
-            moveSpeed = 2f,
-            tierNum = 1,
-            classType = "책사",
+            classType = "",
             skill_1_name = "",
             skill_2_name = "",
             skill_3_name = ""
@@ -452,94 +228,14 @@ public class ToolManager
         };
 
         //데이터 추가
-        list.characterRecipeDatas.Add(new CharacterRecipeData
-        {
-            selectName = "유일한",
-            recipeNameA = "유일한",
-            recipeNameB = "희귀한",
-            recipeNameC = "안흔한",
-            resultName = "주몽"
-        });
-        list.characterRecipeDatas.Add(new CharacterRecipeData
-        {
-            selectName = "유일한",
-            recipeNameA = "유일한",
-            recipeNameB = "희귀한",
-            recipeNameC = "안흔한",
-            resultName = "이순신"
-        });
-        list.characterRecipeDatas.Add(new CharacterRecipeData
-        {
-            selectName = "희귀한",
-            recipeNameA = "희귀한",
-            recipeNameB = "희귀한",
-            recipeNameC = "",
-            resultName = "유일한"
-        });
-        list.characterRecipeDatas.Add(new CharacterRecipeData
-        {
-            selectName = "희귀한",
-            recipeNameA = "희귀한",
-            recipeNameB = "안흔한",
-            recipeNameC = "광전사",
-            resultName = "유일한"
-        });
-        list.characterRecipeDatas.Add(new CharacterRecipeData
-        {
-            selectName = "안흔한",
-            recipeNameA = "안흔한",
-            recipeNameB = "",
-            recipeNameC = "",
-            resultName = "희귀한"
-        });
         #region Tier: 흔한
         list.characterRecipeDatas.Add(new CharacterRecipeData
         {
-            selectName = "검사",
-            recipeNameA = "검사",
+            selectName = "전사",
+            recipeNameA = "도적",
             recipeNameB = "",
             recipeNameC = "",
-            resultName = "안흔한"
-        });
-        list.characterRecipeDatas.Add(new CharacterRecipeData
-        {
-            selectName = "창술사",
-            recipeNameA = "창술사",
-            recipeNameB = "",
-            recipeNameC = "",
-            resultName = "안흔한"
-        });
-        list.characterRecipeDatas.Add(new CharacterRecipeData
-        {
-            selectName = "궁사",
-            recipeNameA = "궁사",
-            recipeNameB = "",
-            recipeNameC = "",
-            resultName = "안흔한"
-        });
-        list.characterRecipeDatas.Add(new CharacterRecipeData
-        {
-            selectName = "광전사",
-            recipeNameA = "광전사",
-            recipeNameB = "",
-            recipeNameC = "",
-            resultName = "안흔한"
-        });
-        list.characterRecipeDatas.Add(new CharacterRecipeData
-        {
-            selectName = "군사",
-            recipeNameA = "군사",
-            recipeNameB = "",
-            recipeNameC = "",
-            resultName = "안흔한"
-        });
-        list.characterRecipeDatas.Add(new CharacterRecipeData
-        {
-            selectName = "책사",
-            recipeNameA = "책사",
-            recipeNameB = "",
-            recipeNameC = "",
-            resultName = "안흔한"
+            resultName = "마법사"
         });
         #endregion
 
