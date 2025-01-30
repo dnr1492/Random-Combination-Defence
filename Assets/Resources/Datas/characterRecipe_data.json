@@ -6,6 +6,34 @@
             "recipeNameB": "",
             "recipeNameC": "",
             "resultName": "마법사"
+        },
+        {
+            "selectName": "도적",
+            "recipeNameA": "전사",
+            "recipeNameB": "",
+            "recipeNameC": "",
+            "resultName": "마법사"
+        },
+        {
+            "selectName": "마법사",
+            "recipeNameA": "격투가",
+            "recipeNameB": "",
+            "recipeNameC": "",
+            "resultName": "마법사"
+        },
+        {
+            "selectName": "궁수",
+            "recipeNameA": "전사",
+            "recipeNameB": "",
+            "recipeNameC": "",
+            "resultName": "마법사"
+        },
+        {
+            "selectName": "격투가",
+            "recipeNameA": "도적",
+            "recipeNameB": "",
+            "recipeNameC": "",
+            "resultName": "마법사"
         }
     ]
 }

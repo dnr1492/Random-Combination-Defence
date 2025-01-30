@@ -35,6 +35,30 @@
             "skill_1_name": "",
             "skill_2_name": "",
             "skill_3_name": ""
+        },
+        {
+            "displayName": "궁수",
+            "damage": 7.0,
+            "attackSpeed": 1.0,
+            "attackRange": 2.0,
+            "moveSpeed": 2.0,
+            "tierNum": 1,
+            "classType": "",
+            "skill_1_name": "",
+            "skill_2_name": "",
+            "skill_3_name": ""
+        },
+        {
+            "displayName": "격투가",
+            "damage": 7.0,
+            "attackSpeed": 1.0,
+            "attackRange": 2.0,
+            "moveSpeed": 2.0,
+            "tierNum": 1,
+            "classType": "",
+            "skill_1_name": "",
+            "skill_2_name": "",
+            "skill_3_name": ""
         }
     ]
 }

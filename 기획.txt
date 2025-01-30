@@ -7,12 +7,20 @@
 ●캐릭터(Character) (변수명: DisplayName) / (변수명 (서버): ItemId와 동일)
 - 1. SPUM으로 캐릭터 디자인 
 -> 캐릭터 최상위에 CapsuleCollider2D(feat.Offset Y 0.35 / Size X 0.25 Y 0.55) 추가 및 수정 
+-> Shadow등 다 비활성화 시키고 캐릭터만 나오도록 수정
 -> ThumbnailScene에서 해당 캐릭터의 스프라이트를 따로 저장
 - 2. Tag를 Character로 변경
 -> Layer를 티어에 해당되도록 변경
 -> Selecting(SPUM은 Shadow를 지우고 추가), AttackRange 프리팹 추가
--> Rigidbody2D, CharacterController, Commbat~티어 관련 추가
+-> Rigidbody2D(GravityScale을 0으로, CollisionDetection을 Continuous로, Constraints의 z축 Freeze 설정으로 변경) 추가
+-> CharacterController 추가
+-> Commbat~티어 관련 추가
 -> Scale 2.5f로 수정
+- 3. ToolManager에서
+CharacterCardLevelInfoData
+CharacterData
+CharacterRecipeData 변경 후 에디터에서 생성
+- 4. Playfab 사이트에서 해당 캐릭터를 카테고리에 추가
 
 ●적(Enemy) (변수명: EnemyName)
 - Tag를 Enemy로 변경
@@ -36,7 +44,7 @@
 - 깡공격력, 광역, 사거리, 공속
 - 버프(공증, 공속증)
 - 디버프(방깎)
-- 상태이상(이감, 스턴)
+- 상태이상(이감, 기절)
 
 ●조합
 - 전사 (기본)
@@ -80,7 +88,8 @@
 ●레벨 디자인
 
 *몬스터
--> 체력, 이동속도, 방어력
+-> 체력, 이동속도, 방어력, 
+-> +마법방어력
 
 *플레이어
 -> 증가 => 공격력, 공격속도
@@ -111,7 +120,6 @@
 - 컨테이너에 다른 종류의 플레이어가 한 곳에 추가되는 버그
 - 캐릭터 뽑기 최적화하기
 - PlayfabManager에다가 로딩을 구현해 두는게 좋을 듯 (신호가 약하거나 느린 경우 대비를 위해서)
-- ***캐릭터 캐릭 특성에 맞게 다시 디자인 
--> 캐릭터 이미지의 크기를 좀 더 정밀하게 맞출 수는 없는건가... 
+- 캐릭터 이미지의 크기를 좀 더 정밀하게 맞출 수는 없는건가... 
 -> UICharacterDataPopup의 img_Character / UICharacterCard의 img_Character / UIDrawCharacterCard의 img_Character에 Aspect Ratio Fitter로 높이만 조절 가능하도록 해놨으므로 Image.SetNativeActive() 되도록 코딩
 (feat.근데 UICharacterCard의 img_Character / UIDrawCharacterCard의 img_Character도 동일하게 구현해야 되는가에 대한 의문...)

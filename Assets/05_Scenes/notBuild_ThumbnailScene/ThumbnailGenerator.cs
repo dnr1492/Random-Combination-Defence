@@ -10,7 +10,7 @@ public class ThumbnailGenerator : MonoBehaviour
     public int thumbnailWidth = 128; // 썸네일 가로 크기
     public int thumbnailHeight = 128; // 썸네일 세로 크기
     private string savePath = "05_Scenes/notBuild_ThumbnailScene/SPUM"; // 저장 경로 (Assets 폴더 기준)
-    private float camOrthographicSize = 1.1f;
+    private float camOrthographicSize = 0.6f;
     private Sprite[] sprites;
 
     public IEnumerator Generate()
@@ -80,15 +80,10 @@ public class ThumbnailGenerator : MonoBehaviour
 
             // 6. Texture2D를 Sprite로 변환
             Sprite thumbnail = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
-
-            //// 7. RenderTexture 해제
-            //RenderTexture.active = null;
-            //renderCamera.targetTexture = null;
-            //Destroy(renderTexture);
-
             sprites[i] = thumbnail;
 
             yield return new WaitForSeconds(1);
+            // 7. RenderTexture 해제
             RenderTexture.active = null;
             renderCamera.targetTexture = null;
             Destroy(renderTexture);
@@ -135,6 +130,6 @@ public class ThumbnailGenerator : MonoBehaviour
 
         renderCamera.transform.position = new Vector3(objectCenter.x, objectCenter.y, renderCamera.transform.position.z);
         renderCamera.orthographic = true;
-        renderCamera.orthographicSize = camOrthographicSize;
+        renderCamera.orthographicSize = camOrthographicSize * targetObject.transform.localScale.y;
     }
 }

@@ -10,7 +10,7 @@ public class PlayFabManager : MonoBehaviour
 {
     public static PlayFabManager instance = null;
 
-    public enum CharacterDisplayName { 전사, 도적, 마법사 }
+    public enum CharacterDisplayName { 전사, 도적, 마법사, 궁수, 격투가 }
     public enum CharacterTier { None, 흔한, 안흔한, 희귀한, 유일한, 전설적인 }
 
     private void Awake()

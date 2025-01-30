@@ -91,6 +91,10 @@ public class CharacterGenerator : MonoBehaviour
         //    tier = PlayFabManager.CharacterTier.전설적인;
         //    DebugLogger.Log("0.5% 확률로 전설적인 티어를 뽑았습니다.");
         //}
+        else
+        {
+            DebugLogger.Log("뽑기 실패");
+        }
 
         int drawIndex;
         if (tier == PlayFabManager.CharacterTier.흔한)
