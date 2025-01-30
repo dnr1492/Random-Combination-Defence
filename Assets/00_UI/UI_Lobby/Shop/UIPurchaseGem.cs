@@ -48,7 +48,7 @@ public class UIPurchaseGem : MonoBehaviour
         // ===== 현금으로 구매 할 수 있도록 수정하기 ===== //
         try {
             LoadingManager.ShowLoading();
-            await PlayFabManager.instance.AddUserVirtualCurrencyAsync(uiJewel, addVirtualCurrencyName, amount);
+            await PlayFabManager.instance.PurchaseGemToCashAsync(uiJewel, addVirtualCurrencyName, amount);
         }
         finally {
             LoadingManager.HideLoading();

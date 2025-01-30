@@ -122,7 +122,7 @@ public class LoadingManager : MonoBehaviour
         LoadDataStep(() => DataManager.GetInstance().LoadPlayMapData()),
         LoadDataStep(() => DataManager.GetInstance().LoadPlayEnemyData()),
         LoadDataStep(() => SpriteManager.GetInstance().LoadSpriteAll()),
-        LoadDataStep(() => PlayFabManager.instance.InitUserData("Characters")),
+        LoadDataStep(() => PlayFabManager.instance.InitUserData()),
         };
 
         float totalSteps = loadTasks.Length;

@@ -6,6 +6,7 @@ using UnityEngine;
 public class UICharacter : MonoBehaviour
 {
     private List<UICharacterCard> uiCharacterCards;
+    private bool isInit = true;
 
     private void Awake()
     {
@@ -18,57 +19,22 @@ public class UICharacter : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(Delay());
+        Init();
     }
 
-    public void DisplayCharacters(Dictionary<string, PlayFabManager.StructCharacterCardData> dicAllCharacterDatas)
+    public async void Init()
     {
-        string displayName;
-        int level;
-        int quantity;
-        int tierNum;
-        string tierName = null;
-
-        Sprite bgSprtie;
-        Sprite bgOutlineSprite;
-        Sprite imgCharacterSprite;
-
-        int index = 0;
-        foreach (var data in dicAllCharacterDatas)
-        {
-            if (index < uiCharacterCards.Count)
-            {
-                displayName = data.Key;
-                level = data.Value.level;
-                quantity = data.Value.quantity;
-                tierNum = data.Value.tierNum;
-
-                foreach (PlayFabManager.CharacterTier tier in Enum.GetValues(typeof(PlayFabManager.CharacterTier))) {
-                    if ((int)tier == tierNum) tierName = tier.ToString();
-                }
-
-                bgSprtie = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.Bg, tierName);
-                bgOutlineSprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.BgOutline, tierName);
-                imgCharacterSprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.ImgCharacter, displayName);
-
-                uiCharacterCards[index].gameObject.SetActive(true);
-                uiCharacterCards[index].Set(
-                    displayName,
-                    level,
-                    quantity,
-                    DataManager.GetInstance().GetCharacterCardLevelQuentityData(level, tierNum),
-                    bgSprtie,
-                    bgOutlineSprite,
-                    imgCharacterSprite
-                );
-                index++;
-            }
+        if (isInit) {
+            isInit = false;
+            return;
         }
-    }
 
-    private IEnumerator Delay()
-    {
-        yield return Time.deltaTime;
-        PlayFabManager.instance.DisplayCharacterCard(this);
+        try {
+            LoadingManager.ShowLoading();
+            await PlayFabManager.instance.SetCharacterCardData(uiCharacterCards);
+        }
+        finally {
+            LoadingManager.HideLoading();
+        }
     }
 }
