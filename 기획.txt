@@ -110,6 +110,7 @@
 - UI 클릭 방지 비정상 작동
 - 컨테이너에 다른 종류의 플레이어가 한 곳에 추가되는 버그
 - 캐릭터 뽑기 최적화하기
+- PlayfabManager에다가 로딩을 구현해 두는게 좋을 듯 (신호가 약하거나 느린 경우 대비를 위해서)
 - ***캐릭터 캐릭 특성에 맞게 다시 디자인 
 -> 캐릭터 이미지의 크기를 좀 더 정밀하게 맞출 수는 없는건가... 
 -> UICharacterDataPopup의 img_Character / UICharacterCard의 img_Character / UIDrawCharacterCard의 img_Character에 Aspect Ratio Fitter로 높이만 조절 가능하도록 해놨으므로 Image.SetNativeActive() 되도록 코딩
