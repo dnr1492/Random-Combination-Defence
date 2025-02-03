@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/05_Scenes/PlayScene/PlayScene_Iso.unity
     guid: 5bb4333741aad474fa6e5094ef5b8f71
   - enabled: 1
-    path: Assets/05_Scenes/PlayScene/PlayScene_Test.unity
+    path: Assets/05_Scenes/PlayScene/PlayScene.unity
     guid: cd9753c6662f7544891be62dbdedf734
   m_configObjects: {}
