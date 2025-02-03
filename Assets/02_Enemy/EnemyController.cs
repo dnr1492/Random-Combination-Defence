@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         hp = transform.Find("Hp").GetComponent<Hp>();
+        hp.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -70,6 +71,7 @@ public class EnemyController : MonoBehaviour
     {
         curHp -= damage;
 
+        hp.gameObject.SetActive(true);
         hp.SetHp(curHp, maxHp);
 
         if (curHp <= 0) {

@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] Tilemap mainTilemap, containerTilemap;
     [SerializeField] RectTransform safeAreaRect;
 
-    private readonly int camOffsetY = 6;
+    private readonly float camOffsetY = 3.5f;  //타일맵 높이의 1/3.5f만큼 아래로 이동
 
     private void Awake()
     {

@@ -39,7 +39,7 @@ public class EnemyGenerator : MonoBehaviour
         curWaveTimer = dicPlayWaveDatas[curWaveIndex].waveTimer;
 
         uiPlay.SetUI_Wave(curWaveIndex, dicPlayEnemyDatas.Count);
-        uiPlay.SetUI_WaveTimer((int)curWaveTimer);
+        uiPlay.SetUI_WaveTimer(curWaveTimer);
         uiPlay.SetUI_EnemyCount(0);
     }
 
@@ -50,7 +50,7 @@ public class EnemyGenerator : MonoBehaviour
             uiPlay.SetUI_WaveSpawning();
             return;
         }
-        else uiPlay.SetUI_WaveTimer((int)curWaveTimer);
+        else uiPlay.SetUI_WaveTimer(curWaveTimer);
 
         CheckWaveTimer();
     }
@@ -132,7 +132,7 @@ public class EnemyGenerator : MonoBehaviour
 
         //UI √ ±‚»≠
         uiPlay.SetUI_EnemyCount(-count);
-        uiPlay.SetUI_WaveTimer((int)curWaveTimer);
+        uiPlay.SetUI_WaveTimer(curWaveTimer);
         uiPlay.SetUI_Wave(curWaveIndex, dicPlayEnemyDatas.Count);
     }
 }

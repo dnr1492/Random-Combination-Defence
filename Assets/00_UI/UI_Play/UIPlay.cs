@@ -10,12 +10,13 @@ public class UIPlay : MonoBehaviour
     
     [SerializeField] Text txtWave, txtWaveTimer, txtEnemyCount;
     [SerializeField] Text txtGold, txtDiamond, txtPopulation;
+    [SerializeField] Slider sliEnemyCount;
     [SerializeField] GameObject gameOverPrefab;
 
     private readonly string strWave = "Wave {0} / {1}";
-    private readonly string strWaveTimer = "Next Wave : {0} Second";
-    private readonly string strWaveSpawning = "利 积己 吝";
-    private readonly string strEnemyCount = "Enemy Count : {0} / {1}";
+    private readonly string strWaveTimer = "{0}";
+    private readonly string strWaveSpawning = "积己 吝";
+    private readonly string strEnemyCount = "{0} / {1}";
     private readonly string strPopulation = "{0} / {1}";
 
     private int curEnemyCount = 0;
@@ -31,6 +32,8 @@ public class UIPlay : MonoBehaviour
     private void Awake()
     {
         dicPlayMapDatas = DataManager.GetInstance().GetPlayMapData();
+
+        sliEnemyCount.maxValue = dicPlayMapDatas[GetCurMapId].maximumEnemyCount;
     }
 
     private void Start()
@@ -46,7 +49,7 @@ public class UIPlay : MonoBehaviour
         else txtWave.text = string.Format(strWave, curWave, maxWave);
     }
 
-    public void SetUI_WaveTimer(int curWaveTimer) => txtWaveTimer.text = string.Format(strWaveTimer, curWaveTimer);
+    public void SetUI_WaveTimer(float curWaveTimer) => txtWaveTimer.text = string.Format(strWaveTimer, curWaveTimer.ToString("F2"));
 
     public void SetUI_WaveSpawning() => txtWaveTimer.text = strWaveSpawning;
 
@@ -54,6 +57,7 @@ public class UIPlay : MonoBehaviour
     {
         curEnemyCount += enemyCount;
         txtEnemyCount.text = string.Format(strEnemyCount, curEnemyCount, dicPlayMapDatas[GetCurMapId].maximumEnemyCount);
+        sliEnemyCount.value = curEnemyCount;
     }
 
     public void SetUI_Gold(int gold)
