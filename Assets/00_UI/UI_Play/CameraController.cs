@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
@@ -18,11 +19,11 @@ public class CameraController : MonoBehaviour
         containerCam.gameObject.SetActive(false);
     }
 
-    private void Start()
-    {
-        AdjustCameraSizeAndPosition(mainTilemap, mainCam);
-        AdjustCameraSizeAndPosition(containerTilemap, containerCam);
-    }
+    //private void Start()
+    //{
+    //    //AdjustCameraSizeAndPosition(mainTilemap, mainCam);
+    //    //AdjustCameraSizeAndPosition(containerTilemap, containerCam);
+    //}
 
     private void Update()
     {
@@ -136,4 +137,65 @@ public class CameraController : MonoBehaviour
         mainCam.transform.position = newPosition;
     }
     #endregion
+
+    // ================================================================================================================================================= //
+    // ================================================================================================================================================= //
+    // ================================================================================================================================================= //
+
+    void Start()
+    {
+        if (mainTilemap == null || mainCam == null)
+        {
+            Debug.LogError("mainTilemap 또는 mainCam이 할당되지 않았습니다!");
+            return;
+        }
+
+        // 타일맵의 실제 콘텐츠 영역 계산
+        Bounds realBounds = CalculateTilemapBounds(mainTilemap);
+
+        // 카메라 크기 및 위치 조정
+        AdjustCameraSizeAndPosition(realBounds);
+    }
+
+    Bounds CalculateTilemapBounds(Tilemap tilemap)
+    {
+        BoundsInt cellBounds = tilemap.cellBounds;
+        Vector3 min = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
+        Vector3 max = new Vector3(float.MinValue, float.MinValue, float.MinValue);
+
+        foreach (Vector3Int pos in cellBounds.allPositionsWithin)
+        {
+            if (tilemap.HasTile(pos))
+            {
+                Vector3 worldPos = tilemap.CellToWorld(pos);
+                min = Vector3.Min(min, worldPos);
+                max = Vector3.Max(max, worldPos);
+            }
+        }
+
+        Bounds bounds = new Bounds();
+        bounds.SetMinMax(min / 1.1f, max);
+        return bounds;
+    }
+
+    void AdjustCameraSizeAndPosition(Bounds bounds)
+    {
+        float screenAspect = (float)Screen.width / Screen.height;
+        float mapAspect = bounds.size.x / bounds.size.y;
+
+        if (screenAspect >= mapAspect)
+        {
+            mainCam.orthographicSize = bounds.size.y / 2;
+        }
+        else
+        {
+            mainCam.orthographicSize = bounds.size.x / screenAspect / 2;
+        }
+
+        mainCam.transform.position = new Vector3(
+            bounds.center.x,
+            bounds.center.y,
+            mainCam.transform.position.z
+        );
+    }
 }
