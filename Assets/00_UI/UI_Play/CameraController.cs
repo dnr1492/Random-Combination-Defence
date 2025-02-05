@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -10,80 +10,24 @@ public class CameraController : MonoBehaviour
     public Camera mainCam, containerCam;
     [SerializeField] CharacterClickController characterClickController;
     [SerializeField] Tilemap mainTilemap, containerTilemap;
-    [SerializeField] RectTransform safeAreaRect;
+    //[SerializeField] RectTransform safeAreaRect;
 
-    private readonly float camOffsetY = 3.5f;  //Å¸ÀÏ¸Ê ³ôÀÌÀÇ 1/3.5f¸¸Å­ ¾Æ·¡·Î ÀÌµ¿
+    private readonly float camSizeOffset = 1.1f;
+    private readonly float verticalOffsetRatio = 0.0775f;  //0.0ì€ ë·°í¬íŠ¸ì˜ ìµœìƒë‹¨, 1.0ì€ ìµœí•˜ë‹¨
 
     private void Awake()
     {
         containerCam.gameObject.SetActive(false);
     }
 
-    //private void Start()
-    //{
-    //    //AdjustCameraSizeAndPosition(mainTilemap, mainCam);
-    //    //AdjustCameraSizeAndPosition(containerTilemap, containerCam);
-    //}
+    private void Start()
+    {
+        AdjustCameraSizeAndPosition();
+    }
 
     private void Update()
     {
         //if (characterClickController.GetSelectedCharacters().Count == 0) UpdatePanningSetting();
-    }
-
-    private void AdjustCameraSizeAndPosition(Tilemap tilemap, Camera cam)
-    {
-        #region Ä«¸Ş¶ó »çÀÌÁî Á¶Àı
-        //Å¸ÀÏ¸ÊÀÇ ¹Ù¿î´õ¸®(°æ°è)¸¦ °¡Á®¿É´Ï´Ù.
-        BoundsInt tilemapBounds = tilemap.cellBounds;
-        Vector3 tilemapSize = new Vector3(tilemapBounds.size.x, tilemapBounds.size.y, 0);
-
-        //Å¸ÀÏÀÇ ½ÇÁ¦ Å©±â¸¦ °í·ÁÇÏ¿© Å¸ÀÏ¸ÊÀÇ ¿ùµå Å©±â¸¦ °è»êÇÕ´Ï´Ù.
-        Vector3 tilemapWorldSize = Vector3.Scale(tilemapSize, tilemap.cellSize);
-
-        //ÇØ»óµµ ºñÀ² °è»ê
-        float screenAspect = (float)Screen.width / Screen.height;
-
-        //Å¸ÀÏ¸ÊÀÇ °¡·Î¼¼·Î ºñÀ²
-        float tilemapAspect = tilemapWorldSize.x / tilemapWorldSize.y;
-
-        if (screenAspect >= tilemapAspect)
-        {
-            //È­¸é ºñÀ²ÀÌ Å¸ÀÏ¸Ê ºñÀ²º¸´Ù Å¬ ¶§
-            //Ä«¸Ş¶ó ³ôÀÌ¿¡ ¸ÂÃç¼­ Å©±â¸¦ Á¶Àı
-            cam.orthographicSize = tilemapWorldSize.y / 2;
-        }
-        else
-        {
-            //È­¸é ºñÀ²ÀÌ Å¸ÀÏ¸Ê ºñÀ²º¸´Ù ÀÛÀ» ¶§
-            //Ä«¸Ş¶ó ³Êºñ¿¡ ¸ÂÃç¼­ Å©±â¸¦ Á¶Àı
-            float differenceInSize = tilemapAspect / screenAspect;
-            cam.orthographicSize = tilemapWorldSize.y / 2 * differenceInSize;
-        }
-        #endregion
-
-        #region Ä«¸Ş¶ó À§Ä¡ Á¶Àı
-        Vector2 safeAreaMin = safeAreaRect.anchorMin;
-        float safeAreaOffsetRatio = safeAreaMin.y;
-        float safeAreaOffsetY = cam.orthographicSize * 2 * safeAreaOffsetRatio;
-
-        //Å¸ÀÏ¸Ê Áß½É
-        Vector3Int tilemapCenterInt = new Vector3Int(
-            Mathf.RoundToInt(tilemap.cellBounds.center.x),
-            Mathf.RoundToInt(tilemap.cellBounds.center.y),
-            Mathf.RoundToInt(tilemap.cellBounds.center.z)
-        );
-        //Å¸ÀÏ¸Ê Áß½ÉÀÇ ¿ùµå ÁÂÇ¥
-        Vector3 tilemapCenter = tilemap.CellToWorld(tilemapCenterInt);
-
-        //Å¸ÀÏ¸Ê ³ôÀÌÀÇ 1/6¸¸Å­ ¾Æ·¡·Î ÀÌµ¿
-        float verticalOffset = -tilemapWorldSize.y / camOffsetY;
-
-        cam.transform.position = new Vector3(
-            tilemapCenter.x,
-            tilemapCenter.y + verticalOffset - safeAreaOffsetY,  //Safe Area¿Í verticalOffset ¹İ¿µ
-            cam.transform.position.z
-        );
-        #endregion
     }
 
     public void OnContainerCamera()
@@ -96,7 +40,7 @@ public class CameraController : MonoBehaviour
         containerCam.gameObject.SetActive(false);
     }
 
-    private Vector2 lastPanPosition;  //¸¶Áö¸· ÅÍÄ¡ À§Ä¡ ÀúÀå
+    private Vector2 lastPanPosition;  //ë§ˆì§€ë§‰ í„°ì¹˜ ìœ„ì¹˜ ì €ì¥
     private Vector2 limitMin = new Vector2(-34f, -9.5f);
     private Vector2 limitMax = new Vector2(34f, 9.5f);
     private float panSpeed = 0.009f;
@@ -108,10 +52,10 @@ public class CameraController : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
 
-            //ÅÍÄ¡ ½ÃÀÛ
+            //í„°ì¹˜ ì‹œì‘
             if (touch.phase == TouchPhase.Began) lastPanPosition = touch.position;
 
-            //ÅÍÄ¡ Áß
+            //í„°ì¹˜ ì¤‘
             if (touch.phase == TouchPhase.Moved)
             {
                 Vector2 touchPosition = touch.position;
@@ -126,14 +70,14 @@ public class CameraController : MonoBehaviour
 
     private void Panning(Vector2 panDelta)
     {
-        //ÆĞ´× ¹æÇâ°ú ¼Óµµ¿¡ µû¶ó Ä«¸Ş¶óÀÇ »õ À§Ä¡ °è»ê
+        //íŒ¨ë‹ ë°©í–¥ê³¼ ì†ë„ì— ë”°ë¼ ì¹´ë©”ë¼ì˜ ìƒˆ ìœ„ì¹˜ ê³„ì‚°
         Vector3 newPosition = mainCam.transform.position + new Vector3(panDelta.x * panSpeed, panDelta.y * panSpeed, 0f);
 
-        //ÀÌµ¿ ¹üÀ§¸¦ Á¦ÇÑ (x, y ÁÂÇ¥¸¸)
+        //ì´ë™ ë²”ìœ„ë¥¼ ì œí•œ (x, y ì¢Œí‘œë§Œ)
         newPosition.x = Mathf.Clamp(newPosition.x, limitMin.x, limitMax.x);
         newPosition.y = Mathf.Clamp(newPosition.y, limitMin.y, limitMax.y);
 
-        //»õ·Î¿î À§Ä¡·Î Ä«¸Ş¶ó ÀÌµ¿
+        //ìƒˆë¡œìš´ ìœ„ì¹˜ë¡œ ì¹´ë©”ë¼ ì´ë™
         mainCam.transform.position = newPosition;
     }
     #endregion
@@ -142,22 +86,7 @@ public class CameraController : MonoBehaviour
     // ================================================================================================================================================= //
     // ================================================================================================================================================= //
 
-    void Start()
-    {
-        if (mainTilemap == null || mainCam == null)
-        {
-            Debug.LogError("mainTilemap ¶Ç´Â mainCamÀÌ ÇÒ´çµÇÁö ¾Ê¾Ò½À´Ï´Ù!");
-            return;
-        }
-
-        // Å¸ÀÏ¸ÊÀÇ ½ÇÁ¦ ÄÜÅÙÃ÷ ¿µ¿ª °è»ê
-        Bounds realBounds = CalculateTilemapBounds(mainTilemap);
-
-        // Ä«¸Ş¶ó Å©±â ¹× À§Ä¡ Á¶Á¤
-        AdjustCameraSizeAndPosition(realBounds);
-    }
-
-    Bounds CalculateTilemapBounds(Tilemap tilemap)
+    private Bounds CalculateTilemapBounds(Tilemap tilemap)
     {
         BoundsInt cellBounds = tilemap.cellBounds;
         Vector3 min = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
@@ -174,28 +103,36 @@ public class CameraController : MonoBehaviour
         }
 
         Bounds bounds = new Bounds();
-        bounds.SetMinMax(min / 1.1f, max);
+        bounds.SetMinMax(min / camSizeOffset, max);
         return bounds;
     }
 
-    void AdjustCameraSizeAndPosition(Bounds bounds)
+    private void AdjustCameraSizeAndPosition()
     {
+        // 1. íƒ€ì¼ë§µì˜ Bounds ê³„ì‚°
+        Bounds bounds = CalculateTilemapBounds(mainTilemap);
+
+        // 2. í™”ë©´ ë¹„ìœ¨ê³¼ íƒ€ì¼ë§µ ë¹„ìœ¨ ê³„ì‚°
         float screenAspect = (float)Screen.width / Screen.height;
         float mapAspect = bounds.size.x / bounds.size.y;
 
-        if (screenAspect >= mapAspect)
-        {
-            mainCam.orthographicSize = bounds.size.y / 2;
-        }
-        else
-        {
-            mainCam.orthographicSize = bounds.size.x / screenAspect / 2;
-        }
+        // 3. ì¹´ë©”ë¼ì˜ Orthographic Size ì„¤ì •
+        if (screenAspect >= mapAspect) mainCam.orthographicSize = bounds.size.y / 2;
+        else mainCam.orthographicSize = bounds.size.x / screenAspect / 2;
 
-        mainCam.transform.position = new Vector3(
-            bounds.center.x,
-            bounds.center.y,
-            mainCam.transform.position.z
-        );
+        // 4. Safe Area Rect ê°€ì ¸ì˜¤ê¸°
+        Rect safeArea = Screen.safeArea;
+
+        float safeAreaTopOffset = (Screen.height - (safeArea.y + safeArea.height)) / Screen.height;
+
+        // 6. íƒ€ì¼ë§µì˜ ìƒë‹¨ ì¤‘ì•™ ì›”ë“œ ì¢Œí‘œ ê³„ì‚°
+        Vector3 topCenterWorld = new Vector3(bounds.center.x, bounds.max.y, bounds.center.z);
+
+        // 7. ì¹´ë©”ë¼ì˜ ë·°í¬íŠ¸ì—ì„œ ìƒë‹¨ ì¤‘ì•™ì— í•´ë‹¹í•˜ëŠ” ì›”ë“œ ì¢Œí‘œ ê³„ì‚°
+        Vector3 viewportTopCenter = mainCam.ViewportToWorldPoint(new Vector3(0.5f, 1.0f - verticalOffsetRatio - safeAreaTopOffset, mainCam.nearClipPlane));
+
+        // 8. ì¹´ë©”ë¼ì˜ ìœ„ì¹˜ ì¡°ì •
+        Vector3 offset = topCenterWorld - viewportTopCenter;
+        mainCam.transform.position += new Vector3(offset.x, offset.y, 0);
     }
 }
