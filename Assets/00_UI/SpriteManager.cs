@@ -14,8 +14,6 @@ public class SpriteManager
         return instance;
     }
 
-    public enum SpriteType { None, Bg, BgOutline, ImgCharacter }
-
     private Sprite[] allSprites;
     private Dictionary<string, Sprite> bgSprites = new Dictionary<string, Sprite>();
     private Dictionary<string, Sprite> bgOutlineSprites = new Dictionary<string, Sprite>();

@@ -11,7 +11,6 @@ public class CharacterController : MonoBehaviour
     private CharacterInfo curCharacterInfo;
     private GameObject selectingGo;
     private RectTransform uiAttackRangeRt;
-    private Vector3 parantScale;
     private Tilemap mainTilemap;
     private Vector3 movePos;
     private bool isSelected = false;
@@ -19,10 +18,6 @@ public class CharacterController : MonoBehaviour
     private bool isArrived = false;
     private bool isMoving = false;
     private float stoppingDistance;  //도착 판단 임계선
-
-    private Animator animator;
-    private const string IDLE = "Idle";
-    private const string RUN = "Run";
 
     public void Init(CameraController cameraController, Tilemap mainTilemap)
     {
@@ -65,7 +60,6 @@ public class CharacterController : MonoBehaviour
         ShowAttackRangeUI(isSelected);
 
         movePos = transform.position;
-        //animator = GetComponent<Animator>();
     }
 
     private void Update()

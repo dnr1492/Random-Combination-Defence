@@ -26,7 +26,7 @@ public class UICharacterRecipe : MonoBehaviour
         {   
             List<Sprite> characterSprites = new List<Sprite>();
             var recipe = characterRecipeData[displayName][i];
-            var spriteType = SpriteManager.SpriteType.ImgCharacter;
+            var spriteType = SpriteType.ImgCharacter;
 
             if (!string.IsNullOrEmpty(recipe.selectName)) characterSprites.Add(SpriteManager.GetInstance().GetSprite(spriteType, recipe.selectName));
             if (!string.IsNullOrEmpty(recipe.recipeNameA)) characterSprites.Add(SpriteManager.GetInstance().GetSprite(spriteType, recipe.recipeNameA));
@@ -75,7 +75,7 @@ public class UICharacterRecipe : MonoBehaviour
 
             //조합 레시피에서 요구하는 재료 개수
             var dicRequierdRecipeCount = new Dictionary<string, int>();
-            foreach (PlayFabManager.CharacterDisplayName characterType in System.Enum.GetValues(typeof(PlayFabManager.CharacterDisplayName)))
+            foreach (CharacterDisplayName characterType in System.Enum.GetValues(typeof(CharacterDisplayName)))
             {
                 //조합 레시피에 중복되는 재료가 존재하므로 개수 중첩 허용 (if - if ...)
                 if (recipe.selectName == characterType.ToString())

@@ -15975,7 +15975,6 @@ MonoBehaviour:
   characterClickController: {fileID: 4326864797334597463}
   mainTilemap: {fileID: 949809267}
   containerTilemap: {fileID: 0}
-  safeAreaRect: {fileID: 4326864798082358651}
 --- !u!4 &4326864798265907467
 Transform:
   m_ObjectHideFlags: 0

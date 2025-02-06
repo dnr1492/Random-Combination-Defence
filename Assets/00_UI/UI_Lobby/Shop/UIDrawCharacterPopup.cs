@@ -30,9 +30,9 @@ public class UIDrawCharacterPopup : MonoBehaviour
         {
             GameObject drawCharacterCardGo = Instantiate(uiDrawCharacterCardPrefab, contentTr);
             UIDrawCharacterCard uiDrawCharacterCard = drawCharacterCardGo.GetComponent<UIDrawCharacterCard>();
-            var bgSprtie = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.Bg, data.Value.tierName);
-            var bgOutlineSprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.BgOutline, data.Value.tierName);
-            var imgCharacterSprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.ImgCharacter, data.Value.displayName);
+            var bgSprtie = SpriteManager.GetInstance().GetSprite(SpriteType.Bg, data.Value.tierName);
+            var bgOutlineSprite = SpriteManager.GetInstance().GetSprite(SpriteType.BgOutline, data.Value.tierName);
+            var imgCharacterSprite = SpriteManager.GetInstance().GetSprite(SpriteType.ImgCharacter, data.Value.displayName);
             uiDrawCharacterCard.Init(data.Value.displayName, data.Value.cardCount, bgSprtie, bgOutlineSprite, imgCharacterSprite);
             drawCharacterCardGos.Add(drawCharacterCardGo);
 

@@ -8,7 +8,6 @@ public class UICharacterInfo : MonoBehaviour
     [SerializeField] Image imgCharacter;
     [SerializeField] Text txtLevel, txtDisplayName, txtDamage, txtAttackSpeed, txtAttackRange, txtMoveSpeed, txtSkillName, txtSkillDescription;
 
-    private enum SelectSkill { One, Two, Three, Four, Five, Six, Seven }
     private SelectSkill curSelectSkill;
     [SerializeField] Image[] arrImgSkill;
     [SerializeField] Button[] arrBtnSkill;

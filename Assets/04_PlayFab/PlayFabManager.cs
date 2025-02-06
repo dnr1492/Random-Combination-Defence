@@ -97,9 +97,6 @@ public class PlayFabManager : MonoBehaviour
 
     public static PlayFabManager instance = null;
 
-    public enum CharacterDisplayName { 전사, 도적, 마법사, 궁수, 격투가 }
-    public enum CharacterTier { None, 흔한, 안흔한, 희귀한, 유일한, 전설적인 }
-
     private void Awake()
     {
         if (instance == null) {
@@ -464,9 +461,9 @@ public class PlayFabManager : MonoBehaviour
                     if ((int)tier == tierNum) tierName = tier.ToString();
                 }
 
-                bgSprtie = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.Bg, tierName);
-                bgOutlineSprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.BgOutline, tierName);
-                imgCharacterSprite = SpriteManager.GetInstance().GetSprite(SpriteManager.SpriteType.ImgCharacter, displayName);
+                bgSprtie = SpriteManager.GetInstance().GetSprite(SpriteType.Bg, tierName);
+                bgOutlineSprite = SpriteManager.GetInstance().GetSprite(SpriteType.BgOutline, tierName);
+                imgCharacterSprite = SpriteManager.GetInstance().GetSprite(SpriteType.ImgCharacter, displayName);
 
                 uiCharacterCards[index].gameObject.SetActive(true);
                 uiCharacterCards[index].Set(

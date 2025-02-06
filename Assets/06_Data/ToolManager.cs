@@ -22,7 +22,7 @@ public class ToolManager
     }
 
     #region CharacterCardLevelInfoData
-    private static string[] characterDisplayNames = Enum.GetNames(typeof(PlayFabManager.CharacterDisplayName));
+    private static string[] characterDisplayNames = Enum.GetNames(typeof(CharacterDisplayName));
     private static readonly Dictionary<string, Dictionary<int, CharacterCardLevelInfoData>> characterConfigs = new Dictionary<string, Dictionary<int, CharacterCardLevelInfoData>>()
         {
             #region Tier: »Á«—

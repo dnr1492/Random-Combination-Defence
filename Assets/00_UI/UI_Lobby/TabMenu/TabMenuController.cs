@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class TabMenuController : MonoBehaviour
 {
-    public enum eTabMenu { TabMenuShop, TabMenuCharacter, TabMenuLobby, TabMenuRelics, TabMenuPreferences }
-
     #region ÅÇ ¸Þ´º ¿­±â
     /// <summary>
     /// ÅÇ ¸Þ´º ¿­±â
@@ -14,7 +12,7 @@ public class TabMenuController : MonoBehaviour
     /// <param name="tabMenuInactiveGos"></param>
     /// <param name="menus"></param>
     /// <param name="tabMenu"></param>
-    public void OpenTabMenu(GameObject[] tabMenuActiveGos, GameObject[] tabMenuInactiveGos, GameObject[] menus, eTabMenu tabMenu)
+    public void OpenTabMenu(GameObject[] tabMenuActiveGos, GameObject[] tabMenuInactiveGos, GameObject[] menus, TabMenu tabMenu)
     {
         for (int i = 0; i < tabMenuActiveGos.Length; i++) tabMenuActiveGos[i].SetActive(false);
         tabMenuActiveGos[(int)tabMenu].SetActive(true);

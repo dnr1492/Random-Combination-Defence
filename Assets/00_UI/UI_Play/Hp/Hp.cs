@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Hp : MonoBehaviour
 {
     [SerializeField] Slider sliderHp;
-    [SerializeField] Image separator;
 
     public void SetHp(float curHp, float maxHp) => sliderHp.value = curHp / maxHp;
 }

@@ -64,31 +64,31 @@ public class CharacterGenerator : MonoBehaviour
         else return;
 
         GameObject target = null;
-        PlayFabManager.CharacterTier tier = PlayFabManager.CharacterTier.None;
+        CharacterTier tier = CharacterTier.None;
         int randomNnumber = Random.Range(drawMinRatingPercentage, drawMaxRatingPercentage);
         if (randomNnumber >= 0 && randomNnumber < 800)
         {
-            tier = PlayFabManager.CharacterTier.ÈçÇÑ;
+            tier = CharacterTier.ÈçÇÑ;
             DebugLogger.Log("80% È®·ü·Î ÈçÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
         }
         //else if (randomNnumber >= 800 && randomNnumber < 900)
         //{
-        //    tier = PlayFabManager.CharacterTier.¾ÈÈçÇÑ;
+        //    tier = CharacterTier.¾ÈÈçÇÑ;
         //    DebugLogger.Log("10% È®·ü·Î ¾ÈÈçÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
         //}
         //else if (randomNnumber >= 900 && randomNnumber <= 980)
         //{
-        //    tier = PlayFabManager.CharacterTier.Èñ±ÍÇÑ;
+        //    tier = CharacterTier.Èñ±ÍÇÑ;
         //    DebugLogger.Log("2% È®·ü·Î Èñ±ÍÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
         //}
         //else if (randomNnumber >= 980 && randomNnumber <= 995)
         //{
-        //    tier = PlayFabManager.CharacterTier.À¯ÀÏÇÑ;
+        //    tier = CharacterTier.À¯ÀÏÇÑ;
         //    DebugLogger.Log("1.5% È®·ü·Î À¯ÀÏÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
         //}
         //else
         //{
-        //    tier = PlayFabManager.CharacterTier.Àü¼³ÀûÀÎ;
+        //    tier = CharacterTier.Àü¼³ÀûÀÎ;
         //    DebugLogger.Log("0.5% È®·ü·Î Àü¼³ÀûÀÎ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
         //}
         else
@@ -97,35 +97,35 @@ public class CharacterGenerator : MonoBehaviour
         }
 
         int drawIndex;
-        if (tier == PlayFabManager.CharacterTier.ÈçÇÑ)
+        if (tier == CharacterTier.ÈçÇÑ)
         {
             drawIndex = Random.Range(0, arrCommonRating.Length);
             target = Instantiate(arrCommonRating[drawIndex], characterParant);
             target.name = Rename(target.name);
             existingCharacters.Add(target);
         }
-        else if (tier == PlayFabManager.CharacterTier.¾ÈÈçÇÑ)
+        else if (tier == CharacterTier.¾ÈÈçÇÑ)
         {
             drawIndex = Random.Range(0, arrUncommonRating.Length);
             target = Instantiate(arrUncommonRating[drawIndex], characterParant);
             target.name = Rename(target.name);
             existingCharacters.Add(target);
         }
-        else if (tier == PlayFabManager.CharacterTier.Èñ±ÍÇÑ)
+        else if (tier == CharacterTier.Èñ±ÍÇÑ)
         {
             drawIndex = Random.Range(0, arrRareRating.Length);
             target = Instantiate(arrRareRating[drawIndex], characterParant);
             target.name = Rename(target.name);
             existingCharacters.Add(target);
         }
-        else if (tier == PlayFabManager.CharacterTier.À¯ÀÏÇÑ)
+        else if (tier == CharacterTier.À¯ÀÏÇÑ)
         {
             drawIndex = Random.Range(0, arrUniqueRating.Length);
             target = Instantiate(arrUniqueRating[drawIndex], characterParant);
             target.name = Rename(target.name);
             existingCharacters.Add(target);
         }
-        else if (tier == PlayFabManager.CharacterTier.Àü¼³ÀûÀÎ)
+        else if (tier == CharacterTier.Àü¼³ÀûÀÎ)
         {
             drawIndex = Random.Range(0, arrLegendaryRating.Length);
             target = Instantiate(arrLegendaryRating[drawIndex], characterParant);
