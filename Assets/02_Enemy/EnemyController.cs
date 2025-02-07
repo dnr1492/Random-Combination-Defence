@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private UIPlay uiPlay;
+    private AnimatorController animationController;
 
     private Hp hp;
     private float curHp;
@@ -18,6 +19,8 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
+        animationController = new AnimatorController(GetComponent<Animator>());
+
         hp = transform.Find("Hp").GetComponent<Hp>();
         hp.gameObject.SetActive(false);
     }
@@ -48,6 +51,8 @@ public class EnemyController : MonoBehaviour
     {
         Vector2 dir = curWaypoint.position - transform.position;
         transform.Translate(speed * Time.deltaTime * dir.normalized, Space.World);
+
+        //animationController.ChangeState(AnimatorState.Move);
 
         if (Vector2.Distance(curWaypoint.position, transform.position) <= 0.05f) GetNextWaypoint();
     }
@@ -80,6 +85,8 @@ public class EnemyController : MonoBehaviour
             return 0;
         }
 
+        //animationController.ChangeState(AnimatorState.Damaged);
+
         return curHp;
     }
     #endregion
@@ -91,5 +98,7 @@ public class EnemyController : MonoBehaviour
         uiPlay.SetUI_Gold(dropGold);
         uiPlay.SetUI_Diamond(dropDarkGold);
         uiPlay.SetUI_EnemyCount(-1);
+
+        //animationController.ChangeState(AnimatorState.Death);
     }
 }

@@ -8,6 +8,7 @@ public class CharacterController : MonoBehaviour
 {
     private CharacterClickController characterClickController;
     private CameraController cameraController;
+    private AnimatorController animationController;
     private CharacterInfo curCharacterInfo;
     private GameObject selectingGo;
     private RectTransform uiAttackRangeRt;
@@ -38,6 +39,7 @@ public class CharacterController : MonoBehaviour
 
         if (isSelected) {
             uiCharacterInfo.Init(curCharacterInfo);
+            //전체 선택이든 단일 선택이든 한 종류의 캐릭터를 선택하므로 [0]번째 인덱스에 접근
             uiCharacterRecipe.SetReferenceRecipe(characterClickController.GetSelectedCharacters()[0].name);
             Select(isSelected);
             ShowAttackRangeUI(isSelected);
@@ -51,6 +53,8 @@ public class CharacterController : MonoBehaviour
 
     private void Awake()
     {
+        animationController = new AnimatorController(GetComponentInChildren<Animator>());
+
         curCharacterInfo = InfoManager.GetInstance().LoadCharacterInfo(gameObject.name);
 
         selectingGo = transform.Find("Selecting").gameObject;
@@ -103,8 +107,8 @@ public class CharacterController : MonoBehaviour
                 transform.position = Vector2.MoveTowards(transform.position, new Vector3(movePos.x, movePos.y, transform.position.z), curCharacterInfo.moveSpeed * Time.deltaTime);
                 isMoving = true;
                 timer += Time.deltaTime;
-                //animator.SetBool(RUN, isMoving);
-                
+                animationController.ChangeState(AnimatorState.Move);
+
                 if (timer >= 0.5f) {
                     DebugLogger.Log("일정 시간이 경과하여 stoppingDistance를 증가");
                     stoppingDistance += 0.1f;
@@ -115,7 +119,6 @@ public class CharacterController : MonoBehaviour
             {
                 isArrived = true;
                 isMoving = false;
-                //animator.SetBool(IDLE, isMoving);
             }
 
             if (isArrived)
@@ -123,6 +126,7 @@ public class CharacterController : MonoBehaviour
                 DebugLogger.Log("이동 완료 후 자동으로 선택 해제");
                 characterClickController.CancelObject(gameObject);
                 stoppingDistance = 0;
+                animationController.ChangeState(AnimatorState.Idle);
                 yield break;
             }
 

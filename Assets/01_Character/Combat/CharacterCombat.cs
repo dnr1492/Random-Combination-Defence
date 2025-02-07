@@ -6,6 +6,8 @@ using UnityEngine;
 
 public abstract class CharacterCombat : MonoBehaviour
 {
+    protected AnimatorController animationController;
+    protected CharacterController characterController;
     protected CharacterInfo curCharacterInfo;
     protected List<CharacterSkillData> characterSkillDatas;
     
@@ -28,6 +30,8 @@ public abstract class CharacterCombat : MonoBehaviour
 
     private void Awake()
     {
+        animationController = new AnimatorController(GetComponentInChildren<Animator>());
+        characterController = GetComponent<CharacterController>();
         curCharacterInfo = InfoManager.instance.LoadCharacterInfo(gameObject.name);
         characterSkillDatas = curCharacterInfo.skillDatas;
     }
@@ -39,8 +43,8 @@ public abstract class CharacterCombat : MonoBehaviour
             curTargetEnemy = FindClosestEnemy();
         }
 
-        //타겟이 존재하고 공격이 가능한 상태라면 공격
-        if (curTargetEnemy != null && canAttack) 
+        //타겟이 존재하고 이동 중이 아니며 공격이 가능한 상태라면 공격
+        if (curTargetEnemy != null && canAttack && !characterController.CheckMoving()) 
         {
             DebugLogger.Log($"'{name}'의 스킬 언락 수 : {curCharacterInfo.unlockSkills.Count}");
 
@@ -49,8 +53,7 @@ public abstract class CharacterCombat : MonoBehaviour
 
             for (int i = curCharacterInfo.unlockSkills.Count - 1; i >= 0; i--)
             {
-                //curCharacterInfo.unlockSkills.Count : 3
-                //characterSkillDatas : 2
+                if (characterSkillDatas.Count == 0) break;
 
                 if (Random.Range(0, 100f) <= characterSkillDatas[i].skillTriggerChance)
                 {
@@ -74,6 +77,8 @@ public abstract class CharacterCombat : MonoBehaviour
     private IEnumerator Attack(float damage, float attackSpeed)
     {
         canAttack = false;
+
+        animationController.ChangeState(AnimatorState.Attack_Normal, CharacterAttackType.Normal);
 
         //적 데미지
         float curEnemyHp;

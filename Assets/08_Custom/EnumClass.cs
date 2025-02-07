@@ -6,14 +6,28 @@ public enum CharacterDisplayName { 전사, 도적, 마법사, 궁수, 격투가 }
 
 public enum CharacterTier { None, 흔한, 안흔한, 희귀한, 유일한, 전설적인 }
 
-public enum CharacterAnimationState
+public enum CharacterAttackType { Normal, Arrow, Magic }
+
+public enum AnimatorState
 {
     Idle,
-    Running,
-    Jumping,
-    Attacking,
+    Idle_LongSpear,
+    Move,
+    Move_LongSpear,
+    Attack_Normal,
+    Attack_Bow,
+    Attack_Magic,
+    Attack_Axe,
+    Attack_ShotSword,
+    Concentrate,
+    Buff,
+    Debuff,
+    Skill_Normal,
+    Skill_Bow,
+    Skill_Magic,
     Damaged,
-    Dead
+    Death,
+    Other
 }
 
 public enum SpriteType { None, Bg, BgOutline, ImgCharacter }

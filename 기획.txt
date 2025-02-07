@@ -27,6 +27,7 @@ CharacterRecipeData 변경 후 에디터에서 생성
 -> BoxCollider2D 추가 및 IsTrigger를 true로 설정
 -> order in layer를 500으로 변경
 -> Scale 1.25f로 수정
+-> SPUM_Prefabs 스크립트 삭제
 
 ●등급 (변수명 (클라): TierName, TierNum) / (변수명 (서버): ItemClass)
 - 흔한 (Common, 흰색, 1) => 평타
@@ -45,6 +46,15 @@ CharacterRecipeData 변경 후 에디터에서 생성
 - 버프(공증, 공속증)
 - 디버프(방깎)
 - 상태이상(이감, 기절)
+
+●공격 타입 (변수명: AttackType) => 추가 요망
+- Normal, Arrow, Magic
+
+●애니메이션
+▶캐릭터
+- 이동
+- 공격 (*AttackType이 추가되면 CharacterInfo에 저장해서 로드해서 사용하기 *현재는 Normal로 하드코딩 되어 있음)
+▶적
 
 ●조합
 - 전사 (기본)
