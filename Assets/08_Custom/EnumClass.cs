@@ -25,7 +25,7 @@ public enum AnimatorState
     Skill_Normal,
     Skill_Bow,
     Skill_Magic,
-    Damaged,
+    Hit,
     Death,
     Other
 }

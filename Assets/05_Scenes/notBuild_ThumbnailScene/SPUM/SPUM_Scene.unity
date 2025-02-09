@@ -49958,7 +49958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3744046105682257370, guid: bd557657e7bee7142bb30988e7fdb00e, type: 3}
       propertyPath: unitPath
-      value: Assets/05_Scenes/notBuild_ThumbnailScene/SPUM/
+      value: Assets/05_Scenes/notBuild_ThumbnailScene/SPUM
       objectReference: {fileID: 0}
     - target: {fileID: 3744046105682257370, guid: bd557657e7bee7142bb30988e7fdb00e, type: 3}
       propertyPath: UIManager
@@ -50055,10 +50055,6 @@ PrefabInstance:
     - target: {fileID: 3744046105682257370, guid: bd557657e7bee7142bb30988e7fdb00e, type: 3}
       propertyPath: isSaveSamePath
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3744046105682257370, guid: bd557657e7bee7142bb30988e7fdb00e, type: 3}
-      propertyPath: unitBackUpPath
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3744046105682257370, guid: bd557657e7bee7142bb30988e7fdb00e, type: 3}
       propertyPath: _characterPivot

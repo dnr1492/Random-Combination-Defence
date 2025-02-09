@@ -97,9 +97,9 @@ public class AnimatorController
                 DebugLogger.Log(animator.gameObject.name + ": Skill_Magic");
                 break;
 
-            case AnimatorState.Damaged:
-                animator.SetTrigger("Damaged");
-                DebugLogger.Log(animator.gameObject.name + ": Damaged");
+            case AnimatorState.Hit:
+                animator.SetTrigger("Hit");
+                DebugLogger.Log(animator.gameObject.name + ": Hit");
                 break;
 
             case AnimatorState.Death:

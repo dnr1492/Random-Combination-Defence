@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private UIPlay uiPlay;
+    private SpriteRenderer spriteRenderer;
     private AnimatorController animationController;
 
     private Hp hp;
@@ -19,10 +20,10 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         animationController = new AnimatorController(GetComponent<Animator>());
 
         hp = transform.Find("Hp").GetComponent<Hp>();
-        hp.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -52,19 +53,21 @@ public class EnemyController : MonoBehaviour
         Vector2 dir = curWaypoint.position - transform.position;
         transform.Translate(speed * Time.deltaTime * dir.normalized, Space.World);
 
-        //animationController.ChangeState(AnimatorState.Move);
+        animationController.ChangeState(AnimatorState.Move);
 
         if (Vector2.Distance(curWaypoint.position, transform.position) <= 0.05f) GetNextWaypoint();
     }
 
     private void GetNextWaypoint()
     {
-        if (wayIndex >= Waypoint.waypoints.Length - 1)
-        {
+        if (wayIndex >= Waypoint.waypoints.Length - 1) {
             wayIndex = 0;
             curWaypoint = Waypoint.waypoints[wayIndex];
             return;
         }
+
+        if (wayIndex >= 2 && wayIndex < 3) spriteRenderer.flipX = true;
+        else spriteRenderer.flipX = false;
 
         wayIndex++;
         curWaypoint = Waypoint.waypoints[wayIndex];
@@ -76,7 +79,6 @@ public class EnemyController : MonoBehaviour
     {
         curHp -= damage;
 
-        hp.gameObject.SetActive(true);
         hp.SetHp(curHp, maxHp);
 
         if (curHp <= 0) {
@@ -99,6 +101,6 @@ public class EnemyController : MonoBehaviour
         uiPlay.SetUI_Diamond(dropDarkGold);
         uiPlay.SetUI_EnemyCount(-1);
 
-        //animationController.ChangeState(AnimatorState.Death);
+        animationController.ChangeState(AnimatorState.Death);
     }
 }

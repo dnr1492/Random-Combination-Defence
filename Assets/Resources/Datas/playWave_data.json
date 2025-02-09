@@ -2,25 +2,25 @@
     "playWaveDatas": [
         {
             "waveId": 0,
-            "waveEnemyName": "Test_1",
+            "waveEnemyName": "Goblin",
             "waveEnemyCount": 15,
             "waveTimer": 15.0
         },
         {
             "waveId": 1,
-            "waveEnemyName": "Test_2",
+            "waveEnemyName": "FlyingEye",
             "waveEnemyCount": 15,
             "waveTimer": 30.0
         },
         {
             "waveId": 2,
-            "waveEnemyName": "Test_3",
+            "waveEnemyName": "Mushroom",
             "waveEnemyCount": 15,
             "waveTimer": 30.0
         },
         {
             "waveId": 3,
-            "waveEnemyName": "Test_4",
+            "waveEnemyName": "Skeleton",
             "waveEnemyCount": 15,
             "waveTimer": 30.0
         },

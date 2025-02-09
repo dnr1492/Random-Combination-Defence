@@ -73,6 +73,14 @@ public class CharacterController : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject()) return;
 
         if (isSelected && !isMoving && isWaited) SetMove();
+
+        if (isSelected) {
+            //부모의 Scale을 -로 변경할 경우 자식 AttackRange의 Width가 -로 변경되는 것을 방지
+            uiAttackRangeRt.sizeDelta = new Vector2(
+                Mathf.Abs(uiAttackRangeRt.sizeDelta.x),
+                uiAttackRangeRt.sizeDelta.y
+            );
+        }
     }
 
     private bool CheckTilemap()
@@ -104,6 +112,12 @@ public class CharacterController : MonoBehaviour
             if (Vector2.Distance(transform.position, movePos) > stoppingDistance)
             {
                 DebugLogger.Log("이동 중");
+
+                //오른쪽 이동
+                if (movePos.x > transform.position.x) SetMovingDirection(false);
+                //왼쪽 이동
+                else if (movePos.x < transform.position.x) SetMovingDirection(true);
+
                 transform.position = Vector2.MoveTowards(transform.position, new Vector3(movePos.x, movePos.y, transform.position.z), curCharacterInfo.moveSpeed * Time.deltaTime);
                 isMoving = true;
                 timer += Time.deltaTime;
@@ -167,5 +181,16 @@ public class CharacterController : MonoBehaviour
         uiAttackRangeRt.sizeDelta = new Vector2(
             curCharacterInfo.attackRange * 2 / transform.lossyScale.x, 
             curCharacterInfo.attackRange * 2 / transform.lossyScale.y);
+    }
+
+    /// <summary>
+    /// 이동 방향 설정
+    /// </summary>
+    /// <param name="isLeft"></param>
+    private void SetMovingDirection(bool isLeft)
+    {
+        Vector3 newScale = transform.localScale;
+        newScale.x = isLeft ? Mathf.Abs(newScale.x) : -Mathf.Abs(newScale.x);
+        transform.localScale = newScale;
     }
 }

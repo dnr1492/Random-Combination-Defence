@@ -1,35 +1,28 @@
 {
     "playEnemyDatas": [
         {
-            "enemyName": "Test_1",
+            "enemyName": "Goblin",
             "enemySpeed": 5.0,
             "enemyHp": 10.0,
             "dropGold": 1,
             "dropDarkGold": 0
         },
         {
-            "enemyName": "Test_2",
+            "enemyName": "FlyingEye",
             "enemySpeed": 5.5,
             "enemyHp": 20.0,
             "dropGold": 1,
             "dropDarkGold": 0
         },
         {
-            "enemyName": "Test_3",
+            "enemyName": "Mushroom",
             "enemySpeed": 6.0,
             "enemyHp": 30.0,
             "dropGold": 1,
             "dropDarkGold": 0
         },
         {
-            "enemyName": "Test_Boss_1",
-            "enemySpeed": 3.0,
-            "enemyHp": 100.0,
-            "dropGold": 5,
-            "dropDarkGold": 1
-        },
-        {
-            "enemyName": "Test_4",
+            "enemyName": "Skeleton",
             "enemySpeed": 6.5,
             "enemyHp": 40.0,
             "dropGold": 1,
@@ -76,6 +69,13 @@
             "enemyHp": 100.0,
             "dropGold": 1,
             "dropDarkGold": 0
+        },
+        {
+            "enemyName": "Test_Boss_1",
+            "enemySpeed": 3.0,
+            "enemyHp": 100.0,
+            "dropGold": 5,
+            "dropDarkGold": 1
         },
         {
             "enemyName": "Test_Boss_2",
