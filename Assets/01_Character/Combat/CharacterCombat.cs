@@ -13,7 +13,8 @@ public abstract class CharacterCombat : MonoBehaviour
     
     private const string TAG_ENEMY = "Enemy";
 
-    private GameObject curTargetEnemy;
+    //private GameObject curTargetEnemy;
+    private EnemyController curTargetEnemyController;
     private bool canAttack = true;
     private float totalDamage = 0;
     private float totalAttackDelay = 0;
@@ -38,13 +39,16 @@ public abstract class CharacterCombat : MonoBehaviour
 
     private void Update()
     {
-        //현재 적이 없거나 공격사거리를 벗어난 경우 적 갱신
-        if (curTargetEnemy == null || !IsInRange(curTargetEnemy)) {
-            curTargetEnemy = FindClosestEnemy();
+        //현재 적이 없거나 공격사거리를 벗어났거나 적이 죽었다면 적 갱신
+        if (curTargetEnemyController == null 
+            || !IsInRange(curTargetEnemyController.gameObject)
+            || curTargetEnemyController.IsDie) 
+        {
+            curTargetEnemyController = FindClosestEnemy();
         }
 
         //타겟이 존재하고 이동 중이 아니며 공격이 가능한 상태라면 공격
-        if (curTargetEnemy != null && canAttack && !characterController.CheckMoving()) 
+        if (curTargetEnemyController != null && canAttack && !characterController.CheckMoving()) 
         {
             DebugLogger.Log($"'{name}'의 스킬 언락 수 : {curCharacterInfo.unlockSkills.Count}");
 
@@ -82,9 +86,9 @@ public abstract class CharacterCombat : MonoBehaviour
 
         //적 데미지
         float curEnemyHp;
-        if (curTargetEnemy != null) {
-            curEnemyHp = curTargetEnemy.GetComponent<EnemyController>().TakeDamage(damage);
-            if (curEnemyHp <= 0) curTargetEnemy = null;
+        if (curTargetEnemyController != null) {
+            curEnemyHp = curTargetEnemyController.TakeDamage(damage);
+            if (curEnemyHp <= 0) curTargetEnemyController = null;
         }
 
         DebugLogger.Log("이름 : " + curCharacterInfo.displayName
@@ -116,11 +120,11 @@ public abstract class CharacterCombat : MonoBehaviour
     /// 캐릭터와 가장 가까운 적을 찾기
     /// </summary>
     /// <returns></returns>
-    private GameObject FindClosestEnemy()
+    private EnemyController FindClosestEnemy()
     {
         //공격사거리 내의 모든 적 검색
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, curCharacterInfo.attackRange);
-        GameObject closestEnemy = null;
+        EnemyController closestEnemy = null;
         float shortestDistance = Mathf.Infinity;
 
         foreach (Collider2D enemyCollider in enemies)
@@ -131,7 +135,7 @@ public abstract class CharacterCombat : MonoBehaviour
             if (distance < shortestDistance)
             {
                 shortestDistance = distance;
-                closestEnemy = enemyCollider.gameObject;
+                closestEnemy = enemyCollider.GetComponent<EnemyController>();
             }
         }
 

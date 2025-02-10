@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class AnimatorController
@@ -20,6 +19,7 @@ public class AnimatorController
             state == AnimatorState.Idle ||
             state == AnimatorState.Idle_LongSpear:
                 animator.SetBool("Move", false);
+                animator.SetBool("Move_LongSpear", false);
                 DebugLogger.Log(animator.gameObject.name + ": Idle / Idle_LongSpear");
                 break;
 
@@ -115,16 +115,14 @@ public class AnimatorController
         }
     }
 
-    //public async Task WaitForAnimationEnd(string animationName)
-    //{
-    //    while (true)
-    //    {
-    //        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-    //        if (stateInfo.IsName(animationName) && stateInfo.normalizedTime >= 1.0f) {
-    //            break;
-    //        }
-
-    //        await Task.Yield();
-    //    }
-    //}
+    public float GetClipLength(string animationName)
+    {
+        RuntimeAnimatorController controller = animator.runtimeAnimatorController;
+        foreach (AnimationClip clip in controller.animationClips) {
+            if (clip.name == animationName) {
+                return clip.length;
+            }
+        }
+        return 0;
+    }
 }

@@ -53,9 +53,9 @@ public class UIPlay : MonoBehaviour
 
     public void SetUI_WaveSpawning() => txtWaveTimer.text = strWaveSpawning;
 
-    public void SetUI_EnemyCount(int enemyCount)
+    public void SetUI_EnemyCount()
     {
-        curEnemyCount += enemyCount;
+        curEnemyCount = EnemyGenerator.ExistingEnemys.Count;
         txtEnemyCount.text = string.Format(strEnemyCount, curEnemyCount, dicPlayMapDatas[GetCurMapId].maximumEnemyCount);
         sliEnemyCount.value = curEnemyCount;
     }

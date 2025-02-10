@@ -37,10 +37,10 @@ public class EnemyGenerator : MonoBehaviour
     {
         startTimer = !startTimer;
         curWaveTimer = dicPlayWaveDatas[curWaveIndex].waveTimer;
-
+        
         uiPlay.SetUI_Wave(curWaveIndex, dicPlayEnemyDatas.Count);
         uiPlay.SetUI_WaveTimer(curWaveTimer);
-        uiPlay.SetUI_EnemyCount(0);
+        uiPlay.SetUI_EnemyCount();
     }
 
     private void Update()
@@ -78,7 +78,7 @@ public class EnemyGenerator : MonoBehaviour
             go.GetComponent<EnemyController>().Init(uiPlay, dicPlayEnemyDatas[go.name].enemyHp, dicPlayEnemyDatas[go.name].enemySpeed, dicPlayEnemyDatas[go.name].dropGold, dicPlayEnemyDatas[go.name].dropDarkGold);
             existingEnemys.Add(go);
             isSpawning = true;
-            uiPlay.SetUI_EnemyCount(1);
+            uiPlay.SetUI_EnemyCount();
             uiPlay.SetUI_GameOver(RestartGame);
 
             //일정 간격 유지
@@ -131,8 +131,8 @@ public class EnemyGenerator : MonoBehaviour
         curWaveTimer = dicPlayWaveDatas[curWaveIndex].waveTimer;
 
         //UI 초기화
-        uiPlay.SetUI_EnemyCount(-count);
-        uiPlay.SetUI_WaveTimer(curWaveTimer);
         uiPlay.SetUI_Wave(curWaveIndex, dicPlayEnemyDatas.Count);
+        uiPlay.SetUI_WaveTimer(curWaveTimer);
+        uiPlay.SetUI_EnemyCount();
     }
 }

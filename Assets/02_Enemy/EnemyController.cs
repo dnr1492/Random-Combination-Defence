@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -17,6 +16,10 @@ public class EnemyController : MonoBehaviour
 
     private Transform curWaypoint;
     private int wayIndex = 1;
+
+    private bool isDie = false;
+
+    public bool IsDie => isDie;
 
     private void Awake()
     {
@@ -50,6 +53,8 @@ public class EnemyController : MonoBehaviour
     #region 사각 이동
     private void MoveWaypoint()
     {
+        if (isDie) return;
+
         Vector2 dir = curWaypoint.position - transform.position;
         transform.Translate(speed * Time.deltaTime * dir.normalized, Space.World);
 
@@ -82,8 +87,7 @@ public class EnemyController : MonoBehaviour
         hp.SetHp(curHp, maxHp);
 
         if (curHp <= 0) {
-            Die();
-            Destroy(gameObject);
+            StartCoroutine(Die());
             return 0;
         }
 
@@ -91,19 +95,20 @@ public class EnemyController : MonoBehaviour
     }
     #endregion
 
-    private async void Die()
+    private IEnumerator Die()
     {
+        isDie = true;
+        EnemyGenerator.ExistingEnemys.Remove(gameObject);
+        GetComponent<BoxCollider2D>().enabled = false;
+
         uiPlay.SetUI_Gold(dropGold);
         uiPlay.SetUI_Diamond(dropDarkGold);
-        uiPlay.SetUI_EnemyCount(-1);
+        uiPlay.SetUI_EnemyCount();
 
         animationController.ChangeState(AnimatorState.Death);
+        float length = animationController.GetClipLength(AnimatorState.Death.ToString());
+        yield return new WaitForSeconds(length);
 
-        try {
-            //await animationController.WaitForAnimationEnd(AnimatorState.Death.ToString());
-        }
-        finally {
-            EnemyGenerator.ExistingEnemys.Remove(gameObject);
-        }
+        Destroy(gameObject);
     }
 }
