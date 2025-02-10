@@ -25,11 +25,12 @@ CharacterRecipeData 변경 후 에디터에서 생성
 
 ●적(Enemy) (변수명: EnemyName)
 - Tag를 Enemy로 변경
--> BoxCollider2D 추가 및 IsTrigger를 true로 설정
--> order in layer를 500으로 변경
--> HP 추가
 -> 스프라이트 PPU를 100으로 통일
--> Scale 각각 맞게 ~로 수정
+-> Scale을 각각 알맞게 수정
+-> order in layer를 500으로 변경
+-> BoxCollider2D 추가 및 IsTrigger를 true로 설정
+-> EnemyController 추가
+-> HP 추가
 
 ●등급 (변수명 (클라): TierName, TierNum) / (변수명 (서버): ItemClass)
 - 흔한 (Common, 흰색, 1) => 평타
@@ -136,4 +137,6 @@ CharacterRecipeData 변경 후 에디터에서 생성
 -> UICharacterDataPopup의 img_Character / UICharacterCard의 img_Character / UIDrawCharacterCard의 img_Character에 Aspect Ratio Fitter로 높이만 조절 가능하도록 해놨으므로 Image.SetNativeActive() 되도록 코딩
 (feat.근데 UICharacterCard의 img_Character / UIDrawCharacterCard의 img_Character도 동일하게 구현해야 되는가에 대한 의문...)
 - 공격 시 먼저 데미지가 들어가고 공격 애니메이션이 나가는 버그 수정
-- 상점의 보석, 골드, 상자 이미지를 chatGPT 사용하여 크기를 동일하게 변경하기
+- 상점의 보석, 골드, 상자 이미지를 chatGPT 또는 SpriteEditor의 Slice를 사용하여 크기를 동일하게 변경하기
+- HP의 Height도 비율만큼 Offset을 줘서 감소시키는 로직 추가하기
+- EnemyController의 Death 애니메이션이 끝난 후 오브젝트 삭제 로직 구현

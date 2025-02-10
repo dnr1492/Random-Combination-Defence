@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class AnimatorController
@@ -113,4 +114,17 @@ public class AnimatorController
                 break;
         }
     }
+
+    //public async Task WaitForAnimationEnd(string animationName)
+    //{
+    //    while (true)
+    //    {
+    //        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+    //        if (stateInfo.IsName(animationName) && stateInfo.normalizedTime >= 1.0f) {
+    //            break;
+    //        }
+
+    //        await Task.Yield();
+    //    }
+    //}
 }

@@ -87,20 +87,23 @@ public class EnemyController : MonoBehaviour
             return 0;
         }
 
-        //animationController.ChangeState(AnimatorState.Damaged);
-
         return curHp;
     }
     #endregion
 
-    private void Die()
+    private async void Die()
     {
-        EnemyGenerator.ExistingEnemys.Remove(gameObject);
-
         uiPlay.SetUI_Gold(dropGold);
         uiPlay.SetUI_Diamond(dropDarkGold);
         uiPlay.SetUI_EnemyCount(-1);
 
         animationController.ChangeState(AnimatorState.Death);
+
+        try {
+            //await animationController.WaitForAnimationEnd(AnimatorState.Death.ToString());
+        }
+        finally {
+            EnemyGenerator.ExistingEnemys.Remove(gameObject);
+        }
     }
 }

@@ -380,13 +380,13 @@ public class ToolManager
         };
 
         //데이터 추가
-        list.playWaveDatas.Add(new PlayWaveData { waveId = 0, waveEnemyName = "Goblin", waveEnemyCount = 15, waveTimer = 15f });
-        list.playWaveDatas.Add(new PlayWaveData { waveId = 1, waveEnemyName = "FlyingEye", waveEnemyCount = 15, waveTimer = 30f });
-        list.playWaveDatas.Add(new PlayWaveData { waveId = 2, waveEnemyName = "Mushroom", waveEnemyCount = 15, waveTimer = 30f });
-        list.playWaveDatas.Add(new PlayWaveData { waveId = 3, waveEnemyName = "Skeleton", waveEnemyCount = 15, waveTimer = 30f });
-        list.playWaveDatas.Add(new PlayWaveData { waveId = 4, waveEnemyName = "Test_5", waveEnemyCount = 15, waveTimer = 30f });
+        list.playWaveDatas.Add(new PlayWaveData { waveId = 0, waveEnemyName = "Rat", waveEnemyCount = 15, waveTimer = 15f });
+        list.playWaveDatas.Add(new PlayWaveData { waveId = 1, waveEnemyName = "Bat", waveEnemyCount = 15, waveTimer = 30f });
+        list.playWaveDatas.Add(new PlayWaveData { waveId = 2, waveEnemyName = "Goblin", waveEnemyCount = 15, waveTimer = 30f });
+        list.playWaveDatas.Add(new PlayWaveData { waveId = 3, waveEnemyName = "FlyingEye", waveEnemyCount = 15, waveTimer = 30f });
+        list.playWaveDatas.Add(new PlayWaveData { waveId = 4, waveEnemyName = "Mushroom", waveEnemyCount = 15, waveTimer = 30f });
         list.playWaveDatas.Add(new PlayWaveData { waveId = 5, waveEnemyName = "Test_Boss_1", waveEnemyCount = 1, waveTimer = 60f });
-        list.playWaveDatas.Add(new PlayWaveData { waveId = 6, waveEnemyName = "Test_6", waveEnemyCount = 15, waveTimer = 30f });
+        list.playWaveDatas.Add(new PlayWaveData { waveId = 6, waveEnemyName = "Skeleton", waveEnemyCount = 15, waveTimer = 30f });
         list.playWaveDatas.Add(new PlayWaveData { waveId = 7, waveEnemyName = "Test_7", waveEnemyCount = 15, waveTimer = 30f });
         list.playWaveDatas.Add(new PlayWaveData { waveId = 8, waveEnemyName = "Test_8", waveEnemyCount = 15, waveTimer = 30f });
         list.playWaveDatas.Add(new PlayWaveData { waveId = 9, waveEnemyName = "Test_9", waveEnemyCount = 15, waveTimer = 30f });
@@ -425,18 +425,20 @@ public class ToolManager
         };
 
         //데이터 추가
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Goblin", enemySpeed = 5f, enemyHp = 10, dropGold = 1, dropDarkGold = 0 });
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "FlyingEye", enemySpeed = 5.5f, enemyHp = 20, dropGold = 1, dropDarkGold = 0 });
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Mushroom", enemySpeed = 6f, enemyHp = 30, dropGold = 1, dropDarkGold = 0 });
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Skeleton", enemySpeed = 6.5f, enemyHp = 40, dropGold = 1, dropDarkGold = 0 });
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Test_5", enemySpeed = 5f, enemyHp = 50, dropGold = 1, dropDarkGold = 0 });
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Test_6", enemySpeed = 5.5f, enemyHp = 60, dropGold = 1, dropDarkGold = 0 });
+        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Rat", enemySpeed = 5f, enemyHp = 10, dropGold = 1, dropDarkGold = 0 });
+        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Bat", enemySpeed = 5.5f, enemyHp = 20, dropGold = 1, dropDarkGold = 0 });
+        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Goblin", enemySpeed = 6f, enemyHp = 30, dropGold = 1, dropDarkGold = 0 });
+        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "FlyingEye", enemySpeed = 6.5f, enemyHp = 40, dropGold = 1, dropDarkGold = 0 });
+        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Mushroom", enemySpeed = 5f, enemyHp = 50, dropGold = 1, dropDarkGold = 0 });
+        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Skeleton", enemySpeed = 5.5f, enemyHp = 60, dropGold = 1, dropDarkGold = 0 });
         list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Test_7", enemySpeed = 6f, enemyHp = 70, dropGold = 1, dropDarkGold = 0 });
         list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Test_8", enemySpeed = 6.5f, enemyHp = 80, dropGold = 1, dropDarkGold = 0 });
         list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Test_9", enemySpeed = 5f, enemyHp = 90, dropGold = 1, dropDarkGold = 0 });
         list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Test_10", enemySpeed = 5.5f, enemyHp = 100, dropGold = 1, dropDarkGold = 0 });
         list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Test_Boss_1", enemySpeed = 3f, enemyHp = 100, dropGold = 5, dropDarkGold = 1 });
         list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Test_Boss_2", enemySpeed = 1f, enemyHp = 200, dropGold = 5, dropDarkGold = 1 });
+        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Test_Boss_3", enemySpeed = 1f, enemyHp = 200, dropGold = 5, dropDarkGold = 1 });
+        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Test_Boss_4", enemySpeed = 1f, enemyHp = 200, dropGold = 5, dropDarkGold = 1 });
 
         LoadDataFromJSON(list, "playEnemy_data.json");
     }

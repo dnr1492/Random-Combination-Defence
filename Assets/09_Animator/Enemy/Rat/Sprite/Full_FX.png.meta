@@ -1,0 +1,1046 @@
+fileFormatVersion: 2
+guid: 644b5e0fc2845cd42961d91d1151e072
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -662263362012534553
+    second: Rat_Full_FX_0
+  - first:
+      213: 2060835626256613373
+    second: Rat_Full_FX_1
+  - first:
+      213: -6976368734577034018
+    second: Rat_Full_FX_2
+  - first:
+      213: 705677740778677210
+    second: Rat_Full_FX_3
+  - first:
+      213: 14257055450520612
+    second: Rat_Full_FX_4
+  - first:
+      213: -1760335954127753486
+    second: Rat_Full_FX_5
+  - first:
+      213: 9008259505613189132
+    second: Rat_Full_FX_6
+  - first:
+      213: -4798597732586880503
+    second: Rat_Full_FX_7
+  - first:
+      213: -5464407530873240576
+    second: Rat_Full_FX_8
+  - first:
+      213: -8208808965833640970
+    second: Rat_Full_FX_9
+  - first:
+      213: 4807302976523773726
+    second: Rat_Full_FX_10
+  - first:
+      213: 8580169393291790282
+    second: Rat_Full_FX_11
+  - first:
+      213: -5602548871143879945
+    second: Rat_Full_FX_12
+  - first:
+      213: 8986176777830439530
+    second: Rat_Full_FX_13
+  - first:
+      213: 6484397934913687566
+    second: Rat_Full_FX_14
+  - first:
+      213: -6722306106482004015
+    second: Rat_Full_FX_15
+  - first:
+      213: 1178384562213430967
+    second: Rat_Full_FX_16
+  - first:
+      213: -6767387555615838607
+    second: Rat_Full_FX_17
+  - first:
+      213: -6541244737237511157
+    second: Rat_Full_FX_18
+  - first:
+      213: -3248027565676316062
+    second: Rat_Full_FX_19
+  - first:
+      213: 3920722268021096613
+    second: Rat_Full_FX_20
+  - first:
+      213: -8290720668102445841
+    second: Rat_Full_FX_21
+  - first:
+      213: 6696078724549562145
+    second: Rat_Full_FX_22
+  - first:
+      213: -3392665217969769303
+    second: Rat_Full_FX_23
+  - first:
+      213: -3549006644960421970
+    second: Rat_Full_FX_24
+  - first:
+      213: -547041454044484690
+    second: Rat_Full_FX_25
+  - first:
+      213: 918186240401323428
+    second: Rat_Full_FX_26
+  - first:
+      213: -7916709873999875268
+    second: Rat_Full_FX_27
+  - first:
+      213: 8859220224982575659
+    second: Rat_Full_FX_28
+  - first:
+      213: -362800475983314113
+    second: Rat_Full_FX_29
+  - first:
+      213: -54649404266332897
+    second: Rat_Full_FX_30
+  - first:
+      213: 6086214545257089743
+    second: Rat_Full_FX_31
+  - first:
+      213: -4933661959959993802
+    second: Rat_Full_FX_32
+  - first:
+      213: 3344362661536933320
+    second: Rat_Full_FX_33
+  - first:
+      213: -6947897104816027989
+    second: Rat_Full_FX_34
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Full_FX_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 336
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ab758e09e7ffec438e5da1ca29b69ae
+      internalID: -633531950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_1
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 336
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b77c9cc1e74b946b4871e24092c09a
+      internalID: 672249944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_2
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 336
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bad2cbb605786cf42be7f7202a890776
+      internalID: 1963412335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_3
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 336
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62379a0d70639ed4eb1bc25ac6cbbc13
+      internalID: 595722499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_4
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 336
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 890d3cfb3343a174584d02ac9497d0b3
+      internalID: -165266229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_5
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 336
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aec12dc9cc9727459b611aff501ae11
+      internalID: 193602124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_6
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 272
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61c9dfdd92d1d6f4a8671219ccc27350
+      internalID: 913617281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_7
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 272
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed5546000a1a59c45b7f1690f6c261f7
+      internalID: -647428944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_8
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 272
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11f8d28382714d24094878fdc6da012f
+      internalID: 678895233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_9
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 272
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93153ddb0ccb19949b48438e79ec451f
+      internalID: -1541884177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_10
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 272
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f31646d76a5c46b47acd7515fdc24ca8
+      internalID: -2117269919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_11
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 272
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7521c8987348aa74b94a8d1ff346de8e
+      internalID: 455766260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_12
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 208
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae7dfb45333212242bfd0cce922900a6
+      internalID: 1811192394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_13
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 208
+        width: 25
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a18d38750084919479964dece5688bbd
+      internalID: 510033223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_14
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 208
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91cc9879efe303240bfc730de374c149
+      internalID: 1980108349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_15
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 208
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82acfbf44ae65114f91bc49754f70354
+      internalID: 70282242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_16
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 208
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d4d7386cae47f64eaff49bc50fd2720
+      internalID: 1491855889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_17
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 208
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c3225d766f12e94a9758e81f6919922
+      internalID: -735704538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_18
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 144
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57f05b3ca6941084fac3828334dd17df
+      internalID: -1880907021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_19
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 144
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1a88f3ef45fa424e9337b7c2f0e3cda
+      internalID: -596530825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_20
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 144
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c037558e6ccf3ef49ad28326b9069c03
+      internalID: 1649195236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_21
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 144
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726b31ec54d16d74c802ca062b6a4342
+      internalID: -2127355888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_22
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 144
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4587f66cd3ee7954f89fa4998b6be135
+      internalID: 62183834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_23
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 144
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d18ec8c205f8afb42ba463f85a67ee48
+      internalID: 921088862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_24
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 80
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35145bfe9beca814f9052394cdd1258b
+      internalID: 1354409545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_25
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 81
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c18c0eecca524c4a91226524362bf14
+      internalID: -1973776268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_26
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 80
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ce567abc846a594a8ab91bc9987bc20
+      internalID: 1773401437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_27
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 80
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0616479911b11734fb25079ae695156b
+      internalID: -354988684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_28
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 80
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41b93c61d5265ed4eab212fa30b86232
+      internalID: 1014843692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_29
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 81
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db14361387b0bdc45ac35ddd16567ad7
+      internalID: -1431440311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_30
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 17
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e74fafda28f70e24194c761412aff326
+      internalID: -1652426016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_31
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 16
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87c88adb9d35f184db7eaed91d838f09
+      internalID: 492059617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_32
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 16
+        width: 21
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c2a5f06cb00cbf47a065cdf98c462b2
+      internalID: 428413861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_33
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 16
+        width: 22
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60ca29a0e096f9943a3cc9a730693637
+      internalID: -295233020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_FX_34
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 16
+        width: 19
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1b5180f18b71a443ae820b387b720f4
+      internalID: 570372960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Full_FX_0: -633531950
+      Full_FX_1: 672249944
+      Full_FX_10: -2117269919
+      Full_FX_11: 455766260
+      Full_FX_12: 1811192394
+      Full_FX_13: 510033223
+      Full_FX_14: 1980108349
+      Full_FX_15: 70282242
+      Full_FX_16: 1491855889
+      Full_FX_17: -735704538
+      Full_FX_18: -1880907021
+      Full_FX_19: -596530825
+      Full_FX_2: 1963412335
+      Full_FX_20: 1649195236
+      Full_FX_21: -2127355888
+      Full_FX_22: 62183834
+      Full_FX_23: 921088862
+      Full_FX_24: 1354409545
+      Full_FX_25: -1973776268
+      Full_FX_26: 1773401437
+      Full_FX_27: -354988684
+      Full_FX_28: 1014843692
+      Full_FX_29: -1431440311
+      Full_FX_3: 595722499
+      Full_FX_30: -1652426016
+      Full_FX_31: 492059617
+      Full_FX_32: 428413861
+      Full_FX_33: -295233020
+      Full_FX_34: 570372960
+      Full_FX_4: -165266229
+      Full_FX_5: 193602124
+      Full_FX_6: 913617281
+      Full_FX_7: -647428944
+      Full_FX_8: 678895233
+      Full_FX_9: -1541884177
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
