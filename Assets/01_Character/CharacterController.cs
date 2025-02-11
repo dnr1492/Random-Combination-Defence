@@ -113,10 +113,7 @@ public class CharacterController : MonoBehaviour
             {
                 DebugLogger.Log("이동 중");
 
-                //오른쪽 이동
-                if (movePos.x > transform.position.x) SetMovingDirection(false);
-                //왼쪽 이동
-                else if (movePos.x < transform.position.x) SetMovingDirection(true);
+                SetDirection(movePos);
 
                 transform.position = Vector2.MoveTowards(transform.position, new Vector3(movePos.x, movePos.y, transform.position.z), curCharacterInfo.moveSpeed * Time.deltaTime);
                 isMoving = true;
@@ -184,11 +181,17 @@ public class CharacterController : MonoBehaviour
     }
 
     /// <summary>
-    /// 이동 방향 설정
+    /// 방향 설정
     /// </summary>
-    /// <param name="isLeft"></param>
-    private void SetMovingDirection(bool isLeft)
+    /// <param name="targetPos"></param>
+    public void SetDirection(Vector3 targetPos)
     {
+        bool isLeft = false;
+        //오른쪽
+        if (targetPos.x > transform.position.x) isLeft = false;
+        //왼쪽
+        else if (targetPos.x < transform.position.x) isLeft = true;
+
         Vector3 newScale = transform.localScale;
         newScale.x = isLeft ? Mathf.Abs(newScale.x) : -Mathf.Abs(newScale.x);
         transform.localScale = newScale;

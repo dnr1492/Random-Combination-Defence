@@ -13,7 +13,6 @@ public abstract class CharacterCombat : MonoBehaviour
     
     private const string TAG_ENEMY = "Enemy";
 
-    //private GameObject curTargetEnemy;
     private EnemyController curTargetEnemyController;
     private bool canAttack = true;
     private float totalDamage = 0;
@@ -69,6 +68,7 @@ public abstract class CharacterCombat : MonoBehaviour
                 }
             }
 
+            characterController.SetDirection(curTargetEnemyController.transform.position);
             StartCoroutine(Attack(totalDamage, totalAttackDelay));
         }
     }
