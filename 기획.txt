@@ -136,7 +136,5 @@ CharacterRecipeData 변경 후 에디터에서 생성
 - 캐릭터 이미지의 크기를 좀 더 정밀하게 맞출 수는 없는건가... 
 -> UICharacterDataPopup의 img_Character / UICharacterCard의 img_Character / UIDrawCharacterCard의 img_Character에 Aspect Ratio Fitter로 높이만 조절 가능하도록 해놨으므로 Image.SetNativeActive() 되도록 코딩
 (feat.근데 UICharacterCard의 img_Character / UIDrawCharacterCard의 img_Character도 동일하게 구현해야 되는가에 대한 의문...)
-- 공격 시 먼저 데미지가 들어가고 공격 애니메이션이 나가는 버그 수정
-- 상점의 보석, 골드, 상자 이미지를 chatGPT 또는 SpriteEditor의 Slice를 사용하여 크기를 동일하게 변경하기
+- 상점의 보석, 골드, 상자 icon을 변경하기
 - 빌드 시 웨이포인트에 따라 방향 전환을 못하는 버그 수정하기
-- EnemyCount가 제대로 표시되지 않는 버그 수정하기

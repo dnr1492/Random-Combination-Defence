@@ -78,11 +78,15 @@ public abstract class CharacterCombat : MonoBehaviour
     /// 공격
     /// </summary>
     /// <param name="damage"></param>
+    /// <param name="attackSpeed"></param>
+    /// <returns></returns>
     private IEnumerator Attack(float damage, float attackSpeed)
     {
         canAttack = false;
 
         animationController.ChangeState(AnimatorState.Attack_Normal, CharacterAttackType.Normal);
+        var length = animationController.GetClipLength(AnimatorState.Attack_Normal.ToString()) / 2;
+        yield return new WaitForSeconds(length);
 
         //적 데미지
         float curEnemyHp;
@@ -96,7 +100,7 @@ public abstract class CharacterCombat : MonoBehaviour
             + "\n" + "공격속도 : " + attackSpeed);
 
         //공격 딜레이
-        yield return new WaitForSeconds(attackSpeed);
+        yield return new WaitForSeconds(attackSpeed - length);
         canAttack = true;
     }
     #endregion
