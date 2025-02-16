@@ -380,67 +380,72 @@ public class ToolManager
         };
 
         //데이터 추가
-        list.playWaveDatas.Add(new PlayWaveData { waveId = 0, waveEnemyName = "Rat", waveEnemyCount = 15, waveTimer = 15f });
-        list.playWaveDatas.Add(new PlayWaveData { waveId = 1, waveEnemyName = "Bat", waveEnemyCount = 15, waveTimer = 30f });
-        list.playWaveDatas.Add(new PlayWaveData { waveId = 2, waveEnemyName = "Goblin", waveEnemyCount = 15, waveTimer = 30f });
-        list.playWaveDatas.Add(new PlayWaveData { waveId = 3, waveEnemyName = "FlyingEye", waveEnemyCount = 15, waveTimer = 30f });
-        list.playWaveDatas.Add(new PlayWaveData { waveId = 4, waveEnemyName = "Mushroom", waveEnemyCount = 15, waveTimer = 30f });
-        list.playWaveDatas.Add(new PlayWaveData { waveId = 5, waveEnemyName = "Test_Boss_1", waveEnemyCount = 1, waveTimer = 60f });
-        list.playWaveDatas.Add(new PlayWaveData { waveId = 6, waveEnemyName = "Skeleton", waveEnemyCount = 15, waveTimer = 30f });
-        list.playWaveDatas.Add(new PlayWaveData { waveId = 7, waveEnemyName = "Test_7", waveEnemyCount = 15, waveTimer = 30f });
-        list.playWaveDatas.Add(new PlayWaveData { waveId = 8, waveEnemyName = "Test_8", waveEnemyCount = 15, waveTimer = 30f });
-        list.playWaveDatas.Add(new PlayWaveData { waveId = 9, waveEnemyName = "Test_9", waveEnemyCount = 15, waveTimer = 30f });
-        list.playWaveDatas.Add(new PlayWaveData { waveId = 10, waveEnemyName = "Test_10", waveEnemyCount = 15, waveTimer = 30f });
-        list.playWaveDatas.Add(new PlayWaveData { waveId = 11, waveEnemyName = "Test_Boss_2", waveEnemyCount = 1, waveTimer = 60f });
+        List<PlayWaveData> playWaveDatas = new List<PlayWaveData> {
+            new PlayWaveData { wave = 1, waveEnemyCount = 35, waveTimer = 20, enemyHp = 112, enemyDefense = 5.3f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 5 },
+            new PlayWaveData { wave = 2, waveEnemyCount = 35, waveTimer = 40, enemyHp = 125, enemyDefense = 5.6f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 3, waveEnemyCount = 35, waveTimer = 40, enemyHp = 140, enemyDefense = 6.5f, enemySpeed = 2.531287151f, enemyType = EnemyType.속도형, characterDrawCount = 2 },
+            new PlayWaveData { wave = 4, waveEnemyCount = 35, waveTimer = 40, enemyHp = 157, enemyDefense = 6.3f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 5, waveEnemyCount = 35, waveTimer = 40, enemyHp = 176, enemyDefense = 6.7f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 6, waveEnemyCount = 35, waveTimer = 40, enemyHp = 212, enemyDefense = 11.6f, enemySpeed = 1.351703008f, enemyType = EnemyType.방어형, characterDrawCount = 2 },
+            new PlayWaveData { wave = 7, waveEnemyCount = 35, waveTimer = 40, enemyHp = 221, enemyDefense = 7.5f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 8, waveEnemyCount = 35, waveTimer = 40, enemyHp = 247, enemyDefense = 8.0f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 9, waveEnemyCount = 35, waveTimer = 40, enemyHp = 277, enemyDefense = 8.4f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 10, waveEnemyCount = 35, waveTimer = 40, enemyHp = 930, enemyDefense = 18.0f, enemySpeed = 1.5f, enemyType = EnemyType.보스, characterDrawCount = 2 },
+            new PlayWaveData { wave = 11, waveEnemyCount = 35, waveTimer = 40, enemyHp = 347, enemyDefense = 9.5f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 12, waveEnemyCount = 35, waveTimer = 40, enemyHp = 389, enemyDefense = 10.1f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 13, waveEnemyCount = 35, waveTimer = 40, enemyHp = 408, enemyDefense = 10.0f, enemySpeed = 2.46317351f, enemyType = EnemyType.속도형, characterDrawCount = 2 },
+            new PlayWaveData { wave = 14, waveEnemyCount = 35, waveTimer = 40, enemyHp = 488, enemyDefense = 11.3f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 15, waveEnemyCount = 35, waveTimer = 40, enemyHp = 547, enemyDefense = 12.0f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 16, waveEnemyCount = 35, waveTimer = 40, enemyHp = 1002, enemyDefense = 12.9f, enemySpeed = 1.462924598f, enemyType = EnemyType.체력형, characterDrawCount = 2 },
+            new PlayWaveData { wave = 17, waveEnemyCount = 35, waveTimer = 40, enemyHp = 686, enemyDefense = 13.5f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 18, waveEnemyCount = 35, waveTimer = 40, enemyHp = 768, enemyDefense = 14.3f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 19, waveEnemyCount = 35, waveTimer = 40, enemyHp = 861, enemyDefense = 15.1f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 20, waveEnemyCount = 35, waveTimer = 40, enemyHp = 2892, enemyDefense = 32.0f, enemySpeed = 1.5f, enemyType = EnemyType.보스, characterDrawCount = 2 },
+            new PlayWaveData { wave = 21, waveEnemyCount = 35, waveTimer = 40, enemyHp = 1080, enemyDefense = 17.0f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 22, waveEnemyCount = 35, waveTimer = 40, enemyHp = 1210, enemyDefense = 18.0f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 23, waveEnemyCount = 35, waveTimer = 40, enemyHp = 1477, enemyDefense = 25.0f, enemySpeed = 1.442758823f, enemyType = EnemyType.방어형, characterDrawCount = 2 },
+            new PlayWaveData { wave = 24, waveEnemyCount = 35, waveTimer = 40, enemyHp = 1517, enemyDefense = 20.2f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 25, waveEnemyCount = 35, waveTimer = 40, enemyHp = 1700, enemyDefense = 21.5f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 26, waveEnemyCount = 35, waveTimer = 40, enemyHp = 1830, enemyDefense = 30.4f, enemySpeed = 1.524025433f, enemyType = EnemyType.방어형, characterDrawCount = 2 },
+            new PlayWaveData { wave = 27, waveEnemyCount = 35, waveTimer = 40, enemyHp = 2132, enemyDefense = 24.1f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 28, waveEnemyCount = 35, waveTimer = 40, enemyHp = 2388, enemyDefense = 25.6f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 29, waveEnemyCount = 35, waveTimer = 40, enemyHp = 2674, enemyDefense = 27.1f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 30, waveEnemyCount = 35, waveTimer = 40, enemyHp = 8985, enemyDefense = 57.4f, enemySpeed = 1.5f, enemyType = EnemyType.보스, characterDrawCount = 2 },
+            new PlayWaveData { wave = 31, waveEnemyCount = 35, waveTimer = 40, enemyHp = 3355, enemyDefense = 30.4f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 32, waveEnemyCount = 35, waveTimer = 40, enemyHp = 3758, enemyDefense = 32.3f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 33, waveEnemyCount = 35, waveTimer = 40, enemyHp = 4391, enemyDefense = 52.6f, enemySpeed = 1.607457305f, enemyType = EnemyType.방어형, characterDrawCount = 2 },
+            new PlayWaveData { wave = 34, waveEnemyCount = 35, waveTimer = 40, enemyHp = 4714, enemyDefense = 36.3f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 35, waveEnemyCount = 35, waveTimer = 40, enemyHp = 5279, enemyDefense = 38.4f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 36, waveEnemyCount = 35, waveTimer = 40, enemyHp = 6095, enemyDefense = 62.4f, enemySpeed = 1.396646324f, enemyType = EnemyType.방어형, characterDrawCount = 2 },
+            new PlayWaveData { wave = 37, waveEnemyCount = 35, waveTimer = 40, enemyHp = 6623, enemyDefense = 43.2f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 38, waveEnemyCount = 35, waveTimer = 40, enemyHp = 7417, enemyDefense = 45.8f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 39, waveEnemyCount = 35, waveTimer = 40, enemyHp = 8308, enemyDefense = 48.5f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 40, waveEnemyCount = 35, waveTimer = 40, enemyHp = 27915, enemyDefense = 102.8f, enemySpeed = 1.5f, enemyType = EnemyType.보스, characterDrawCount = 2 },
+            new PlayWaveData { wave = 41, waveEnemyCount = 35, waveTimer = 40, enemyHp = 10421, enemyDefense = 54.5f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 42, waveEnemyCount = 35, waveTimer = 40, enemyHp = 11672, enemyDefense = 57.8f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 43, waveEnemyCount = 35, waveTimer = 40, enemyHp = 17561, enemyDefense = 58.3f, enemySpeed = 1.464049377f, enemyType = EnemyType.체력형, characterDrawCount = 2 },
+            new PlayWaveData { wave = 44, waveEnemyCount = 35, waveTimer = 40, enemyHp = 14641, enemyDefense = 64.9f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 45, waveEnemyCount = 35, waveTimer = 40, enemyHp = 16398, enemyDefense = 68.8f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 46, waveEnemyCount = 35, waveTimer = 40, enemyHp = 17114, enemyDefense = 68.0f, enemySpeed = 2.384900744f, enemyType = EnemyType.속도형, characterDrawCount = 2 },
+            new PlayWaveData { wave = 47, waveEnemyCount = 35, waveTimer = 40, enemyHp = 20570, enemyDefense = 77.3f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 48, waveEnemyCount = 35, waveTimer = 40, enemyHp = 23039, enemyDefense = 82.0f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 49, waveEnemyCount = 35, waveTimer = 40, enemyHp = 25803, enemyDefense = 86.9f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 50, waveEnemyCount = 35, waveTimer = 40, enemyHp = 86700, enemyDefense = 184.2f, enemySpeed = 1.5f, enemyType = EnemyType.보스, characterDrawCount = 2 },
+            new PlayWaveData { wave = 51, waveEnemyCount = 35, waveTimer = 40, enemyHp = 32368, enemyDefense = 97.6f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 52, waveEnemyCount = 35, waveTimer = 40, enemyHp = 36252, enemyDefense = 103.5f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 53, waveEnemyCount = 35, waveTimer = 40, enemyHp = 42916, enemyDefense = 100.0f, enemySpeed = 2.325251523f, enemyType = EnemyType.속도형, characterDrawCount = 2 },
+            new PlayWaveData { wave = 54, waveEnemyCount = 35, waveTimer = 40, enemyHp = 45475, enemyDefense = 116.3f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 55, waveEnemyCount = 35, waveTimer = 40, enemyHp = 50932, enemyDefense = 123.3f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 56, waveEnemyCount = 35, waveTimer = 40, enemyHp = 52715, enemyDefense = 183.1f, enemySpeed = 1.396295769f, enemyType = EnemyType.방어형, characterDrawCount = 2 },
+            new PlayWaveData { wave = 57, waveEnemyCount = 35, waveTimer = 40, enemyHp = 63889, enemyDefense = 138.5f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 58, waveEnemyCount = 35, waveTimer = 40, enemyHp = 71555, enemyDefense = 146.8f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 59, waveEnemyCount = 35, waveTimer = 40, enemyHp = 80142, enemyDefense = 155.6f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
+            new PlayWaveData { wave = 60, waveEnemyCount = 35, waveTimer = 40, enemyHp = 269277, enemyDefense = 329.8f, enemySpeed = 1.5f, enemyType = EnemyType.보스, characterDrawCount = 2 }
+        };
+
+        list.playWaveDatas = playWaveDatas;
 
         LoadDataFromJSON(list, "playWave_data.json");
-    }
-    #endregion
-
-    #region PlayMapData
-    [MenuItem("정재욱/Generate playMap_data")]
-    private static void GeneratePlayMapData()
-    {
-        //JSON 데이터 생성
-        PlayMapDataList list = new PlayMapDataList
-        {
-            playMapDatas = new List<PlayMapData>()
-        };
-
-        //데이터 추가
-        list.playMapDatas.Add(new PlayMapData { mapId = 10000, maximumPopulation = 15, maximumEnemyCount = 40 });
-
-        LoadDataFromJSON(list, "playMap_data.json");
-    }
-    #endregion
-
-    #region PlayEnemyData
-    [MenuItem("정재욱/Generate playEnemy_data")]
-    private static void GeneratePlayEnemyData()
-    {
-        //JSON 데이터 생성
-        PlayEnemyDataList list = new PlayEnemyDataList
-        {
-            playEnemyDatas = new List<PlayEnemyData>()
-        };
-
-        //데이터 추가
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Rat", enemySpeed = 5f, enemyHp = 10, dropGold = 1, dropDarkGold = 0 });
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Bat", enemySpeed = 5.5f, enemyHp = 20, dropGold = 1, dropDarkGold = 0 });
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Goblin", enemySpeed = 6f, enemyHp = 30, dropGold = 1, dropDarkGold = 0 });
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "FlyingEye", enemySpeed = 6.5f, enemyHp = 40, dropGold = 1, dropDarkGold = 0 });
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Mushroom", enemySpeed = 5f, enemyHp = 50, dropGold = 1, dropDarkGold = 0 });
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Skeleton", enemySpeed = 5.5f, enemyHp = 60, dropGold = 1, dropDarkGold = 0 });
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Test_7", enemySpeed = 6f, enemyHp = 70, dropGold = 1, dropDarkGold = 0 });
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Test_8", enemySpeed = 6.5f, enemyHp = 80, dropGold = 1, dropDarkGold = 0 });
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Test_9", enemySpeed = 5f, enemyHp = 90, dropGold = 1, dropDarkGold = 0 });
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Test_10", enemySpeed = 5.5f, enemyHp = 100, dropGold = 1, dropDarkGold = 0 });
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Test_Boss_1", enemySpeed = 3f, enemyHp = 100, dropGold = 5, dropDarkGold = 1 });
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Test_Boss_2", enemySpeed = 1f, enemyHp = 200, dropGold = 5, dropDarkGold = 1 });
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Test_Boss_3", enemySpeed = 1f, enemyHp = 200, dropGold = 5, dropDarkGold = 1 });
-        list.playEnemyDatas.Add(new PlayEnemyData { enemyName = "Test_Boss_4", enemySpeed = 1f, enemyHp = 200, dropGold = 5, dropDarkGold = 1 });
-
-        LoadDataFromJSON(list, "playEnemy_data.json");
     }
     #endregion
 }

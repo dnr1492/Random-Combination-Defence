@@ -126,7 +126,6 @@ public class CharacterContainer : MonoBehaviour
         if (foundCharacter == null) DebugLogger.Log($"Character display name {displayName} not found.");
         DecreaseContainerCharacter(foundCharacter, DeleteCharacter);
         characters.Remove(foundCharacter);
-        uiPlay.SetUI_Population(false);
     }
 
     private void DeleteCharacter(GameObject characterGo)

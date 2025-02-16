@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class UIPlay : MonoBehaviour
 {
-    private Dictionary<int, PlayMapData> dicPlayMapDatas;
-    
     [SerializeField] Text txtWave, txtWaveTimer, txtEnemyCount;
     [SerializeField] Text txtGold, txtDiamond, txtPopulation;
     [SerializeField] Slider sliEnemyCount;
@@ -15,33 +13,27 @@ public class UIPlay : MonoBehaviour
 
     private readonly string strWave = "Wave {0} / {1}";
     private readonly string strWaveTimer = "{0}";
-    private readonly string strWaveSpawning = "»ý¼º Áß";
     private readonly string strEnemyCount = "{0} / {1}";
-    private readonly string strPopulation = "{0} / {1}";
+
+    private readonly int maxEnemyCount = 70;
 
     private int curEnemyCount = 0;
-    private int curGold = 5;
-    private int curDiamond = 0;
-    private int curPopulation = 0;
+    //private int curGold = 5;
+    //private int curDiamond = 0;
 
-    public int GetCurMapId { get; private set; } = 10000;
-    public int GetCurGold { get => curGold; private set => curGold = value; }
-    public int GetCurDiamond { get => curDiamond; private set => curDiamond = value; }
-    public int GetCurPopulation { get => curPopulation; private set => curPopulation = value; }
+    //public int GetCurGold { get => curGold; private set => curGold = value; }
+    //public int GetCurDiamond { get => curDiamond; private set => curDiamond = value; }
 
     private void Awake()
     {
-        dicPlayMapDatas = DataManager.GetInstance().GetPlayMapData();
-
-        sliEnemyCount.maxValue = dicPlayMapDatas[GetCurMapId].maximumEnemyCount;
+        sliEnemyCount.maxValue = maxEnemyCount;
     }
 
-    private void Start()
-    {
-        SetUI_Gold(0);
-        SetUI_Diamond(0);
-        SetUI_Population(true, true);
-    }
+    //private void Start()
+    //{
+    //    SetUI_Gold(0);
+    //    SetUI_Diamond(0);
+    //}
 
     public void SetUI_Wave(int curWave, int maxWave)
     {
@@ -51,40 +43,28 @@ public class UIPlay : MonoBehaviour
 
     public void SetUI_WaveTimer(float curWaveTimer) => txtWaveTimer.text = string.Format(strWaveTimer, curWaveTimer.ToString("F2"));
 
-    public void SetUI_WaveSpawning() => txtWaveTimer.text = strWaveSpawning;
-
     public void SetUI_EnemyCount()
     {
         curEnemyCount = EnemyGenerator.ExistingEnemys.Count;
-        txtEnemyCount.text = string.Format(strEnemyCount, curEnemyCount, dicPlayMapDatas[GetCurMapId].maximumEnemyCount);
+        txtEnemyCount.text = string.Format(strEnemyCount, curEnemyCount, maxEnemyCount);
         sliEnemyCount.value = curEnemyCount;
     }
 
-    public void SetUI_Gold(int gold)
-    {
-        curGold += gold;
-        txtGold.text = curGold.ToString();
-    }
+    //public void SetUI_Gold(int gold)
+    //{
+    //    curGold += gold;
+    //    txtGold.text = curGold.ToString();
+    //}
 
-    public void SetUI_Diamond(int diamond)
-    {
-        curDiamond += diamond;
-        txtDiamond.text = curDiamond.ToString();
-    }
-
-    public void SetUI_Population(bool isIncrease, bool isInit = false)
-    {
-        if (!isInit) {
-            if (isIncrease) curPopulation++;
-            else curPopulation--;
-        }
-
-        txtPopulation.text = string.Format(strPopulation, curPopulation, dicPlayMapDatas[GetCurMapId].maximumPopulation);
-    }
+    //public void SetUI_Diamond(int diamond)
+    //{
+    //    curDiamond += diamond;
+    //    txtDiamond.text = curDiamond.ToString();
+    //}
 
     public void SetUI_GameOver(UnityAction restartGameAction)
     {
-        if (curEnemyCount >= dicPlayMapDatas[GetCurMapId].maximumEnemyCount) {
+        if (curEnemyCount >= maxEnemyCount) {
             Instantiate(gameOverPrefab).GetComponent<GameOver>().Init(restartGameAction);
         }
     }

@@ -22,7 +22,6 @@ public class UIRecipeList : MonoBehaviour
             characterClickController.CancelObjects();
             string resultName = btnCombine.GetComponent<Image>().sprite.name;
             characterGenerator.Combine(imgCharacters, resultName);
-            uiPlay.SetUI_Population(false);
         });
     }
 

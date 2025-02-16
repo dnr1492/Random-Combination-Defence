@@ -120,43 +120,13 @@ public class PlayWaveDataList
 [Serializable]
 public class PlayWaveData
 {
-    public int waveId;
-    public string waveEnemyName;
+    public int wave;
     public int waveEnemyCount;
     public float waveTimer;
-}
-#endregion
-
-#region 게임 플레이 맵 데이터
-[Serializable]
-public class PlayMapDataList
-{
-    public List<PlayMapData> playMapDatas;
-}
-
-[Serializable]
-public class PlayMapData
-{
-    public int mapId;
-    public int maximumPopulation;
-    public int maximumEnemyCount;
-}
-#endregion
-
-#region 게임 플레이 적 정보 데이터
-[Serializable]
-public class PlayEnemyDataList
-{
-    public List<PlayEnemyData> playEnemyDatas;
-}
-
-[Serializable]
-public class PlayEnemyData
-{
-    public string enemyName;
-    public float enemySpeed;
     public float enemyHp;
-    public int dropGold;
-    public int dropDarkGold;
+    public float enemyDefense;
+    public float enemySpeed;
+    public EnemyType enemyType;
+    public int characterDrawCount;
 }
 #endregion

@@ -10,9 +10,8 @@ public class EnemyController : MonoBehaviour
     private Hp hp;
     private float curHp;
     private float maxHp;
+    private float defense;
     private float speed;
-    private int dropGold;
-    private int dropDarkGold;
 
     private Transform curWaypoint;
     private int wayIndex = 1;
@@ -39,15 +38,14 @@ public class EnemyController : MonoBehaviour
         MoveWaypoint();
     }
 
-    public void Init(UIPlay uiPlay, float maxHp, float speed, int dropGold, int dropDarkGold)
+    public void Init(UIPlay uiPlay, float maxHp, float defense, float speed)
     {
         this.uiPlay = uiPlay;
 
         curHp = maxHp;
         this.maxHp = maxHp;
+        this.defense = defense;
         this.speed = speed;
-        this.dropGold = dropGold;
-        this.dropDarkGold = dropDarkGold;
     }
 
     #region 사각 이동
@@ -101,8 +99,6 @@ public class EnemyController : MonoBehaviour
         EnemyGenerator.ExistingEnemys.Remove(gameObject);
         GetComponent<BoxCollider2D>().enabled = false;
 
-        uiPlay.SetUI_Gold(dropGold);
-        uiPlay.SetUI_Diamond(dropDarkGold);
         uiPlay.SetUI_EnemyCount();
 
         animationController.ChangeState(AnimatorState.Death);

@@ -11,56 +11,44 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField] UIPlay uiPlay;
     [SerializeField] Transform enemyParant;
 
-    private Dictionary<string, PlayEnemyData> dicPlayEnemyDatas;
     private Dictionary<int, PlayWaveData> dicPlayWaveDatas;
-    private Dictionary<int, PlayMapData> dicPlayMapDatas;
 
     private GameObject[] arrEnemyPrefab;
     private float curWaveTimer;  //현재 다음 웨이브 시작 전까지 대기한 시간
-    private int curWaveIndex;  //현재 진행 중인 웨이브
-    private bool startTimer = false;  //시간 체크 시작 유무
+    private int curWaveIndex = 1;  //현재 진행 중인 웨이브
     private bool isSpawning = false;  //생성 중 유무
-    private float unitMinimumDistance = 2f;  //유닛 간 원하는 간격 (Enemy Scale 1 -> 1f, 2 -> 1.5f, 3 -> 2f)
 
     private void Awake()
     {
         existingEnemys = new List<GameObject>();
 
-        dicPlayEnemyDatas = DataManager.GetInstance().GetPlayEnemyData();
         dicPlayWaveDatas = DataManager.GetInstance().GetPlayWaveData();
-        dicPlayMapDatas = DataManager.GetInstance().GetPlayMapData();
 
         arrEnemyPrefab = Resources.LoadAll<GameObject>("EnemyPrefabs");
     }
 
     private void OnEnable()
     {
-        startTimer = !startTimer;
         curWaveTimer = dicPlayWaveDatas[curWaveIndex].waveTimer;
         
-        uiPlay.SetUI_Wave(curWaveIndex, dicPlayEnemyDatas.Count);
+        uiPlay.SetUI_Wave(curWaveIndex, dicPlayWaveDatas.Count);
         uiPlay.SetUI_WaveTimer(curWaveTimer);
         uiPlay.SetUI_EnemyCount();
     }
 
     private void Update()
     {
-        if (!startTimer) return;
-        if (isSpawning) {
-            uiPlay.SetUI_WaveSpawning();
-            return;
-        }
-        else uiPlay.SetUI_WaveTimer(curWaveTimer);
-
         CheckWaveTimer();
     }
 
     private bool CheckWaveTimer()
     {
+        uiPlay.SetUI_WaveTimer(curWaveTimer);
+
         if (IsMaximumWave()) return false;
 
-        if (curWaveTimer <= 0) {
-            if (!IsMaximumWave()) uiPlay.SetUI_Wave(curWaveIndex + 1, dicPlayEnemyDatas.Count);
+        if (curWaveTimer <= 0 && !isSpawning) {
+            if (!IsMaximumWave()) uiPlay.SetUI_Wave(curWaveIndex, dicPlayWaveDatas.Count);
             StartCoroutine(SpawnEnemy());
             return true;
         }
@@ -71,13 +59,16 @@ public class EnemyGenerator : MonoBehaviour
 
     private IEnumerator SpawnEnemy()
     {
+        isSpawning = true;
+        if (!IsMaximumWave()) curWaveTimer = dicPlayWaveDatas[curWaveIndex + 1].waveTimer;
+
         for (int i = 0; i < dicPlayWaveDatas[curWaveIndex].waveEnemyCount; i++)
         {
-            GameObject go = Instantiate(GetEnemyByName(dicPlayWaveDatas[curWaveIndex].waveEnemyName), Waypoint.waypoints[0].position, Waypoint.waypoints[0].rotation, enemyParant);
+            GameObject go = Instantiate(GetEnemyByName(dicPlayWaveDatas[curWaveIndex].wave.ToString()), Waypoint.waypoints[0].position, Waypoint.waypoints[0].rotation, enemyParant);
             go.name = Rename(go.name);
-            go.GetComponent<EnemyController>().Init(uiPlay, dicPlayEnemyDatas[go.name].enemyHp, dicPlayEnemyDatas[go.name].enemySpeed, dicPlayEnemyDatas[go.name].dropGold, dicPlayEnemyDatas[go.name].dropDarkGold);
+            go.GetComponent<EnemyController>().Init(uiPlay, dicPlayWaveDatas[curWaveIndex].enemyHp, dicPlayWaveDatas[curWaveIndex].enemyDefense, dicPlayWaveDatas[curWaveIndex].enemySpeed);
+            float enemyInterval = go.GetComponent<BoxCollider2D>().bounds.size.magnitude;
             existingEnemys.Add(go);
-            isSpawning = true;
             uiPlay.SetUI_EnemyCount();
             uiPlay.SetUI_GameOver(RestartGame);
 
@@ -86,13 +77,12 @@ public class EnemyGenerator : MonoBehaviour
                 if (go == null) break;
                 int currentWaypointIndex = 0;
                 float progress = currentWaypointIndex + Vector3.Distance(go.transform.position, Waypoint.waypoints[currentWaypointIndex].position);
-                if (progress >= unitMinimumDistance) break;
+                if (progress >= enemyInterval) break;
                 yield return null;
             }
         }
 
         curWaveIndex++;
-        if (!IsMaximumWave()) curWaveTimer = dicPlayWaveDatas[curWaveIndex].waveTimer;
         isSpawning = false;
     }
 
@@ -112,7 +102,7 @@ public class EnemyGenerator : MonoBehaviour
 
     private bool IsMaximumWave()
     {
-        if (curWaveIndex >= dicPlayEnemyDatas.Count) return true;
+        if (curWaveIndex >= dicPlayWaveDatas.Count) return true;
         return false;
     }
 
@@ -131,7 +121,7 @@ public class EnemyGenerator : MonoBehaviour
         curWaveTimer = dicPlayWaveDatas[curWaveIndex].waveTimer;
 
         //UI 초기화
-        uiPlay.SetUI_Wave(curWaveIndex, dicPlayEnemyDatas.Count);
+        uiPlay.SetUI_Wave(curWaveIndex, dicPlayWaveDatas.Count);
         uiPlay.SetUI_WaveTimer(curWaveTimer);
         uiPlay.SetUI_EnemyCount();
     }

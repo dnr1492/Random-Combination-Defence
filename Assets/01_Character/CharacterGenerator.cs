@@ -10,8 +10,6 @@ public class CharacterGenerator : MonoBehaviour
     public static List<GameObject> ExistingCharacters { get => existingCharacters; private set => existingCharacters = value; }
     private static List<GameObject> existingCharacters;  //Á¸ÀçÇÏ´Â Ä³¸¯ÅÍµé
 
-    private Dictionary<int, PlayMapData> dicPlayMapDatas;
-
     [SerializeField] UIPlay uiPlay;
     [SerializeField] CameraController cameraController;
     [SerializeField] Tilemap mainTilemap;
@@ -20,9 +18,8 @@ public class CharacterGenerator : MonoBehaviour
     [Header("Ä³¸¯ÅÍ ·£´ý »Ì±â")]
     [SerializeField] Button btnDraw;
     private GameObject[] arrCommonRating, arrUncommonRating, arrRareRating, arrUniqueRating, arrLegendaryRating;
-    private readonly int drawMinRatingPercentage = 0;
-    private readonly int drawMaxRatingPercentage = 1000;
-    private readonly int drawGold = -1;
+    //private readonly int drawMinRatingPercentage = 0;
+    //private readonly int drawMaxRatingPercentage = 1000;
 
     [Header("Ä³¸¯ÅÍ À§Ä¡ Á¤·Ä")]
     private readonly int originCount = 100;
@@ -35,8 +32,6 @@ public class CharacterGenerator : MonoBehaviour
     private void Awake()
     {
         existingCharacters = new List<GameObject>();
-
-        dicPlayMapDatas = DataManager.GetInstance().GetPlayMapData();
     }
 
     private void Start()
@@ -57,20 +52,19 @@ public class CharacterGenerator : MonoBehaviour
     #region Ä³¸¯ÅÍ ·£´ý »Ì±â
     public void DrawRandom()
     {
-        if (CanDraw()) {
-            uiPlay.SetUI_Gold(drawGold);
-            uiPlay.SetUI_Population(true);
-        }
-        else return;
+        //if (CanDraw()) {
+        //    uiPlay.SetUI_Gold(drawGold);
+        //}
+        //else return;
 
         GameObject target = null;
-        CharacterTier tier = CharacterTier.None;
-        int randomNnumber = Random.Range(drawMinRatingPercentage, drawMaxRatingPercentage);
-        if (randomNnumber >= 0 && randomNnumber < 800)
-        {
-            tier = CharacterTier.ÈçÇÑ;
-            DebugLogger.Log("80% È®·ü·Î ÈçÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
-        }
+        CharacterTier tier = CharacterTier.ÈçÇÑ;  //CharacterTier.None;
+        //int randomNnumber = Random.Range(drawMinRatingPercentage, drawMaxRatingPercentage);
+        //if (randomNnumber >= 0 && randomNnumber < 800)
+        //{
+        //    tier = CharacterTier.ÈçÇÑ;
+        //    DebugLogger.Log("80% È®·ü·Î ÈçÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
+        //}
         //else if (randomNnumber >= 800 && randomNnumber < 900)
         //{
         //    tier = CharacterTier.¾ÈÈçÇÑ;
@@ -91,10 +85,6 @@ public class CharacterGenerator : MonoBehaviour
         //    tier = CharacterTier.Àü¼³ÀûÀÎ;
         //    DebugLogger.Log("0.5% È®·ü·Î Àü¼³ÀûÀÎ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
         //}
-        else
-        {
-            DebugLogger.Log("»Ì±â ½ÇÆÐ");
-        }
 
         int drawIndex;
         if (tier == CharacterTier.ÈçÇÑ)
@@ -104,34 +94,34 @@ public class CharacterGenerator : MonoBehaviour
             target.name = Rename(target.name);
             existingCharacters.Add(target);
         }
-        else if (tier == CharacterTier.¾ÈÈçÇÑ)
-        {
-            drawIndex = Random.Range(0, arrUncommonRating.Length);
-            target = Instantiate(arrUncommonRating[drawIndex], characterParant);
-            target.name = Rename(target.name);
-            existingCharacters.Add(target);
-        }
-        else if (tier == CharacterTier.Èñ±ÍÇÑ)
-        {
-            drawIndex = Random.Range(0, arrRareRating.Length);
-            target = Instantiate(arrRareRating[drawIndex], characterParant);
-            target.name = Rename(target.name);
-            existingCharacters.Add(target);
-        }
-        else if (tier == CharacterTier.À¯ÀÏÇÑ)
-        {
-            drawIndex = Random.Range(0, arrUniqueRating.Length);
-            target = Instantiate(arrUniqueRating[drawIndex], characterParant);
-            target.name = Rename(target.name);
-            existingCharacters.Add(target);
-        }
-        else if (tier == CharacterTier.Àü¼³ÀûÀÎ)
-        {
-            drawIndex = Random.Range(0, arrLegendaryRating.Length);
-            target = Instantiate(arrLegendaryRating[drawIndex], characterParant);
-            target.name = Rename(target.name);
-            existingCharacters.Add(target);
-        }
+        //else if (tier == CharacterTier.¾ÈÈçÇÑ)
+        //{
+        //    drawIndex = Random.Range(0, arrUncommonRating.Length);
+        //    target = Instantiate(arrUncommonRating[drawIndex], characterParant);
+        //    target.name = Rename(target.name);
+        //    existingCharacters.Add(target);
+        //}
+        //else if (tier == CharacterTier.Èñ±ÍÇÑ)
+        //{
+        //    drawIndex = Random.Range(0, arrRareRating.Length);
+        //    target = Instantiate(arrRareRating[drawIndex], characterParant);
+        //    target.name = Rename(target.name);
+        //    existingCharacters.Add(target);
+        //}
+        //else if (tier == CharacterTier.À¯ÀÏÇÑ)
+        //{
+        //    drawIndex = Random.Range(0, arrUniqueRating.Length);
+        //    target = Instantiate(arrUniqueRating[drawIndex], characterParant);
+        //    target.name = Rename(target.name);
+        //    existingCharacters.Add(target);
+        //}
+        //else if (tier == CharacterTier.Àü¼³ÀûÀÎ)
+        //{
+        //    drawIndex = Random.Range(0, arrLegendaryRating.Length);
+        //    target = Instantiate(arrLegendaryRating[drawIndex], characterParant);
+        //    target.name = Rename(target.name);
+        //    existingCharacters.Add(target);
+        //}
 
         if (target == null) return;
         else target.GetComponent<CharacterController>().Init(cameraController, mainTilemap);
@@ -232,13 +222,11 @@ public class CharacterGenerator : MonoBehaviour
         return name;
     }
 
-    private bool CanDraw()
-    {
-        //°ñµå ºÎÁ·
-        if (uiPlay.GetCurGold + drawGold < 0) return false;
-        //ÀÎ±¸¼ö ºÎÁ·
-        if (uiPlay.GetCurPopulation >= dicPlayMapDatas[uiPlay.GetCurMapId].maximumPopulation) return false;
-        //»Ì±â °¡´É
-        return true;
-    }
+    //private bool CanDraw()
+    //{
+    //    //°ñµå ºÎÁ·
+    //    if (uiPlay.GetCurGold + drawGold < 0) return false;
+    //    //»Ì±â °¡´É
+    //    return true;
+    //}
 }

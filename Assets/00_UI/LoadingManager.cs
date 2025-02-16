@@ -119,8 +119,6 @@ public class LoadingManager : MonoBehaviour
         LoadDataStep(() => DataManager.GetInstance().LoadCharacterSkillData()),
         LoadDataStep(() => DataManager.GetInstance().LoadCharacterRecipeData()),
         LoadDataStep(() => DataManager.GetInstance().LoadPlayWaveData()),
-        LoadDataStep(() => DataManager.GetInstance().LoadPlayMapData()),
-        LoadDataStep(() => DataManager.GetInstance().LoadPlayEnemyData()),
         LoadDataStep(() => SpriteManager.GetInstance().LoadSpriteAll()),
         LoadDataStep(() => PlayFabManager.instance.InitUserData()),
         };

@@ -1,9 +1,0 @@
-{
-    "playMapDatas": [
-        {
-            "mapId": 10000,
-            "maximumPopulation": 15,
-            "maximumEnemyCount": 40
-        }
-    ]
-}

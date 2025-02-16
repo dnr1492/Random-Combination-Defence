@@ -1,76 +1,604 @@
 {
     "playWaveDatas": [
         {
-            "waveId": 0,
-            "waveEnemyName": "Rat",
-            "waveEnemyCount": 15,
-            "waveTimer": 15.0
+            "wave": 1,
+            "waveEnemyCount": 35,
+            "waveTimer": 20.0,
+            "enemyHp": 112.0,
+            "enemyDefense": 5.300000190734863,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 5
         },
         {
-            "waveId": 1,
-            "waveEnemyName": "Bat",
-            "waveEnemyCount": 15,
-            "waveTimer": 30.0
+            "wave": 2,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 125.0,
+            "enemyDefense": 5.599999904632568,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
         },
         {
-            "waveId": 2,
-            "waveEnemyName": "Goblin",
-            "waveEnemyCount": 15,
-            "waveTimer": 30.0
+            "wave": 3,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 140.0,
+            "enemyDefense": 6.5,
+            "enemySpeed": 2.53128719329834,
+            "enemyType": 3,
+            "characterDrawCount": 2
         },
         {
-            "waveId": 3,
-            "waveEnemyName": "FlyingEye",
-            "waveEnemyCount": 15,
-            "waveTimer": 30.0
+            "wave": 4,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 157.0,
+            "enemyDefense": 6.300000190734863,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
         },
         {
-            "waveId": 4,
-            "waveEnemyName": "Mushroom",
-            "waveEnemyCount": 15,
-            "waveTimer": 30.0
+            "wave": 5,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 176.0,
+            "enemyDefense": 6.699999809265137,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
         },
         {
-            "waveId": 5,
-            "waveEnemyName": "Test_Boss_1",
-            "waveEnemyCount": 1,
-            "waveTimer": 60.0
+            "wave": 6,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 212.0,
+            "enemyDefense": 11.600000381469727,
+            "enemySpeed": 1.3517030477523804,
+            "enemyType": 2,
+            "characterDrawCount": 2
         },
         {
-            "waveId": 6,
-            "waveEnemyName": "Skeleton",
-            "waveEnemyCount": 15,
-            "waveTimer": 30.0
+            "wave": 7,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 221.0,
+            "enemyDefense": 7.5,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
         },
         {
-            "waveId": 7,
-            "waveEnemyName": "Test_7",
-            "waveEnemyCount": 15,
-            "waveTimer": 30.0
+            "wave": 8,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 247.0,
+            "enemyDefense": 8.0,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
         },
         {
-            "waveId": 8,
-            "waveEnemyName": "Test_8",
-            "waveEnemyCount": 15,
-            "waveTimer": 30.0
+            "wave": 9,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 277.0,
+            "enemyDefense": 8.399999618530274,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
         },
         {
-            "waveId": 9,
-            "waveEnemyName": "Test_9",
-            "waveEnemyCount": 15,
-            "waveTimer": 30.0
+            "wave": 10,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 930.0,
+            "enemyDefense": 18.0,
+            "enemySpeed": 1.5,
+            "enemyType": 4,
+            "characterDrawCount": 2
         },
         {
-            "waveId": 10,
-            "waveEnemyName": "Test_10",
-            "waveEnemyCount": 15,
-            "waveTimer": 30.0
+            "wave": 11,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 347.0,
+            "enemyDefense": 9.5,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
         },
         {
-            "waveId": 11,
-            "waveEnemyName": "Test_Boss_2",
-            "waveEnemyCount": 1,
-            "waveTimer": 60.0
+            "wave": 12,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 389.0,
+            "enemyDefense": 10.100000381469727,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 13,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 408.0,
+            "enemyDefense": 10.0,
+            "enemySpeed": 2.4631736278533937,
+            "enemyType": 3,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 14,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 488.0,
+            "enemyDefense": 11.300000190734864,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 15,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 547.0,
+            "enemyDefense": 12.0,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 16,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 1002.0,
+            "enemyDefense": 12.899999618530274,
+            "enemySpeed": 1.462924599647522,
+            "enemyType": 1,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 17,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 686.0,
+            "enemyDefense": 13.5,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 18,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 768.0,
+            "enemyDefense": 14.300000190734864,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 19,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 861.0,
+            "enemyDefense": 15.100000381469727,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 20,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 2892.0,
+            "enemyDefense": 32.0,
+            "enemySpeed": 1.5,
+            "enemyType": 4,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 21,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 1080.0,
+            "enemyDefense": 17.0,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 22,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 1210.0,
+            "enemyDefense": 18.0,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 23,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 1477.0,
+            "enemyDefense": 25.0,
+            "enemySpeed": 1.4427587985992432,
+            "enemyType": 2,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 24,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 1517.0,
+            "enemyDefense": 20.200000762939454,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 25,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 1700.0,
+            "enemyDefense": 21.5,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 26,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 1830.0,
+            "enemyDefense": 30.399999618530275,
+            "enemySpeed": 1.5240254402160645,
+            "enemyType": 2,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 27,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 2132.0,
+            "enemyDefense": 24.100000381469728,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 28,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 2388.0,
+            "enemyDefense": 25.600000381469728,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 29,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 2674.0,
+            "enemyDefense": 27.100000381469728,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 30,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 8985.0,
+            "enemyDefense": 57.400001525878909,
+            "enemySpeed": 1.5,
+            "enemyType": 4,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 31,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 3355.0,
+            "enemyDefense": 30.399999618530275,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 32,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 3758.0,
+            "enemyDefense": 32.29999923706055,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 33,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 4391.0,
+            "enemyDefense": 52.599998474121097,
+            "enemySpeed": 1.6074572801589966,
+            "enemyType": 2,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 34,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 4714.0,
+            "enemyDefense": 36.29999923706055,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 35,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 5279.0,
+            "enemyDefense": 38.400001525878909,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 36,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 6095.0,
+            "enemyDefense": 62.400001525878909,
+            "enemySpeed": 1.3966463804244996,
+            "enemyType": 2,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 37,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 6623.0,
+            "enemyDefense": 43.20000076293945,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 38,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 7417.0,
+            "enemyDefense": 45.79999923706055,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 39,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 8308.0,
+            "enemyDefense": 48.5,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 40,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 27915.0,
+            "enemyDefense": 102.80000305175781,
+            "enemySpeed": 1.5,
+            "enemyType": 4,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 41,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 10421.0,
+            "enemyDefense": 54.5,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 42,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 11672.0,
+            "enemyDefense": 57.79999923706055,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 43,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 17561.0,
+            "enemyDefense": 58.29999923706055,
+            "enemySpeed": 1.4640493392944337,
+            "enemyType": 1,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 44,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 14641.0,
+            "enemyDefense": 64.9000015258789,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 45,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 16398.0,
+            "enemyDefense": 68.80000305175781,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 46,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 17114.0,
+            "enemyDefense": 68.0,
+            "enemySpeed": 2.3849008083343508,
+            "enemyType": 3,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 47,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 20570.0,
+            "enemyDefense": 77.30000305175781,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 48,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 23039.0,
+            "enemyDefense": 82.0,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 49,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 25803.0,
+            "enemyDefense": 86.9000015258789,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 50,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 86700.0,
+            "enemyDefense": 184.1999969482422,
+            "enemySpeed": 1.5,
+            "enemyType": 4,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 51,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 32368.0,
+            "enemyDefense": 97.5999984741211,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 52,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 36252.0,
+            "enemyDefense": 103.5,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 53,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 42916.0,
+            "enemyDefense": 100.0,
+            "enemySpeed": 2.325251579284668,
+            "enemyType": 3,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 54,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 45475.0,
+            "enemyDefense": 116.30000305175781,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 55,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 50932.0,
+            "enemyDefense": 123.30000305175781,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 56,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 52715.0,
+            "enemyDefense": 183.10000610351563,
+            "enemySpeed": 1.3962957859039307,
+            "enemyType": 2,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 57,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 63889.0,
+            "enemyDefense": 138.5,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 58,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 71555.0,
+            "enemyDefense": 146.8000030517578,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 59,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 80142.0,
+            "enemyDefense": 155.60000610351563,
+            "enemySpeed": 1.5,
+            "enemyType": 0,
+            "characterDrawCount": 2
+        },
+        {
+            "wave": 60,
+            "waveEnemyCount": 35,
+            "waveTimer": 40.0,
+            "enemyHp": 269277.0,
+            "enemyDefense": 329.79998779296877,
+            "enemySpeed": 1.5,
+            "enemyType": 4,
+            "characterDrawCount": 2
         }
     ]
 }

@@ -20,8 +20,6 @@ public class DataManager
     private Dictionary<string, CharacterSkillData> dicCharacterSkillDatas;
     private Dictionary<string, List<CharacterRecipeData>> dicCharacterRecipeDatas;
     private Dictionary<int, PlayWaveData> dicPlayWaveDatas;
-    private Dictionary<int, PlayMapData> dicPlayMapDatas;
-    private Dictionary<string, PlayEnemyData> dicPlayEnemyDatas;
 
     public void LoadCharacterCardLevelData()
     {
@@ -112,34 +110,8 @@ public class DataManager
         PlayWaveDataList PlayWaveDataList = JsonConvert.DeserializeObject<PlayWaveDataList>(json);
         foreach (PlayWaveData playWaveData in PlayWaveDataList.playWaveDatas)
         {
-            if (!dicPlayWaveDatas.ContainsKey(playWaveData.waveId)) {
-                dicPlayWaveDatas.Add(playWaveData.waveId, playWaveData);
-            }
-        }
-    }
-
-    public void LoadPlayMapData()
-    {
-        dicPlayMapDatas = new Dictionary<int, PlayMapData>();
-        string json = Resources.Load<TextAsset>("Datas/playMap_data").text;
-        PlayMapDataList playMapDataList = JsonConvert.DeserializeObject<PlayMapDataList>(json);
-        foreach (PlayMapData playMapData in playMapDataList.playMapDatas)
-        {
-            if (!dicPlayMapDatas.ContainsKey(playMapData.mapId)) {
-                dicPlayMapDatas.Add(playMapData.mapId, playMapData);
-            }
-        }
-    }
-
-    public void LoadPlayEnemyData()
-    {
-        dicPlayEnemyDatas = new Dictionary<string, PlayEnemyData>();
-        string json = Resources.Load<TextAsset>("Datas/playEnemy_data").text;
-        PlayEnemyDataList playEnemyDataList = JsonConvert.DeserializeObject<PlayEnemyDataList>(json);
-        foreach (PlayEnemyData playEnemyData in playEnemyDataList.playEnemyDatas)
-        {
-            if (!dicPlayEnemyDatas.ContainsKey(playEnemyData.enemyName)) {
-                dicPlayEnemyDatas.Add(playEnemyData.enemyName, playEnemyData);
+            if (!dicPlayWaveDatas.ContainsKey(playWaveData.wave)) {
+                dicPlayWaveDatas.Add(playWaveData.wave, playWaveData);
             }
         }
     }
@@ -153,10 +125,6 @@ public class DataManager
     public Dictionary<string, List<CharacterRecipeData>> GetCharacterRecipeData() => dicCharacterRecipeDatas;
 
     public Dictionary<int, PlayWaveData> GetPlayWaveData() => dicPlayWaveDatas;
-
-    public Dictionary<int, PlayMapData> GetPlayMapData() => dicPlayMapDatas;
-
-    public Dictionary<string, PlayEnemyData> GetPlayEnemyData() => dicPlayEnemyDatas;
 
     public int GetCharacterCardLevelQuentityData(int level, int tierNum)
     {
