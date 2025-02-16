@@ -2142,6 +2142,7 @@ MonoBehaviour:
   txtGold: {fileID: 2526208490435484217}
   txtDiamond: {fileID: 2526208490930461464}
   txtPopulation: {fileID: 2526208489066065436}
+  sliEnemyCount: {fileID: 0}
   gameOverPrefab: {fileID: 5018137613768100447, guid: 4af10fb4ce3d3f4438bf51ddd49360b3, type: 3}
 --- !u!1 &1146694858
 GameObject:
@@ -26578,7 +26579,6 @@ MonoBehaviour:
   characterClickController: {fileID: 4326864797334597463}
   mainTilemap: {fileID: 0}
   containerTilemap: {fileID: 1634687150855477504}
-  safeAreaRect: {fileID: 0}
 --- !u!4 &4326864798265907467
 Transform:
   m_ObjectHideFlags: 0

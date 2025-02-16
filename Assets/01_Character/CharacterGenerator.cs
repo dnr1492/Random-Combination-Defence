@@ -16,10 +16,7 @@ public class CharacterGenerator : MonoBehaviour
     [SerializeField] Transform characterParant;
 
     [Header("Ä³¸¯ÅÍ ·£´ý »Ì±â")]
-    [SerializeField] Button btnDraw;
     private GameObject[] arrCommonRating, arrUncommonRating, arrRareRating, arrUniqueRating, arrLegendaryRating;
-    //private readonly int drawMinRatingPercentage = 0;
-    //private readonly int drawMaxRatingPercentage = 1000;
 
     [Header("Ä³¸¯ÅÍ À§Ä¡ Á¤·Ä")]
     private readonly int originCount = 100;
@@ -32,10 +29,7 @@ public class CharacterGenerator : MonoBehaviour
     private void Awake()
     {
         existingCharacters = new List<GameObject>();
-    }
 
-    private void Start()
-    {
         arrCommonRating = Resources.LoadAll<GameObject>("CharacterPrefabs/00_Common");
         arrUncommonRating = Resources.LoadAll<GameObject>("CharacterPrefabs/01_Uncommon");
         arrRareRating = Resources.LoadAll<GameObject>("CharacterPrefabs/02_Rare");
@@ -50,82 +44,24 @@ public class CharacterGenerator : MonoBehaviour
     }
 
     #region Ä³¸¯ÅÍ ·£´ý »Ì±â
-    public void DrawRandom()
+    public void DrawRandom(int drawCount)
     {
-        //if (CanDraw()) {
-        //    uiPlay.SetUI_Gold(drawGold);
-        //}
-        //else return;
+        for (int i = 0; i < drawCount; i++) {
+            GameObject target = null;
+            CharacterTier tier = CharacterTier.ÈçÇÑ;
 
-        GameObject target = null;
-        CharacterTier tier = CharacterTier.ÈçÇÑ;  //CharacterTier.None;
-        //int randomNnumber = Random.Range(drawMinRatingPercentage, drawMaxRatingPercentage);
-        //if (randomNnumber >= 0 && randomNnumber < 800)
-        //{
-        //    tier = CharacterTier.ÈçÇÑ;
-        //    DebugLogger.Log("80% È®·ü·Î ÈçÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
-        //}
-        //else if (randomNnumber >= 800 && randomNnumber < 900)
-        //{
-        //    tier = CharacterTier.¾ÈÈçÇÑ;
-        //    DebugLogger.Log("10% È®·ü·Î ¾ÈÈçÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
-        //}
-        //else if (randomNnumber >= 900 && randomNnumber <= 980)
-        //{
-        //    tier = CharacterTier.Èñ±ÍÇÑ;
-        //    DebugLogger.Log("2% È®·ü·Î Èñ±ÍÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
-        //}
-        //else if (randomNnumber >= 980 && randomNnumber <= 995)
-        //{
-        //    tier = CharacterTier.À¯ÀÏÇÑ;
-        //    DebugLogger.Log("1.5% È®·ü·Î À¯ÀÏÇÑ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
-        //}
-        //else
-        //{
-        //    tier = CharacterTier.Àü¼³ÀûÀÎ;
-        //    DebugLogger.Log("0.5% È®·ü·Î Àü¼³ÀûÀÎ Æ¼¾î¸¦ »Ì¾Ò½À´Ï´Ù.");
-        //}
+            int drawIndex;
+            if (tier == CharacterTier.ÈçÇÑ) {
+                drawIndex = Random.Range(0, arrCommonRating.Length);
+                target = Instantiate(arrCommonRating[drawIndex], characterParant);
+                target.name = Rename(target.name);
+                existingCharacters.Add(target);
+            }
 
-        int drawIndex;
-        if (tier == CharacterTier.ÈçÇÑ)
-        {
-            drawIndex = Random.Range(0, arrCommonRating.Length);
-            target = Instantiate(arrCommonRating[drawIndex], characterParant);
-            target.name = Rename(target.name);
-            existingCharacters.Add(target);
+            if (target == null) return;
+            else target.GetComponent<CharacterController>().Init(cameraController, mainTilemap);
+            Sort(target);
         }
-        //else if (tier == CharacterTier.¾ÈÈçÇÑ)
-        //{
-        //    drawIndex = Random.Range(0, arrUncommonRating.Length);
-        //    target = Instantiate(arrUncommonRating[drawIndex], characterParant);
-        //    target.name = Rename(target.name);
-        //    existingCharacters.Add(target);
-        //}
-        //else if (tier == CharacterTier.Èñ±ÍÇÑ)
-        //{
-        //    drawIndex = Random.Range(0, arrRareRating.Length);
-        //    target = Instantiate(arrRareRating[drawIndex], characterParant);
-        //    target.name = Rename(target.name);
-        //    existingCharacters.Add(target);
-        //}
-        //else if (tier == CharacterTier.À¯ÀÏÇÑ)
-        //{
-        //    drawIndex = Random.Range(0, arrUniqueRating.Length);
-        //    target = Instantiate(arrUniqueRating[drawIndex], characterParant);
-        //    target.name = Rename(target.name);
-        //    existingCharacters.Add(target);
-        //}
-        //else if (tier == CharacterTier.Àü¼³ÀûÀÎ)
-        //{
-        //    drawIndex = Random.Range(0, arrLegendaryRating.Length);
-        //    target = Instantiate(arrLegendaryRating[drawIndex], characterParant);
-        //    target.name = Rename(target.name);
-        //    existingCharacters.Add(target);
-        //}
-
-        if (target == null) return;
-        else target.GetComponent<CharacterController>().Init(cameraController, mainTilemap);
-        Sort(target);
     }
     #endregion
 
@@ -221,12 +157,4 @@ public class CharacterGenerator : MonoBehaviour
         name = name.Split("(")[0];
         return name;
     }
-
-    //private bool CanDraw()
-    //{
-    //    //°ñµå ºÎÁ·
-    //    if (uiPlay.GetCurGold + drawGold < 0) return false;
-    //    //»Ì±â °¡´É
-    //    return true;
-    //}
 }

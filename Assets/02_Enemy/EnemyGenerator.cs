@@ -30,8 +30,8 @@ public class EnemyGenerator : MonoBehaviour
     private void OnEnable()
     {
         curWaveTimer = dicPlayWaveDatas[curWaveIndex].waveTimer;
-        
-        uiPlay.SetUI_Wave(curWaveIndex, dicPlayWaveDatas.Count);
+
+        uiPlay.SetUI_Wave(0, dicPlayWaveDatas.Count);
         uiPlay.SetUI_WaveTimer(curWaveTimer);
         uiPlay.SetUI_EnemyCount();
     }

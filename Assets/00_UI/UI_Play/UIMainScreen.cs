@@ -7,15 +7,12 @@ public class UIMainScreen : MonoBehaviour
 {
     [SerializeField] CharacterClickController characterClickController;
     [SerializeField] CharacterContainer characterContainer;
-    [SerializeField] CharacterGenerator characterGenerator;
     [SerializeField] CameraController cameraController;
 
-    [SerializeField] Button btnDraw, btnAdd, btnMoveContainer;
+    [SerializeField] Button btnAdd, btnMoveContainer;
 
     private void Awake()
     {
-        btnDraw.onClick.AddListener(characterGenerator.DrawRandom);
-
         var selectedCharacters = characterClickController.GetSelectedCharacters();
         btnAdd.onClick.AddListener(() => {    
             for (int i = 0; i < selectedCharacters.Count; i++) {

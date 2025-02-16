@@ -6,15 +6,15 @@ using UnityEngine.UI;
 
 public class UIPlay : MonoBehaviour
 {
+    [SerializeField] CharacterGenerator characterGenerator;
     [SerializeField] Text txtWave, txtWaveTimer, txtEnemyCount;
-    [SerializeField] Text txtGold, txtDiamond, txtPopulation;
+    [SerializeField] Text txtGold, txtDiamond;
     [SerializeField] Slider sliEnemyCount;
     [SerializeField] GameObject gameOverPrefab;
 
     private readonly string strWave = "Wave {0} / {1}";
     private readonly string strWaveTimer = "{0}";
     private readonly string strEnemyCount = "{0} / {1}";
-
     private readonly int maxEnemyCount = 70;
 
     private int curEnemyCount = 0;
@@ -37,8 +37,14 @@ public class UIPlay : MonoBehaviour
 
     public void SetUI_Wave(int curWave, int maxWave)
     {
-        if (curWave == 0) txtWave.text = "시작";
-        else txtWave.text = string.Format(strWave, curWave, maxWave);
+        if (curWave == 0) {
+            txtWave.text = "시작";
+            characterGenerator.DrawRandom(5);
+        }
+        else {
+            txtWave.text = string.Format(strWave, curWave, maxWave);
+            characterGenerator.DrawRandom(2);
+        }
     }
 
     public void SetUI_WaveTimer(float curWaveTimer) => txtWaveTimer.text = string.Format(strWaveTimer, curWaveTimer.ToString("F2"));
