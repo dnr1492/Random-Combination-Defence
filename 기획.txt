@@ -108,13 +108,12 @@ CharacterRecipeData 변경 후 에디터에서 생성
 *맵 내 스토리 (역사 흐름) 미는 공간
 -> 스토리 보상으로는 무엇을 !?
 
-*대략 20 ~ 30분 분량
+*대략 40분/20분 분량
 -> 클리어 보상으로는 레전드 캐릭의 전용 아이템을 랜덤 획득 및 중복일 시 전용 아이템 업그레이드용 공통 카드 획득
 -> 레전드 등급 전용 아이템을 한 개 착용 가능
 +진행한 웨이브에 비례해서 보석 지급
 
-***로비를 (운빨디펜스, 운빨존많겜)처럼 스테이지가 무한인 경우 최대 스테이지를 메인으로 표시하는 것도 좋아보임
-    => 단, 그러면 운빨존많겜의 신화 등급처럼 레전드 등급도 여러마리 조합이 가능하도록 구현해야 하지 않을까 !?
+***로비를 어떻게 구상하는게 좋을까???
 
 ***계속 도전하게 할 메리트가 뭐가 있을까?? 
     => 업적 !? 영구적인 추가 능력치 !?
@@ -127,7 +126,7 @@ CharacterRecipeData 변경 후 에디터에서 생성
 - 캐릭터 이미지의 크기를 좀 더 정밀하게 맞출 수는 없는건가... 
 -> UICharacterDataPopup의 img_Character / UICharacterCard의 img_Character / UIDrawCharacterCard의 img_Character에 Aspect Ratio Fitter로 높이만 조절 가능하도록 해놨으므로 Image.SetNativeActive() 되도록 코딩
 (feat.근데 UICharacterCard의 img_Character / UIDrawCharacterCard의 img_Character도 동일하게 구현해야 되는가에 대한 의문...)
-- 상점의 보석, 골드, 상자 icon을 변경하기
+- 상점의 보석, 골드, 상자 icon 변경하기
 - 빌드 시 웨이포인트에 따라 방향 전환을 못하는 버그 수정하기
 
 ●기획
