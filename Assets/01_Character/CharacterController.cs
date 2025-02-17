@@ -128,6 +128,7 @@ public class CharacterController : MonoBehaviour
             }
             else
             {
+                DebugLogger.Log("이동 완료");
                 isArrived = true;
                 isMoving = false;
             }

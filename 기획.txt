@@ -128,6 +128,13 @@ CharacterRecipeData 변경 후 에디터에서 생성
 (feat.근데 UICharacterCard의 img_Character / UIDrawCharacterCard의 img_Character도 동일하게 구현해야 되는가에 대한 의문...)
 - 상점의 보석, 골드, 상자 icon 변경하기
 - 빌드 시 웨이포인트에 따라 방향 전환을 못하는 버그 수정하기
+- 캐릭터가 이동할 시 콜라이더를 끄던지 isTrigger 키던지 매끄럽게 이동되도록 수정하기
+- 캐릭터 DamageType 등 설정
+- 적 방어력 적용
+- 캐릭터 디자인 및 애니메이션
+- 캐릭터 레벨디자인
+- 적 레벨디자인 중에 기본적인 이동속도를 대폭 늘려야할 듯
+- 패배 조건 보스 제한 시간 추가하기 (feat.UI)
 
 ●기획
 

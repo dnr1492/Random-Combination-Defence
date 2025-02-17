@@ -92,7 +92,7 @@
         },
         {
             "wave": 10,
-            "waveEnemyCount": 35,
+            "waveEnemyCount": 1,
             "waveTimer": 40.0,
             "enemyHp": 930.0,
             "enemyDefense": 18.0,
@@ -192,7 +192,7 @@
         },
         {
             "wave": 20,
-            "waveEnemyCount": 35,
+            "waveEnemyCount": 1,
             "waveTimer": 40.0,
             "enemyHp": 2892.0,
             "enemyDefense": 32.0,
@@ -292,7 +292,7 @@
         },
         {
             "wave": 30,
-            "waveEnemyCount": 35,
+            "waveEnemyCount": 1,
             "waveTimer": 40.0,
             "enemyHp": 8985.0,
             "enemyDefense": 57.400001525878909,
@@ -392,7 +392,7 @@
         },
         {
             "wave": 40,
-            "waveEnemyCount": 35,
+            "waveEnemyCount": 1,
             "waveTimer": 40.0,
             "enemyHp": 27915.0,
             "enemyDefense": 102.80000305175781,
@@ -492,7 +492,7 @@
         },
         {
             "wave": 50,
-            "waveEnemyCount": 35,
+            "waveEnemyCount": 1,
             "waveTimer": 40.0,
             "enemyHp": 86700.0,
             "enemyDefense": 184.1999969482422,
@@ -592,7 +592,7 @@
         },
         {
             "wave": 60,
-            "waveEnemyCount": 35,
+            "waveEnemyCount": 1,
             "waveTimer": 40.0,
             "enemyHp": 269277.0,
             "enemyDefense": 329.79998779296877,

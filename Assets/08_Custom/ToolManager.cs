@@ -390,7 +390,7 @@ public class ToolManager
             new PlayWaveData { wave = 7, waveEnemyCount = 35, waveTimer = 40, enemyHp = 221, enemyDefense = 7.5f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 8, waveEnemyCount = 35, waveTimer = 40, enemyHp = 247, enemyDefense = 8.0f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 9, waveEnemyCount = 35, waveTimer = 40, enemyHp = 277, enemyDefense = 8.4f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
-            new PlayWaveData { wave = 10, waveEnemyCount = 35, waveTimer = 40, enemyHp = 930, enemyDefense = 18.0f, enemySpeed = 1.5f, enemyType = EnemyType.보스, characterDrawCount = 2 },
+            new PlayWaveData { wave = 10, waveEnemyCount = 1, waveTimer = 40, enemyHp = 930, enemyDefense = 18.0f, enemySpeed = 1.5f, enemyType = EnemyType.보스, characterDrawCount = 2 },
             new PlayWaveData { wave = 11, waveEnemyCount = 35, waveTimer = 40, enemyHp = 347, enemyDefense = 9.5f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 12, waveEnemyCount = 35, waveTimer = 40, enemyHp = 389, enemyDefense = 10.1f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 13, waveEnemyCount = 35, waveTimer = 40, enemyHp = 408, enemyDefense = 10.0f, enemySpeed = 2.46317351f, enemyType = EnemyType.속도형, characterDrawCount = 2 },
@@ -400,7 +400,7 @@ public class ToolManager
             new PlayWaveData { wave = 17, waveEnemyCount = 35, waveTimer = 40, enemyHp = 686, enemyDefense = 13.5f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 18, waveEnemyCount = 35, waveTimer = 40, enemyHp = 768, enemyDefense = 14.3f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 19, waveEnemyCount = 35, waveTimer = 40, enemyHp = 861, enemyDefense = 15.1f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
-            new PlayWaveData { wave = 20, waveEnemyCount = 35, waveTimer = 40, enemyHp = 2892, enemyDefense = 32.0f, enemySpeed = 1.5f, enemyType = EnemyType.보스, characterDrawCount = 2 },
+            new PlayWaveData { wave = 20, waveEnemyCount = 1, waveTimer = 40, enemyHp = 2892, enemyDefense = 32.0f, enemySpeed = 1.5f, enemyType = EnemyType.보스, characterDrawCount = 2 },
             new PlayWaveData { wave = 21, waveEnemyCount = 35, waveTimer = 40, enemyHp = 1080, enemyDefense = 17.0f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 22, waveEnemyCount = 35, waveTimer = 40, enemyHp = 1210, enemyDefense = 18.0f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 23, waveEnemyCount = 35, waveTimer = 40, enemyHp = 1477, enemyDefense = 25.0f, enemySpeed = 1.442758823f, enemyType = EnemyType.방어형, characterDrawCount = 2 },
@@ -410,7 +410,7 @@ public class ToolManager
             new PlayWaveData { wave = 27, waveEnemyCount = 35, waveTimer = 40, enemyHp = 2132, enemyDefense = 24.1f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 28, waveEnemyCount = 35, waveTimer = 40, enemyHp = 2388, enemyDefense = 25.6f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 29, waveEnemyCount = 35, waveTimer = 40, enemyHp = 2674, enemyDefense = 27.1f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
-            new PlayWaveData { wave = 30, waveEnemyCount = 35, waveTimer = 40, enemyHp = 8985, enemyDefense = 57.4f, enemySpeed = 1.5f, enemyType = EnemyType.보스, characterDrawCount = 2 },
+            new PlayWaveData { wave = 30, waveEnemyCount = 1, waveTimer = 40, enemyHp = 8985, enemyDefense = 57.4f, enemySpeed = 1.5f, enemyType = EnemyType.보스, characterDrawCount = 2 },
             new PlayWaveData { wave = 31, waveEnemyCount = 35, waveTimer = 40, enemyHp = 3355, enemyDefense = 30.4f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 32, waveEnemyCount = 35, waveTimer = 40, enemyHp = 3758, enemyDefense = 32.3f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 33, waveEnemyCount = 35, waveTimer = 40, enemyHp = 4391, enemyDefense = 52.6f, enemySpeed = 1.607457305f, enemyType = EnemyType.방어형, characterDrawCount = 2 },
@@ -420,7 +420,7 @@ public class ToolManager
             new PlayWaveData { wave = 37, waveEnemyCount = 35, waveTimer = 40, enemyHp = 6623, enemyDefense = 43.2f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 38, waveEnemyCount = 35, waveTimer = 40, enemyHp = 7417, enemyDefense = 45.8f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 39, waveEnemyCount = 35, waveTimer = 40, enemyHp = 8308, enemyDefense = 48.5f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
-            new PlayWaveData { wave = 40, waveEnemyCount = 35, waveTimer = 40, enemyHp = 27915, enemyDefense = 102.8f, enemySpeed = 1.5f, enemyType = EnemyType.보스, characterDrawCount = 2 },
+            new PlayWaveData { wave = 40, waveEnemyCount = 1, waveTimer = 40, enemyHp = 27915, enemyDefense = 102.8f, enemySpeed = 1.5f, enemyType = EnemyType.보스, characterDrawCount = 2 },
             new PlayWaveData { wave = 41, waveEnemyCount = 35, waveTimer = 40, enemyHp = 10421, enemyDefense = 54.5f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 42, waveEnemyCount = 35, waveTimer = 40, enemyHp = 11672, enemyDefense = 57.8f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 43, waveEnemyCount = 35, waveTimer = 40, enemyHp = 17561, enemyDefense = 58.3f, enemySpeed = 1.464049377f, enemyType = EnemyType.체력형, characterDrawCount = 2 },
@@ -430,7 +430,7 @@ public class ToolManager
             new PlayWaveData { wave = 47, waveEnemyCount = 35, waveTimer = 40, enemyHp = 20570, enemyDefense = 77.3f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 48, waveEnemyCount = 35, waveTimer = 40, enemyHp = 23039, enemyDefense = 82.0f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 49, waveEnemyCount = 35, waveTimer = 40, enemyHp = 25803, enemyDefense = 86.9f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
-            new PlayWaveData { wave = 50, waveEnemyCount = 35, waveTimer = 40, enemyHp = 86700, enemyDefense = 184.2f, enemySpeed = 1.5f, enemyType = EnemyType.보스, characterDrawCount = 2 },
+            new PlayWaveData { wave = 50, waveEnemyCount = 1, waveTimer = 40, enemyHp = 86700, enemyDefense = 184.2f, enemySpeed = 1.5f, enemyType = EnemyType.보스, characterDrawCount = 2 },
             new PlayWaveData { wave = 51, waveEnemyCount = 35, waveTimer = 40, enemyHp = 32368, enemyDefense = 97.6f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 52, waveEnemyCount = 35, waveTimer = 40, enemyHp = 36252, enemyDefense = 103.5f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 53, waveEnemyCount = 35, waveTimer = 40, enemyHp = 42916, enemyDefense = 100.0f, enemySpeed = 2.325251523f, enemyType = EnemyType.속도형, characterDrawCount = 2 },
@@ -440,7 +440,7 @@ public class ToolManager
             new PlayWaveData { wave = 57, waveEnemyCount = 35, waveTimer = 40, enemyHp = 63889, enemyDefense = 138.5f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 58, waveEnemyCount = 35, waveTimer = 40, enemyHp = 71555, enemyDefense = 146.8f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
             new PlayWaveData { wave = 59, waveEnemyCount = 35, waveTimer = 40, enemyHp = 80142, enemyDefense = 155.6f, enemySpeed = 1.5f, enemyType = EnemyType.일반, characterDrawCount = 2 },
-            new PlayWaveData { wave = 60, waveEnemyCount = 35, waveTimer = 40, enemyHp = 269277, enemyDefense = 329.8f, enemySpeed = 1.5f, enemyType = EnemyType.보스, characterDrawCount = 2 }
+            new PlayWaveData { wave = 60, waveEnemyCount = 1, waveTimer = 40, enemyHp = 269277, enemyDefense = 329.8f, enemySpeed = 1.5f, enemyType = EnemyType.보스, characterDrawCount = 2 }
         };
 
         list.playWaveDatas = playWaveDatas;

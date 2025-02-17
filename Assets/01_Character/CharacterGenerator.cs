@@ -55,12 +55,13 @@ public class CharacterGenerator : MonoBehaviour
                 drawIndex = Random.Range(0, arrCommonRating.Length);
                 target = Instantiate(arrCommonRating[drawIndex], characterParant);
                 target.name = Rename(target.name);
-                existingCharacters.Add(target);
             }
 
             if (target == null) return;
             else target.GetComponent<CharacterController>().Init(cameraController, mainTilemap);
             Sort(target);
+
+            existingCharacters.Add(target);
         }
     }
     #endregion

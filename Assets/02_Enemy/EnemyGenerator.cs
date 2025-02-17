@@ -64,7 +64,12 @@ public class EnemyGenerator : MonoBehaviour
 
         for (int i = 0; i < dicPlayWaveDatas[curWaveIndex].waveEnemyCount; i++)
         {
-            GameObject go = Instantiate(GetEnemyByName(dicPlayWaveDatas[curWaveIndex].wave.ToString()), Waypoint.waypoints[0].position, Waypoint.waypoints[0].rotation, enemyParant);
+            //임시 방편으로 두 번째 자리수를 기준으로 프리팹 생성
+            //즉, 일반 적은 1 2 3 4 5 6 7 8 9 순이며 0은 보스
+            int wave = dicPlayWaveDatas[curWaveIndex].wave;
+            int secondDigit = wave >= 10 ? wave % 10 : wave;
+
+            GameObject go = Instantiate(GetEnemyByName(secondDigit.ToString()), Waypoint.waypoints[0].position, Waypoint.waypoints[0].rotation, enemyParant);
             go.name = Rename(go.name);
             go.GetComponent<EnemyController>().Init(uiPlay, dicPlayWaveDatas[curWaveIndex].enemyHp, dicPlayWaveDatas[curWaveIndex].enemyDefense, dicPlayWaveDatas[curWaveIndex].enemySpeed);
             float enemyInterval = go.GetComponent<BoxCollider2D>().bounds.size.magnitude;
