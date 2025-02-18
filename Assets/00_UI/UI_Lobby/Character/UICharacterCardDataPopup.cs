@@ -9,7 +9,7 @@ public class UICharacterCardDataPopup : MonoBehaviour
     [SerializeField] UICharacter uiCharacter;
     [SerializeField] UIGold uiGold;
     [SerializeField] Image imgCharacter, imgQuantity;
-    [SerializeField] Text txtQuantity, txtCurLevel, txtClassType, txtDisplayName;
+    [SerializeField] Text txtQuantity, txtCurLevel, /*txtClassType,*/ txtDisplayName;
     [SerializeField] Text txtStatsDamage, txtStatsAttackSpeed, txtStatsAttackRange, txtStatsMoveSpeed;
     [SerializeField] Image[] imgBgLevel, imgBgDescription;
     [SerializeField] Text[] txtDescriptionLevel, txtDescriptions;
@@ -53,7 +53,7 @@ public class UICharacterCardDataPopup : MonoBehaviour
         imgQuantity.fillAmount = (float)curQuantity / requiredLevelUpQuantity;
         txtQuantity.text = curQuantity + "/" + requiredLevelUpQuantity;
         txtCurLevel.text = "Lv. " + level;
-        txtClassType.text = characterData[displayName].classType;
+        //txtClassType.text = characterData[displayName].classType;
         txtDisplayName.text = displayName;
         txtGoldPrice.text = "2000";  //추후에 동적으로 증가율 설정해서 할당하기 ex) int.Parse(txtGoldPrice.text) * 2 또는 int.Parse(txtGoldPrice.text) * level
 

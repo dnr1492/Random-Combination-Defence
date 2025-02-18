@@ -11,10 +11,12 @@ public class CharacterInfo
     public float attackRange = 0;
     public float moveSpeed = 0;
     public int tierNum = 0;
+    public CharacterAttackType attackType;
+    public CharacterDamageType damageType;
     public List<CharacterSkillData> skillDatas;  //모든 스킬
     public List<bool> unlockSkills;  //카드 레벨에 따라 새롭게 열린 스킬
 
-    public CharacterInfo(int level, string displayName, float damage, float attackSpeed, float attackRange, float moveSpeed, int tierNum, List<CharacterSkillData> skillDatas, List<bool> unlockSkills)
+    public CharacterInfo(int level, string displayName, float damage, float attackSpeed, float attackRange, float moveSpeed, int tierNum, CharacterAttackType attackType, CharacterDamageType damageType, List<CharacterSkillData> skillDatas, List<bool> unlockSkills)
     {
         this.level = level;
         this.displayName = displayName;
@@ -23,6 +25,8 @@ public class CharacterInfo
         this.attackRange = attackRange;
         this.moveSpeed = moveSpeed;
         this.tierNum = tierNum;
+        this.attackType = attackType;
+        this.damageType = damageType;
         this.skillDatas = skillDatas;
         this.unlockSkills = unlockSkills;
     }

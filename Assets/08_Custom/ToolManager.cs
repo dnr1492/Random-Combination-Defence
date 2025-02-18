@@ -210,7 +210,8 @@ public class ToolManager
             attackRange = 2f,
             moveSpeed = 2f,
             tierNum = 1,
-            classType = "",
+            attackType = CharacterAttackType.Normal,
+            damageType = CharacterDamageType.Melee,
             skill_1_name = "",
             skill_2_name = "",
             skill_3_name = ""
@@ -223,7 +224,8 @@ public class ToolManager
             attackRange = 2f,
             moveSpeed = 2f,
             tierNum = 1,
-            classType = "",
+            attackType = CharacterAttackType.Normal,
+            damageType = CharacterDamageType.Melee,
             skill_1_name = "",
             skill_2_name = "",
             skill_3_name = ""
@@ -236,7 +238,8 @@ public class ToolManager
             attackRange = 2f,
             moveSpeed = 2f,
             tierNum = 1,
-            classType = "",
+            attackType = CharacterAttackType.Magic,
+            damageType = CharacterDamageType.Chaos,
             skill_1_name = "",
             skill_2_name = "",
             skill_3_name = ""
@@ -249,7 +252,8 @@ public class ToolManager
             attackRange = 2f,
             moveSpeed = 2f,
             tierNum = 1,
-            classType = "",
+            attackType = CharacterAttackType.Bow,
+            damageType = CharacterDamageType.Melee,
             skill_1_name = "",
             skill_2_name = "",
             skill_3_name = ""
@@ -262,7 +266,8 @@ public class ToolManager
             attackRange = 2f,
             moveSpeed = 2f,
             tierNum = 1,
-            classType = "",
+            attackType = CharacterAttackType.Normal,
+            damageType = CharacterDamageType.Melee,
             skill_1_name = "",
             skill_2_name = "",
             skill_3_name = ""

@@ -64,7 +64,8 @@ public class CharacterData
     public float attackRange;
     public float moveSpeed;
     public int tierNum;
-    public string classType;
+    public CharacterAttackType attackType;
+    public CharacterDamageType damageType;
     public string skill_1_name;
     public string skill_2_name;
     public string skill_3_name;

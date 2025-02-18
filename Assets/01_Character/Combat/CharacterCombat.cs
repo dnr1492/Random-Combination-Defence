@@ -84,8 +84,9 @@ public abstract class CharacterCombat : MonoBehaviour
     {
         canAttack = false;
 
-        animationController.ChangeState(AnimatorState.Attack_Normal, CharacterAttackType.Normal);
-        var length = animationController.GetClipLength(AnimatorState.Attack_Normal.ToString()) / 2;
+        var attackType = animationController.ConvertCharacterAttackTypeToAnimatorStateAttackType(curCharacterInfo.attackType);
+        animationController.ChangeState(attackType);
+        var length = animationController.GetClipLength(attackType.ToString()) / 2;
         yield return new WaitForSeconds(length);
 
         //적 데미지

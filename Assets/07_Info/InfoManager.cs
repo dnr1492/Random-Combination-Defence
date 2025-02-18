@@ -75,16 +75,18 @@ public class InfoManager : MonoBehaviour
             dicCharacterDatas[displayName].attackRange + addAttackRange,
             dicCharacterDatas[displayName].moveSpeed + addMoveSpeed,
             dicCharacterDatas[displayName].tierNum,
+            dicCharacterDatas[displayName].attackType,
+            dicCharacterDatas[displayName].damageType,
             skillDatas,
             unlockSkills
         );
     }
 
-    private void SaveCharacterInfo(int level, string displayName, float damage, float attackSpeed, float attackRange, float moveSpeed, int tierNum, List<CharacterSkillData> skillDatas, List<bool> unlockSkills)
+    private void SaveCharacterInfo(int level, string displayName, float damage, float attackSpeed, float attackRange, float moveSpeed, int tierNum, CharacterAttackType attackType, CharacterDamageType damageType, List<CharacterSkillData> skillDatas, List<bool> unlockSkills)
     {
         string path = Application.persistentDataPath + "/" + displayName + "_info.json";
 
-        CharacterInfo characterInfo = new CharacterInfo(level, displayName, damage, attackSpeed, attackRange, moveSpeed, tierNum, skillDatas, unlockSkills);
+        CharacterInfo characterInfo = new CharacterInfo(level, displayName, damage, attackSpeed, attackRange, moveSpeed, tierNum, attackType, damageType, skillDatas, unlockSkills);
         string characterJson = JsonConvert.SerializeObject(characterInfo);
 
         //UTF8로 암호화

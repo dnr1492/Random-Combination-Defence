@@ -7,7 +7,8 @@
             "attackRange": 2.0,
             "moveSpeed": 2.0,
             "tierNum": 1,
-            "classType": "",
+            "attackType": 0,
+            "damageType": 0,
             "skill_1_name": "",
             "skill_2_name": "",
             "skill_3_name": ""
@@ -19,7 +20,8 @@
             "attackRange": 2.0,
             "moveSpeed": 2.0,
             "tierNum": 1,
-            "classType": "",
+            "attackType": 0,
+            "damageType": 0,
             "skill_1_name": "",
             "skill_2_name": "",
             "skill_3_name": ""
@@ -31,7 +33,8 @@
             "attackRange": 2.0,
             "moveSpeed": 2.0,
             "tierNum": 1,
-            "classType": "",
+            "attackType": 2,
+            "damageType": 1,
             "skill_1_name": "",
             "skill_2_name": "",
             "skill_3_name": ""
@@ -43,7 +46,8 @@
             "attackRange": 2.0,
             "moveSpeed": 2.0,
             "tierNum": 1,
-            "classType": "",
+            "attackType": 1,
+            "damageType": 0,
             "skill_1_name": "",
             "skill_2_name": "",
             "skill_3_name": ""
@@ -55,7 +59,8 @@
             "attackRange": 2.0,
             "moveSpeed": 2.0,
             "tierNum": 1,
-            "classType": "",
+            "attackType": 0,
+            "damageType": 0,
             "skill_1_name": "",
             "skill_2_name": "",
             "skill_3_name": ""

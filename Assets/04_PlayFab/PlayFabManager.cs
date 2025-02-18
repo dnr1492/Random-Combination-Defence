@@ -151,11 +151,12 @@ public class PlayFabManager : MonoBehaviour
     #endregion
 
     #region 캐릭터 랜덤 뽑기 - 비동기 (feat.최적화 필요) 
-    private readonly float weightCommonCharacter = 900f;  //70.423%
-    private readonly float weightUncommonCharacter = 300f;  //23.474%
-    private readonly float weightRareCharacter = 50f;  //3.912%
-    private readonly float weightUniqueCharacter = 25f;  //1.956%
-    private readonly float weightLegendaryCharacter = 3.0f;  //0.235%
+    private readonly float weightCommonCharacter = 749.9f;  //74.99%
+    private readonly float weightUncommonCharacter = 150f;  //15%
+    private readonly float weightRareCharacter = 80f;  //8%
+    private readonly float weightUniqueCharacter = 15f;  //1.5%
+    private readonly float weightLegendaryCharacter = 5f;  //0.5%
+    private readonly float weightTranscendentCharacter = 0.1f;  //0.01%
 
     public struct DrawCharacterData
     {
@@ -287,6 +288,7 @@ public class PlayFabManager : MonoBehaviour
         else if (itemClass == CharacterTier.희귀한.ToString()) return weightRareCharacter;
         else if (itemClass == CharacterTier.유일한.ToString()) return weightUniqueCharacter;
         else if (itemClass == CharacterTier.전설적인.ToString()) return weightLegendaryCharacter;
+        else if (itemClass == CharacterTier.초월한.ToString()) return weightTranscendentCharacter;
         return 0;
     }
 

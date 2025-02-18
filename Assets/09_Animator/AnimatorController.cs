@@ -10,7 +10,7 @@ public class AnimatorController
         this.animator = animator;
     }
 
-    public void ChangeState(AnimatorState newState, CharacterAttackType attackType = CharacterAttackType.Normal)
+    public void ChangeState(AnimatorState newState)
     {
         curState = newState;
         switch (curState)
@@ -33,37 +33,27 @@ public class AnimatorController
                 DebugLogger.Log(animator.gameObject.name + ": Move_LongSpear");
                 break;
 
-            case AnimatorState state when
-            state == AnimatorState.Attack_Normal &&
-            attackType == CharacterAttackType.Normal:
+            case AnimatorState.Attack_Normal:
                 animator.SetTrigger("Attack_Normal");
                 DebugLogger.Log(animator.gameObject.name + ": Attack_Normal");
                 break;
 
-            case AnimatorState state when
-            state == AnimatorState.Attack_Bow &&
-            attackType == CharacterAttackType.Arrow:
+            case AnimatorState.Attack_Bow:
                 animator.SetTrigger("Attack_Bow");
                 DebugLogger.Log(animator.gameObject.name + ": Attack_Bow");
                 break;
 
-            case AnimatorState state when
-            state == AnimatorState.Attack_Magic &&
-            attackType == CharacterAttackType.Magic:
+            case AnimatorState.Attack_Magic:
                 animator.SetTrigger("Attack_Magic");
                 DebugLogger.Log(animator.gameObject.name + ": Attack_Magic");
                 break;
 
-            case AnimatorState state when
-            state == AnimatorState.Attack_Axe &&
-            attackType == CharacterAttackType.Normal:
+            case AnimatorState.Attack_Axe:
                 animator.SetTrigger("Attack_Axe");
                 DebugLogger.Log(animator.gameObject.name + ": Attack_Axe");
                 break;
 
-            case AnimatorState state when
-            state == AnimatorState.Attack_ShotSword &&
-            attackType == CharacterAttackType.Normal:
+            case AnimatorState.Attack_ShotSword:
                 animator.SetTrigger("Attack_ShotSword");
                 DebugLogger.Log(animator.gameObject.name + ": Attack_ShotSword");
                 break;
@@ -124,5 +114,32 @@ public class AnimatorController
             }
         }
         return 0;
+    }
+
+    public AnimatorState ConvertCharacterAttackTypeToAnimatorStateAttackType(CharacterAttackType attackType)
+    {
+        switch (attackType)
+        {
+            case CharacterAttackType.Normal:
+                return AnimatorState.Attack_Normal;
+
+            case CharacterAttackType.Bow:
+                return AnimatorState.Attack_Bow;
+
+            case CharacterAttackType.Magic:
+                return AnimatorState.Attack_Magic;
+
+            case CharacterAttackType.LongSpear:
+                return AnimatorState.Attack_LongSpear;
+
+            case CharacterAttackType.Axe:
+                return AnimatorState.Attack_Axe;
+
+            case CharacterAttackType.ShotSword:
+                return AnimatorState.Attack_ShotSword;
+
+            default:
+                return AnimatorState.Idle;
+        }
     }
 }

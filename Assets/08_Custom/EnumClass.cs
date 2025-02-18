@@ -4,9 +4,11 @@ using UnityEngine;
 
 public enum CharacterDisplayName { 전사, 도적, 마법사, 궁수, 격투가 }
 
-public enum CharacterTier { None, 흔한, 안흔한, 희귀한, 유일한, 전설적인 }
+public enum CharacterTier { None, 흔한, 안흔한, 희귀한, 유일한, 전설적인, 초월한 }
 
-public enum CharacterAttackType { Normal, Arrow, Magic }
+public enum CharacterAttackType { Normal, Bow, Magic, LongSpear, Axe, ShotSword }
+
+public enum CharacterDamageType { Melee, Chaos, Blood }
 
 public enum AnimatorState
 {
@@ -17,6 +19,7 @@ public enum AnimatorState
     Attack_Normal,
     Attack_Bow,
     Attack_Magic,
+    Attack_LongSpear,
     Attack_Axe,
     Attack_ShotSword,
     Concentrate,
