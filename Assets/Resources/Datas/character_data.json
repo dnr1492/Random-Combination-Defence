@@ -28,7 +28,7 @@
         },
         {
             "displayName": "마법사",
-            "damage": 7.0,
+            "damage": 2.0,
             "attackSpeed": 1.0,
             "attackRange": 2.0,
             "moveSpeed": 2.0,
@@ -41,7 +41,7 @@
         },
         {
             "displayName": "궁수",
-            "damage": 7.0,
+            "damage": 4.0,
             "attackSpeed": 1.0,
             "attackRange": 2.0,
             "moveSpeed": 2.0,

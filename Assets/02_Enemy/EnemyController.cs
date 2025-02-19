@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour
     private float defense;
     private float speed;
 
+    private readonly int defenseOffset = 20;  //방어력 20일 때 50% 감소, 40일 때 66.6% 감소 
+
     private Transform curWaypoint;
     private int wayIndex = 1;
 
@@ -78,9 +80,9 @@ public class EnemyController : MonoBehaviour
     #endregion
 
     #region 데미지를 입다
-    public float TakeDamage(float damage)
+    public float TakeDamage(float damage, CharacterDamageType damageType)
     {
-        curHp -= damage;
+        curHp -= CalculateDamage(damage, damageType);
 
         hp.SetHp(curHp, maxHp);
 
@@ -90,6 +92,17 @@ public class EnemyController : MonoBehaviour
         }
 
         return curHp;
+    }
+
+    private float CalculateDamage(float damage, CharacterDamageType damageType)
+    {
+        float damageReduction = 0;
+        if (damageType == CharacterDamageType.Melee) damageReduction = defense / (defense + defenseOffset);
+        else if (damageType == CharacterDamageType.Chaos) damageReduction = 0;
+        else if (damageType == CharacterDamageType.Blood) damageReduction = 0;
+        float finalDamage = damage * (1 - damageReduction);
+        DebugLogger.Log($"Damage {damage} - DamageReduction {damageReduction}: finalDamage {finalDamage}");
+        return finalDamage;
     }
     #endregion
 

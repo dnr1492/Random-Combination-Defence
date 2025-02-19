@@ -92,7 +92,7 @@ public abstract class CharacterCombat : MonoBehaviour
         //적 데미지
         float curEnemyHp;
         if (curTargetEnemyController != null) {
-            curEnemyHp = curTargetEnemyController.TakeDamage(damage);
+            curEnemyHp = curTargetEnemyController.TakeDamage(damage, curCharacterInfo.damageType);
             if (curEnemyHp <= 0) curTargetEnemyController = null;
         }
 
