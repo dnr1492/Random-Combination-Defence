@@ -64,7 +64,7 @@ public class EnemyGenerator : MonoBehaviour
 
         for (int i = 0; i < dicPlayWaveDatas[curWaveIndex].waveEnemyCount; i++)
         {
-            //임시 방편으로 두 번째 자리수를 기준으로 프리팹 생성
+            //임시 방편으로 모든 라운드에 중복으로 사용하기 위해서 두 번째 자리수를 기준으로 프리팹 생성
             //즉, 일반 적은 1 2 3 4 5 6 7 8 9 순이며 0은 보스
             int wave = dicPlayWaveDatas[curWaveIndex].wave;
             int secondDigit = wave >= 10 ? wave % 10 : wave;
@@ -76,6 +76,9 @@ public class EnemyGenerator : MonoBehaviour
             existingEnemys.Add(go);
             uiPlay.SetUI_EnemyCount();
             uiPlay.SetUI_GameOver(RestartGame);
+
+            if (dicPlayWaveDatas[curWaveIndex].enemyType == EnemyType.보스) Timer.SetTimer(go.transform);
+            else Timer.SetTimer(null);
 
             //일정 간격 유지
             while (true) {
