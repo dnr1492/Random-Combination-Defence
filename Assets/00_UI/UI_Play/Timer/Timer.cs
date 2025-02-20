@@ -5,35 +5,39 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    private static Transform target;
-    private float timer = 60f;
+    private static Timer instance;
 
-    public Text txtTimer;
-    public Camera mainCamera;
+    private Transform target;
+    private float timer = 75f;
+
+    [SerializeField] GameObject frame;
+    [SerializeField] Camera mainCam;
+    [SerializeField] Text txtTimer;
 
     private void Awake()
     {
-        Time.timeScale = 5;
+        instance = this;
+        instance.gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        if (target == null || mainCamera == null) {
-            gameObject.SetActive(false);
+        if (target == null || mainCam == null) {
+            instance.gameObject.SetActive(false);
             return;
         }
 
-        //타이머 감소
         timer -= Time.deltaTime;
-        txtTimer.text = Mathf.Clamp(timer, 0, 999).ToString("F1");
+        txtTimer.text = Mathf.Clamp(timer, 0, 999).ToString("F2");
 
-        //보스의 월드 좌표를 UI 캔버스 좌표로 변환
-        Vector2 screenPosition = mainCamera.WorldToScreenPoint(target.position + Vector3.up * 3f);
-        transform.position = screenPosition;
+        Vector2 screenPosition = mainCam.WorldToScreenPoint(target.position + Vector3.up * 3.5f);
+        frame.transform.position = screenPosition;
     }
 
     public static void SetTimer(Transform target)
     {
-        Timer.target = target;
+        instance.gameObject.SetActive(true);
+        instance.target = target;
+        instance.timer = 60f;
     }
 }

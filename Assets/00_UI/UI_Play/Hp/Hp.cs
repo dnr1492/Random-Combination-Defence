@@ -10,7 +10,7 @@ public class Hp : MonoBehaviour
     private RectTransform hpRt;
     private Transform parantTr;
 
-    private readonly float offsetPercentY = 0.2f;  //20%
+    private readonly float offsetY = 0.2f;
     private readonly float baseScale = 3f;
     private readonly float baseHeight = 0.05f;
    
@@ -37,7 +37,7 @@ public class Hp : MonoBehaviour
         Renderer renderer = parantTr.GetComponent<Renderer>();
         Bounds bounds = renderer.bounds;
         Vector3 topPos = new Vector3(bounds.center.x, bounds.center.y + renderer.bounds.extents.y);
-        topPos.y += bounds.size.y * offsetPercentY;
+        topPos.y += offsetY;
         Vector3 pos = topPos;
         hpRt.transform.position = pos;
     }
