@@ -10,6 +10,12 @@ public enum CharacterAttackType { Normal, Bow, Magic, LongSpear, Axe, ShotSword 
 
 public enum CharacterDamageType { Melee, Chaos, Blood }
 
+public enum SpriteType { None, Bg, BgOutline, ImgCharacter }
+
+public enum SelectSkill { One, Two, Three, Four, Five, Six, Seven }
+
+public enum EnemyType { 일반, 체력형, 방어형, 속도형, 보스 }
+
 public enum AnimatorState
 {
     Idle,
@@ -33,10 +39,6 @@ public enum AnimatorState
     Other
 }
 
-public enum SpriteType { None, Bg, BgOutline, ImgCharacter }
-
 public enum TabMenu { TabMenuShop, TabMenuCharacter, TabMenuLobby, TabMenuRelics, TabMenuPreferences }
 
-public enum SelectSkill { One, Two, Three, Four, Five, Six, Seven }
-
-public enum EnemyType { 일반, 체력형, 방어형, 속도형, 보스 }
+public enum PlaySpeed { X1, X2, X3 }

@@ -7,26 +7,37 @@ using UnityEngine.UI;
 public class UIPlay : MonoBehaviour
 {
     [SerializeField] CharacterGenerator characterGenerator;
-    [SerializeField] Text txtWave, txtWaveTimer, txtEnemyCount;
-    [SerializeField] Text txtGold, txtDiamond;
-    [SerializeField] Slider sliEnemyCount;
-    [SerializeField] GameObject gameOverPrefab;
 
+    [Header("Wave")]
+    [SerializeField] Text txtWave, txtWaveTimer, txtEnemyCount;
     private readonly string strWave = "Wave {0} / {1}";
     private readonly string strWaveTimer = "{0}";
+    [SerializeField] Slider sliEnemyCount;
     private readonly string strEnemyCount = "{0} / {1}";
     private readonly int maxEnemyCount = 70;
-
     private int curEnemyCount = 0;
+
+    [Header("Resources")]
+    [SerializeField] Text txtGold, txtDiamond;
     //private int curGold = 5;
     //private int curDiamond = 0;
-
     //public int GetCurGold { get => curGold; private set => curGold = value; }
     //public int GetCurDiamond { get => curDiamond; private set => curDiamond = value; }
+
+    [Header("GameOver")]
+    [SerializeField] GameObject gameOverPrefab;
+
+    [Header("PlaySpeed")]
+    [SerializeField] Button btnChangeSpeed;
+    [SerializeField] CustomBackground cbChangeSpeed;
 
     private void Awake()
     {
         sliEnemyCount.maxValue = maxEnemyCount;
+
+        btnChangeSpeed.onClick.AddListener(() => {
+            SetUI_PlaySpeed(cbChangeSpeed.ChangeSelect());
+        });
     }
 
     //private void Start()
@@ -72,6 +83,24 @@ public class UIPlay : MonoBehaviour
     {
         if (curEnemyCount >= maxEnemyCount) {
             Instantiate(gameOverPrefab).GetComponent<GameOver>().Init(restartGameAction);
+        }
+    }
+
+    public void SetUI_PlaySpeed(int index)
+    {
+        switch (index)
+        {
+            case (int)PlaySpeed.X1:
+                Time.timeScale = 1;
+                break;
+            case (int)PlaySpeed.X2:
+                Time.timeScale = 2;
+                break;
+            case (int)PlaySpeed.X3:
+                Time.timeScale = 3;
+                break;
+            default:
+                break;
         }
     }
 }
