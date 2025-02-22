@@ -41,4 +41,4 @@ public enum AnimatorState
 
 public enum TabMenu { TabMenuShop, TabMenuCharacter, TabMenuLobby, TabMenuRelics, TabMenuPreferences }
 
-public enum PlaySpeed { X1, X2, X3 }
+public enum FastForward { X1, X2, X3 }

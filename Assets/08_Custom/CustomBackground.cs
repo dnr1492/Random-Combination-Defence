@@ -6,23 +6,19 @@ public class CustomBackground : MonoBehaviour
 {
     [SerializeField] Image bg;
     [SerializeField] Sprite[] sps;
-    private int curSelectIndex = 0;
-    private int curChangeIndex = 0;
 
     public void SetSelect(bool isSelect)
     {
-        curSelectIndex = isSelect ? 1 : 0;  //Select 1, Unselect 0
+        int curSelectIndex = isSelect ? 1 : 0;  //Select 1, Unselect 0
         if (sps != null && sps.Length > 0) bg.sprite = sps[curSelectIndex];
     }
 
-    public int ChangeSelect()
+    public void SetSelect(int index)
     {
-        curChangeIndex = (curChangeIndex + 1) % sps.Length;  //0 → 1 → 2순환 변경
-        bg.sprite = sps[curChangeIndex];
-        return curChangeIndex;
+        bg.sprite = sps[index];
     }
 
-    public void Unlock()
+    public void UnlockSkill()
     {
         bg.sprite = sps[2];
     }

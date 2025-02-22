@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,16 +28,18 @@ public class UIPlay : MonoBehaviour
     [Header("GameOver")]
     [SerializeField] GameObject gameOverPrefab;
 
-    [Header("PlaySpeed")]
-    [SerializeField] Button btnChangeSpeed;
-    [SerializeField] CustomBackground cbChangeSpeed;
+    [Header("Fast Forward")]
+    [SerializeField] Button btnChangeFF;
+    [SerializeField] CustomBackground cbChangeFF;
+    private int curNextFFIndex = 0;
 
     private void Awake()
     {
         sliEnemyCount.maxValue = maxEnemyCount;
 
-        btnChangeSpeed.onClick.AddListener(() => {
-            SetUI_PlaySpeed(cbChangeSpeed.ChangeSelect());
+        SetUI_FastForward(curNextFFIndex);
+        btnChangeFF.onClick.AddListener(() => {
+            SetUI_FastForward(curNextFFIndex);
         });
     }
 
@@ -82,25 +85,28 @@ public class UIPlay : MonoBehaviour
     public void SetUI_GameOver(UnityAction restartGameAction)
     {
         if (curEnemyCount >= maxEnemyCount) {
-            Instantiate(gameOverPrefab).GetComponent<GameOver>().Init(restartGameAction);
+            Instantiate(gameOverPrefab).GetComponent<GameOver>().Init(restartGameAction, SetUI_FastForward);
         }
     }
 
-    public void SetUI_PlaySpeed(int index)
+    public void SetUI_FastForward(int index)
     {
         switch (index)
         {
-            case (int)PlaySpeed.X1:
+            case (int)FastForward.X1:
                 Time.timeScale = 1;
                 break;
-            case (int)PlaySpeed.X2:
+            case (int)FastForward.X2:
                 Time.timeScale = 2;
                 break;
-            case (int)PlaySpeed.X3:
+            case (int)FastForward.X3:
                 Time.timeScale = 3;
                 break;
             default:
                 break;
         }
+
+        curNextFFIndex = (index + 1) % Enum.GetValues(typeof(FastForward)).Length;  //0 → 1 → 2순환 변경
+        cbChangeFF.SetSelect(index);
     }
 }

@@ -40,7 +40,7 @@ public class UICharacterInfo : MonoBehaviour
             arrBtnSkill[i].gameObject.SetActive(true);
             if (unlockSkillIndex >= characterInfo.unlockSkills.Count)
             {
-                arrCb[i].Unlock();
+                arrCb[i].UnlockSkill();
                 arrBtnSkill[i].interactable = false;
             }
             unlockSkillIndex++;
