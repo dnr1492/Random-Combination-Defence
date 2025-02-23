@@ -27,12 +27,12 @@ CharacterRecipeData 변경 후 에디터에서 생성
 -> HP 추가
 
 ●등급 (변수명 (클라): TierName, TierNum) / (변수명 (서버): ItemClass)
-- 흔한 (Common, 흰색, 0)
-- 안흔한 (Uncommon, 파란색, 1)
-- 희귀한 (Rare, 보라색, 2)
-- 유일한 (Unique, 주황색, 3)
-- 전설적인 (Legendary, 빨간색, 4)
-- 초월한 (Transcendent, 하늘색, 5)
+- 흔한 (Common, 흰색, 0, 9종류)
+- 안흔한 (Uncommon, 파란색, 1, 13종류)
+- 희귀한 (Rare, 보라색, 2, 33종류)
+- 유일한 (Unique, 주황색, 3, 42종류)
+- 전설적인 (Legendary, 빨간색, 4, 16종류)
+- 초월한 (Transcendent, 하늘색, 5, 11종류)
 
 ●데미지 종류 (변수명: DamageType) 
 - Melee, Chaos, 방어관통, 체력퍼센트
@@ -46,8 +46,11 @@ CharacterRecipeData 변경 후 에디터에서 생성
 - 도적 (빠른 공속, 짧은 공격 사거리)
 - 마법사 (마법 데미지)
 - 궁수 (넓은 공격 사거리)
-- 광전사 (높은 공격력)
-- 창술사 (광역)
+- 격투가 (!?)
+- *광전사 (높은 공격력)
+- *창술사 (광역)
+-
+-
 
 ●BM 구조
 
