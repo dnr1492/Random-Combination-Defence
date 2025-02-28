@@ -16,6 +16,24 @@ public enum SelectSkill { One, Two, Three, Four, Five, Six, Seven }
 
 public enum EnemyType { 일반, 체력형, 방어형, 속도형, 보스 }
 
+public enum AttackEffectType
+{
+    None,
+    Attack,  //기본 공격
+    Fire,
+    Ice,
+    Water,
+    Electric,
+    Explosion
+}
+
+public enum PlayEffectType
+{
+    None,
+    Summon,  //소환
+    Combination  //조합
+}
+
 public enum AnimatorState
 {
     Idle,

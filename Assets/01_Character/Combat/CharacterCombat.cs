@@ -1,3 +1,4 @@
+using PlayFab.ProfilesModels;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -14,6 +15,7 @@ public abstract class CharacterCombat : MonoBehaviour
     private const string TAG_ENEMY = "Enemy";
 
     private EnemyController curTargetEnemyController;
+    private AttackEffectType effectType = AttackEffectType.None;
     private bool canAttack = true;
     private float totalDamage = 0;
     private float totalAttackDelay = 0;
@@ -38,7 +40,7 @@ public abstract class CharacterCombat : MonoBehaviour
 
     private void Update()
     {
-        //현재 적이 없거나 공격사거리를 벗어났거나 적이 죽었다면 적 갱신
+        //현재 적이 없거나, 공격사거리를 벗어났거나, 적이 죽었다면 적 갱신
         if (curTargetEnemyController == null 
             || !IsInRange(curTargetEnemyController.gameObject)
             || curTargetEnemyController.IsDie) 
@@ -58,8 +60,7 @@ public abstract class CharacterCombat : MonoBehaviour
             {
                 if (characterSkillDatas.Count == 0) break;
 
-                if (Random.Range(0, 100f) <= characterSkillDatas[i].skillTriggerChance)
-                {
+                if (Random.Range(0, 100f) <= characterSkillDatas[i].skillTriggerChance) {
                     //스킬 우선순위
                     if (i == 2) AttackPassiveSkill_3(characterSkillDatas[i].skillName, i);
                     else if (i == 1) AttackPassiveSkill_2(characterSkillDatas[i].skillName, i);
@@ -69,6 +70,7 @@ public abstract class CharacterCombat : MonoBehaviour
             }
 
             characterController.SetDirection(curTargetEnemyController.transform.position);
+            if (effectType == AttackEffectType.None) SetEffectType(AttackEffectType.Attack);
             StartCoroutine(Attack(totalDamage, totalAttackDelay));
         }
     }
@@ -89,6 +91,8 @@ public abstract class CharacterCombat : MonoBehaviour
         var length = animationController.GetClipLength(attackType.ToString()) / 2;
         yield return new WaitForSeconds(length);
 
+        AttackEffect(curTargetEnemyController.transform.position, length);
+
         //적 데미지
         float curEnemyHp;
         if (curTargetEnemyController != null) {
@@ -103,6 +107,46 @@ public abstract class CharacterCombat : MonoBehaviour
         //공격 딜레이
         yield return new WaitForSeconds(attackSpeed - length);
         canAttack = true;
+        effectType = AttackEffectType.None;
+    }
+
+    /// <summary>
+    /// 공격 효과
+    /// </summary>
+    /// <param name="effectPosition"></param>
+    /// <param name="duration"></param>
+    private void AttackEffect(Vector3 effectPosition, float duration)
+    {
+        //캐릭터별 이펙트 데이터 불러오기
+        CharacterEffectData effectData = CharacterEffectManager.Instance.GetAttackEffectData(curCharacterInfo.displayName);
+        if (effectData == null) return;
+
+        //속성별 추가 이펙트 실행
+        switch (effectType)
+        {
+            case AttackEffectType.Attack:
+                EffectManager.Instance.PlayAttackEffect(effectPosition, effectData.attackEffect, duration);
+                break;
+            case AttackEffectType.Fire:
+                EffectManager.Instance.PlayAttackEffect(effectPosition, effectData.fireEffect, duration);
+                break;
+            case AttackEffectType.Ice:
+                EffectManager.Instance.PlayAttackEffect(effectPosition, effectData.iceEffect, duration);
+                break;
+            case AttackEffectType.Water:
+                EffectManager.Instance.PlayAttackEffect(effectPosition, effectData.waterEffect, duration);
+                break;
+            case AttackEffectType.Electric:
+                EffectManager.Instance.PlayAttackEffect(effectPosition, effectData.electricEffect, duration);
+                break;
+            case AttackEffectType.Explosion:
+                EffectManager.Instance.PlayAttackEffect(effectPosition, effectData.explosionEffect, duration);
+                break;
+        }
+
+        ////크리티컬 히트 발생 시 추가 이펙트 실행
+        //bool isCritical = Random.value > 0.8f;
+        //if (isCritical) EffectManager.Instance.PlayEffect(effectPosition, effectData.criticalEffect);
     }
     #endregion
 
@@ -187,6 +231,15 @@ public abstract class CharacterCombat : MonoBehaviour
         object result = table.Compute(replacedFormula, "");
         //Convert result to float
         return System.Convert.ToSingle(result);
+    }
+
+    /// <summary>
+    /// 이펙트 종류를 설정
+    /// </summary>
+    /// <param name="effectType"></param>
+    protected void SetEffectType(AttackEffectType effectType)
+    {
+        this.effectType = effectType;
     }
 
     protected abstract void AttackPassiveSkill_1(string skillName, int index);
