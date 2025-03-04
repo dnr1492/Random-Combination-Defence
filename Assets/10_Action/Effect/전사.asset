@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 461210e175c9e234880a75c8cb7da907, type: 3}
+  m_Name: "\uC804\uC0AC"
+  m_EditorClassIdentifier: 
+  characterName: "\uC804\uC0AC"
+  attackNormalEffect: {fileID: 11400000, guid: 9c02c6d6dad26164eb972def5857108b, type: 2}
+  attackBowEffect: {fileID: 0}
+  attackMagicEffect: {fileID: 0}
+  attackLongSpearEffect: {fileID: 0}
+  attackAxeEffect: {fileID: 0}
+  attackShotSwordEffect: {fileID: 0}
+  concentrateEffect: {fileID: 0}
+  buffEffect: {fileID: 0}
+  debuffEffect: {fileID: 0}
+  skillNormalEffect: {fileID: 0}
+  skillBowEffect: {fileID: 0}
+  skillMagicEffect: {fileID: 0}

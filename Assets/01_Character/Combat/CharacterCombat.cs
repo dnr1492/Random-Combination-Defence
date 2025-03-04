@@ -11,11 +11,11 @@ public abstract class CharacterCombat : MonoBehaviour
     protected CharacterController characterController;
     protected CharacterInfo curCharacterInfo;
     protected List<CharacterSkillData> characterSkillDatas;
-    
+
     private const string TAG_ENEMY = "Enemy";
 
     private EnemyController curTargetEnemyController;
-    private AttackEffectType effectType = AttackEffectType.None;
+    private CombatEffectType effectType = CombatEffectType.None;
     private bool canAttack = true;
     private float totalDamage = 0;
     private float totalAttackDelay = 0;
@@ -40,6 +40,9 @@ public abstract class CharacterCombat : MonoBehaviour
 
     private void Update()
     {
+        //공격이 불가능하다면 리턴
+        if (!canAttack) return;
+
         //현재 적이 없거나, 공격사거리를 벗어났거나, 적이 죽었다면 적 갱신
         if (curTargetEnemyController == null 
             || !IsInRange(curTargetEnemyController.gameObject)
@@ -48,8 +51,8 @@ public abstract class CharacterCombat : MonoBehaviour
             curTargetEnemyController = FindClosestEnemy();
         }
 
-        //타겟이 존재하고 이동 중이 아니며 공격이 가능한 상태라면 공격
-        if (curTargetEnemyController != null && canAttack && !characterController.CheckMoving()) 
+        //타겟이 존재하고 이동 중이 아니면 공격
+        if (curTargetEnemyController != null && !characterController.CheckMoving()) 
         {
             DebugLogger.Log($"'{name}'의 스킬 언락 수 : {curCharacterInfo.unlockSkills.Count}");
 
@@ -70,7 +73,8 @@ public abstract class CharacterCombat : MonoBehaviour
             }
 
             characterController.SetDirection(curTargetEnemyController.transform.position);
-            if (effectType == AttackEffectType.None) SetEffectType(AttackEffectType.Attack);
+            if (effectType == CombatEffectType.None) SetEffectType(CombatEffectType.Hit_Attack_Normal);
+            //if (Random.value > 0.8f) SetEffectType(CombatEffectType.Critical);
             StartCoroutine(Attack(totalDamage, totalAttackDelay));
         }
     }
@@ -107,7 +111,7 @@ public abstract class CharacterCombat : MonoBehaviour
         //공격 딜레이
         yield return new WaitForSeconds(attackSpeed - length);
         canAttack = true;
-        effectType = AttackEffectType.None;
+        SetEffectType(CombatEffectType.None);
     }
 
     /// <summary>
@@ -118,35 +122,34 @@ public abstract class CharacterCombat : MonoBehaviour
     private void AttackEffect(Vector3 effectPosition, float duration)
     {
         //캐릭터별 이펙트 데이터 불러오기
-        CharacterEffectData effectData = CharacterEffectManager.Instance.GetAttackEffectData(curCharacterInfo.displayName);
+        CharacterActionData effectData = ActionManager.Instance.GetCharacterActionData(curCharacterInfo.displayName);
         if (effectData == null) return;
 
-        //속성별 추가 이펙트 실행
+        //이펙트 실행
         switch (effectType)
         {
-            case AttackEffectType.Attack:
-                EffectManager.Instance.PlayAttackEffect(effectPosition, effectData.attackEffect, duration);
+            case CombatEffectType.Hit_Attack_Normal:
+                ActionManager.Instance.PlayCombatAction(effectPosition, effectData.attackNormalEffect, duration);
                 break;
-            case AttackEffectType.Fire:
-                EffectManager.Instance.PlayAttackEffect(effectPosition, effectData.fireEffect, duration);
-                break;
-            case AttackEffectType.Ice:
-                EffectManager.Instance.PlayAttackEffect(effectPosition, effectData.iceEffect, duration);
-                break;
-            case AttackEffectType.Water:
-                EffectManager.Instance.PlayAttackEffect(effectPosition, effectData.waterEffect, duration);
-                break;
-            case AttackEffectType.Electric:
-                EffectManager.Instance.PlayAttackEffect(effectPosition, effectData.electricEffect, duration);
-                break;
-            case AttackEffectType.Explosion:
-                EffectManager.Instance.PlayAttackEffect(effectPosition, effectData.explosionEffect, duration);
-                break;
+            //case AttackEffectType.FireFlamme:
+            //    ActionManager.Instance.PlayAttackAction(effectPosition, effectData.fireFlammeEffect, duration);
+            //    break;
+            //case AttackEffectType.Ice:
+            //    ActionManager.Instance.PlayAttackAction(effectPosition, effectData.iceEffect, duration);
+            //    break;
+            //case AttackEffectType.WaterWave:
+            //    ActionManager.Instance.PlayAttackAction(effectPosition, effectData.waterWaveEffect, duration);
+            //    break;
+            //case AttackEffectType.Electric:
+            //    ActionManager.Instance.PlayAttackAction(effectPosition, effectData.electricEffect, duration);
+            //    break;
+            //case AttackEffectType.Explosion:
+            //    ActionManager.Instance.PlayAttackAction(effectPosition, effectData.explosionEffect, duration);
+            //    break;
+            //case AttackEffectType.Critical:
+            //    EffectManager.Instance.PlayEffect(effectPosition, effectData.criticalEffect, duration);
+            //    break;
         }
-
-        ////크리티컬 히트 발생 시 추가 이펙트 실행
-        //bool isCritical = Random.value > 0.8f;
-        //if (isCritical) EffectManager.Instance.PlayEffect(effectPosition, effectData.criticalEffect);
     }
     #endregion
 
@@ -237,7 +240,7 @@ public abstract class CharacterCombat : MonoBehaviour
     /// 이펙트 종류를 설정
     /// </summary>
     /// <param name="effectType"></param>
-    protected void SetEffectType(AttackEffectType effectType)
+    protected void SetEffectType(CombatEffectType effectType)
     {
         this.effectType = effectType;
     }

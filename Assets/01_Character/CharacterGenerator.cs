@@ -17,6 +17,8 @@ public class CharacterGenerator : MonoBehaviour
 
     [Header("캐릭터 랜덤 뽑기")]
     private GameObject[] arrCommonRating, arrUncommonRating, arrRareRating, arrUniqueRating, arrLegendaryRating;
+    private readonly string drawEffectName = "소환";
+    private readonly float effectDuration = 1;
 
     [Header("캐릭터 위치 정렬")]
     private readonly int originCount = 100;
@@ -44,7 +46,7 @@ public class CharacterGenerator : MonoBehaviour
     }
 
     #region 캐릭터 랜덤 뽑기
-    public void DrawRandom(int drawCount)
+    public IEnumerator DrawRandom(int drawCount, float spawnDelay)
     {
         for (int i = 0; i < drawCount; i++) {
             GameObject target = null;
@@ -57,12 +59,24 @@ public class CharacterGenerator : MonoBehaviour
                 target.name = Rename(target.name);
             }
 
-            if (target == null) return;
+            if (target == null) yield return null;
             else target.GetComponent<CharacterController>().Init(cameraController, mainTilemap);
             Sort(target);
 
             existingCharacters.Add(target);
+
+            DrawEffect(target.transform.position);
+
+            yield return new WaitForSeconds(spawnDelay);
         }
+    }
+
+    private void DrawEffect(Vector3 position)
+    {
+        PlayActionData effectData = ActionManager.Instance.GetPlayActionData(drawEffectName);
+        if (effectData == null) return;
+
+        ActionManager.Instance.PlayPlayAction(position, effectData, effectDuration);
     }
     #endregion
 

@@ -16,15 +16,21 @@ public enum SelectSkill { One, Two, Three, Four, Five, Six, Seven }
 
 public enum EnemyType { 일반, 체력형, 방어형, 속도형, 보스 }
 
-public enum AttackEffectType
+public enum CombatEffectType
 {
     None,
-    Attack,  //기본 공격
-    Fire,
-    Ice,
-    Water,
-    Electric,
-    Explosion
+    Hit_Attack_Normal,
+    Hit_Attack_Bow,
+    Hit_Attack_Magic,
+    Hit_Attack_LongSpear,
+    Hit_Attack_Axe,
+    Hit_Attack_ShotSword,
+    Concentrate,
+    Buff,
+    Debuff,
+    Hit_Skill_Normal,
+    Hit_Skill_Bow,
+    Hit_Skill_Magic
 }
 
 public enum PlayEffectType
