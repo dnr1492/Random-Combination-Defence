@@ -8,6 +8,8 @@ public class Timer : MonoBehaviour
     private static Timer instance;
 
     private Transform target;
+    private float localScaleY;
+    private float offsetY;
     private float timer = 75f;
 
     [SerializeField] GameObject frame;
@@ -30,7 +32,7 @@ public class Timer : MonoBehaviour
         timer -= Time.deltaTime;
         txtTimer.text = Mathf.Clamp(timer, 0, 999).ToString("F2");
 
-        Vector2 screenPosition = mainCam.WorldToScreenPoint(target.position + Vector3.up * 1f);
+        Vector2 screenPosition = mainCam.WorldToScreenPoint(target.position + Vector3.up * localScaleY * offsetY);
         frame.transform.position = screenPosition;
     }
 
@@ -38,6 +40,8 @@ public class Timer : MonoBehaviour
     {
         instance.gameObject.SetActive(true);
         instance.target = target;
+        instance.offsetY = target.GetComponent<BoxCollider2D>().bounds.extents.y * 1.5f;
+        instance.localScaleY = instance.gameObject.transform.localScale.y;
         instance.timer = 60f;
     }
 }
