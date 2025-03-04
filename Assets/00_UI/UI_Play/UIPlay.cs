@@ -53,7 +53,7 @@ public class UIPlay : MonoBehaviour
     {
         if (curWave == 0) {
             txtWave.text = "Ω√¿€";
-            StartCoroutine(characterGenerator.DrawRandom(5, 0.5f));
+            StartCoroutine(characterGenerator.DrawRandom(5, 0.25f));
         }
         else {
             txtWave.text = string.Format(strWave, curWave, maxWave);

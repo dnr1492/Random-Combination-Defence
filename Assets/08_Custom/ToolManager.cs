@@ -202,76 +202,11 @@ public class ToolManager
 
         //데이터 추가
         #region Tier: 흔한
-        list.characterDatas.Add(new CharacterData
-        {
-            displayName = "전사",
-            damage = 7f,
-            attackSpeed = 1f,
-            attackRange = 2f,
-            moveSpeed = 2f,
-            tierNum = 1,
-            attackType = CharacterAttackType.Normal,
-            damageType = CharacterDamageType.Melee,
-            skill_1_name = "",
-            skill_2_name = "",
-            skill_3_name = ""
-        });
-        list.characterDatas.Add(new CharacterData
-        {
-            displayName = "도적",
-            damage = 7f,
-            attackSpeed = 1f,
-            attackRange = 2f,
-            moveSpeed = 2f,
-            tierNum = 1,
-            attackType = CharacterAttackType.Normal,
-            damageType = CharacterDamageType.Melee,
-            skill_1_name = "",
-            skill_2_name = "",
-            skill_3_name = ""
-        });
-        list.characterDatas.Add(new CharacterData
-        {
-            displayName = "마법사",
-            damage = 2f,
-            attackSpeed = 1f,
-            attackRange = 2f,
-            moveSpeed = 2f,
-            tierNum = 1,
-            attackType = CharacterAttackType.Magic,
-            damageType = CharacterDamageType.Chaos,
-            skill_1_name = "",
-            skill_2_name = "",
-            skill_3_name = ""
-        });
-        list.characterDatas.Add(new CharacterData
-        {
-            displayName = "궁수",
-            damage = 4f,
-            attackSpeed = 1f,
-            attackRange = 2f,
-            moveSpeed = 2f,
-            tierNum = 1,
-            attackType = CharacterAttackType.Bow,
-            damageType = CharacterDamageType.Melee,
-            skill_1_name = "",
-            skill_2_name = "",
-            skill_3_name = ""
-        });
-        list.characterDatas.Add(new CharacterData
-        {
-            displayName = "격투가",
-            damage = 7f,
-            attackSpeed = 1f,
-            attackRange = 2f,
-            moveSpeed = 2f,
-            tierNum = 1,
-            attackType = CharacterAttackType.Normal,
-            damageType = CharacterDamageType.Melee,
-            skill_1_name = "",
-            skill_2_name = "",
-            skill_3_name = ""
-        });
+        list.characterDatas.Add(new CharacterData { displayName = "전사", damage = 30f, attackSpeed = 1f, attackRange = 1f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "도적", damage = 20f, attackSpeed = 0.5f, attackRange = 0.8f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "격투가", damage = 25f, attackSpeed = 0.8f, attackRange = 1f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "궁수", damage = 15f, attackSpeed = 0.8f, attackRange = 4f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Bow, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "마법사", damage = 15f, attackSpeed = 1f, attackRange = 3f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Chaos, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
         #endregion
 
         LoadDataFromJSON(list, "character_data.json");

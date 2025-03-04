@@ -95,7 +95,7 @@ public abstract class CharacterCombat : MonoBehaviour
         var length = animationController.GetClipLength(attackType.ToString()) / 2;
         yield return new WaitForSeconds(length);
 
-        AttackEffect(curTargetEnemyController.transform.position, length);
+        if (curTargetEnemyController != null) AttackEffect(curTargetEnemyController.transform.position, length);
 
         //적 데미지
         float curEnemyHp;

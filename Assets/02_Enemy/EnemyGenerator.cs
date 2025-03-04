@@ -67,7 +67,11 @@ public class EnemyGenerator : MonoBehaviour
             //임시 방편으로 모든 라운드에 중복으로 사용하기 위해서 두 번째 자리수를 기준으로 프리팹 생성
             //즉, 일반 적은 1 2 3 4 5 6 7 8 9 순이며 0은 보스
             int wave = dicPlayWaveDatas[curWaveIndex].wave;
-            int secondDigit = wave >= 10 ? wave % 10 : wave;
+            int prefabIndex = (wave - 1) % 10;  // 0~9 반복
+            int secondDigit;
+            if (wave % 10 == 0) secondDigit = 0;  //10, 20, 30... 보스 웨이브
+            else if (wave > 10) secondDigit = prefabIndex + 1;  //11부터 다시 1~9 반복
+            else secondDigit = prefabIndex + 1;  //기본 1~9 반복
 
             GameObject go = Instantiate(GetEnemyByName(secondDigit.ToString()), Waypoint.waypoints[0].position, Waypoint.waypoints[0].rotation, enemyParant);
             go.name = Rename(go.name);

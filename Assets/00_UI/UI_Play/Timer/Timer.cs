@@ -30,7 +30,7 @@ public class Timer : MonoBehaviour
         timer -= Time.deltaTime;
         txtTimer.text = Mathf.Clamp(timer, 0, 999).ToString("F2");
 
-        Vector2 screenPosition = mainCam.WorldToScreenPoint(target.position + Vector3.up * 3.5f);
+        Vector2 screenPosition = mainCam.WorldToScreenPoint(target.position + Vector3.up * 1f);
         frame.transform.position = screenPosition;
     }
 
