@@ -118,7 +118,6 @@ public class CharacterClickController : MonoBehaviour
             if (characters[i].name == displayName)
             {
                 CharacterController characterController = characters[i].GetComponent<CharacterController>();
-                if (characterController.CheckMoving()) continue;  //이동 중인 캐릭터는 선택 대상에서 제외
                 selectedCharacters.Add(characters[i]);
                 characterController.InitClick(this, uiCharacterInfo, uiCharacterRecipe, true);
                 DebugLogger.Log("이름이 " + displayName + "인 개체군 전체 선택");

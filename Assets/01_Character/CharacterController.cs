@@ -15,11 +15,10 @@ public class CharacterController : MonoBehaviour
     private Tilemap mainTilemap;
     private Transform movePivot;
     private Vector3 movePos;
+    private Coroutine moveCoroutine;
     private bool isSelected = false;
     private bool isWaited = false;
-    //private bool isArrived = false;
     private bool isMoving = false;
-    private float stoppingDistance;  //도착 판단 임계선
 
     public void Init(CameraController cameraController, Tilemap mainTilemap)
     {
@@ -64,7 +63,6 @@ public class CharacterController : MonoBehaviour
         uiAttackRangeRt = transform.Find("AttackRange").GetComponent<RectTransform>();
         ShowAttackRangeUI(isSelected);
 
-        //movePos = transform.position;
         movePivot = transform.Find("MovePivot").GetComponent<Transform>();
         movePos = movePivot.position;
     }
@@ -75,7 +73,7 @@ public class CharacterController : MonoBehaviour
 
         if (EventSystem.current.IsPointerOverGameObject()) return;
 
-        if (isSelected && !isMoving && isWaited) SetMove();
+        if (isSelected && isWaited) SetMove();
 
         if (isSelected) {
             //부모의 Scale을 -로 변경할 경우 자식 AttackRange의 Width가 -로 변경되는 것을 방지
@@ -94,76 +92,21 @@ public class CharacterController : MonoBehaviour
         else return false;
     }
 
-    //private void SetMove()
-    //{
-    //    if (Input.GetMouseButtonDown(0))
-    //    {
-    //        if (!CheckTilemap()) return;
-
-    //        isArrived = false;
-    //        movePos = cameraController.mainCam.ScreenToWorldPoint(Input.mousePosition);
-    //        StartCoroutine(Move());
-    //    }
-    //}
-
-    //private IEnumerator Move()
-    //{
-    //    float timer = 0f;
-
-    //    while (true)
-    //    {
-    //        if (Vector2.Distance(transform.position, movePos) > stoppingDistance)
-    //        {
-    //            DebugLogger.Log("이동 중");
-
-    //            SetDirection(movePos);
-
-    //            transform.position = Vector2.MoveTowards(transform.position, new Vector3(movePos.x, movePos.y, transform.position.z), curCharacterInfo.moveSpeed * Time.deltaTime);
-    //            isMoving = true;
-    //            timer += Time.deltaTime;
-    //            animationController.ChangeState(AnimatorState.Move);
-
-    //            if (timer >= 0.5f) {
-    //                DebugLogger.Log("일정 시간이 경과하여 stoppingDistance를 증가");
-    //                stoppingDistance += 0.1f;
-    //                timer = 0f;
-    //            }
-    //        }
-    //        else
-    //        {
-    //            DebugLogger.Log("이동 완료");
-    //            isArrived = true;
-    //            isMoving = false;
-    //        }
-
-    //        if (isArrived)
-    //        {
-    //            DebugLogger.Log("이동 완료 후 자동으로 선택 해제");
-    //            characterClickController.CancelObject(gameObject);
-    //            stoppingDistance = 0;
-    //            animationController.ChangeState(AnimatorState.Idle);
-    //            yield break;
-    //        }
-
-    //        yield return null;
-    //    }
-    //}
-
     private void SetMove()
     {
         if (Input.GetMouseButtonDown(0))
         {
             if (!CheckTilemap()) return;
 
-            //isArrived = false;
             movePos = cameraController.mainCam.ScreenToWorldPoint(Input.mousePosition);
             movePos.z = transform.position.z;  //기존 Z 값 유지
 
-            //movePivot 기준으로 이동 목표 보정
+            //MovePivot 기준으로 이동 목표 보정
             Vector3 offset = transform.position - movePivot.position;
-            movePos += offset;  //오브젝트의 피벗이 다르더라도 보정
+            movePos += offset;
 
-            StartCoroutine(Move());
+            if (moveCoroutine != null) StopCoroutine(moveCoroutine);
+            moveCoroutine = StartCoroutine(Move());
         }
     }
 
@@ -176,25 +119,18 @@ public class CharacterController : MonoBehaviour
         {
             DebugLogger.Log("이동 중");
 
+            animationController.ChangeState(AnimatorState.Move);
+
             SetDirection(movePos);
 
             //MovePivot을 목표 위치로 이동
             Vector3 newPosition = Vector2.MoveTowards(movePivot.position, movePos, moveSpeed * Time.deltaTime);
             transform.position += (newPosition - movePivot.position);  //전체 오브젝트 이동
-
-            isMoving = true;
-            animationController.ChangeState(AnimatorState.Move);
-
             yield return null;
         }
 
-        DebugLogger.Log("이동 완료");
-        //isArrived = true;
-        isMoving = false;
-
         DebugLogger.Log("이동 완료 후 자동으로 선택 해제");
         characterClickController.CancelObject(gameObject);
-        stoppingDistance = 0;
         animationController.ChangeState(AnimatorState.Idle);
     }
 
