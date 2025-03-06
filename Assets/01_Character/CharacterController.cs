@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,12 +13,13 @@ public class CharacterController : MonoBehaviour
     private GameObject selectingGo;
     private RectTransform uiAttackRangeRt;
     private Tilemap mainTilemap;
+    private Transform movePivot;
     private Vector3 movePos;
     private bool isSelected = false;
     private bool isWaited = false;
-    private bool isArrived = false;
+    //private bool isArrived = false;
     private bool isMoving = false;
-    private float stoppingDistance;  //µµÂø ÆÇ´Ü ÀÓ°è¼±
+    private float stoppingDistance;  //ë„ì°© íŒë‹¨ ì„ê³„ì„ 
 
     public void Init(CameraController cameraController, Tilemap mainTilemap)
     {
@@ -31,7 +32,7 @@ public class CharacterController : MonoBehaviour
         this.characterClickController = characterClickController;
         this.isSelected = isSelected;
 
-        //Ä³¸¯ÅÍ¸¦ ¼±ÅÃÇÏÀÚ¸¶ÀÚ ¿òÁ÷ÀÌ´Â °ÍÀ» ¹æÁö
+        //ìºë¦­í„°ë¥¼ ì„ íƒí•˜ìë§ˆì ì›€ì§ì´ëŠ” ê²ƒì„ ë°©ì§€
         if (gameObject.activeSelf) StartCoroutine(WaitOneFrame());  
 
         uiCharacterInfo.gameObject.SetActive(isSelected);
@@ -39,7 +40,7 @@ public class CharacterController : MonoBehaviour
 
         if (isSelected) {
             uiCharacterInfo.Init(curCharacterInfo);
-            //ÀüÃ¼ ¼±ÅÃÀÌµç ´ÜÀÏ ¼±ÅÃÀÌµç ÇÑ Á¾·ùÀÇ Ä³¸¯ÅÍ¸¦ ¼±ÅÃÇÏ¹Ç·Î [0]¹øÂ° ÀÎµ¦½º¿¡ Á¢±Ù
+            //ì „ì²´ ì„ íƒì´ë“  ë‹¨ì¼ ì„ íƒì´ë“  í•œ ì¢…ë¥˜ì˜ ìºë¦­í„°ë¥¼ ì„ íƒí•˜ë¯€ë¡œ [0]ë²ˆì§¸ ì¸ë±ìŠ¤ì— ì ‘ê·¼
             uiCharacterRecipe.SetReferenceRecipe(characterClickController.GetSelectedCharacters()[0].name);
             Select(isSelected);
             ShowAttackRangeUI(isSelected);
@@ -63,7 +64,9 @@ public class CharacterController : MonoBehaviour
         uiAttackRangeRt = transform.Find("AttackRange").GetComponent<RectTransform>();
         ShowAttackRangeUI(isSelected);
 
-        movePos = transform.position;
+        //movePos = transform.position;
+        movePivot = transform.Find("MovePivot").GetComponent<Transform>();
+        movePos = movePivot.position;
     }
 
     private void Update()
@@ -75,7 +78,7 @@ public class CharacterController : MonoBehaviour
         if (isSelected && !isMoving && isWaited) SetMove();
 
         if (isSelected) {
-            //ºÎ¸ğÀÇ ScaleÀ» -·Î º¯°æÇÒ °æ¿ì ÀÚ½Ä AttackRangeÀÇ Width°¡ -·Î º¯°æµÇ´Â °ÍÀ» ¹æÁö
+            //ë¶€ëª¨ì˜ Scaleì„ -ë¡œ ë³€ê²½í•  ê²½ìš° ìì‹ AttackRangeì˜ Widthê°€ -ë¡œ ë³€ê²½ë˜ëŠ” ê²ƒì„ ë°©ì§€
             uiAttackRangeRt.sizeDelta = new Vector2(
                 Mathf.Abs(uiAttackRangeRt.sizeDelta.x),
                 uiAttackRangeRt.sizeDelta.y
@@ -91,63 +94,112 @@ public class CharacterController : MonoBehaviour
         else return false;
     }
 
+    //private void SetMove()
+    //{
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        if (!CheckTilemap()) return;
+
+    //        isArrived = false;
+    //        movePos = cameraController.mainCam.ScreenToWorldPoint(Input.mousePosition);
+    //        StartCoroutine(Move());
+    //    }
+    //}
+
+    //private IEnumerator Move()
+    //{
+    //    float timer = 0f;
+
+    //    while (true)
+    //    {
+    //        if (Vector2.Distance(transform.position, movePos) > stoppingDistance)
+    //        {
+    //            DebugLogger.Log("ì´ë™ ì¤‘");
+
+    //            SetDirection(movePos);
+
+    //            transform.position = Vector2.MoveTowards(transform.position, new Vector3(movePos.x, movePos.y, transform.position.z), curCharacterInfo.moveSpeed * Time.deltaTime);
+    //            isMoving = true;
+    //            timer += Time.deltaTime;
+    //            animationController.ChangeState(AnimatorState.Move);
+
+    //            if (timer >= 0.5f) {
+    //                DebugLogger.Log("ì¼ì • ì‹œê°„ì´ ê²½ê³¼í•˜ì—¬ stoppingDistanceë¥¼ ì¦ê°€");
+    //                stoppingDistance += 0.1f;
+    //                timer = 0f;
+    //            }
+    //        }
+    //        else
+    //        {
+    //            DebugLogger.Log("ì´ë™ ì™„ë£Œ");
+    //            isArrived = true;
+    //            isMoving = false;
+    //        }
+
+    //        if (isArrived)
+    //        {
+    //            DebugLogger.Log("ì´ë™ ì™„ë£Œ í›„ ìë™ìœ¼ë¡œ ì„ íƒ í•´ì œ");
+    //            characterClickController.CancelObject(gameObject);
+    //            stoppingDistance = 0;
+    //            animationController.ChangeState(AnimatorState.Idle);
+    //            yield break;
+    //        }
+
+    //        yield return null;
+    //    }
+    //}
+
     private void SetMove()
     {
         if (Input.GetMouseButtonDown(0))
         {
             if (!CheckTilemap()) return;
 
-            isArrived = false;
+            //isArrived = false;
             movePos = cameraController.mainCam.ScreenToWorldPoint(Input.mousePosition);
+            movePos.z = transform.position.z;  //ê¸°ì¡´ Z ê°’ ìœ ì§€
+
+            //movePivot ê¸°ì¤€ìœ¼ë¡œ ì´ë™ ëª©í‘œ ë³´ì •
+            Vector3 offset = transform.position - movePivot.position;
+            movePos += offset;  //ì˜¤ë¸Œì íŠ¸ì˜ í”¼ë²—ì´ ë‹¤ë¥´ë”ë¼ë„ ë³´ì •
+
             StartCoroutine(Move());
         }
     }
 
     private IEnumerator Move()
     {
-        float timer = 0f;
+        float moveSpeed = curCharacterInfo.moveSpeed;
+        float stoppingDistance = 0.05f;  //ë¶€ë“œëŸ½ê²Œ ë©ˆì¶”ë„ë¡ ì¡°ì •
 
-        while (true)
+        while (Vector2.Distance(movePivot.position, movePos) > stoppingDistance)
         {
-            if (Vector2.Distance(transform.position, movePos) > stoppingDistance)
-            {
-                DebugLogger.Log("ÀÌµ¿ Áß");
+            DebugLogger.Log("ì´ë™ ì¤‘");
 
-                SetDirection(movePos);
+            SetDirection(movePos);
 
-                transform.position = Vector2.MoveTowards(transform.position, new Vector3(movePos.x, movePos.y, transform.position.z), curCharacterInfo.moveSpeed * Time.deltaTime);
-                isMoving = true;
-                timer += Time.deltaTime;
-                animationController.ChangeState(AnimatorState.Move);
+            //MovePivotì„ ëª©í‘œ ìœ„ì¹˜ë¡œ ì´ë™
+            Vector3 newPosition = Vector2.MoveTowards(movePivot.position, movePos, moveSpeed * Time.deltaTime);
+            transform.position += (newPosition - movePivot.position);  //ì „ì²´ ì˜¤ë¸Œì íŠ¸ ì´ë™
 
-                if (timer >= 0.5f) {
-                    DebugLogger.Log("ÀÏÁ¤ ½Ã°£ÀÌ °æ°úÇÏ¿© stoppingDistance¸¦ Áõ°¡");
-                    stoppingDistance += 0.1f;
-                    timer = 0f;
-                }
-            }
-            else
-            {
-                DebugLogger.Log("ÀÌµ¿ ¿Ï·á");
-                isArrived = true;
-                isMoving = false;
-            }
-
-            if (isArrived)
-            {
-                DebugLogger.Log("ÀÌµ¿ ¿Ï·á ÈÄ ÀÚµ¿À¸·Î ¼±ÅÃ ÇØÁ¦");
-                characterClickController.CancelObject(gameObject);
-                stoppingDistance = 0;
-                animationController.ChangeState(AnimatorState.Idle);
-                yield break;
-            }
+            isMoving = true;
+            animationController.ChangeState(AnimatorState.Move);
 
             yield return null;
         }
+
+        DebugLogger.Log("ì´ë™ ì™„ë£Œ");
+        //isArrived = true;
+        isMoving = false;
+
+        DebugLogger.Log("ì´ë™ ì™„ë£Œ í›„ ìë™ìœ¼ë¡œ ì„ íƒ í•´ì œ");
+        characterClickController.CancelObject(gameObject);
+        stoppingDistance = 0;
+        animationController.ChangeState(AnimatorState.Idle);
     }
 
     /// <summary>
-    /// ÇÑ ÇÁ·¹ÀÓ ´ë±â
+    /// í•œ í”„ë ˆì„ ëŒ€ê¸°
     /// </summary>
     /// <returns></returns>
     private IEnumerator WaitOneFrame()
@@ -158,19 +210,19 @@ public class CharacterController : MonoBehaviour
     }
 
     /// <summary>
-    /// ÀÌµ¿ ÁßÀÎÁö È®ÀÎ
+    /// ì´ë™ ì¤‘ì¸ì§€ í™•ì¸
     /// </summary>
     /// <returns></returns>
     public bool CheckMoving() => isMoving;
 
     /// <summary>
-    /// ¼±ÅÃ
+    /// ì„ íƒ
     /// </summary>
     /// <param name="isActive"></param>
     private void Select(bool isActive) => selectingGo.SetActive(isActive);
 
     /// <summary>
-    /// °ø°İ ¹üÀ§¸¦ UI·Î Ç¥½Ã
+    /// ê³µê²© ë²”ìœ„ë¥¼ UIë¡œ í‘œì‹œ
     /// </summary>
     /// <param name="isActive"></param>
     private void ShowAttackRangeUI(bool isActive)
@@ -182,15 +234,15 @@ public class CharacterController : MonoBehaviour
     }
 
     /// <summary>
-    /// ¹æÇâ ¼³Á¤
+    /// ë°©í–¥ ì„¤ì •
     /// </summary>
     /// <param name="targetPos"></param>
     public void SetDirection(Vector3 targetPos)
     {
         bool isLeft = false;
-        //¿À¸¥ÂÊ
+        //ì˜¤ë¥¸ìª½
         if (targetPos.x > transform.position.x) isLeft = false;
-        //¿ŞÂÊ
+        //ì™¼ìª½
         else if (targetPos.x < transform.position.x) isLeft = true;
 
         Vector3 newScale = transform.localScale;

@@ -11,11 +11,12 @@
 -> CharacterController 추가
 -> Commbat~티어 관련 추가
 -> Scale 2.5f로 수정
-- 3. ToolManager에서
+- 3. 오브젝트 하위에 MovePivot Transform 생성 후 y값을 0.2로 변경
+- 4. ToolManager에서
 CharacterCardLevelInfoData
 CharacterData
 CharacterRecipeData 변경 후 에디터에서 생성
-- 4. Playfab 사이트에서 해당 캐릭터를 카테고리에 추가
+- 5. Playfab 사이트에서 해당 캐릭터를 카테고리에 추가
 
 ●적(Enemy) (변수명: EnemyName)
 - Tag를 Enemy로 변경
