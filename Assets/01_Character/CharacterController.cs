@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
 
@@ -118,10 +119,9 @@ public class CharacterController : MonoBehaviour
         while (Vector2.Distance(movePivot.position, movePos) > stoppingDistance)
         {
             DebugLogger.Log("이동 중");
-
-            animationController.ChangeState(AnimatorState.Move);
-
+            isMoving = true;
             SetDirection(movePos);
+            animationController.ChangeState(AnimatorState.Move);
 
             //MovePivot을 목표 위치로 이동
             Vector3 newPosition = Vector2.MoveTowards(movePivot.position, movePos, moveSpeed * Time.deltaTime);
@@ -130,6 +130,7 @@ public class CharacterController : MonoBehaviour
         }
 
         DebugLogger.Log("이동 완료 후 자동으로 선택 해제");
+        isMoving = false;
         characterClickController.CancelObject(gameObject);
         animationController.ChangeState(AnimatorState.Idle);
     }

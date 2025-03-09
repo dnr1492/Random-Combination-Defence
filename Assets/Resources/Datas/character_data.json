@@ -17,7 +17,7 @@
             "displayName": "도적",
             "damage": 20.0,
             "attackSpeed": 0.5,
-            "attackRange": 1.0,
+            "attackRange": 0.800000011920929,
             "moveSpeed": 2.0,
             "tierNum": 1,
             "attackType": 0,

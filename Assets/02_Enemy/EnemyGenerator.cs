@@ -81,7 +81,7 @@ public class EnemyGenerator : MonoBehaviour
             uiPlay.SetUI_EnemyCount();
             uiPlay.SetUI_GameOver(RestartGame);
 
-            if (dicPlayWaveDatas[curWaveIndex].enemyType == EnemyType.보스) Timer.SetTimer(go.transform);
+            if (dicPlayWaveDatas[curWaveIndex].enemyType == EnemyType.보스) BossTimer.SetTimer(go.transform);
 
             //일정 간격 유지
             while (true) {
