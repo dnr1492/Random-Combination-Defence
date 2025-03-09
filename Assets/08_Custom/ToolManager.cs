@@ -24,7 +24,7 @@ public class ToolManager
     #region CharacterCardLevelInfoData
     private static string[] characterDisplayNames = Enum.GetNames(typeof(CharacterDisplayName));
     private static readonly Dictionary<string, Dictionary<int, CharacterCardLevelInfoData>> characterConfigs = new Dictionary<string, Dictionary<int, CharacterCardLevelInfoData>>()
-        {
+    { 
             #region Tier: 흔한
             {
                 "전사", new Dictionary<int, CharacterCardLevelInfoData>
@@ -98,6 +98,66 @@ public class ToolManager
                     { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
                     { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
                     { 10, new CharacterCardLevelInfoData { level = 10, skill = "(격투가) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "광전사", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(광전사) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(광전사) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "창술사", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(창술사) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(창술사) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "주술사", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(주술사) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(주술사) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "사제", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(사제) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(사제) 테스트 2" } },
                     { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
                 }
             }
@@ -206,7 +266,11 @@ public class ToolManager
         list.characterDatas.Add(new CharacterData { displayName = "도적", damage = 20f, attackSpeed = 0.5f, attackRange = 0.8f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
         list.characterDatas.Add(new CharacterData { displayName = "격투가", damage = 25f, attackSpeed = 0.8f, attackRange = 1f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
         list.characterDatas.Add(new CharacterData { displayName = "궁수", damage = 15f, attackSpeed = 0.8f, attackRange = 4f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Bow, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-        list.characterDatas.Add(new CharacterData { displayName = "마법사", damage = 15f, attackSpeed = 1f, attackRange = 3f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Chaos, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "마법사", damage = 15f, attackSpeed = 1f, attackRange = 3f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "광전사", damage = 36f, attackSpeed = 1f, attackRange = 2f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "창술사", damage = 20f, attackSpeed = 1.2f, attackRange = 3f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.LongSpear, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "주술사", damage = 10f, attackSpeed = 1.5f, attackRange = 3f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "사제", damage = 10f, attackSpeed = 1.5f, attackRange = 3f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
         #endregion
 
         LoadDataFromJSON(list, "character_data.json");
@@ -224,48 +288,25 @@ public class ToolManager
         };
 
         //데이터 추가
-        #region Tier: 흔한
-        list.characterRecipeDatas.Add(new CharacterRecipeData
+        list.characterRecipeDatas.AddRange(new List<CharacterRecipeData>
         {
-            selectName = "전사",
-            recipeNameA = "도적",
-            recipeNameB = "",
-            recipeNameC = "",
-            resultName = "마법사"
+            #region Tier: 흔한
+            new CharacterRecipeData { selectName = "전사", recipeNameA = "사제", recipeNameB = "", recipeNameC = "", resultName = "성기사" },
+            new CharacterRecipeData { selectName = "전사", recipeNameA = "마법사", recipeNameB = "", recipeNameC = "", resultName = "마검사" },
+            new CharacterRecipeData { selectName = "도적", recipeNameA = "격투가", recipeNameB = "", recipeNameC = "", resultName = "닌자" },
+            new CharacterRecipeData { selectName = "도적", recipeNameA = "도적", recipeNameB = "", recipeNameC = "", resultName = "어쌔신" },
+            new CharacterRecipeData { selectName = "궁수", recipeNameA = "도적", recipeNameB = "", recipeNameC = "", resultName = "레인져" },
+            new CharacterRecipeData { selectName = "궁수", recipeNameA = "궁수", recipeNameB = "", recipeNameC = "", resultName = "스나이퍼" },
+            new CharacterRecipeData { selectName = "격투가", recipeNameA = "광전사", recipeNameB = "", recipeNameC = "", resultName = "파이터" },
+            new CharacterRecipeData { selectName = "광전사", recipeNameA = "광전사", recipeNameB = "", recipeNameC = "", resultName = "버서커" },
+            new CharacterRecipeData { selectName = "창술사", recipeNameA = "창술사", recipeNameB = "", recipeNameC = "", resultName = "파이크맨" },
+            new CharacterRecipeData { selectName = "창술사", recipeNameA = "마법사", recipeNameB = "", recipeNameC = "", resultName = "마창사" },
+            new CharacterRecipeData { selectName = "주술사", recipeNameA = "주술사", recipeNameB = "", recipeNameC = "", resultName = "흑마술사" },
+            new CharacterRecipeData { selectName = "마법사", recipeNameA = "마법사", recipeNameB = "", recipeNameC = "", resultName = "소서러" },
+            new CharacterRecipeData { selectName = "사제", recipeNameA = "주술사", recipeNameB = "", recipeNameC = "", resultName = "드루이드" },
+            new CharacterRecipeData { selectName = "사제", recipeNameA = "궁수", recipeNameB = "", recipeNameC = "", resultName = "바드" }
+            #endregion
         });
-        list.characterRecipeDatas.Add(new CharacterRecipeData
-        {
-            selectName = "도적",
-            recipeNameA = "전사",
-            recipeNameB = "",
-            recipeNameC = "",
-            resultName = "마법사"
-        });
-        list.characterRecipeDatas.Add(new CharacterRecipeData
-        {
-            selectName = "마법사",
-            recipeNameA = "격투가",
-            recipeNameB = "",
-            recipeNameC = "",
-            resultName = "마법사"
-        });
-        list.characterRecipeDatas.Add(new CharacterRecipeData
-        {
-            selectName = "궁수",
-            recipeNameA = "전사",
-            recipeNameB = "",
-            recipeNameC = "",
-            resultName = "마법사"
-        });
-        list.characterRecipeDatas.Add(new CharacterRecipeData
-        {
-            selectName = "격투가",
-            recipeNameA = "도적",
-            recipeNameB = "",
-            recipeNameC = "",
-            resultName = "마법사"
-        });
-        #endregion
 
         LoadDataFromJSON(list, "characterRecipe_data.json");
     }

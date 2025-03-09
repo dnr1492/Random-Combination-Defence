@@ -1853,7 +1853,7 @@ GameObject:
   - component: {fileID: 727409153}
   - component: {fileID: 727409152}
   m_Layer: 5
-  m_Name: UICharacterRecipe
+  m_Name: "UICharacterRecipe_UX \uBCC0\uACBD \uC694\uB9DD"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15029,7 +15029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4326864797425710014
 RectTransform:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@
 -> Selecting(SPUM은 Shadow를 지우고 추가), AttackRange 프리팹 추가
 -> Rigidbody2D(GravityScale을 0으로, CollisionDetection을 Continuous로, Constraints의 z축 Freeze 설정으로 변경) 추가
 -> CharacterController 추가
--> Commbat~티어 관련 추가
+-> Character"~티어" 관련 추가
 -> Scale 2.5f로 수정
 - 3. 오브젝트 하위에 MovePivot Transform 생성 후 y값을 0.2로 변경
 - 4. ToolManager에서
@@ -17,6 +17,8 @@ CharacterCardLevelInfoData
 CharacterData
 CharacterRecipeData 변경 후 에디터에서 생성
 - 5. Playfab 사이트에서 해당 캐릭터를 카테고리에 추가
+- 6. EnumClass에서 CharacterDisplayName에 캐릭터 이름 추가
+- 7. Animator의 Controller를 CharacterController로 변경하기
 
 ●적(Enemy) (변수명: EnemyName)
 - Tag를 Enemy로 변경
@@ -108,6 +110,7 @@ CharacterRecipeData 변경 후 에디터에서 생성
 (feat.근데 UICharacterCard의 img_Character / UIDrawCharacterCard의 img_Character도 동일하게 구현해야 되는가에 대한 의문...)
 - 상점의 보석, 골드, 상자 icon 변경하기
 - 조합 레시피 UI/UX (크기 등) 수정 및 UI 애니메이션
+- characterCardLevelInfo_data 제대로 수정 요망
 - 이펙트 및 사운드 구매해서 제대로 이펙트 및 사운드를 매칭시키기
 - (로그인, 뽑기 중 등등) 서버에 접근할 경우 네트워크 상태 알림 팝업 추가하기
 -> 10초 또는 10회 경과 시 서버 연결이 실패했습니다.

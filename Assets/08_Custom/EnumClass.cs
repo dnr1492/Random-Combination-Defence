@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum CharacterDisplayName { 전사, 도적, 마법사, 궁수, 격투가 }
+public enum CharacterDisplayName { 전사, 도적, 마법사, 궁수, 격투가, 광전사, 창술사, 주술사, 사제 }
 
 public enum CharacterTier { None, 흔한, 안흔한, 희귀한, 유일한, 전설적인, 초월한 }
 
 public enum CharacterAttackType { Normal, Bow, Magic, LongSpear, Axe, ShotSword }
 
-public enum CharacterDamageType { Melee, Chaos, Blood }
+public enum CharacterDamageType { Melee, Magic, Blood }
 
 public enum SpriteType { None, Bg, BgOutline, ImgCharacter }
 

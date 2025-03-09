@@ -2,38 +2,101 @@
     "characterRecipeDatas": [
         {
             "selectName": "전사",
-            "recipeNameA": "도적",
+            "recipeNameA": "사제",
             "recipeNameB": "",
             "recipeNameC": "",
-            "resultName": "마법사"
+            "resultName": "성기사"
+        },
+        {
+            "selectName": "전사",
+            "recipeNameA": "마법사",
+            "recipeNameB": "",
+            "recipeNameC": "",
+            "resultName": "마검사"
         },
         {
             "selectName": "도적",
-            "recipeNameA": "전사",
-            "recipeNameB": "",
-            "recipeNameC": "",
-            "resultName": "마법사"
-        },
-        {
-            "selectName": "마법사",
             "recipeNameA": "격투가",
             "recipeNameB": "",
             "recipeNameC": "",
-            "resultName": "마법사"
+            "resultName": "닌자"
         },
         {
-            "selectName": "궁수",
-            "recipeNameA": "전사",
-            "recipeNameB": "",
-            "recipeNameC": "",
-            "resultName": "마법사"
-        },
-        {
-            "selectName": "격투가",
+            "selectName": "도적",
             "recipeNameA": "도적",
             "recipeNameB": "",
             "recipeNameC": "",
-            "resultName": "마법사"
+            "resultName": "어쌔신"
+        },
+        {
+            "selectName": "궁수",
+            "recipeNameA": "도적",
+            "recipeNameB": "",
+            "recipeNameC": "",
+            "resultName": "레인져"
+        },
+        {
+            "selectName": "궁수",
+            "recipeNameA": "궁수",
+            "recipeNameB": "",
+            "recipeNameC": "",
+            "resultName": "스나이퍼"
+        },
+        {
+            "selectName": "격투가",
+            "recipeNameA": "광전사",
+            "recipeNameB": "",
+            "recipeNameC": "",
+            "resultName": "파이터"
+        },
+        {
+            "selectName": "광전사",
+            "recipeNameA": "광전사",
+            "recipeNameB": "",
+            "recipeNameC": "",
+            "resultName": "버서커"
+        },
+        {
+            "selectName": "창술사",
+            "recipeNameA": "창술사",
+            "recipeNameB": "",
+            "recipeNameC": "",
+            "resultName": "파이크맨"
+        },
+        {
+            "selectName": "창술사",
+            "recipeNameA": "마법사",
+            "recipeNameB": "",
+            "recipeNameC": "",
+            "resultName": "마창사"
+        },
+        {
+            "selectName": "주술사",
+            "recipeNameA": "주술사",
+            "recipeNameB": "",
+            "recipeNameC": "",
+            "resultName": "흑마술사"
+        },
+        {
+            "selectName": "마법사",
+            "recipeNameA": "마법사",
+            "recipeNameB": "",
+            "recipeNameC": "",
+            "resultName": "소서러"
+        },
+        {
+            "selectName": "사제",
+            "recipeNameA": "주술사",
+            "recipeNameB": "",
+            "recipeNameC": "",
+            "resultName": "드루이드"
+        },
+        {
+            "selectName": "사제",
+            "recipeNameA": "궁수",
+            "recipeNameB": "",
+            "recipeNameC": "",
+            "resultName": "바드"
         }
     ]
 }

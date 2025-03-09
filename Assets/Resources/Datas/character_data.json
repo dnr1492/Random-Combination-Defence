@@ -64,6 +64,58 @@
             "skill_1_name": "",
             "skill_2_name": "",
             "skill_3_name": ""
+        },
+        {
+            "displayName": "광전사",
+            "damage": 36.0,
+            "attackSpeed": 1.0,
+            "attackRange": 2.0,
+            "moveSpeed": 2.0,
+            "tierNum": 1,
+            "attackType": 0,
+            "damageType": 0,
+            "skill_1_name": "",
+            "skill_2_name": "",
+            "skill_3_name": ""
+        },
+        {
+            "displayName": "창술사",
+            "damage": 20.0,
+            "attackSpeed": 1.2000000476837159,
+            "attackRange": 3.0,
+            "moveSpeed": 2.0,
+            "tierNum": 1,
+            "attackType": 3,
+            "damageType": 0,
+            "skill_1_name": "",
+            "skill_2_name": "",
+            "skill_3_name": ""
+        },
+        {
+            "displayName": "주술사",
+            "damage": 10.0,
+            "attackSpeed": 1.5,
+            "attackRange": 3.0,
+            "moveSpeed": 2.0,
+            "tierNum": 1,
+            "attackType": 2,
+            "damageType": 1,
+            "skill_1_name": "",
+            "skill_2_name": "",
+            "skill_3_name": ""
+        },
+        {
+            "displayName": "사제",
+            "damage": 10.0,
+            "attackSpeed": 1.5,
+            "attackRange": 3.0,
+            "moveSpeed": 2.0,
+            "tierNum": 1,
+            "attackType": 2,
+            "damageType": 1,
+            "skill_1_name": "",
+            "skill_2_name": "",
+            "skill_3_name": ""
         }
     ]
 }

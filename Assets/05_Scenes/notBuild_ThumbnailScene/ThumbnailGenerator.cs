@@ -10,10 +10,15 @@ public class ThumbnailGenerator : MonoBehaviour
     public int thumbnailWidth = 128; // 썸네일 가로 크기
     public int thumbnailHeight = 128; // 썸네일 세로 크기
     private string savePath = "05_Scenes/notBuild_ThumbnailScene/SPUM"; // 저장 경로 (Assets 폴더 기준)
-    private float camOrthographicSize = 0.6f;
+    private float camOrthographicSize = 0.8f;
     private Sprite[] sprites;
 
-    public IEnumerator Generate()
+    private void Start()
+    {
+        StartCoroutine(Generate());
+    }
+
+    private IEnumerator Generate()
     {
         StartCoroutine(GenerateThumbnail());
         yield return new WaitUntil(() => sprites.Length == spumGos.Length);

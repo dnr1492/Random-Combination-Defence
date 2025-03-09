@@ -98,7 +98,7 @@ public class EnemyController : MonoBehaviour
     {
         float damageReduction = 0;
         if (damageType == CharacterDamageType.Melee) damageReduction = defense / (defense + defenseOffset);
-        else if (damageType == CharacterDamageType.Chaos) damageReduction = 0;
+        else if (damageType == CharacterDamageType.Magic) damageReduction = 0;
         else if (damageType == CharacterDamageType.Blood) damageReduction = 0;
         float finalDamage = damage * (1 - damageReduction);
         DebugLogger.Log($"Damage {damage} - DamageReduction {damageReduction}: finalDamage {finalDamage}");
