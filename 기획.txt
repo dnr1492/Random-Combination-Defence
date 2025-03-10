@@ -145,5 +145,5 @@ CharacterRecipeData 변경 후 에디터에서 생성
 - 보석: 초월함 조합
 
 <Action>
-- CombatAction : 공격, 스킬, 버프, 디버프의 Hit 위주의 이펙트 및 사운드
-- PlayAction : 소환, 합성 등 게임 플레이 요소적 기타 이펙트 및 사운드
+- CombatAction : 공격, 스킬, 버프, 디버프의 Hit 위주의 '이펙트' 및 '사운드'
+- PlayAction : 소환, 합성 등 게임 플레이 요소적 기타 '이펙트' 및 '사운드'
