@@ -5,11 +5,15 @@ using UnityEngine.UI;
 public class CustomBackground : MonoBehaviour
 {
     [SerializeField] Image bg;
-    [SerializeField] Sprite[] sps;
+    [SerializeField] Sprite[] sps;  //Unselect 0, Select 1
 
+    /// <summary>
+    /// 이미지 자체를 변경
+    /// </summary>
+    /// <param name="isSelect"></param>
     public void SetSelect(bool isSelect)
     {
-        int curSelectIndex = isSelect ? 1 : 0;  //Select 1, Unselect 0
+        int curSelectIndex = isSelect ? 1 : 0;
         if (sps != null && sps.Length > 0) bg.sprite = sps[curSelectIndex];
     }
 
@@ -21,6 +25,17 @@ public class CustomBackground : MonoBehaviour
     public void UnlockSkill()
     {
         bg.sprite = sps[2];
+    }
+
+    /// <summary>
+    /// 이미지 색상 변경
+    /// </summary>
+    /// <param name="isSelect"></param>
+    /// <param name="selectColor"></param>
+    /// <param name="defaultColor"></param>
+    public void SetSelect(bool isSelect, Color selectColor, Color defaultColor)
+    {
+        bg.color = isSelect == true ? selectColor : defaultColor;
     }
 }
 
