@@ -1,24 +1,24 @@
 ●캐릭터(Character) (변수명: DisplayName) / (변수명 (서버): ItemId와 동일)
 - 1. SPUM으로 캐릭터 디자인 
 -> 캐릭터 최상위에 CapsuleCollider2D(feat.Offset Y 0.35 / Size X 0.25 Y 0.55) 추가 및 수정 
--> Shadow등 다 비활성화 시키고 캐릭터만 나오도록 수정
+-> Shadow 삭제 후 캐릭터만 나오도록 수정
 -> ThumbnailScene에서 해당 캐릭터의 스프라이트를 따로 저장
 -> SPUM_Prefabs 스크립트 삭제
 - 2. Tag를 Character로 변경
 -> Layer를 티어에 해당되도록 변경
+-> 오브젝트 하위에 MovePivot Transform 생성 후 y값을 0.2로 변경
 -> Selecting(SPUM은 Shadow를 지우고 추가), AttackRange 프리팹 추가
 -> Rigidbody2D(GravityScale을 0으로, CollisionDetection을 Continuous로, Constraints의 z축 Freeze 설정으로 변경) 추가
 -> CharacterController 추가
 -> Character"~티어" 관련 추가
+-> Animator의 Controller를 CharacterController로 변경하기
 -> Scale 2.5f로 수정
-- 3. 오브젝트 하위에 MovePivot Transform 생성 후 y값을 0.2로 변경
-- 4. ToolManager에서
+- 3. ToolManager에서
 CharacterCardLevelInfoData
 CharacterData
 CharacterRecipeData 변경 후 에디터에서 생성
-- 5. Playfab 사이트에서 해당 캐릭터를 카테고리에 추가
-- 6. EnumClass에서 CharacterDisplayName에 캐릭터 이름 추가
-- 7. Animator의 Controller를 CharacterController로 변경하기
+- 4. Playfab 사이트에서 해당 캐릭터를 카테고리에 추가
+- 5. EnumClass에서 CharacterDisplayName에 캐릭터 이름 추가
 
 ●적(Enemy) (변수명: EnemyName)
 - Tag를 Enemy로 변경
