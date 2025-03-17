@@ -424,6 +424,1455 @@
                     "skill": ""
                 }
             ]
+        },
+        {
+            "display_name": "광전사",
+            "levels": [
+                {
+                    "level": 2,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 3,
+                    "description": "(광전사) 테스트 1 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(광전사) 테스트 1"
+                },
+                {
+                    "level": 4,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 5,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 6,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 7,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 8,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 9,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 10,
+                    "description": "(광전사) 테스트 2 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(광전사) 테스트 2"
+                },
+                {
+                    "level": 11,
+                    "description": "공격력이 20만큼 증가",
+                    "damage": 20,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                }
+            ]
+        },
+        {
+            "display_name": "창술사",
+            "levels": [
+                {
+                    "level": 2,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 3,
+                    "description": "(창술사) 테스트 1 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(창술사) 테스트 1"
+                },
+                {
+                    "level": 4,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 5,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 6,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 7,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 8,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 9,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 10,
+                    "description": "(창술사) 테스트 2 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(창술사) 테스트 2"
+                },
+                {
+                    "level": 11,
+                    "description": "공격력이 20만큼 증가",
+                    "damage": 20,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                }
+            ]
+        },
+        {
+            "display_name": "주술사",
+            "levels": [
+                {
+                    "level": 2,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 3,
+                    "description": "(주술사) 테스트 1 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(주술사) 테스트 1"
+                },
+                {
+                    "level": 4,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 5,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 6,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 7,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 8,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 9,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 10,
+                    "description": "(주술사) 테스트 2 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(주술사) 테스트 2"
+                },
+                {
+                    "level": 11,
+                    "description": "공격력이 20만큼 증가",
+                    "damage": 20,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                }
+            ]
+        },
+        {
+            "display_name": "사제",
+            "levels": [
+                {
+                    "level": 2,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 3,
+                    "description": "(사제) 테스트 1 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(사제) 테스트 1"
+                },
+                {
+                    "level": 4,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 5,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 6,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 7,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 8,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 9,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 10,
+                    "description": "(사제) 테스트 2 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(사제) 테스트 2"
+                },
+                {
+                    "level": 11,
+                    "description": "공격력이 20만큼 증가",
+                    "damage": 20,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                }
+            ]
+        },
+        {
+            "display_name": "성기사",
+            "levels": [
+                {
+                    "level": 2,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 3,
+                    "description": "(성기사) 테스트 1 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(성기사) 테스트 1"
+                },
+                {
+                    "level": 4,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 5,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 6,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 7,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 8,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 9,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 10,
+                    "description": "(성기사) 테스트 2 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(성기사) 테스트 2"
+                },
+                {
+                    "level": 11,
+                    "description": "공격력이 20만큼 증가",
+                    "damage": 20,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                }
+            ]
+        },
+        {
+            "display_name": "마검사",
+            "levels": [
+                {
+                    "level": 2,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 3,
+                    "description": "(마검사) 테스트 1 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(마검사) 테스트 1"
+                },
+                {
+                    "level": 4,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 5,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 6,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 7,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 8,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 9,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 10,
+                    "description": "(마검사) 테스트 2 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(마검사) 테스트 2"
+                },
+                {
+                    "level": 11,
+                    "description": "공격력이 20만큼 증가",
+                    "damage": 20,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                }
+            ]
+        },
+        {
+            "display_name": "닌자",
+            "levels": [
+                {
+                    "level": 2,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 3,
+                    "description": "(닌자) 테스트 1 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(닌자) 테스트 1"
+                },
+                {
+                    "level": 4,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 5,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 6,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 7,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 8,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 9,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 10,
+                    "description": "(닌자) 테스트 2 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(닌자) 테스트 2"
+                },
+                {
+                    "level": 11,
+                    "description": "공격력이 20만큼 증가",
+                    "damage": 20,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                }
+            ]
+        },
+        {
+            "display_name": "어쌔신",
+            "levels": [
+                {
+                    "level": 2,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 3,
+                    "description": "(어쌔신) 테스트 1 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(어쌔신) 테스트 1"
+                },
+                {
+                    "level": 4,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 5,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 6,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 7,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 8,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 9,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 10,
+                    "description": "(어쌔신) 테스트 2 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(어쌔신) 테스트 2"
+                },
+                {
+                    "level": 11,
+                    "description": "공격력이 20만큼 증가",
+                    "damage": 20,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                }
+            ]
+        },
+        {
+            "display_name": "레인져",
+            "levels": []
+        },
+        {
+            "display_name": "스나이퍼",
+            "levels": [
+                {
+                    "level": 2,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 3,
+                    "description": "(스나이퍼) 테스트 1 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(스나이퍼) 테스트 1"
+                },
+                {
+                    "level": 4,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 5,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 6,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 7,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 8,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 9,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 10,
+                    "description": "(스나이퍼) 테스트 2 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(스나이퍼) 테스트 2"
+                },
+                {
+                    "level": 11,
+                    "description": "공격력이 20만큼 증가",
+                    "damage": 20,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                }
+            ]
+        },
+        {
+            "display_name": "파이터",
+            "levels": [
+                {
+                    "level": 2,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 3,
+                    "description": "(파이터) 테스트 1 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(파이터) 테스트 1"
+                },
+                {
+                    "level": 4,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 5,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 6,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 7,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 8,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 9,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 10,
+                    "description": "(파이터) 테스트 2 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(파이터) 테스트 2"
+                },
+                {
+                    "level": 11,
+                    "description": "공격력이 20만큼 증가",
+                    "damage": 20,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                }
+            ]
+        },
+        {
+            "display_name": "버서커",
+            "levels": [
+                {
+                    "level": 2,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 3,
+                    "description": "(버서커) 테스트 1 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(버서커) 테스트 1"
+                },
+                {
+                    "level": 4,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 5,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 6,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 7,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 8,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 9,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 10,
+                    "description": "(버서커) 테스트 2 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(버서커) 테스트 2"
+                },
+                {
+                    "level": 11,
+                    "description": "공격력이 20만큼 증가",
+                    "damage": 20,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                }
+            ]
+        },
+        {
+            "display_name": "파이크맨",
+            "levels": [
+                {
+                    "level": 2,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 3,
+                    "description": "(파이크맨) 테스트 1 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(파이크맨) 테스트 1"
+                },
+                {
+                    "level": 4,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 5,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 6,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 7,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 8,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 9,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 10,
+                    "description": "(파이크맨) 테스트 2 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(파이크맨) 테스트 2"
+                },
+                {
+                    "level": 11,
+                    "description": "공격력이 20만큼 증가",
+                    "damage": 20,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                }
+            ]
+        },
+        {
+            "display_name": "마창사",
+            "levels": [
+                {
+                    "level": 2,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 3,
+                    "description": "(마창사) 테스트 1 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(마창사) 테스트 1"
+                },
+                {
+                    "level": 4,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 5,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 6,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 7,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 8,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 9,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 10,
+                    "description": "(마창사) 테스트 2 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(마창사) 테스트 2"
+                },
+                {
+                    "level": 11,
+                    "description": "공격력이 20만큼 증가",
+                    "damage": 20,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                }
+            ]
+        },
+        {
+            "display_name": "흑마술사",
+            "levels": [
+                {
+                    "level": 2,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 3,
+                    "description": "(흑마술사) 테스트 1 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(흑마술사) 테스트 1"
+                },
+                {
+                    "level": 4,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 5,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 6,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 7,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 8,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 9,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 10,
+                    "description": "(흑마술사) 테스트 2 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(흑마술사) 테스트 2"
+                },
+                {
+                    "level": 11,
+                    "description": "공격력이 20만큼 증가",
+                    "damage": 20,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                }
+            ]
+        },
+        {
+            "display_name": "소서러",
+            "levels": [
+                {
+                    "level": 2,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 3,
+                    "description": "(소서러) 테스트 1 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(소서러) 테스트 1"
+                },
+                {
+                    "level": 4,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 5,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 6,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 7,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 8,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 9,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 10,
+                    "description": "(소서러) 테스트 2 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(소서러) 테스트 2"
+                },
+                {
+                    "level": 11,
+                    "description": "공격력이 20만큼 증가",
+                    "damage": 20,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                }
+            ]
+        },
+        {
+            "display_name": "드루이드",
+            "levels": [
+                {
+                    "level": 2,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 3,
+                    "description": "(드루이드) 테스트 1 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(드루이드) 테스트 1"
+                },
+                {
+                    "level": 4,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 5,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 6,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 7,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 8,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 9,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 10,
+                    "description": "(드루이드) 테스트 2 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(드루이드) 테스트 2"
+                },
+                {
+                    "level": 11,
+                    "description": "공격력이 20만큼 증가",
+                    "damage": 20,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                }
+            ]
+        },
+        {
+            "display_name": "바드",
+            "levels": [
+                {
+                    "level": 2,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 3,
+                    "description": "(바드) 테스트 1 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(바드) 테스트 1"
+                },
+                {
+                    "level": 4,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 5,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 6,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 7,
+                    "description": "공격력이 10만큼 증가",
+                    "damage": 10,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 8,
+                    "description": "이동속도가 20%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.20000000298023225,
+                    "skill": ""
+                },
+                {
+                    "level": 9,
+                    "description": "공격속도가 10%만큼 증가",
+                    "damage": 0,
+                    "attackSpeed": 0.10000000149011612,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                },
+                {
+                    "level": 10,
+                    "description": "(바드) 테스트 2 획득",
+                    "damage": 0,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": "(바드) 테스트 2"
+                },
+                {
+                    "level": 11,
+                    "description": "공격력이 20만큼 증가",
+                    "damage": 20,
+                    "attackSpeed": 0.0,
+                    "moveSpeed": 0.0,
+                    "skill": ""
+                }
+            ]
         }
     ]
 }

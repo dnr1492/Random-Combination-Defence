@@ -33,7 +33,7 @@
             "recipeNameA": "도적",
             "recipeNameB": "",
             "recipeNameC": "",
-            "resultName": "레인져"
+            "resultName": "레인저"
         },
         {
             "selectName": "궁수",
@@ -97,6 +97,237 @@
             "recipeNameB": "",
             "recipeNameC": "",
             "resultName": "바드"
+        },
+        {
+            "selectName": "마검사",
+            "recipeNameA": "소서러",
+            "recipeNameB": "궁수",
+            "recipeNameC": "",
+            "resultName": "룬나이트"
+        },
+        {
+            "selectName": "마검사",
+            "recipeNameA": "드루이드",
+            "recipeNameB": "주술사",
+            "recipeNameC": "",
+            "resultName": "워든"
+        },
+        {
+            "selectName": "성기사",
+            "recipeNameA": "버서커",
+            "recipeNameB": "격투가",
+            "recipeNameC": "",
+            "resultName": "워로드"
+        },
+        {
+            "selectName": "성기사",
+            "recipeNameA": "마창사",
+            "recipeNameB": "사제",
+            "recipeNameC": "",
+            "resultName": "크루세이더"
+        },
+        {
+            "selectName": "어쌔신",
+            "recipeNameA": "파이터",
+            "recipeNameB": "광전사",
+            "recipeNameC": "",
+            "resultName": "어벤져"
+        },
+        {
+            "selectName": "어쌔신",
+            "recipeNameA": "파이크맨",
+            "recipeNameB": "격투가",
+            "recipeNameC": "",
+            "resultName": "데스리퍼"
+        },
+        {
+            "selectName": "닌자",
+            "recipeNameA": "스나이퍼",
+            "recipeNameB": "도적",
+            "recipeNameC": "",
+            "resultName": "나이트스토커"
+        },
+        {
+            "selectName": "닌자",
+            "recipeNameA": "닌자",
+            "recipeNameB": "전사",
+            "recipeNameC": "",
+            "resultName": "사무라이"
+        },
+        {
+            "selectName": "레인저",
+            "recipeNameA": "스나이퍼",
+            "recipeNameB": "궁수",
+            "recipeNameC": "",
+            "resultName": "헌터"
+        },
+        {
+            "selectName": "레인저",
+            "recipeNameA": "바드",
+            "recipeNameB": "격투가",
+            "recipeNameC": "",
+            "resultName": "스카우트"
+        },
+        {
+            "selectName": "스나이퍼",
+            "recipeNameA": "파이크맨",
+            "recipeNameB": "마법사",
+            "recipeNameC": "",
+            "resultName": "트래퍼"
+        },
+        {
+            "selectName": "스나이퍼",
+            "recipeNameA": "흑마술사",
+            "recipeNameB": "궁수",
+            "recipeNameC": "",
+            "resultName": "데드아이"
+        },
+        {
+            "selectName": "파이터",
+            "recipeNameA": "버서커",
+            "recipeNameB": "광전사",
+            "recipeNameC": "",
+            "resultName": "슬레이어"
+        },
+        {
+            "selectName": "파이터",
+            "recipeNameA": "닌자",
+            "recipeNameB": "광전사",
+            "recipeNameC": "",
+            "resultName": "스트라이커"
+        },
+        {
+            "selectName": "파이터",
+            "recipeNameA": "드루이드",
+            "recipeNameB": "격투가",
+            "recipeNameC": "",
+            "resultName": "수도사"
+        },
+        {
+            "selectName": "버서커",
+            "recipeNameA": "버서커",
+            "recipeNameB": "전사",
+            "recipeNameC": "",
+            "resultName": "워마스터"
+        },
+        {
+            "selectName": "버서커",
+            "recipeNameA": "마검사",
+            "recipeNameB": "주술사",
+            "recipeNameC": "",
+            "resultName": "블러드나이트"
+        },
+        {
+            "selectName": "버서커",
+            "recipeNameA": "바드",
+            "recipeNameB": "도적",
+            "recipeNameC": "",
+            "resultName": "블레이드댄서"
+        },
+        {
+            "selectName": "파이크맨",
+            "recipeNameA": "성기사",
+            "recipeNameB": "창술사",
+            "recipeNameC": "",
+            "resultName": "팔랑크스"
+        },
+        {
+            "selectName": "파이크맨",
+            "recipeNameA": "파이크맨",
+            "recipeNameB": "전사",
+            "recipeNameC": "",
+            "resultName": "하이랜서"
+        },
+        {
+            "selectName": "마창사",
+            "recipeNameA": "바드",
+            "recipeNameB": "사제",
+            "recipeNameC": "",
+            "resultName": "헤이스트랜서"
+        },
+        {
+            "selectName": "마창사",
+            "recipeNameA": "어쌔신",
+            "recipeNameB": "마법사",
+            "recipeNameC": "",
+            "resultName": "새도우랜서"
+        },
+        {
+            "selectName": "흑마술사",
+            "recipeNameA": "마검사",
+            "recipeNameB": "마법사",
+            "recipeNameC": "",
+            "resultName": "카오스챔피언"
+        },
+        {
+            "selectName": "흑마술사",
+            "recipeNameA": "어쌔신",
+            "recipeNameB": "마법사",
+            "recipeNameC": "",
+            "resultName": "워록"
+        },
+        {
+            "selectName": "흑마술사",
+            "recipeNameA": "마창사",
+            "recipeNameB": "사제",
+            "recipeNameC": "",
+            "resultName": "둠콜러"
+        },
+        {
+            "selectName": "소서러",
+            "recipeNameA": "소서러",
+            "recipeNameB": "주술사",
+            "recipeNameC": "",
+            "resultName": "아크메이지"
+        },
+        {
+            "selectName": "소서러",
+            "recipeNameA": "파이터",
+            "recipeNameB": "전사",
+            "recipeNameC": "",
+            "resultName": "배틀메이지"
+        },
+        {
+            "selectName": "소서러",
+            "recipeNameA": "드루이드",
+            "recipeNameB": "사제",
+            "recipeNameC": "",
+            "resultName": "엘리멘탈리스트"
+        },
+        {
+            "selectName": "소서러",
+            "recipeNameA": "레인저",
+            "recipeNameB": "창술사",
+            "recipeNameC": "",
+            "resultName": "스펠듀얼리스트"
+        },
+        {
+            "selectName": "드루이드",
+            "recipeNameA": "성기사",
+            "recipeNameB": "광전사",
+            "recipeNameC": "",
+            "resultName": "프리스트"
+        },
+        {
+            "selectName": "드루이드",
+            "recipeNameA": "레인저",
+            "recipeNameB": "도적",
+            "recipeNameC": "",
+            "resultName": "와일드워든"
+        },
+        {
+            "selectName": "바드",
+            "recipeNameA": "흑마술사",
+            "recipeNameB": "궁수",
+            "recipeNameC": "",
+            "resultName": "비숍"
+        },
+        {
+            "selectName": "바드",
+            "recipeNameA": "닌자",
+            "recipeNameB": "창술사",
+            "recipeNameC": "",
+            "resultName": "노이즈블레이드"
         }
     ]
 }
