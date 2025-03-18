@@ -1,0 +1,65 @@
+{
+    "Name": "JJU",
+    "Path": "Assets/SPUM/Resources/Addons",
+    "Version": "",
+    "CreationDate": "2025-03-18 14:56:41",
+    "SpumAnimationData": [],
+    "SpumTextureData": [
+        {
+            "Name": "Sword_1px_01",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Sword_1px_01",
+            "PartSubType": "Sword",
+            "Path": "Addons/JJU/0_Unit/0_Sprite/6_Weapons/0_Sword/Sword_1px_01"
+        },
+        {
+            "Name": "Sword_1px_02",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Sword_1px_02",
+            "PartSubType": "Sword",
+            "Path": "Addons/JJU/0_Unit/0_Sprite/6_Weapons/0_Sword/Sword_1px_02"
+        },
+        {
+            "Name": "Sword_1px_03",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Sword_1px_03",
+            "PartSubType": "Sword",
+            "Path": "Addons/JJU/0_Unit/0_Sprite/6_Weapons/0_Sword/Sword_1px_03"
+        },
+        {
+            "Name": "Sword_1px_04",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Sword_1px_04",
+            "PartSubType": "Sword",
+            "Path": "Addons/JJU/0_Unit/0_Sprite/6_Weapons/0_Sword/Sword_1px_04"
+        },
+        {
+            "Name": "Sword_1px_05",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Sword_1px_05",
+            "PartSubType": "Sword",
+            "Path": "Addons/JJU/0_Unit/0_Sprite/6_Weapons/0_Sword/Sword_1px_05"
+        },
+        {
+            "Name": "Sword_1px_06",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Sword_1px_06",
+            "PartSubType": "Sword",
+            "Path": "Addons/JJU/0_Unit/0_Sprite/6_Weapons/0_Sword/Sword_1px_06"
+        },
+        {
+            "Name": "Sword_1px_07",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Sword_1px_07",
+            "PartSubType": "Sword",
+            "Path": "Addons/JJU/0_Unit/0_Sprite/6_Weapons/0_Sword/Sword_1px_07"
+        }
+    ]
+}
