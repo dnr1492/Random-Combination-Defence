@@ -49954,7 +49954,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3744046105682257370, guid: bd557657e7bee7142bb30988e7fdb00e, type: 3}
       propertyPath: _version
-      value: 300
+      value: 177
       objectReference: {fileID: 0}
     - target: {fileID: 3744046105682257370, guid: bd557657e7bee7142bb30988e7fdb00e, type: 3}
       propertyPath: unitPath
@@ -50106,7 +50106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3744046105682257370, guid: bd557657e7bee7142bb30988e7fdb00e, type: 3}
       propertyPath: spumPackages.Array.size
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3744046105682257370, guid: bd557657e7bee7142bb30988e7fdb00e, type: 3}
       propertyPath: SPUM_Animator.Array.size
