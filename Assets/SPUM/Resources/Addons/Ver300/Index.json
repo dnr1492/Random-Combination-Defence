@@ -2,7 +2,7 @@
     "Name": "Ver300",
     "Path": "Assets/SPUM/Resources/Addons",
     "Version": "",
-    "CreationDate": "2025-03-18 14:56:42",
+    "CreationDate": "2025-03-19 00:41:57",
     "SpumAnimationData": [
         {
             "index": 0,
@@ -415,7 +415,7 @@
             "Name": "New_Cloth_10",
             "UnitType": "Unit",
             "PartType": "Cloth",
-            "SubType": "Body",
+            "SubType": "Left",
             "PartSubType": "",
             "Path": "Addons/Ver300/0_Unit/0_Sprite/4_Cloth/New_Cloth_10"
         },
@@ -423,7 +423,7 @@
             "Name": "New_Cloth_10",
             "UnitType": "Unit",
             "PartType": "Cloth",
-            "SubType": "Left",
+            "SubType": "Body",
             "PartSubType": "",
             "Path": "Addons/Ver300/0_Unit/0_Sprite/4_Cloth/New_Cloth_10"
         },
@@ -791,7 +791,7 @@
             "Name": "New_Armor_02",
             "UnitType": "Unit",
             "PartType": "Armor",
-            "SubType": "Left",
+            "SubType": "Right",
             "PartSubType": "",
             "Path": "Addons/Ver300/0_Unit/0_Sprite/7_Armor/New_Armor_02"
         },
@@ -799,7 +799,7 @@
             "Name": "New_Armor_02",
             "UnitType": "Unit",
             "PartType": "Armor",
-            "SubType": "Right",
+            "SubType": "Left",
             "PartSubType": "",
             "Path": "Addons/Ver300/0_Unit/0_Sprite/7_Armor/New_Armor_02"
         },
@@ -951,7 +951,7 @@
             "Name": "New_Armor_10",
             "UnitType": "Unit",
             "PartType": "Armor",
-            "SubType": "Body",
+            "SubType": "Right",
             "PartSubType": "",
             "Path": "Addons/Ver300/0_Unit/0_Sprite/7_Armor/New_Armor_10"
         },
@@ -967,7 +967,7 @@
             "Name": "New_Armor_10",
             "UnitType": "Unit",
             "PartType": "Armor",
-            "SubType": "Right",
+            "SubType": "Body",
             "PartSubType": "",
             "Path": "Addons/Ver300/0_Unit/0_Sprite/7_Armor/New_Armor_10"
         },

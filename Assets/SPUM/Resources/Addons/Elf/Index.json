@@ -2,7 +2,7 @@
     "Name": "Elf",
     "Path": "Assets/SPUM/Resources/Addons",
     "Version": "",
-    "CreationDate": "2025-03-18 14:56:40",
+    "CreationDate": "2025-03-19 00:41:53",
     "SpumAnimationData": [],
     "SpumTextureData": [
         {
@@ -497,14 +497,6 @@
             "Name": "Elf_Cloth_16",
             "UnitType": "Unit",
             "PartType": "Cloth",
-            "SubType": "Body",
-            "PartSubType": "",
-            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_16"
-        },
-        {
-            "Name": "Elf_Cloth_16",
-            "UnitType": "Unit",
-            "PartType": "Cloth",
             "SubType": "Left",
             "PartSubType": "",
             "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_16"
@@ -514,6 +506,14 @@
             "UnitType": "Unit",
             "PartType": "Cloth",
             "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_16"
+        },
+        {
+            "Name": "Elf_Cloth_16",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
             "PartSubType": "",
             "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_16"
         },
@@ -569,7 +569,7 @@
             "Name": "Elf_Cloth_19",
             "UnitType": "Unit",
             "PartType": "Cloth",
-            "SubType": "Body",
+            "SubType": "Left",
             "PartSubType": "",
             "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_19"
         },
@@ -577,7 +577,7 @@
             "Name": "Elf_Cloth_19",
             "UnitType": "Unit",
             "PartType": "Cloth",
-            "SubType": "Left",
+            "SubType": "Body",
             "PartSubType": "",
             "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_19"
         },
@@ -649,7 +649,7 @@
             "Name": "Elf_Pant_03",
             "UnitType": "Unit",
             "PartType": "Pant",
-            "SubType": "Left",
+            "SubType": "Right",
             "PartSubType": "",
             "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_03"
         },
@@ -657,7 +657,7 @@
             "Name": "Elf_Pant_03",
             "UnitType": "Unit",
             "PartType": "Pant",
-            "SubType": "Right",
+            "SubType": "Left",
             "PartSubType": "",
             "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_03"
         },
@@ -697,7 +697,7 @@
             "Name": "Elf_Pant_06",
             "UnitType": "Unit",
             "PartType": "Pant",
-            "SubType": "Left",
+            "SubType": "Right",
             "PartSubType": "",
             "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_06"
         },
@@ -705,7 +705,7 @@
             "Name": "Elf_Pant_06",
             "UnitType": "Unit",
             "PartType": "Pant",
-            "SubType": "Right",
+            "SubType": "Left",
             "PartSubType": "",
             "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_06"
         },
@@ -1361,7 +1361,7 @@
             "Name": "Elf_Armor_15",
             "UnitType": "Unit",
             "PartType": "Armor",
-            "SubType": "Left",
+            "SubType": "Right",
             "PartSubType": "",
             "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_15"
         },
@@ -1369,7 +1369,7 @@
             "Name": "Elf_Armor_15",
             "UnitType": "Unit",
             "PartType": "Armor",
-            "SubType": "Right",
+            "SubType": "Left",
             "PartSubType": "",
             "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_15"
         },
@@ -1377,7 +1377,7 @@
             "Name": "Elf_Armor_16",
             "UnitType": "Unit",
             "PartType": "Armor",
-            "SubType": "Body",
+            "SubType": "Left",
             "PartSubType": "",
             "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_16"
         },
@@ -1385,7 +1385,7 @@
             "Name": "Elf_Armor_16",
             "UnitType": "Unit",
             "PartType": "Armor",
-            "SubType": "Left",
+            "SubType": "Body",
             "PartSubType": "",
             "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_16"
         },

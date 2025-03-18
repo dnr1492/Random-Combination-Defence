@@ -2,7 +2,7 @@
     "Name": "RetroHeroes",
     "Path": "Assets/SPUM/Resources/Addons",
     "Version": "",
-    "CreationDate": "2025-03-18 14:56:41",
+    "CreationDate": "2025-03-19 00:41:56",
     "SpumAnimationData": [],
     "SpumTextureData": [
         {
@@ -169,7 +169,7 @@
             "Name": "Cloth_Healer_2",
             "UnitType": "Unit",
             "PartType": "Cloth",
-            "SubType": "Left",
+            "SubType": "Right",
             "PartSubType": "",
             "Path": "Addons/RetroHeroes/0_Unit/0_Sprite/2_Cloth/Cloth_Healer_2"
         },
@@ -177,7 +177,7 @@
             "Name": "Cloth_Healer_2",
             "UnitType": "Unit",
             "PartType": "Cloth",
-            "SubType": "Right",
+            "SubType": "Left",
             "PartSubType": "",
             "Path": "Addons/RetroHeroes/0_Unit/0_Sprite/2_Cloth/Cloth_Healer_2"
         },
@@ -257,14 +257,6 @@
             "Name": "Cloth_Rogue_2",
             "UnitType": "Unit",
             "PartType": "Cloth",
-            "SubType": "Body",
-            "PartSubType": "",
-            "Path": "Addons/RetroHeroes/0_Unit/0_Sprite/2_Cloth/Cloth_Rogue_2"
-        },
-        {
-            "Name": "Cloth_Rogue_2",
-            "UnitType": "Unit",
-            "PartType": "Cloth",
             "SubType": "Left",
             "PartSubType": "",
             "Path": "Addons/RetroHeroes/0_Unit/0_Sprite/2_Cloth/Cloth_Rogue_2"
@@ -274,6 +266,14 @@
             "UnitType": "Unit",
             "PartType": "Cloth",
             "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/RetroHeroes/0_Unit/0_Sprite/2_Cloth/Cloth_Rogue_2"
+        },
+        {
+            "Name": "Cloth_Rogue_2",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
             "PartSubType": "",
             "Path": "Addons/RetroHeroes/0_Unit/0_Sprite/2_Cloth/Cloth_Rogue_2"
         },
@@ -313,7 +313,7 @@
             "Name": "Pant_Archer_2",
             "UnitType": "Unit",
             "PartType": "Pant",
-            "SubType": "Left",
+            "SubType": "Right",
             "PartSubType": "",
             "Path": "Addons/RetroHeroes/0_Unit/0_Sprite/3_Pant/Pant_Archer_2"
         },
@@ -321,7 +321,7 @@
             "Name": "Pant_Archer_2",
             "UnitType": "Unit",
             "PartType": "Pant",
-            "SubType": "Right",
+            "SubType": "Left",
             "PartSubType": "",
             "Path": "Addons/RetroHeroes/0_Unit/0_Sprite/3_Pant/Pant_Archer_2"
         },
@@ -425,7 +425,7 @@
             "Name": "Pant_Sorcerer",
             "UnitType": "Unit",
             "PartType": "Pant",
-            "SubType": "Left",
+            "SubType": "Right",
             "PartSubType": "",
             "Path": "Addons/RetroHeroes/0_Unit/0_Sprite/3_Pant/Pant_Sorcerer"
         },
@@ -433,7 +433,7 @@
             "Name": "Pant_Sorcerer",
             "UnitType": "Unit",
             "PartType": "Pant",
-            "SubType": "Right",
+            "SubType": "Left",
             "PartSubType": "",
             "Path": "Addons/RetroHeroes/0_Unit/0_Sprite/3_Pant/Pant_Sorcerer"
         },
@@ -441,7 +441,7 @@
             "Name": "Pant_Sorceress",
             "UnitType": "Unit",
             "PartType": "Pant",
-            "SubType": "Left",
+            "SubType": "Right",
             "PartSubType": "",
             "Path": "Addons/RetroHeroes/0_Unit/0_Sprite/3_Pant/Pant_Sorceress"
         },
@@ -449,7 +449,7 @@
             "Name": "Pant_Sorceress",
             "UnitType": "Unit",
             "PartType": "Pant",
-            "SubType": "Right",
+            "SubType": "Left",
             "PartSubType": "",
             "Path": "Addons/RetroHeroes/0_Unit/0_Sprite/3_Pant/Pant_Sorceress"
         },
@@ -553,7 +553,7 @@
             "Name": "Armor_Archer_2",
             "UnitType": "Unit",
             "PartType": "Armor",
-            "SubType": "Body",
+            "SubType": "Left",
             "PartSubType": "",
             "Path": "Addons/RetroHeroes/0_Unit/0_Sprite/5_Armor/Armor_Archer_2"
         },
@@ -561,7 +561,7 @@
             "Name": "Armor_Archer_2",
             "UnitType": "Unit",
             "PartType": "Armor",
-            "SubType": "Left",
+            "SubType": "Body",
             "PartSubType": "",
             "Path": "Addons/RetroHeroes/0_Unit/0_Sprite/5_Armor/Armor_Archer_2"
         },
@@ -633,7 +633,7 @@
             "Name": "Armor_Rogue_1",
             "UnitType": "Unit",
             "PartType": "Armor",
-            "SubType": "Body",
+            "SubType": "Right",
             "PartSubType": "",
             "Path": "Addons/RetroHeroes/0_Unit/0_Sprite/5_Armor/Armor_Rogue_1"
         },
@@ -649,7 +649,7 @@
             "Name": "Armor_Rogue_1",
             "UnitType": "Unit",
             "PartType": "Armor",
-            "SubType": "Right",
+            "SubType": "Body",
             "PartSubType": "",
             "Path": "Addons/RetroHeroes/0_Unit/0_Sprite/5_Armor/Armor_Rogue_1"
         },

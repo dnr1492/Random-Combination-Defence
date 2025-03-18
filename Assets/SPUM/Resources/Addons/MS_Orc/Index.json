@@ -2,7 +2,7 @@
     "Name": "MS_Orc",
     "Path": "Assets/SPUM/Resources/Addons",
     "Version": "",
-    "CreationDate": "2025-03-18 14:56:41",
+    "CreationDate": "2025-03-19 00:41:55",
     "SpumAnimationData": [],
     "SpumTextureData": [
         {
@@ -121,7 +121,7 @@
             "Name": "Orc_Pant_02",
             "UnitType": "Unit",
             "PartType": "Pant",
-            "SubType": "Left",
+            "SubType": "Right",
             "PartSubType": "",
             "Path": "Addons/MS_Orc/0_Unit/0_Sprite/3_Pant/Orc_Pant_02"
         },
@@ -129,7 +129,7 @@
             "Name": "Orc_Pant_02",
             "UnitType": "Unit",
             "PartType": "Pant",
-            "SubType": "Right",
+            "SubType": "Left",
             "PartSubType": "",
             "Path": "Addons/MS_Orc/0_Unit/0_Sprite/3_Pant/Orc_Pant_02"
         },
@@ -249,7 +249,7 @@
             "Name": "Orc_Armor_03",
             "UnitType": "Unit",
             "PartType": "Armor",
-            "SubType": "Body",
+            "SubType": "Left",
             "PartSubType": "",
             "Path": "Addons/MS_Orc/0_Unit/0_Sprite/5_Armor/Orc_Armor_03"
         },
@@ -257,7 +257,7 @@
             "Name": "Orc_Armor_03",
             "UnitType": "Unit",
             "PartType": "Armor",
-            "SubType": "Left",
+            "SubType": "Body",
             "PartSubType": "",
             "Path": "Addons/MS_Orc/0_Unit/0_Sprite/5_Armor/Orc_Armor_03"
         },
