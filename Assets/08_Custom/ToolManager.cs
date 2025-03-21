@@ -479,7 +479,7 @@ public class ToolManager
         list.characterDatas.Add(new CharacterData { displayName = "격투가", damage = 25f, attackSpeed = 0.8f, attackRange = 1f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
         list.characterDatas.Add(new CharacterData { displayName = "궁수", damage = 15f, attackSpeed = 0.8f, attackRange = 4f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Bow, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
         list.characterDatas.Add(new CharacterData { displayName = "마법사", damage = 15f, attackSpeed = 1f, attackRange = 3f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-        list.characterDatas.Add(new CharacterData { displayName = "광전사", damage = 36f, attackSpeed = 1f, attackRange = 2f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "깡공격력", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "광전사", damage = 36f, attackSpeed = 1f, attackRange = 2f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "깡공격력(+20%)", skill_2_name = "", skill_3_name = "" });
         list.characterDatas.Add(new CharacterData { displayName = "창술사", damage = 20f, attackSpeed = 1.2f, attackRange = 3f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.LongSpear, damageType = CharacterDamageType.Melee, skill_1_name = "다중타격", skill_2_name = "", skill_3_name = "" });
         list.characterDatas.Add(new CharacterData { displayName = "주술사", damage = 10f, attackSpeed = 1.5f, attackRange = 3f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "디버프", skill_2_name = "", skill_3_name = "" });
         list.characterDatas.Add(new CharacterData { displayName = "사제", damage = 10f, attackSpeed = 1.5f, attackRange = 3f, moveSpeed = 2f, tierNum = 1, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "버프", skill_2_name = "", skill_3_name = "" });
@@ -497,7 +497,7 @@ public class ToolManager
         //격투가 계열
         list.characterDatas.Add(new CharacterData { displayName = "파이터", damage = 30f, attackSpeed = 0.5f, attackRange = 0.8f, moveSpeed = 2f, tierNum = 2, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
         //광전사 계열
-        list.characterDatas.Add(new CharacterData { displayName = "버서커", damage = 48f, attackSpeed = 1.2f, attackRange = 1f, moveSpeed = 2f, tierNum = 2, attackType = CharacterAttackType.Axe, damageType = CharacterDamageType.Melee, skill_1_name = "깡공격력", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "버서커", damage = 48f, attackSpeed = 1.2f, attackRange = 1f, moveSpeed = 2f, tierNum = 2, attackType = CharacterAttackType.Axe, damageType = CharacterDamageType.Melee, skill_1_name = "깡공격력(+20%)", skill_2_name = "", skill_3_name = "" });
         //창술사 계열
         list.characterDatas.Add(new CharacterData { displayName = "파이크맨", damage = 20f, attackSpeed = 1f, attackRange = 2f, moveSpeed = 2f, tierNum = 2, attackType = CharacterAttackType.LongSpear, damageType = CharacterDamageType.Melee, skill_1_name = "다중타격", skill_2_name = "", skill_3_name = "" });
         list.characterDatas.Add(new CharacterData { displayName = "마창사", damage = 30f, attackSpeed = 1f, attackRange = 2f, moveSpeed = 2f, tierNum = 2, attackType = CharacterAttackType.LongSpear, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
@@ -705,12 +705,39 @@ public class ToolManager
 #endif
 
 /*
+1. SPUM으로 캐릭터 디자인 
+-> 캐릭터 최상위에 CapsuleCollider2D(feat.Offset Y 0.35 / Size X 0.25 Y 0.55) 추가 및 수정 
+-> Shadow 삭제 후 캐릭터만 나오도록 수정
+-> ThumbnailScene에서 해당 캐릭터의 스프라이트를 따로 저장
+-> SPUM_Prefabs 스크립트 삭제
+
+2. Tag를 Character로 변경
+-> Layer를 티어에 해당되도록 변경
+-> 오브젝트 하위에 MovePivot Transform 생성 후 y값을 0.2로 변경
+-> Selecting(SPUM은 Shadow를 지우고 추가), AttackRange 프리팹 추가
+-> Rigidbody2D(GravityScale을 0으로, CollisionDetection을 Continuous로, Constraints의 z축 Freeze 설정으로 변경) 추가
+-> CharacterController 추가
+-> Character"~티어" 관련 추가
+-> Animator의 Controller를 CharacterController로 변경하기
+-> Scale 2.5f로 수정
+
+3. ToolManager에서
+CharacterCardLevelInfoData
+CharacterData
+CharacterRecipeData 변경 후 에디터에서 생성
+
+4. Playfab 사이트에서 해당 캐릭터를 카테고리에 추가
+
+5. EnumClass에서 CharacterDisplayName에 캐릭터 이름 추가
+ */
+
+/*
 공격력 : 80, 70, 60, 50, 40
 공속 : 0.5, 0.8, 1, 1.2, 1.5
 공격 사거리 : 4.5, 3.5, 2.5, 1.5, 1
 이속 : 4 3.5 3 2.5 2
 공격 타입 : 물리, 마법
-특수 : 다중타격, 버프, 디버프, 깡공격력(+20%)
+특수 : 다중타격, 버프, 디버프, 깡공격력(+20%/+30%)
  */
 
 /*
@@ -724,7 +751,7 @@ list.characterDatas.Add(new CharacterData { displayName = "크루세이더", damage =
 //도적 계열
 list.characterDatas.Add(new CharacterData { displayName = "어벤저", damage = 50f, attackSpeed = 0.5f, attackRange = 1f, moveSpeed = 4f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
 list.characterDatas.Add(new CharacterData { displayName = "데스리퍼", damage = 40f, attackSpeed = 0.8f, attackRange = 1.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "디버프", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "나이트스토커", damage = 96f, attackSpeed = 1.5f, attackRange = 1f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "깡공격력", skill_2_name = "", skill_3_name = "" });
+list.characterDatas.Add(new CharacterData { displayName = "나이트스토커", damage = 104f, attackSpeed = 1.5f, attackRange = 1f, moveSpeed = 4f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "깡공격력(+30%)", skill_2_name = "", skill_3_name = "" });
 list.characterDatas.Add(new CharacterData { displayName = "사무라이", damage = 60f, attackSpeed = 1f, attackRange = 2.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
 
 //궁수 계열
@@ -750,7 +777,7 @@ list.characterDatas.Add(new CharacterData { displayName = "헤이스트랜서", damage
 list.characterDatas.Add(new CharacterData { displayName = "새도우랜서", damage = 40f, attackSpeed = 1.2f, attackRange = 3.5f, moveSpeed = 3.5f, tierNum = 3, attackType = CharacterAttackType.LongSpear, damageType = CharacterDamageType.Magic, skill_1_name = "디버프", skill_2_name = "", skill_3_name = "" });
 
 //주술사 계열
-list.characterDatas.Add(new CharacterData { displayName = "카오스챔피언", damage = 84f, attackSpeed = 1f, attackRange = 2.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Magic, skill_1_name = "깡공격력", skill_2_name = "", skill_3_name = "" });
+list.characterDatas.Add(new CharacterData { displayName = "카오스챔피언", damage = 84f, attackSpeed = 1f, attackRange = 2.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Magic, skill_1_name = "깡공격력(+20%)", skill_2_name = "", skill_3_name = "" });
 list.characterDatas.Add(new CharacterData { displayName = "워록", damage = 50f, attackSpeed = 1.2f, attackRange = 3.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "디버프", skill_2_name = "", skill_3_name = "" });
 list.characterDatas.Add(new CharacterData { displayName = "둠콜러", damage = 60f, attackSpeed = 1f, attackRange = 3.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "다중타격", skill_2_name = "", skill_3_name = "" });
 
@@ -761,9 +788,9 @@ list.characterDatas.Add(new CharacterData { displayName = "엘리멘탈리스트", dama
 list.characterDatas.Add(new CharacterData { displayName = "스펠듀얼리스트", damage = 40f, attackSpeed = 0.5f, attackRange = 3.5f, moveSpeed = 2.5f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "다중타격", skill_2_name = "", skill_3_name = "" });
 
 //사제 계열
-*list.characterDatas.Add(new CharacterData { displayName = "프리스트", damage = 100f, attackSpeed = 1.0f, attackRange = 2.5f, moveSpeed = 3.0f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-*list.characterDatas.Add(new CharacterData { displayName = "와일드워든", damage = 80f, attackSpeed = 1.2f, attackRange = 4.5f, moveSpeed = 2.5f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-*list.characterDatas.Add(new CharacterData { displayName = "비숍", damage = 100f, attackSpeed = 0.8f, attackRange = 4.0f, moveSpeed = 3.5f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-*list.characterDatas.Add(new CharacterData { displayName = "노이즈블레이드", damage = 100f, attackSpeed = 1.0f, attackRange = 3.5f, moveSpeed = 3.0f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+list.characterDatas.Add(new CharacterData { displayName = "프리스트", damage = 40f, attackSpeed = 1f, attackRange = 3.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "버프", skill_2_name = "", skill_3_name = "" });
+list.characterDatas.Add(new CharacterData { displayName = "와일드워든", damage = 96f, attackSpeed = 1.5f, attackRange = 2.5f, moveSpeed = 2f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "깡공격력(+20%)", skill_2_name = "", skill_3_name = "" });
+list.characterDatas.Add(new CharacterData { displayName = "비숍", damage = 50f, attackSpeed = 1f, attackRange = 3.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "상태이상", skill_2_name = "", skill_3_name = "" });
+list.characterDatas.Add(new CharacterData { displayName = "디바인섀도우", damage = 60f, attackSpeed = 1.2f, attackRange = 2.5f, moveSpeed = 3.5f, tierNum = 3, attackType = CharacterAttackType.LongSpear, damageType = CharacterDamageType.Magic, skill_1_name = "다중타격", skill_2_name = "", skill_3_name = "" });
 #endregion
  */
