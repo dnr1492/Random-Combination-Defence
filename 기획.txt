@@ -4,6 +4,7 @@
 -> Shadow 삭제 후 캐릭터만 나오도록 수정
 -> SPUM_Prefabs 스크립트 삭제
 -> ThumbnailScene에서 해당 캐릭터의 스프라이트를 따로 저장
+-> 'SpriteMode를 Multiple로 변경' 후 알맞게 'Slice' 한 다음에 '이름을 동일하게 변경'하기
 - 2. Tag를 Character로 변경
 -> Layer를 티어에 해당되도록 변경
 -> 오브젝트 하위에 MovePivot Transform 생성 후 y값을 0.2로 변경
@@ -99,18 +100,12 @@ CharacterRecipeData 변경 후 에디터에서 생성
 - **캐릭터 이동 관련 수정 => 결국 그리드 배치 방식 (feat.드래그 앤 드랍)으로 변경해야 하는가...
 - **캐릭터 소환 시 Sort 로직을 순차적 사각형 순회 로직으로? 수정해야 할 듯
 - *UI 클릭 방지 비정상 작동 => 어디 부분에서 !?
-- *빌드 시 웨이포인트에 따라 방향 전환을 못하는 버그 수정하기
 - *캐릭터 디자인 및 애니메이션
 - *캐릭터 레벨디자인
 - 컨테이너에 다른 종류의 플레이어가 한 곳에 추가되는 버그
 - 모든 적 정보 표출 UI 만들기
 - 캐릭터 뽑기 최적화하기
-- 캐릭터 이미지의 크기를 좀 더 정밀하게 맞출 수는 없는건가...  
--> UICharacterDataPopup의 img_Character / UICharacterCard의 img_Character / UIDrawCharacterCard의 img_Character에 Aspect Ratio Fitter로 높이만 조절 가능하도록 해놨으므로 Image.SetNativeActive() 되도록 코딩
-(feat.근데 UICharacterCard의 img_Character / UIDrawCharacterCard의 img_Character도 동일하게 구현해야 되는가에 대한 의문...)
--> Multiple로 수정 후 실행할 떄 SetNative 및 Rect를 중앙으로 수정해서 사용한다면 !? 안 됨...
-- 상점의 보석, 골드, 상자 icon 변경하기
-- 조합 레시피 UI/UX (크기 등 - 스프라이트의 여백이 문제임...) 수정 및 UI 애니메이션
+- 조합 레시피 UI/UX (삐뚤빼뚤 문제) 수정 및 UI 애니메이션
 - characterCardLevelInfo_data 제대로 수정 요망
 - 이펙트 및 사운드 구매해서 제대로 이펙트 및 사운드를 매칭시키기
 - (로그인, 뽑기 중 등등) 서버에 접근할 경우 네트워크 상태 알림 팝업 추가하기

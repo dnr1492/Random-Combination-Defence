@@ -60,7 +60,7 @@ public class EnemyController : MonoBehaviour
 
         animationController.ChangeState(AnimatorState.Move);
 
-        if (Vector2.Distance(curWaypoint.position, transform.position) <= 0.05f) GetNextWaypoint();
+        if (Vector2.Distance(curWaypoint.position, transform.position) <= 0.05f * Time.timeScale) GetNextWaypoint();
     }
 
     private void GetNextWaypoint()

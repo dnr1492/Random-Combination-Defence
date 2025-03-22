@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpriteManager
 {
@@ -51,5 +52,20 @@ public class SpriteManager
         else if (spriteType == SpriteType.BgOutline) return bgOutlineSprites[str];  //TierName, ItemClass로 찾기
         else if (spriteType == SpriteType.ImgCharacter) return imgCharacterSprites[str];  //DisplayName으로 찾기
         else return null;
+    }
+
+    public void SetImageRect(Image image, Vector2 anchor, Vector2 anchoredPosition, float sizeDeltaOffset)
+    {
+        Sprite sprite = image.sprite;
+        RectTransform rt = image.rectTransform;
+        //Anchor를 ~으로 고정
+        rt.anchorMin = rt.anchorMax = anchor;
+        //Sprite Pivot을 그대로 적용
+        Vector2 normalizedPivot = sprite.pivot / sprite.rect.size;
+        rt.pivot = normalizedPivot;
+        image.SetNativeSize();
+        //위치 및 크기 재조정
+        rt.anchoredPosition = anchoredPosition;
+        rt.sizeDelta *= sizeDeltaOffset;
     }
 }

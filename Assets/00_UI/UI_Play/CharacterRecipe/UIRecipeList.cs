@@ -38,6 +38,7 @@ public class UIRecipeList : MonoBehaviour
             {
                 imgCharacters[i].sprite = characterSprites[characterSprites.Count - 1];
                 imgCharacters[i].gameObject.SetActive(true);
+                SpriteManager.GetInstance().SetImageRect(imgCharacters[i], Vector2.zero, Vector2.zero, 1);
             }
             //±× ¿Ü
             else
@@ -50,6 +51,7 @@ public class UIRecipeList : MonoBehaviour
                 }
                 imgCharacters[i].sprite = characterSprites[i];
                 imgCharacters[i].gameObject.SetActive(true);
+                SpriteManager.GetInstance().SetImageRect(imgCharacters[i], Vector2.zero, Vector2.zero, 1);
             }
         }
     }

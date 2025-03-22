@@ -50,6 +50,8 @@ public class UICharacterCardDataPopup : MonoBehaviour
         int level = int.Parse(curLevel);
 
         imgCharacter.sprite = SpriteManager.GetInstance().GetSprite(SpriteType.ImgCharacter, displayName);
+        SpriteManager.GetInstance().SetImageRect(imgCharacter, new Vector2(0.5f, 1), Vector2.zero, 2f);
+
         imgQuantity.fillAmount = (float)curQuantity / requiredLevelUpQuantity;
         txtQuantity.text = curQuantity + "/" + requiredLevelUpQuantity;
         txtCurLevel.text = "Lv. " + level;

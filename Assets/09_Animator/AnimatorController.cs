@@ -48,6 +48,11 @@ public class AnimatorController
                 DebugLogger.Log(animator.gameObject.name + ": Attack_Magic");
                 break;
 
+            case AnimatorState.Attack_LongSpear:
+                animator.SetTrigger("Attack_LongSpear");
+                DebugLogger.Log(animator.gameObject.name + ": Attack_LongSpear");
+                break;
+
             case AnimatorState.Attack_Axe:
                 animator.SetTrigger("Attack_Axe");
                 DebugLogger.Log(animator.gameObject.name + ": Attack_Axe");

@@ -1105,7 +1105,7 @@ public class ToolManager
             new CharacterRecipeData { selectName = "파이크맨", recipeNameA = "성기사", recipeNameB = "창술사", recipeNameC = "", resultName = "팔랑크스" },
             new CharacterRecipeData { selectName = "파이크맨", recipeNameA = "파이크맨", recipeNameB = "전사", recipeNameC = "", resultName = "하이랜서" },
             new CharacterRecipeData { selectName = "마창사", recipeNameA = "바드", recipeNameB = "사제", recipeNameC = "", resultName = "헤이스트랜서" },
-            new CharacterRecipeData { selectName = "마창사", recipeNameA = "어쌔신", recipeNameB = "마법사", recipeNameC = "", resultName = "새도우랜서" },
+            new CharacterRecipeData { selectName = "마창사", recipeNameA = "어쌔신", recipeNameB = "마법사", recipeNameC = "", resultName = "섀도우랜서" },
             new CharacterRecipeData { selectName = "흑마술사", recipeNameA = "마검사", recipeNameB = "마법사", recipeNameC = "", resultName = "카오스챔피언" },
             new CharacterRecipeData { selectName = "흑마술사", recipeNameA = "어쌔신", recipeNameB = "마법사", recipeNameC = "", resultName = "워록" },
             new CharacterRecipeData { selectName = "흑마술사", recipeNameA = "마창사", recipeNameB = "사제", recipeNameC = "", resultName = "둠콜러" },

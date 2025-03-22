@@ -34,6 +34,8 @@ public class UICharacterCard : MonoBehaviour
         this.bgOutline.sprite = bgOutline;
         this.imgCharacter.sprite = imgCharacter;
 
+        SpriteManager.GetInstance().SetImageRect(this.imgCharacter, new Vector2(0.5f, 0.5f), new Vector2(0, 15f), 1.25f);
+
         //활성화를 표현
         this.imgCharacter.color = new Color(this.imgCharacter.color.r, this.imgCharacter.color.g, this.imgCharacter.color.b, 1);  
         btn.interactable = true;
