@@ -372,6 +372,503 @@ public class ToolManager
                     { 10, new CharacterCardLevelInfoData { level = 10, skill = "(바드) 테스트 2" } },
                     { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
                 }
+            },
+            #endregion
+            #region Tier: 희귀한
+            {
+                "룬나이트", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(룬나이트) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(룬나이트) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "워든", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(워든) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(워든) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "워로드", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(워로드) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(워로드) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "크루세이더", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(크루세이더) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(크루세이더) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "어벤저", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(어벤저) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(어벤저) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "데스리퍼", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(데스리퍼) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(데스리퍼) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "나이트스토커", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(나이트스토커) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(나이트스토커) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "사무라이", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(사무라이) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(사무라이) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "헌터", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(헌터) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(헌터) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "스카우트", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(스카우트) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(스카우트) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "트래퍼", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(트래퍼) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(트래퍼) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "데드아이", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(데드아이) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(데드아이) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "슬레이어", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(슬레이어) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(슬레이어) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "스트라이커", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(스트라이커) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(스트라이커) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "수도사", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(수도사) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(수도사) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "워마스터", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(워마스터) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(워마스터) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "블러드나이트", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(블러드나이트) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(블러드나이트) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "블레이드댄서", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(블레이드댄서) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(블레이드댄서) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "팔랑크스", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(팔랑크스) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(팔랑크스) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "하이랜서", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(하이랜서) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(하이랜서) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "헤이스트랜서", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(헤이스트랜서) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(헤이스트랜서) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "섀도우랜서", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(섀도우랜서) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(섀도우랜서) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "카오스챔피언", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(카오스챔피언) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(카오스챔피언) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "워록", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(워록) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(워록) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "둠콜러", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(둠콜러) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(둠콜러) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "아크메이지", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(아크메이지) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(아크메이지) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "배틀메이지", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(배틀메이지) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(배틀메이지) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "엘리멘탈리스트", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(엘리멘탈리스트) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(엘리멘탈리스트) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "스펠듀얼리스트", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(스펠듀얼리스트) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(스펠듀얼리스트) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "프리스트", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(프리스트) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(프리스트) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "와일드워든", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(와일드워든) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(와일드워든) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "비숍", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(비숍) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(비숍) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
+            },
+            {
+                "디바인섀도우", new Dictionary<int, CharacterCardLevelInfoData>
+                {
+                    { 2, new CharacterCardLevelInfoData { level = 2, moveSpeed = 0.2f } },
+                    { 3, new CharacterCardLevelInfoData { level = 3, skill = "(디바인섀도우) 테스트 1" } },
+                    { 4, new CharacterCardLevelInfoData { level = 4, damage = 10 } },
+                    { 5, new CharacterCardLevelInfoData { level = 5, attackSpeed = 0.1f } },
+                    { 6, new CharacterCardLevelInfoData { level = 6, damage = 10 } },
+                    { 7, new CharacterCardLevelInfoData { level = 7, damage = 10 } },
+                    { 8, new CharacterCardLevelInfoData { level = 8, moveSpeed = 0.2f } },
+                    { 9, new CharacterCardLevelInfoData { level = 9, attackSpeed = 0.1f } },
+                    { 10, new CharacterCardLevelInfoData { level = 10, skill = "(디바인섀도우) 테스트 2" } },
+                    { 11, new CharacterCardLevelInfoData { level = 11, damage = 20 } }
+                }
             }
             #endregion
     };
@@ -509,7 +1006,50 @@ public class ToolManager
         list.characterDatas.Add(new CharacterData { displayName = "드루이드", damage = 20f, attackSpeed = 1.5f, attackRange = 3f, moveSpeed = 2f, tierNum = 2, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "버프", skill_2_name = "", skill_3_name = "" });
         list.characterDatas.Add(new CharacterData { displayName = "바드", damage = 20f, attackSpeed = 1.5f, attackRange = 3f, moveSpeed = 2f, tierNum = 2, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "상태이상", skill_2_name = "", skill_3_name = "" });
         #endregion
-
+        #region Tier: 희귀한
+        //전사 계열
+        list.characterDatas.Add(new CharacterData { displayName = "룬나이트", damage = 60f, attackSpeed = 1f, attackRange = 4.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "워든", damage = 40f, attackSpeed = 1f, attackRange = 3.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Axe, damageType = CharacterDamageType.Magic, skill_1_name = "상태이상", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "워로드", damage = 80f, attackSpeed = 0.8f, attackRange = 2.5f, moveSpeed = 3.5f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "크루세이더", damage = 50f, attackSpeed = 1.2f, attackRange = 2.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Axe, damageType = CharacterDamageType.Magic, skill_1_name = "다중타격", skill_2_name = "", skill_3_name = "" });
+        //도적 계열
+        list.characterDatas.Add(new CharacterData { displayName = "어벤저", damage = 50f, attackSpeed = 0.5f, attackRange = 1f, moveSpeed = 4f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "데스리퍼", damage = 40f, attackSpeed = 0.8f, attackRange = 1.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "디버프", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "나이트스토커", damage = 104f, attackSpeed = 1.5f, attackRange = 1f, moveSpeed = 4f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "깡공격력(+30%)", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "사무라이", damage = 60f, attackSpeed = 1f, attackRange = 2.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        //궁수 계열
+        list.characterDatas.Add(new CharacterData { displayName = "헌터", damage = 60f, attackSpeed = 1f, attackRange = 3.5f, moveSpeed = 2.5f, tierNum = 3, attackType = CharacterAttackType.Bow, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "스카우트", damage = 50f, attackSpeed = 1.2f, attackRange = 4.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Bow, damageType = CharacterDamageType.Melee, skill_1_name = "상태이상", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "트래퍼", damage = 80f, attackSpeed = 1.5f, attackRange = 2.5f, moveSpeed = 2f, tierNum = 3, attackType = CharacterAttackType.Bow, damageType = CharacterDamageType.Melee, skill_1_name = "다중타격", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "데드아이", damage = 70f, attackSpeed = 1.5f, attackRange = 4.5f, moveSpeed = 2f, tierNum = 3, attackType = CharacterAttackType.Bow, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        //격투가 계열
+        list.characterDatas.Add(new CharacterData { displayName = "슬레이어", damage = 60f, attackSpeed = 1f, attackRange = 2.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "스트라이커", damage = 40f, attackSpeed = 0.5f, attackRange = 1.5f, moveSpeed = 4f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "수도사", damage = 80f, attackSpeed = 1f, attackRange = 1f, moveSpeed = 4f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        //광전사 계열
+        list.characterDatas.Add(new CharacterData { displayName = "워마스터", damage = 60f, attackSpeed = 1f, attackRange = 2.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Axe, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "블러드나이트", damage = 80f, attackSpeed = 1.2f, attackRange = 2.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "블레이드댄서", damage = 40f, attackSpeed = 0.5f, attackRange = 1f, moveSpeed = 2.5f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "상태이상", skill_2_name = "", skill_3_name = "" });
+        //창술사 계열
+        list.characterDatas.Add(new CharacterData { displayName = "팔랑크스", damage = 60f, attackSpeed = 1.5f, attackRange = 4.5f, moveSpeed = 2f, tierNum = 3, attackType = CharacterAttackType.LongSpear, damageType = CharacterDamageType.Melee, skill_1_name = "다중타격(+1)", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "하이랜서", damage = 80f, attackSpeed = 1.5f, attackRange = 3.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.LongSpear, damageType = CharacterDamageType.Melee, skill_1_name = "다중타격", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "헤이스트랜서", damage = 60f, attackSpeed = 0.8f, attackRange = 3.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.LongSpear, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "섀도우랜서", damage = 40f, attackSpeed = 1.2f, attackRange = 3.5f, moveSpeed = 3.5f, tierNum = 3, attackType = CharacterAttackType.LongSpear, damageType = CharacterDamageType.Magic, skill_1_name = "디버프", skill_2_name = "", skill_3_name = "" });
+        //주술사 계열
+        list.characterDatas.Add(new CharacterData { displayName = "카오스챔피언", damage = 84f, attackSpeed = 1f, attackRange = 2.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Magic, skill_1_name = "깡공격력(+20%)", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "워록", damage = 50f, attackSpeed = 1.2f, attackRange = 3.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "디버프", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "둠콜러", damage = 60f, attackSpeed = 1f, attackRange = 3.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "다중타격", skill_2_name = "", skill_3_name = "" });
+        //마법사 계열
+        list.characterDatas.Add(new CharacterData { displayName = "아크메이지", damage = 80f, attackSpeed = 1.2f, attackRange = 4.5f, moveSpeed = 2.5f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "배틀메이지", damage = 80f, attackSpeed = 0.8f, attackRange = 2.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "엘리멘탈리스트", damage = 60f, attackSpeed = 1.5f, attackRange = 3.5f, moveSpeed = 2.5f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "버프", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "스펠듀얼리스트", damage = 40f, attackSpeed = 0.5f, attackRange = 3.5f, moveSpeed = 2.5f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "다중타격", skill_2_name = "", skill_3_name = "" });
+        //사제 계열
+        list.characterDatas.Add(new CharacterData { displayName = "프리스트", damage = 40f, attackSpeed = 1f, attackRange = 3.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "버프", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "와일드워든", damage = 96f, attackSpeed = 1.5f, attackRange = 2.5f, moveSpeed = 2f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "깡공격력(+20%)", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "비숍", damage = 50f, attackSpeed = 1f, attackRange = 3.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "상태이상", skill_2_name = "", skill_3_name = "" });
+        list.characterDatas.Add(new CharacterData { displayName = "디바인섀도우", damage = 60f, attackSpeed = 1.2f, attackRange = 2.5f, moveSpeed = 3.5f, tierNum = 3, attackType = CharacterAttackType.LongSpear, damageType = CharacterDamageType.Magic, skill_1_name = "다중타격", skill_2_name = "", skill_3_name = "" });
+        #endregion
         LoadDataFromJSON(list, "character_data.json");
     }
     #endregion
@@ -548,7 +1088,7 @@ public class ToolManager
             new CharacterRecipeData { selectName = "마검사", recipeNameA = "드루이드", recipeNameB = "주술사", recipeNameC = "", resultName = "워든" },
             new CharacterRecipeData { selectName = "성기사", recipeNameA = "버서커", recipeNameB = "격투가", recipeNameC = "", resultName = "워로드" },
             new CharacterRecipeData { selectName = "성기사", recipeNameA = "마창사", recipeNameB = "사제", recipeNameC = "", resultName = "크루세이더" },
-            new CharacterRecipeData { selectName = "어쌔신", recipeNameA = "파이터", recipeNameB = "광전사", recipeNameC = "", resultName = "어벤져" },
+            new CharacterRecipeData { selectName = "어쌔신", recipeNameA = "파이터", recipeNameB = "광전사", recipeNameC = "", resultName = "어벤저" },
             new CharacterRecipeData { selectName = "어쌔신", recipeNameA = "파이크맨", recipeNameB = "격투가", recipeNameC = "", resultName = "데스리퍼" },
             new CharacterRecipeData { selectName = "닌자", recipeNameA = "스나이퍼", recipeNameB = "도적", recipeNameC = "", resultName = "나이트스토커" },
             new CharacterRecipeData { selectName = "닌자", recipeNameA = "닌자", recipeNameB = "전사", recipeNameC = "", resultName = "사무라이" },
@@ -576,8 +1116,10 @@ public class ToolManager
             new CharacterRecipeData { selectName = "드루이드", recipeNameA = "성기사", recipeNameB = "광전사", recipeNameC = "", resultName = "프리스트" },
             new CharacterRecipeData { selectName = "드루이드", recipeNameA = "레인저", recipeNameB = "도적", recipeNameC = "", resultName = "와일드워든" },
             new CharacterRecipeData { selectName = "바드", recipeNameA = "흑마술사", recipeNameB = "궁수", recipeNameC = "", resultName = "비숍" },
-            new CharacterRecipeData { selectName = "바드", recipeNameA = "닌자", recipeNameB = "창술사", recipeNameC = "", resultName = "노이즈블레이드" },
+            new CharacterRecipeData { selectName = "바드", recipeNameA = "닌자", recipeNameB = "창술사", recipeNameC = "", resultName = "디바인섀도우" },
             #endregion
+            //#region Tier: 희귀한
+            //#endregion
         });
 
         LoadDataFromJSON(list, "characterRecipe_data.json");
@@ -703,94 +1245,3 @@ public class ToolManager
     #endregion
 }
 #endif
-
-/*
-1. SPUM으로 캐릭터 디자인 
--> 캐릭터 최상위에 CapsuleCollider2D(feat.Offset Y 0.35 / Size X 0.25 Y 0.55) 추가 및 수정 
--> Shadow 삭제 후 캐릭터만 나오도록 수정
--> ThumbnailScene에서 해당 캐릭터의 스프라이트를 따로 저장
--> SPUM_Prefabs 스크립트 삭제
-
-2. Tag를 Character로 변경
--> Layer를 티어에 해당되도록 변경
--> 오브젝트 하위에 MovePivot Transform 생성 후 y값을 0.2로 변경
--> Selecting(SPUM은 Shadow를 지우고 추가), AttackRange 프리팹 추가
--> Rigidbody2D(GravityScale을 0으로, CollisionDetection을 Continuous로, Constraints의 z축 Freeze 설정으로 변경) 추가
--> CharacterController 추가
--> Character"~티어" 관련 추가
--> Animator의 Controller를 CharacterController로 변경하기
--> Scale 2.5f로 수정
-
-3. ToolManager에서
-CharacterCardLevelInfoData
-CharacterData
-CharacterRecipeData 변경 후 에디터에서 생성
-
-4. Playfab 사이트에서 해당 캐릭터를 카테고리에 추가
-
-5. EnumClass에서 CharacterDisplayName에 캐릭터 이름 추가
- */
-
-/*
-공격력 : 80, 70, 60, 50, 40
-공속 : 0.5, 0.8, 1, 1.2, 1.5
-공격 사거리 : 4.5, 3.5, 2.5, 1.5, 1
-이속 : 4 3.5 3 2.5 2
-공격 타입 : 물리, 마법
-특수 : 다중타격, 버프, 디버프, 깡공격력(+20%/+30%)
- */
-
-/*
-#region Tier: 희귀한
-//전사 계열
-list.characterDatas.Add(new CharacterData { displayName = "룬나이트", damage = 60f, attackSpeed = 1f, attackRange = 4.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "워든", damage = 40f, attackSpeed = 1f, attackRange = 3.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Axe, damageType = CharacterDamageType.Magic, skill_1_name = "상태이상", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "워로드", damage = 80f, attackSpeed = 0.8f, attackRange = 2.5f, moveSpeed = 3.5f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "크루세이더", damage = 50f, attackSpeed = 1.2f, attackRange = 2.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Axe, damageType = CharacterDamageType.Magic, skill_1_name = "다중타격", skill_2_name = "", skill_3_name = "" });
-
-//도적 계열
-list.characterDatas.Add(new CharacterData { displayName = "어벤저", damage = 50f, attackSpeed = 0.5f, attackRange = 1f, moveSpeed = 4f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "데스리퍼", damage = 40f, attackSpeed = 0.8f, attackRange = 1.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "디버프", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "나이트스토커", damage = 104f, attackSpeed = 1.5f, attackRange = 1f, moveSpeed = 4f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "깡공격력(+30%)", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "사무라이", damage = 60f, attackSpeed = 1f, attackRange = 2.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-
-//궁수 계열
-list.characterDatas.Add(new CharacterData { displayName = "헌터", damage = 60f, attackSpeed = 1f, attackRange = 3.5f, moveSpeed = 2.5f, tierNum = 3, attackType = CharacterAttackType.Bow, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "스카우트", damage = 50f, attackSpeed = 1.2f, attackRange = 4.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Bow, damageType = CharacterDamageType.Melee, skill_1_name = "상태이상", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "트래퍼", damage = 80f, attackSpeed = 1.5f, attackRange = 2.5f, moveSpeed = 2f, tierNum = 3, attackType = CharacterAttackType.Bow, damageType = CharacterDamageType.Melee, skill_1_name = "다중타격", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "데드아이", damage = 70f, attackSpeed = 1.5f, attackRange = 4.5f, moveSpeed = 2f, tierNum = 3, attackType = CharacterAttackType.Bow, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-
-//격투가 계열
-list.characterDatas.Add(new CharacterData { displayName = "슬레이어", damage = 60f, attackSpeed = 1f, attackRange = 2.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "스트라이커", damage = 40f, attackSpeed = 0.5f, attackRange = 1.5f, moveSpeed = 4f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "수도사", damage = 80f, attackSpeed = 1f, attackRange = 1f, moveSpeed = 4f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-
-//광전사 계열
-list.characterDatas.Add(new CharacterData { displayName = "워마스터", damage = 60f, attackSpeed = 1f, attackRange = 2.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Axe, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "블러드나이트", damage = 80f, attackSpeed = 1.2f, attackRange = 2.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "블레이드댄서", damage = 40f, attackSpeed = 0.5f, attackRange = 1f, moveSpeed = 2.5f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Melee, skill_1_name = "상태이상", skill_2_name = "", skill_3_name = "" });
-
-//창술사 계열
-list.characterDatas.Add(new CharacterData { displayName = "팔랑크스", damage = 60f, attackSpeed = 1.5f, attackRange = 4.5f, moveSpeed = 2f, tierNum = 3, attackType = CharacterAttackType.LongSpear, damageType = CharacterDamageType.Melee, skill_1_name = "다중타격(+1)", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "하이랜서", damage = 80f, attackSpeed = 1.5f, attackRange = 3.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.LongSpear, damageType = CharacterDamageType.Melee, skill_1_name = "다중타격", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "헤이스트랜서", damage = 60f, attackSpeed = 0.8f, attackRange = 3.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.LongSpear, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "새도우랜서", damage = 40f, attackSpeed = 1.2f, attackRange = 3.5f, moveSpeed = 3.5f, tierNum = 3, attackType = CharacterAttackType.LongSpear, damageType = CharacterDamageType.Magic, skill_1_name = "디버프", skill_2_name = "", skill_3_name = "" });
-
-//주술사 계열
-list.characterDatas.Add(new CharacterData { displayName = "카오스챔피언", damage = 84f, attackSpeed = 1f, attackRange = 2.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Magic, skill_1_name = "깡공격력(+20%)", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "워록", damage = 50f, attackSpeed = 1.2f, attackRange = 3.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "디버프", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "둠콜러", damage = 60f, attackSpeed = 1f, attackRange = 3.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "다중타격", skill_2_name = "", skill_3_name = "" });
-
-//마법사 계열
-list.characterDatas.Add(new CharacterData { displayName = "아크메이지", damage = 80f, attackSpeed = 1.2f, attackRange = 4.5f, moveSpeed = 2.5f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "배틀메이지", damage = 80f, attackSpeed = 0.8f, attackRange = 2.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Normal, damageType = CharacterDamageType.Magic, skill_1_name = "", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "엘리멘탈리스트", damage = 60f, attackSpeed = 1.5f, attackRange = 3.5f, moveSpeed = 2.5f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "버프", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "스펠듀얼리스트", damage = 40f, attackSpeed = 0.5f, attackRange = 3.5f, moveSpeed = 2.5f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "다중타격", skill_2_name = "", skill_3_name = "" });
-
-//사제 계열
-list.characterDatas.Add(new CharacterData { displayName = "프리스트", damage = 40f, attackSpeed = 1f, attackRange = 3.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "버프", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "와일드워든", damage = 96f, attackSpeed = 1.5f, attackRange = 2.5f, moveSpeed = 2f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "깡공격력(+20%)", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "비숍", damage = 50f, attackSpeed = 1f, attackRange = 3.5f, moveSpeed = 3f, tierNum = 3, attackType = CharacterAttackType.Magic, damageType = CharacterDamageType.Magic, skill_1_name = "상태이상", skill_2_name = "", skill_3_name = "" });
-list.characterDatas.Add(new CharacterData { displayName = "디바인섀도우", damage = 60f, attackSpeed = 1.2f, attackRange = 2.5f, moveSpeed = 3.5f, tierNum = 3, attackType = CharacterAttackType.LongSpear, damageType = CharacterDamageType.Magic, skill_1_name = "다중타격", skill_2_name = "", skill_3_name = "" });
-#endregion
- */

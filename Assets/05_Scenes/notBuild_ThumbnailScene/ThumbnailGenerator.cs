@@ -9,7 +9,7 @@ public class ThumbnailGenerator : MonoBehaviour
     public GameObject[] spumGos; // 캐릭터 오브젝트
     public int thumbnailWidth = 128; // 썸네일 가로 크기
     public int thumbnailHeight = 128; // 썸네일 세로 크기
-    private string savePath = "05_Scenes/notBuild_ThumbnailScene/SPUM"; // 저장 경로 (Assets 폴더 기준)
+    private string savePath = "05_Scenes/notBuild_ThumbnailScene"; // 저장 경로 (Assets 폴더 기준)
     private float camOrthographicSize = 0.8f;
     private Sprite[] sprites;
 

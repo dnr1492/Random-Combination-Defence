@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: f8527b0d8e04b7f46b2450a3e487fdc7
+guid: 78c673f1f94889e44813798bfc450ecc
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -875131341046429883
-    second: equipment_grade_bg_color_0
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -51,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 35, y: 35, z: 35, w: 35}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -65,8 +62,8 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
-  cookieLightType: 1
+  applyGammaDecoding: 0
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -117,18 +114,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -144,22 +129,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: equipment_grade_bg_color_0
+      name: "\uB098\uC774\uD2B8\uC2A4\uD1A0\uCEE4"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 36
-        height: 36
+        x: 18
+        y: 37
+        width: 82
+        height: 54
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 18, y: 18, z: 18, w: 18}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 348bdda0741374b3d9cb6f1be76864c9
-      internalID: -875131341046429883
+      spriteID: 6ce7444f665073e40b155167b4329fbd
+      internalID: -1827696685
       vertices: []
       indices: 
       edges: []
@@ -168,14 +153,20 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      equipment_grade_bg_color_0: -875131341046429883
+      "\uB098\uC774\uD2B8\uC2A4\uD1A0\uCEE4": -1827696685
+      "\uB098\uC774\uD2B8\uC2A4\uD1A0\uCEE4_1": -672315535
+      "\uB098\uC774\uD2B8\uC2A4\uD1A0\uCEE4_2": -948143523
+      "\uB098\uC774\uD2B8\uC2A4\uD1A0\uCEE4_3": 1311396046
+      "\uB098\uC774\uD2B8\uC2A4\uD1A0\uCEE4_4": -1435536624
+      "\uB098\uC774\uD2B8\uC2A4\uD1A0\uCEE4_5": -2027488727
+      "\uB098\uC774\uD2B8\uC2A4\uD1A0\uCEE4_6": 552645491
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
