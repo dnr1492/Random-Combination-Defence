@@ -14,6 +14,8 @@ public class UIDrawCharacterCard : MonoBehaviour
         this.bgOutline.sprite = bgOutline;
         this.imgCharacter.sprite = imgCharacter;
 
+        SpriteManager.GetInstance().SetImageRect(this.imgCharacter, new Vector2(0.5f, 0.5f), Vector2.zero, 1.25f);
+
         txtDisplayName.text = displayName;
         txtGainQuantity.text = cardCount.ToString();
     }
