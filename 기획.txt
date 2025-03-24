@@ -13,6 +13,7 @@
 -> CharacterController 추가
 -> Character"~티어" 관련 추가
 -> Animator의 Controller를 CharacterController로 변경하기
+-> Sorting Group을 501로 수정
 -> Scale 2.5f로 수정
 - 3. ToolManager에서
 CharacterCardLevelInfoData

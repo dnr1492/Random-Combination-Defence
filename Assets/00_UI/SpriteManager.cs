@@ -60,7 +60,7 @@ public class SpriteManager
         RectTransform rt = image.rectTransform;
         //Anchor를 ~으로 고정
         rt.anchorMin = rt.anchorMax = anchor;
-        //Sprite Pivot을 그대로 적용
+        //설정한 Sprite Pivot 그대로 적용
         Vector2 normalizedPivot = sprite.pivot / sprite.rect.size;
         rt.pivot = normalizedPivot;
         image.SetNativeSize();
