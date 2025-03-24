@@ -56,11 +56,16 @@ public class EnemyController : MonoBehaviour
         if (isDie) return;
 
         Vector2 dir = curWaypoint.position - transform.position;
-        transform.Translate(speed * Time.deltaTime * dir.normalized, Space.World);
+        float distanceToWaypoint = dir.magnitude;
+        float moveStep = speed * Time.deltaTime;
+
+        if (distanceToWaypoint <= moveStep) {
+            transform.position = curWaypoint.position;
+            GetNextWaypoint();
+        }
+        else transform.Translate(moveStep * dir.normalized, Space.World);
 
         animationController.ChangeState(AnimatorState.Move);
-
-        if (Vector2.Distance(curWaypoint.position, transform.position) <= 0.05f * Time.timeScale) GetNextWaypoint();
     }
 
     private void GetNextWaypoint()
