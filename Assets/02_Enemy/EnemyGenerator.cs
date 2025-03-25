@@ -15,7 +15,7 @@ public class EnemyGenerator : MonoBehaviour
 
     private GameObject[] arrEnemyPrefab;
     private float curWaveTimer;  //현재 다음 웨이브 시작 전까지 대기한 시간
-    private int curWaveIndex = 10;  //1;  //현재 진행 중인 웨이브
+    private int curWaveIndex = 1;  //현재 진행 중인 웨이브
     private bool isSpawning = false;  //생성 중 유무
 
     private void Awake()
@@ -29,7 +29,7 @@ public class EnemyGenerator : MonoBehaviour
 
     private void OnEnable()
     {
-        curWaveTimer = 5f;  //dicPlayWaveDatas[curWaveIndex].waveTimer;
+        curWaveTimer = dicPlayWaveDatas[curWaveIndex].waveTimer;
 
         uiPlay.SetUI_Wave(0, dicPlayWaveDatas.Count);
         uiPlay.SetUI_WaveTimer(curWaveTimer);
