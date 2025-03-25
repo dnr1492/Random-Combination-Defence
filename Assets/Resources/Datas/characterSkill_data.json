@@ -2,9 +2,9 @@
     "characterSkillDatas": [
         {
             "skillName": "화살 날리기",
-            "characterDisplayName": "주몽",
+            "characterDisplayName": "전사",
             "skillDescription": "화살을 날려서 {0}데미지를 입힙니다.",
-            "skillImagePath": "image/skill/주몽/bow",
+            "skillImagePath": "image/skill/전사/bow",
             "skillDamage": "{0} * 5",
             "skillTriggerChance": 10.0,
             "skillEffect": "",
@@ -12,9 +12,9 @@
         },
         {
             "skillName": "불화살 날리기",
-            "characterDisplayName": "주몽",
+            "characterDisplayName": "전사",
             "skillDescription": "불화살을 날려서 {0}데미지를 입힙니다.",
-            "skillImagePath": "image/skill/주몽/fireBow",
+            "skillImagePath": "image/skill/전사/fireBow",
             "skillDamage": "{0} * 10",
             "skillTriggerChance": 5.0,
             "skillEffect": "추가적으로 5초간 스킬 데미지의 200%만큼 지속 피해를 입힙니다.",
