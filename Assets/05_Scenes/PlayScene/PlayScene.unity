@@ -8147,7 +8147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 550, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &989565771
@@ -16799,6 +16799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d9028320345ca47a97307563fbf2bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiPlay: {fileID: 1134828071}
   frame: {fileID: 4483885036037769452}
   mainCam: {fileID: 4326864796769224743}
   txtTimer: {fileID: 4483885036467878599}

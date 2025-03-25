@@ -10,9 +10,9 @@ public class BossTimer : MonoBehaviour
 
     private UnityAction restartGameAction;
     private Transform target;
-    private float localScaleY;
-    private float offsetY;
+    private BoxCollider2D boxCollider2D;
     private float timer = 75f;
+    private bool gameOver = false;
 
     [SerializeField] UIPlay uiPlay;
     [SerializeField] GameObject frame;
@@ -27,7 +27,12 @@ public class BossTimer : MonoBehaviour
 
     private void Update()
     {
-        if (timer <= 0 && restartGameAction != null) uiPlay.SetUI_GameOver(restartGameAction);
+        if (timer <= 0 && restartGameAction != null) {
+            if (!gameOver) {
+                gameOver = true;
+                uiPlay.SetUI_GameOver(restartGameAction, gameOver);
+            }
+        }
 
         if (target == null || mainCam == null) {
             instance.gameObject.SetActive(false);
@@ -37,7 +42,7 @@ public class BossTimer : MonoBehaviour
         timer -= Time.deltaTime;
         txtTimer.text = Mathf.Clamp(timer, 0, 999).ToString("F2");
 
-        Vector2 screenPosition = mainCam.WorldToScreenPoint(target.position + localScaleY * offsetY * Vector3.up);
+        Vector2 screenPosition = mainCam.WorldToScreenPoint(boxCollider2D.bounds.center + new Vector3(0, boxCollider2D.bounds.extents.y + 1f, 0));
         frame.transform.position = screenPosition;
     }
 
@@ -45,9 +50,9 @@ public class BossTimer : MonoBehaviour
     {
         instance.gameObject.SetActive(true);
         instance.target = target;
-        instance.offsetY = target.GetComponent<BoxCollider2D>().bounds.extents.y * 1.5f;
-        instance.localScaleY = instance.gameObject.transform.localScale.y;
+        instance.boxCollider2D = target.GetComponent<BoxCollider2D>();
         instance.timer = 75f;
+        instance.gameOver = false;
     }
 
     public static void SetRestart(UnityAction restartGameAction)

@@ -82,9 +82,9 @@ public class UIPlay : MonoBehaviour
     //    txtDiamond.text = curDiamond.ToString();
     //}
 
-    public void SetUI_GameOver(UnityAction restartGameAction)
+    public void SetUI_GameOver(UnityAction restartGameAction, bool bossTimer = false)
     {
-        if (curEnemyCount >= maxEnemyCount) {
+        if (curEnemyCount >= maxEnemyCount || bossTimer) {
             Instantiate(gameOverPrefab).GetComponent<GameOver>().Init(restartGameAction, SetUI_FastForward);
         }
     }
