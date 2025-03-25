@@ -47,13 +47,14 @@ public class EnemyGenerator : MonoBehaviour
 
         if (IsMaximumWave()) return false;
 
+        curWaveTimer -= Time.deltaTime;
+
         if (curWaveTimer <= 0 && !isSpawning) {
             if (!IsMaximumWave()) uiPlay.SetUI_Wave(curWaveIndex, dicPlayWaveDatas.Count);
             StartCoroutine(SpawnEnemy());
             return true;
         }
 
-        curWaveTimer -= Time.deltaTime;
         return false;
     }
 
