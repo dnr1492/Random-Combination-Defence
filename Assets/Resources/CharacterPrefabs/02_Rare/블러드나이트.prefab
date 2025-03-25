@@ -3914,9 +3914,9 @@ GameObject:
   - component: {fileID: 6042141512970835936}
   - component: {fileID: 6042141512970835951}
   - component: {fileID: 6042141512970835950}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: "\uBE14\uB7EC\uB4DC\uB098\uC774\uD2B8"
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

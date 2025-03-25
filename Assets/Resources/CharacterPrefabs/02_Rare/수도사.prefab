@@ -3149,9 +3149,9 @@ GameObject:
   - component: {fileID: 1485671881070138315}
   - component: {fileID: 1485671881070138312}
   - component: {fileID: 1485671881070138313}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: "\uC218\uB3C4\uC0AC"
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

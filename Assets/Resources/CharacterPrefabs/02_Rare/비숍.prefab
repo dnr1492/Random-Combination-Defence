@@ -3006,9 +3006,9 @@ GameObject:
   - component: {fileID: 5611543159858174561}
   - component: {fileID: 5611543159858174562}
   - component: {fileID: 5611543159858174563}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: "\uBE44\uC20D"
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

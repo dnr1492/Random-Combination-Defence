@@ -4640,9 +4640,9 @@ GameObject:
   - component: {fileID: 8390878418154042231}
   - component: {fileID: 8390878418154042230}
   - component: {fileID: 8390878418154042229}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: "\uD06C\uB8E8\uC138\uC774\uB354"
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

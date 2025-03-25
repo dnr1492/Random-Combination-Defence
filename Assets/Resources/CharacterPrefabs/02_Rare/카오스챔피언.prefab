@@ -4576,9 +4576,9 @@ GameObject:
   - component: {fileID: 4923967082719856190}
   - component: {fileID: 4923967082719856191}
   - component: {fileID: 4923967082719856188}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: "\uCE74\uC624\uC2A4\uCC54\uD53C\uC5B8"
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

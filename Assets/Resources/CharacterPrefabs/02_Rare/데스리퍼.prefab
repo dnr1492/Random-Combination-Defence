@@ -4511,9 +4511,9 @@ GameObject:
   - component: {fileID: 1073890920314667890}
   - component: {fileID: 1073890920314667891}
   - component: {fileID: 1073890920314667900}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: "\uB370\uC2A4\uB9AC\uD37C"
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
